@@ -10,6 +10,7 @@
             src="../../mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
             src="../../mall-admin-web_files/5.ab752a1a96f36ec723b1.js"></script>
+    <script src="../../jquery/jquery-2.1.1.min.js"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -312,22 +313,22 @@
     </symbol>
 </svg>
 <script src="./mall-admin-web_files/tinymce.min.js"></script>
-
 <div id="app">
     <div data-v-0ef526f4="" class="app-wrapper">
-        <div data-v-69d4f5dd="" data-v-0ef526f4="" class="scroll-container sidebar-container" id="left">
-            <div data-v-69d4f5dd="" class="scroll-wrapper" style="top: -117px;">
+        <div data-v-69d4f5dd="" data-v-0ef526f4="" class="scroll-container sidebar-container">
+            <div data-v-69d4f5dd="" class="scroll-wrapper" style="top: 0px;">
                 <ul role="menubar" class="el-menu" show-timeout="200" data-v-69d4f5dd=""
                     style="background-color: rgb(48, 65, 86);">
-                    <div class="menu-wrapper"><!----><!----><a href="http://39.98.190.128/index.html#/home" class="">
-                        <li role="menuitem" tabindex="-1" class="el-menu-item submenu-title-noDropdown"
-                            style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                    <div class="menu-wrapper"><!----><!----><a href="http://39.98.190.128/index.html#/home"
+                                                               class="router-link-exact-active router-link-active">
+                        <li role="menuitem" tabindex="-1" class="el-menu-item is-active submenu-title-noDropdown"
+                            style="padding-left: 20px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
                             <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                 <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
                             </svg>
                             <span>首页</span></li>
                     </a>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
+                        <li role="menuitem" aria-haspopup="true" class="el-submenu">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -335,8 +336,8 @@
                                 </svg>
                                 <span slot="title">商品</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
+                            <ul role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86);"><a
                                     href="http://39.98.190.128/index.html#/pms/product" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
@@ -375,7 +376,7 @@
                                     <span>品牌管理</span></li>
                             </a><!----><!----></ul>
                         </li>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
+                        <li role="menuitem" aria-haspopup="true" class="el-submenu">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -383,8 +384,8 @@
                                 </svg>
                                 <span slot="title">订单</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
+                            <ul role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86); display: none;"><a
                                     href="http://39.98.190.128/index.html#/oms/order" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
@@ -415,8 +416,7 @@
                                     <span>退货原因设置</span></li>
                             </a><!----></ul>
                         </li>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-active is-opened"
-                            aria-expanded="true">
+                        <li role="menuitem" aria-haspopup="true" class="el-submenu">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -424,8 +424,8 @@
                                 </svg>
                                 <span slot="title">营销</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
+                            <ul role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86); display: none;"><a
                                     href="http://39.98.190.128/index.html#/sms/flash" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
@@ -433,10 +433,9 @@
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-flash"></use>
                                     </svg>
                                     <span>秒杀活动列表</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/coupon"
-                                                        class="router-link-exact-active router-link-active">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
-                                    style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
+                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/coupon" class="">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-coupon"></use>
                                     </svg>
@@ -526,6 +525,7 @@
             </ul>
             <section data-v-0ef526f4="" class="app-main">
                 <div data-v-13e9f1ae="" class="app-container">
+                    
                     <div data-v-13e9f1ae="" class="total-layout">
                         <div data-v-13e9f1ae="" class="el-row" style="margin-left: -10px; margin-right: -10px;">
                             <div data-v-13e9f1ae="" class="el-col el-col-6"
@@ -534,7 +534,7 @@
                                                                                  src="data:image/png;base64,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"
                                                                                  class="total-icon">
                                     <div data-v-13e9f1ae="" class="total-title">今日订单总数</div>
-                                    <div data-v-13e9f1ae="" class="total-value">200</div>
+                                    <div  id="todayOrderCount" data-v-13e9f1ae="" class="total-value"></div>
                                 </div>
                             </div>
                             <div data-v-13e9f1ae="" class="el-col el-col-6"
@@ -557,7 +557,7 @@
                             </div>
                         </div>
                     </div>
-
+                
                     <div data-v-13e9f1ae="" class="un-handle-layout">
                         <div data-v-13e9f1ae="" class="layout-title">待处理事务</div>
                         <div data-v-13e9f1ae="" class="un-handle-content">
@@ -799,9 +799,23 @@
         </div>
     </div>
 </div>
-
 <!--<script type="text/javascript" src="../../mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="../../mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="../../mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
+
+
+<script>
+    $(function () {
+        $.ajax({
+            url:"/admin/orderCount",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                alert(data);
+                $("#todayOrderCount").text(data);
+            }
+        });
+    })
+</script>
 </body>
 </html>
