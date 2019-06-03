@@ -1,9 +1,12 @@
 package com.thumb.service;
 
+import com.thumb.dto.OrderStatusDto;
 import com.thumb.pojo.OmsOrder;
 import org.apache.ibatis.annotations.Param;
 
+import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 public interface OmsOrderService{
 
@@ -21,5 +24,9 @@ public interface OmsOrderService{
     int updateByPrimaryKey(OmsOrder record);
 
     Long countByCreateTime(@Param("starTime") Date starTime,@Param("endTime") Date endTime);
+
+    BigDecimal findSumTotalAmountByStatusAndCreateTimeBetween(@Param("starTime")Date starTime, @Param("endTime")Date endTime);
+
+    List<OrderStatusDto> countByStatus();
 
 }
