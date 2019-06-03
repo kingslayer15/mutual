@@ -23,29 +23,29 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
     <!--4、配置视图解析器-->
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="prefix" value="/"></property>-->
-        <!--<property name="suffix" value=".html"></property>-->
-    <!--</bean>-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"></property>
+        <property name="suffix" value=".html"></property>
+    </bean>
     <!-- 使用thymeleaf解析 -->
-    <bean id="templateResolver"
-          class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
-        <property name="prefix" value="/" />
-        <property name="suffix" value=".html" />
-        <property name="templateMode" value="HTML5"/>
-        <property name="cacheable" value="false"/>
-        <property name="characterEncoding" value="UTF-8"/>
-    </bean>
-    <bean id="templateEngine"
-          class="org.thymeleaf.spring4.SpringTemplateEngine">
-        <property name="templateResolver" ref="templateResolver" />
-    </bean>
+    <!--<bean id="templateResolver"-->
+    <!--class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">-->
+    <!--<property name="prefix" value="/" />-->
+    <!--<property name="suffix" value=".html" />-->
+    <!--<property name="templateMode" value="HTML5"/>-->
+    <!--<property name="cacheable" value="false"/>-->
+    <!--<property name="characterEncoding" value="UTF-8"/>-->
+    <!--</bean>-->
+    <!--<bean id="templateEngine"-->
+    <!--class="org.thymeleaf.spring4.SpringTemplateEngine">-->
+    <!--<property name="templateResolver" ref="templateResolver" />-->
+    <!--</bean>-->
 
-    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+    <!--<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">-->
 
-        <property name="characterEncoding" value="UTF-8"/>
-        <property name="templateEngine" ref="templateEngine"/>
-    </bean>
+    <!--<property name="characterEncoding" value="UTF-8"/>-->
+    <!--<property name="templateEngine" ref="templateEngine"/>-->
+    <!--</bean>-->
 
     <!--5.文件上传-->
     <bean name="multipartResolver"
