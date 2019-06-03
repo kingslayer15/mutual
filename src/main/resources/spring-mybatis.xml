@@ -25,7 +25,7 @@
         <!--3.2映射文件存储地址-->
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
         <!--3.3别名-->
-        <property name="typeAliasesPackage" value="com.kaplan.pojo"></property>
+        <property name="typeAliasesPackage" value="com.thumb.pojo"></property>
         <!--4.分页插件-->
         <property name="plugins">
             <array>
