@@ -566,14 +566,14 @@
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待付款订单</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="order0Num" data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">已完成订单</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="order3Num" data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
@@ -589,7 +589,7 @@
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待发货订单</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="order1Num" data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
@@ -612,7 +612,7 @@
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">已发货订单</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="order2Num" data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
@@ -851,6 +851,17 @@
         });
     })
 
+    //订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单
+
+    //待付款
+    var order0Num = 0;
+    //待发货
+    var order1Num = 0;
+    //已发货
+    var order2Num = 0;
+    //已完成
+    var order3Num = 0;
+
     $(function () {
         $.ajax({
             url:"/admin/countByStatus",
@@ -859,18 +870,28 @@
             success: function (data) {
 
                 $(data).each(function (index, item) {
-                    if(item.status === 4){
-
+                    if(item.status === 0){
+                        order0Num = item.num;
+                    }else if(item.status === 1){
+                        order1Num = item.num;
+                    }else if(item.status === 2){
+                        order2Num = item.num;
+                    }else if(item.status === 3){
+                        order3Num = item.num;
+                    }else if(item.status === 4){
+                        order4Num = item.num;
                     }
+
+
+                    $("#order0Num").text("(" +order0Num+")");
+                    $("#order1Num").text("(" +order1Num+")");
+                    $("#order2Num").text("(" +order2Num+")");
+                    $("#order3Num").text("(" +order3Num+")");
+                    $("#order4Num").text("(" +order4Num+")");
+
                 })
 
 
-                if (data != "") {
-
-                $("#YesterdayTotalAmount").text("￥" + data);
-            } else {
-                    $("#YesterdayTotalAmount").text("￥" + 0);
-                }
             }
         });
     })

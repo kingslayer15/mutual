@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://39.98.190.128/index.html#/login -->
+<html class=" ">
+<head>
+    <meta content="text/html; charset=UTF-8">
+    <title>mall-admin-web</title>
+<!--    <link href="../../mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">-->
+<!--    <script type="text/javascript" charset="utf-8" async=""-->
+<!--            src="../../mall-admin-web_files/19.3f11436646691d2c3a11.js"></script>-->
+    <script src="../../jquery/jquery-2.1.1.min.js"></script>
+<!--    <script src="../../mall-admin-web_files/tinymce.min.js"></script>-->
+</head>
+<body>
+
+
+
+        <div data-v-1ab27f02="" class="el-form-item" style="margin-bottom: 60px;"><!---->
+            <div class="el-form-item__content">
+                <button onclick="ll()" data-v-1ab27f02="" type="button" class="el-button el-button--primary"
+                        style="width: 100%;"><!----><!----><span>
+          登录
+        </span></button><!----></div>
+        </div>
+
+
+
+<script>
+    function ll() {
+        $.ajax({
+            url: "/admin/l",
+            type: "GET",
+            contentType: "application/json",
+            success: function (data) {
+
+            }
+        });
+    }
+</script>
+</body>
+</html>
