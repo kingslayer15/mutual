@@ -29,4 +29,11 @@ public interface OmsOrderService{
 
     List<OrderStatusDto> countByStatus();
 
+    BigDecimal countByConfirm();
+
+    BigDecimal countByLowStock();
+
+    BigDecimal countByReturnApply();
+
+
 }

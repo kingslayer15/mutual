@@ -31,6 +31,14 @@ public interface OmsOrderMapper {
 
     List<OrderStatusDto> countByStatus();
 
+    BigDecimal countByConfirm();
+
+    BigDecimal countByLowStock();
+
+    BigDecimal countByReturnApply();
+
+
+
 
 
 

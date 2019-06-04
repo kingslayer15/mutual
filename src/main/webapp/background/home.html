@@ -566,21 +566,21 @@
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待付款订单</span>
-                                        <span id="order0Num" data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="order0Num" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">已完成订单</span>
-                                        <span id="order3Num" data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="order3Num" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待确认收货订单</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="TotalUnconfirm" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                             </div>
@@ -589,21 +589,21 @@
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待发货订单</span>
-                                        <span id="order1Num" data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="order1Num" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">新缺货登记</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="lackStock" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待处理退款申请</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                             </div>
@@ -612,21 +612,21 @@
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">已发货订单</span>
-                                        <span id="order2Num" data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="order2Num" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待处理退货订单</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span id="TotalReturnApply" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">广告位即将到期</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;">(10)</span>
+                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                             </div>
@@ -818,9 +818,7 @@
                 }
             }
         });
-    })
 
-    $(function () {
         $.ajax({
             url:"/admin/sumAmount",
             type:"GET",
@@ -833,9 +831,6 @@
                 }
             }
         });
-    })
-
-    $(function () {
         $.ajax({
             url:"/admin/sumAmountYesterday",
             type:"GET",
@@ -843,13 +838,17 @@
             success: function (data) {
                 if (data != "") {
 
-                $("#YesterdayTotalAmount").text("￥" + data);
-            } else {
+                    $("#YesterdayTotalAmount").text("￥" + data);
+                } else {
                     $("#YesterdayTotalAmount").text("￥" + 0);
                 }
             }
         });
+
     })
+
+
+
 
     //订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单
 
@@ -894,7 +893,54 @@
 
             }
         });
+
+
+        $.ajax({
+            url:"/admin/countByConfirm",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+
+                    $("#TotalUnconfirm").text("(" + data + ")");
+                } else {
+                    $("#TotalUnconfirm").text("(" + 0 + ")");
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countByLowStock",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+
+                if (data != "") {
+                    $("#lackStock").text("(" + data + ")");
+                } else {
+                    $("#lackStock").text("(" + 0 + ")");
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countByReturnApply",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+                    $("#TotalReturnApply").text("(" + data + ")");
+                } else {
+                    $("#TotalReturnApply").text("(" + 0 + ")");
+                }
+            }
+        });
+
+
     })
+
+
+
 
 
 

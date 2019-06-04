@@ -67,4 +67,28 @@ public class OmsOrderServiceImpl implements OmsOrderService{
         return orderStatusDtos;
     }
 
+    @Override
+    public BigDecimal countByConfirm() {
+
+        BigDecimal bigDecimal = omsOrderMapper.countByConfirm();
+
+        return bigDecimal;
+    }
+
+    @Override
+    public BigDecimal countByLowStock() {
+
+        BigDecimal bigDecimal = omsOrderMapper.countByLowStock();
+
+        return bigDecimal;
+    }
+
+    @Override
+    public BigDecimal countByReturnApply() {
+
+        BigDecimal bigDecimal = omsOrderMapper.countByReturnApply();
+
+        return bigDecimal;
+    }
+
 }

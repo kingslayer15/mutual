@@ -52,11 +52,11 @@ public class OmsOrderController {
 
         Date endTime = calendar.getTime();
 
-        System.out.println("EndTime:" + endTime);
+
 
         Long aLong = omsOrderService.countByCreateTime(starTime,endTime);
 
-        System.out.println("aloog:"+aLong);
+
 
         return aLong;
     }
@@ -143,6 +143,34 @@ public class OmsOrderController {
     public Object countByStatus(){
         List<OrderStatusDto> orderStatusDtos = omsOrderService.countByStatus();
         return orderStatusDtos;
+    }
+
+    @ResponseBody
+    @RequestMapping("countByConfirm")
+    public Object countByConfirm(){
+
+        BigDecimal bigDecimal = omsOrderService.countByConfirm();
+
+
+        return bigDecimal;
+    }
+
+    @ResponseBody
+    @RequestMapping("countByLowStock")
+    public Object countByLowStock(){
+
+        BigDecimal bigDecimal = omsOrderService.countByLowStock();
+
+        return bigDecimal;
+    }
+
+    @ResponseBody
+    @RequestMapping("countByReturnApply")
+    public Object countByReturnApply(){
+
+        BigDecimal bigDecimal = omsOrderService.countByReturnApply();
+
+        return bigDecimal;
     }
 
 }
