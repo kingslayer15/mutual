@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.AdminOmsOrderMapper">
+
+    <!--订单的一对多(产品)映射-->
+    <resultMap id="omsOrderMap" type="com.thumb.entity.pojo.OmsOrder">
+        <id column="id" property="id"/>
+        <result column="member_id" property="member_id"/>
+        <result column="order_sn" property="order_sn"/>
+        <result column="create_time" property="create_time"/>
+        <result column="member_username" property="member_username"/>
+        <result column="total_amount" property="total_amount"/>
+        <result column="pay_amount" property="pay_amount"/>
+        <result column="pay_type" property="pay_type"/>
+        <result column="source_type" property="source_type"/>
+        <result column="status" property="status"/>
+        <collection property="omsOrderItemList" ofType="com.thumb.entity.pojo.OmsOrderItem">
+            <result column="product_id" property="product_id"/>
+            <result column="product_pic" property="product_pic"/>
+            <result column="product_name" property="product_name"/>
+            <result column="product_brand" property="product_brand"/>
+            <result column="product_sn" property="product_sn"/>
+            <result column="product_price" property="product_price"/>
+            <result column="product_quantity" property="product_quantity"/>
+        </collection>
+    </resultMap>
+
+    <!--管理员查询数据库中所有的订单信息 -->
+    <select id="listAllOmsOrderByAdmin" resultMap="omsOrderMap">
+        select * from oms_order oo,oms_order_item ooi where oo.id=ooi.order_id
+    </select>
+
+    <!--根据查询条件筛选订单信息-->
+    <select id="searchOmsOrder" resultMap="omsOrderMap" parameterType="com.thumb.entity.dto.SearchOmsOrder">
+        select * from oms_order oo, oms_order_item ooi, ums_member um
+        <where>
+            and oo.id = ooi.order_id and um.id = oo.member_id
+            <if test="order_sn != ''">
+                and oo.order_sn like "%"#{order_sn}"%"
+            </if>
+            <if test="member != ''">
+                and (um.username like "%"#{member}"%"
+                or um.phone like "%"#{member}"%")
+            </if>
+            <!--<if test="create_time != ''">-->
+
+            <!--</if>-->
+        </where>
+    </select>
+
+    <select id="getOmsOrderById" resultMap="omsOrderMap" parameterType="int">
+        select * from oms_order oo,oms_order_item ooi where oo.id=ooi.order_id and oo.id=#{id}
+    </select>
+
+
+</mapper>
