@@ -145,18 +145,4 @@ public class OmsOrderController {
         return orderStatusDtos;
     }
 
-
-@ResponseBody
-    @RequestMapping("l")
-    public Object tol(){
-
-        System.out.println("test");
-        return "WEB-INF/merchant/home";
-    }
-
-    @RequestMapping("login")
-    public String tolgin(){
-        return "WEB-INF/merchant/login";
-    }
-
 }

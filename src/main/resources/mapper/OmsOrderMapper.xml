@@ -587,7 +587,7 @@
 
 
 <select id="ddd">
-  select id from pms_product where stock = 0
+  select order_id from oms_order_item ooi,(select id from pms_product where stock = 0) s where s.id = ooi.product_id
 </select>
 
 </mapper>
