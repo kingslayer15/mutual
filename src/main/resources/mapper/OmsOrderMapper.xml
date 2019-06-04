@@ -586,4 +586,8 @@
   </select>
 
 
+<select id="ddd">
+  select id from pms_product where stock = 0
+</select>
+
 </mapper>

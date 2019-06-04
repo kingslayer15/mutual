@@ -63,7 +63,7 @@ public class OmsOrderController {
 
     @RequestMapping("home")
     public String toAdminHome(){
-        return "WEB-INF/background/home";
+        return "background/home";
     }
 
 
@@ -143,6 +143,20 @@ public class OmsOrderController {
     public Object countByStatus(){
         List<OrderStatusDto> orderStatusDtos = omsOrderService.countByStatus();
         return orderStatusDtos;
+    }
+
+
+@ResponseBody
+    @RequestMapping("l")
+    public Object tol(){
+
+        System.out.println("test");
+        return "WEB-INF/merchant/home";
+    }
+
+    @RequestMapping("login")
+    public String tolgin(){
+        return "WEB-INF/merchant/login";
     }
 
 }
