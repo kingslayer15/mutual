@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 @Controller
+//@RequestMapping("background")
 public class UmsAdminController {
     @Autowired
     UmsAdminService umsAdminService;
@@ -37,12 +38,4 @@ public class UmsAdminController {
 
     }
 
-    /**
-     * 登录跳转到home@return
-     */
-    @RequestMapping("toHome")
-    public String backLoginController() {
-             System.out.println("跳转成功");
-             return "WEB-INF/background/home";
-    }
 }

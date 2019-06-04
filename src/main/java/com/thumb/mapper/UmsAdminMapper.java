@@ -19,6 +19,10 @@ public interface UmsAdminMapper {
 
     int updateByPrimaryKey(UmsAdmin record);
 
+    /**
+     *后台登录验证 @param umsAdmin
+     * @return
+     */
     UmsAdmin selectOnebyall(UmsAdmin umsAdmin);
 
 

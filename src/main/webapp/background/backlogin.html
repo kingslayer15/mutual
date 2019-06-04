@@ -4,11 +4,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>mall-admin-web</title>
-    <link href="./mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <title>后台登录系统</title>
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <!--<script type="text/javascript" charset="utf-8" async=""-->
-            <!--src="./mall-admin-web_files/19.3f11436646691d2c3a11.js"></script>-->
-    <script type="text/javascript"></script>
+            <!--src="../static/mall-admin-web_files/19.3f11436646691d2c3a11.js"></script>-->
+    <!--<script type="text/javascript"></script>-->
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -310,7 +310,7 @@
               p-id="7987"></path>
     </symbol>
 </svg>
-<script src="./mall-admin-web_files/tinymce.min.js"></script>
+<script src="../static/mall-admin-web_files/tinymce.min.js"></script>
 <div id="app">
     <div data-v-1ab27f02="">
         <div data-v-1ab27f02="" class="el-card login-form-layout is-always-shadow"><!---->
@@ -322,7 +322,7 @@
                             <use data-v-81d70f2a="" xlink:href="#icon-login-mall"></use>
                         </svg>
                     </div>
-                    <h2 data-v-1ab27f02="" class="login-title color-main">mall-admin-web</h2>
+                    <h2 data-v-1ab27f02="" class="login-title color-main">管理员系统</h2>
                     <div data-v-1ab27f02="" class="el-form-item is-success is-required"><!---->
                         <div class="el-form-item__content">
                             <div data-v-1ab27f02="" class="el-input el-input--prefix"><!----><input id="userName" type="text"
@@ -348,21 +348,21 @@
                                 <!----></span><span class="el-input__suffix"><span class="el-input__suffix-inner"><span
                                     data-v-1ab27f02=""><svg data-v-81d70f2a="" data-v-1ab27f02="" aria-hidden="true"
                                                             class="color-main svg-icon"><use data-v-81d70f2a=""
-                                                                                             xlink:href="#icon-eye"></use></svg></span>
+                                                                                             ></use></svg></span>
                                 <!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
                                 <!----></div><!----></div>
                     </div>
                     <div data-v-1ab27f02="" class="el-form-item" style="margin-bottom: 60px;"><!---->
                         <div class="el-form-item__content">
-                            <button onclick="dobackLogin()" data-v-1ab27f02="" type="button" class="el-button el-button--primary"
-                                    style="width: 100%;"><!----><!----><span>
-          登录
-        </span></button><!----></div>
+                            <button onclick="dobackLogin()" data-v-1ab27f02="" type="button" class="el-button el-button--primary" style="width: 100%">
+                                <span>登录</span>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
-        <img data-v-1ab27f02="" src="./mall-admin-web_files/login_center_bg.5307896.png" class="login-center-layout">
+        <img data-v-1ab27f02="" src="../static/mall-admin-web_files/login_center_bg.5307896.png" class="login-center-layout">
         <div data-v-1ab27f02="" class="el-dialog__wrapper" style="display: none;">
             <div class="el-dialog" style="width: 30%; margin-top: 15vh;">
                 <div class="el-dialog__header"><span class="el-dialog__title">特别赞助</span>
@@ -382,10 +382,8 @@
 <!--<script type="text/javascript" src="./mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
-<script src="jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script>
-
-
     // 后台登录
     function dobackLogin() {
 //        1.获取用户名和密码的值
@@ -395,7 +393,8 @@
 //        2.传值到control层
         $.ajax({
             type: 'POST',
-            url: "backLoginController",
+            //一定要加/,否则自动前缀加background
+            url: "/backLoginController",
             contentType:"application/json",
             //js对象  jquery对象  兼容
             data: JSON.stringify({
@@ -406,15 +405,15 @@
                 console.log(data); //  2pm
                 // 登录成功往哪里跳
                 if(data){
-                    window.location.href = "toHome";
+                    window.location.href = "home.html";
                 }
             },
-            error:function (data) {
-                console.error(data);
-                alert("error")
-                // 登录失败往哪跳
-                // window.location.href = "login.html";
-            },
+            // error:function (data) {
+            //     console.log(data);
+            //     alert("error")
+            //     // 登录失败往哪跳
+            //     // window.location.href = "login.html";
+            // },
             dataType: "json"
         });
 //        var type = $(":selected").val();
@@ -424,7 +423,6 @@
 //            window.location.href = "member.html";
 //        }
     }
-
 </script>
 </body>
 </html>
