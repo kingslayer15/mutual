@@ -2,16 +2,15 @@ package com.thumb.controller;
 
 
 import com.thumb.dto.OrderStatusDto;
-import com.thumb.mapper.OmsOrderMapper;
-import com.thumb.pojo.OmsOrder;
-import com.thumb.service.OmsOrderService;
+import com.thumb.service.AdminMainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -21,7 +20,7 @@ import java.util.*;
 public class OmsOrderController {
 
     @Autowired
-    OmsOrderService omsOrderService;
+    AdminMainService adminMainService;
 
 
 
@@ -54,7 +53,7 @@ public class OmsOrderController {
 
 
 
-        Long aLong = omsOrderService.countByCreateTime(starTime,endTime);
+        Long aLong = adminMainService.countByCreateTime(starTime,endTime);
 
 
 
@@ -95,7 +94,7 @@ public class OmsOrderController {
 
         Date endTime = calendar.getTime();
 
-        BigDecimal totalAmount = omsOrderService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
+        BigDecimal totalAmount = adminMainService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
 
 
 
@@ -133,7 +132,7 @@ public class OmsOrderController {
 
         Date endTime = calendar.getTime();
 
-        BigDecimal totalAmount = omsOrderService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
+        BigDecimal totalAmount = adminMainService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
 
         return totalAmount;
     }
@@ -141,7 +140,7 @@ public class OmsOrderController {
     @ResponseBody
     @RequestMapping("countByStatus")
     public Object countByStatus(){
-        List<OrderStatusDto> orderStatusDtos = omsOrderService.countByStatus();
+        List<OrderStatusDto> orderStatusDtos = adminMainService.countByStatus();
         return orderStatusDtos;
     }
 
@@ -149,7 +148,7 @@ public class OmsOrderController {
     @RequestMapping("countByConfirm")
     public Object countByConfirm(){
 
-        BigDecimal bigDecimal = omsOrderService.countByConfirm();
+        BigDecimal bigDecimal = adminMainService.countByConfirm();
 
 
         return bigDecimal;
@@ -159,16 +158,33 @@ public class OmsOrderController {
     @RequestMapping("countByLowStock")
     public Object countByLowStock(){
 
-        BigDecimal bigDecimal = omsOrderService.countByLowStock();
+        BigDecimal bigDecimal = adminMainService.countByLowStock();
 
         return bigDecimal;
     }
 
+    /**
+     * 根据申请状态返回退货订单的个数
+     * 申请状态：0->待处理；1->退货中；2->已完成；3->已拒绝
+     * @return
+     */
     @ResponseBody
-    @RequestMapping("countByReturnApply")
-    public Object countByReturnApply(){
+    @RequestMapping(value = "countByReturnApply",method = RequestMethod.GET)
+    public Object countByReturnApplyStatus(@RequestParam Integer status){
 
-        BigDecimal bigDecimal = omsOrderService.countByReturnApply();
+
+        BigDecimal bigDecimal = adminMainService.countByReturnApply(status);
+
+        return bigDecimal;
+    }
+
+
+    @ResponseBody
+    @RequestMapping("countByEndTime")
+    public Object countByEndTime(){
+
+        BigDecimal bigDecimal = adminMainService.countByEndTime();
+
 
         return bigDecimal;
     }
