@@ -27,7 +27,7 @@ public class UmsMemberController {
      */
     @RequestMapping("getValidCode")
     @ResponseBody
-    public void getValidCode(@RequestParam String regEmail, HttpSession httpSession) {
+    public String getValidCode(@RequestParam String regEmail, HttpSession httpSession) {
         //获取用户注册email
         System.out.println(regEmail);
         String toEmail=regEmail;
@@ -47,11 +47,12 @@ public class UmsMemberController {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+        return code;
     }
 
     @RequestMapping("regMember")
     @ResponseBody
-    public boolean regMember(@RequestBody UmsMember umsMember,HttpSession httpSession) {
+    public String regMember(@RequestBody UmsMember umsMember,HttpSession httpSession) {
         System.out.println(umsMember);
         //从session取code
         String code = (String) httpSession.getAttribute("code");
@@ -59,16 +60,15 @@ public class UmsMemberController {
 
         //从前端拿到code
         String regCode = umsMember.getRegCode();
-        System.out.println("前端"+code);
+        System.out.println("前端"+regCode);
         //比较code
         if (code.equals(regCode)) {
             System.out.println("code对比成功");
             boolean i = umsMemberService.insert(umsMember);
             System.out.println(i);
-            return true;
         }
         System.out.println("code对比失败");
-        return false;
+        return code;
 
     }
 
