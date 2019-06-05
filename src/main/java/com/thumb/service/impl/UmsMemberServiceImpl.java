@@ -78,15 +78,7 @@ public class UmsMemberServiceImpl implements UmsMemberService{
 
     }
 
-    @Override
-    public boolean insertReg(UmsMemberDto umsMemberDto) {
-        umsMemberDto.setPassword(MD5Utils.myEncode(umsMemberDto.getPassword()));
-        int i = umsMemberMapper.insertReg(umsMemberDto);
-        if (i > 0) {
-            return true;
-        }
-        return false;
-    }
+
 
 
     @Override

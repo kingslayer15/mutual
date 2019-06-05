@@ -1,5 +1,6 @@
 package com.thumb.controller;
 
+import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
 import com.thumb.service.UmsMemberService;
 import com.thumb.utility.email.CodeUtils;
