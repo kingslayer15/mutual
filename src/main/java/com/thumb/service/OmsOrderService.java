@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-public interface OmsOrderService{
+public interface OmsOrderService {
 
 
     int deleteByPrimaryKey(Long id);
@@ -28,5 +28,11 @@ public interface OmsOrderService{
     BigDecimal findSumTotalAmountByStatusAndCreateTimeBetween(@Param("starTime")Date starTime, @Param("endTime")Date endTime);
 
     List<OrderStatusDto> countByStatus();
+
+    BigDecimal countByConfirm();
+
+
+    BigDecimal countByReturnApply(Integer status);
+
 
 }

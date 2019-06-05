@@ -31,6 +31,14 @@ public interface OmsOrderMapper {
 
     List<OrderStatusDto> countByStatus();
 
+    BigDecimal countByConfirm();
+
+
+    BigDecimal countByReturnApply(@Param("status") Integer status);
+
+
+
+
 
 
 

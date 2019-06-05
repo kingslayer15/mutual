@@ -5,6 +5,9 @@ import javax.annotation.Resource;
 import com.thumb.mapper.PmsProductMapper;
 import com.thumb.pojo.PmsProduct;
 import com.thumb.service.PmsProductService;
+
+import java.math.BigDecimal;
+
 @Service
 public class PmsProductServiceImpl implements PmsProductService{
 
@@ -39,6 +42,34 @@ public class PmsProductServiceImpl implements PmsProductService{
     @Override
     public int updateByPrimaryKey(PmsProduct record) {
         return pmsProductMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public BigDecimal countByLowStock() {
+        BigDecimal bigDecimal = pmsProductMapper.countByLowStock();
+
+        return bigDecimal;
+    }
+
+    @Override
+    public BigDecimal countByEndTime() {
+
+        BigDecimal bigDecimal = pmsProductMapper.countByEndTime();
+
+        return bigDecimal;
+    }
+
+    @Override
+    public BigDecimal countByPublishStatus(Integer status) {
+        BigDecimal bigDecimal = pmsProductMapper.countByPublishStatus(status);
+        return bigDecimal;
+    }
+
+
+    @Override
+    public BigDecimal countAll(){
+        BigDecimal bigDecimal = pmsProductMapper.countAll();
+        return bigDecimal;
     }
 
 }
