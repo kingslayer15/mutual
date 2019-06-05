@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class OmsOrderServiceImpl implements OmsOrderService{
+public class OmsOrderServiceImpl implements OmsOrderService {
 
     @Resource
     private OmsOrderMapper omsOrderMapper;
@@ -75,18 +75,11 @@ public class OmsOrderServiceImpl implements OmsOrderService{
         return bigDecimal;
     }
 
-    @Override
-    public BigDecimal countByLowStock() {
-
-        BigDecimal bigDecimal = omsOrderMapper.countByLowStock();
-
-        return bigDecimal;
-    }
 
     @Override
-    public BigDecimal countByReturnApply() {
+    public BigDecimal countByReturnApply(Integer status) {
 
-        BigDecimal bigDecimal = omsOrderMapper.countByReturnApply();
+        BigDecimal bigDecimal = omsOrderMapper.countByReturnApply(status);
 
         return bigDecimal;
     }

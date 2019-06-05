@@ -33,9 +33,9 @@ public interface OmsOrderMapper {
 
     BigDecimal countByConfirm();
 
-    BigDecimal countByLowStock();
 
-    BigDecimal countByReturnApply();
+    BigDecimal countByReturnApply(@Param("status") Integer status);
+
 
 
 

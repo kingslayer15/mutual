@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-public interface OmsOrderService{
+public interface OmsOrderService {
 
 
     int deleteByPrimaryKey(Long id);
@@ -31,9 +31,8 @@ public interface OmsOrderService{
 
     BigDecimal countByConfirm();
 
-    BigDecimal countByLowStock();
 
-    BigDecimal countByReturnApply();
+    BigDecimal countByReturnApply(Integer status);
 
 
 }
