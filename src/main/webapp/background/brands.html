@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0042)http://39.98.190.128/index.html#/sms/brand -->
-<html class=" ">
+<html >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -30,12 +30,22 @@
             src="../static/mall-admin-web_files/32.f7c159f497c05c073d8b.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
             src="../static/mall-admin-web_files/3.bdde2483074687b995c5.js"></script>
-    <link rel="stylesheet" type="text/css" id="u0" href="../static/mall-admin-web_files/skin.min.css">
+    <link rel="stylesheet" type="text/css" id="u0" href="../../mall-admin-web_files/skin.min.css">
     <script type="text/javascript" charset="utf-8" async=""
             src="../static/mall-admin-web_files/1.204fcd3d0675d157f1ac.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
             src="../static/mall-admin-web_files/27.e9a18826d6abec9c7d88.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/js/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../static/js/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/js/css/style.css">
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      style="position: absolute; width: 0; height: 0" id="__SVG_SPRITE_NODE__">
@@ -336,7 +346,7 @@
               p-id="7987"></path>
     </symbol>
 </svg>
-<script src="../static/mall-admin-web_files/tinymce.min.js"></script>
+<script src="../../mall-admin-web_files/tinymce.min.js"></script>
 <div id="app">
     <div data-v-0ef526f4="" class="app-wrapper">
         <div data-v-69d4f5dd="" data-v-0ef526f4="" class="scroll-container sidebar-container">
@@ -541,7 +551,7 @@
                 <div data-v-453b378a="" class="avatar-container el-dropdown" tabindex="0">
                     <div data-v-453b378a="" class="avatar-wrapper el-dropdown-selfdefine" aria-haspopup="list"
                          aria-controls="dropdown-menu-3827" role="button" tabindex="0"><img data-v-453b378a=""
-                                                                                            src="../static/mall-admin-web_files/timg.jpg"
+                                                                                            src="../../mall-admin-web_files/timg.jpg"
                                                                                             class="user-avatar"> <i
                             data-v-453b378a="" class="el-icon-caret-bottom"></i></div>
                     <ul data-v-453b378a="" class="el-dropdown-menu el-popper user-dropdown" id="dropdown-menu-3827"
@@ -560,73 +570,78 @@
             </ul>
             <section data-v-0ef526f4="" class="app-main">
                 <div class="app-container">
-                    <div class="el-card filter-container is-never-shadow"><!---->
+                    <div class="el-card filter-container is-never-shadow">
                         <div class="el-card__body">
-                            <div><i class="el-icon-search"></i> <span>筛选搜索</span>
+                            <div><i class="el-icon-search"></i>
+                                <span>筛选搜索</span>
                                 <button type="button" class="el-button el-button--primary el-button--small"
-                                        style="float: right;"><!----><!----><span>
-        查询搜索
-      </span></button>
+                                        style="float: right;" onclick="getBrand()">
+                                    <span>查询搜索</span>
+                                </button>
                                 <button type="button" class="el-button el-button--default el-button--small"
-                                        style="float: right; margin-right: 15px;"><!----><!----><span>
-        重置
-      </span></button>
+                                        style="float: right; margin-right: 15px;" onclick="reset()">
+                                    <span>重置</span>
+                                </button>
                             </div>
                             <div style="margin-top: 15px;">
                                 <form class="el-form el-form--inline">
-                                    <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
-                                                                                         style="width: 140px;">品牌名称：</label>
+                                    <div class="el-form-item el-form-item--small">
+                                        <label class="el-form-item__label" style="width: 140px;">品牌名称：</label>
                                         <div class="el-form-item__content">
-                                            <div class="input-width el-input el-input--small"><!----><input type="text"
-                                                                                                            autocomplete="off"
-                                                                                                            placeholder="品牌名称"
-                                                                                                            class="el-input__inner">
-                                                <!----><!----><!----></div><!----></div>
+                                            <div class="input-width el-input el-input--small">
+                                                <input type="text" autocomplete="off" placeholder="品牌名称" class="el-input__inner" id="brand_name">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
-                                                                                         style="width: 140px;">推荐状态：</label>
-                                        <div class="el-form-item__content">
-                                            <div class="el-select input-width el-select--small"><!---->
-                                                <div class="el-input el-input--small el-input--suffix"><!----><input
-                                                        type="text" autocomplete="off" placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner"><!----><span
-                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 192px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li class="el-select-dropdown__item"><span>未推荐</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>推荐中</span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
-                                    </div>
+                                    <!--<div class="el-form-item el-form-item&#45;&#45;small">-->
+                                        <!--<label class="el-form-item__label" style="width: 140px;">推荐状态：</label>-->
+                                        <!--<div class="el-form-item__content">-->
+                                            <!--<div class="el-select input-width el-select&#45;&#45;small">-->
+                                                <!--<div class="el-input el-input&#45;&#45;small el-input&#45;&#45;suffix">-->
+                                                    <!--<input type="text" autocomplete="off" placeholder="全部"-->
+                                                           <!--readonly="readonly" class="el-input__inner">-->
+                                                    <!--<span class="el-input__suffix">-->
+                                                        <!--<span class="el-input__suffix-inner">-->
+                                                            <!--<i class="el-select__caret el-input__icon el-icon-arrow-up">-->
+                                                            <!--</i>-->
+                                                    <!--</span>-->
+                                                    <!--</span>-->
+                                                <!--</div>-->
+                                                <!--<div class="el-select-dropdown el-popper" style="display: none; min-width: 192px;">-->
+                                                    <!--<div class="el-scrollbar" style="">-->
+                                                        <!--<div class="el-select-dropdown__wrap el-scrollbar__wrap"-->
+                                                             <!--style="margin-bottom: -15px; margin-right: -15px;">-->
+                                                            <!--<ul class="el-scrollbar__view el-select-dropdown__list">-->
+                                                                <!--<li class="el-select-dropdown__item"><span>未推荐</span>-->
+                                                                <!--</li>-->
+                                                                <!--<li class="el-select-dropdown__item"><span>推荐中</span>-->
+                                                                <!--</li>-->
+                                                            <!--</ul>-->
+                                                        <!--</div>-->
+                                                        <!--<div class="el-scrollbar__bar is-horizontal">-->
+                                                            <!--<div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>-->
+                                                        <!--</div>-->
+                                                        <!--<div class="el-scrollbar__bar is-vertical">-->
+                                                            <!--<div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div class="el-card operate-container is-never-shadow"><!---->
+                    <div class="el-card operate-container is-never-shadow">
                         <div class="el-card__body"><i class="el-icon-tickets"></i> <span>数据列表</span>
-                            <button type="button" class="el-button btn-add el-button--default el-button--mini"><!---->
-                                <!----><span>选择品牌</span></button>
+                            <button type="button" class="el-button btn-add el-button--default el-button--mini"
+                                    onclick="showBrand(1,5)">
+                                <span>选择品牌</span>
+                            </button>
                         </div>
                     </div>
+
                     <div class="table-container">
                         <div class="el-table el-table--fit el-table--border el-table--enable-row-hover el-table--enable-row-transition"
                              style="width: 100%;">
@@ -656,13 +671,9 @@
                                     <tr class="">
                                         <th colspan="1" rowspan="1"
                                             class="el-table_16_column_122  is-center el-table-column--selection  is-leaf">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
+                                            <div class="cell">
+                                                <input type="checkbox">
+                                            </div>
                                         </th>
                                         <th colspan="1" rowspan="1" class="el-table_16_column_123  is-center   is-leaf">
                                             <div class="cell">编号</div>
@@ -699,242 +710,36 @@
                                         <col name="el-table_16_column_127" width="160">
                                         <col name="el-table_16_column_128" width="180">
                                     </colgroup>
-                                    <tbody>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_16_column_122 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_16_column_123 is-center ">
-                                            <div class="cell">6</div>
-                                        </td>
-                                        <td class="el-table_16_column_124 is-center ">
-                                            <div class="cell">小米</div>
-                                        </td>
-                                        <td class="el-table_16_column_125 is-center ">
-                                            <div class="cell">
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_16_column_126 is-center ">
-                                            <div class="cell">300</div>
-                                        </td>
-                                        <td class="el-table_16_column_127 is-center ">
-                                            <div class="cell">推荐中</div>
-                                        </td>
-                                        <td class="el-table_16_column_128 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>设置排序
-          </span></button>
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_16_column_122 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_16_column_123 is-center ">
-                                            <div class="cell">1</div>
-                                        </td>
-                                        <td class="el-table_16_column_124 is-center ">
-                                            <div class="cell">万和</div>
-                                        </td>
-                                        <td class="el-table_16_column_125 is-center ">
-                                            <div class="cell">
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_16_column_126 is-center ">
-                                            <div class="cell">200</div>
-                                        </td>
-                                        <td class="el-table_16_column_127 is-center ">
-                                            <div class="cell">推荐中</div>
-                                        </td>
-                                        <td class="el-table_16_column_128 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>设置排序
-          </span></button>
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_16_column_122 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_16_column_123 is-center ">
-                                            <div class="cell">8</div>
-                                        </td>
-                                        <td class="el-table_16_column_124 is-center ">
-                                            <div class="cell">方太</div>
-                                        </td>
-                                        <td class="el-table_16_column_125 is-center ">
-                                            <div class="cell">
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_16_column_126 is-center ">
-                                            <div class="cell">100</div>
-                                        </td>
-                                        <td class="el-table_16_column_127 is-center ">
-                                            <div class="cell">推荐中</div>
-                                        </td>
-                                        <td class="el-table_16_column_128 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>设置排序
-          </span></button>
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_16_column_122 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_16_column_123 is-center ">
-                                            <div class="cell">2</div>
-                                        </td>
-                                        <td class="el-table_16_column_124 is-center ">
-                                            <div class="cell">三星</div>
-                                        </td>
-                                        <td class="el-table_16_column_125 is-center ">
-                                            <div class="cell">
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_16_column_126 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_16_column_127 is-center ">
-                                            <div class="cell">推荐中</div>
-                                        </td>
-                                        <td class="el-table_16_column_128 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>设置排序
-          </span></button>
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_16_column_122 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_16_column_123 is-center ">
-                                            <div class="cell">32</div>
-                                        </td>
-                                        <td class="el-table_16_column_124 is-center ">
-                                            <div class="cell">海澜之家</div>
-                                        </td>
-                                        <td class="el-table_16_column_125 is-center ">
-                                            <div class="cell">
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_16_column_126 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_16_column_127 is-center ">
-                                            <div class="cell">推荐中</div>
-                                        </td>
-                                        <td class="el-table_16_column_128 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>设置排序
-          </span></button>
-                                                <button type="button" class="el-button el-button--text el-button--mini">
-                                                    <!----><!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr><!----></tbody>
-                                </table><!----><!----></div><!----><!----><!----><!---->
+                                    <tbody id="brand"></tbody>
+                                </table>
+                            </div>
                             <div class="el-table__column-resize-proxy" style="display: none;"></div>
                             <div class="el-loading-mask" style="display: none;">
                                 <div class="el-loading-spinner">
                                     <svg viewBox="25 25 50 50" class="circular">
                                         <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
-                                    </svg><!----></div>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="batch-operate-container">
-                        <div class="el-select el-select--small"><!---->
-                            <div class="el-input el-input--small el-input--suffix"><!----><input type="text"
-                                                                                                 autocomplete="off"
-                                                                                                 placeholder="批量操作"
-                                                                                                 readonly="readonly"
-                                                                                                 class="el-input__inner">
-                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
-                                    <!----></span><!----></div>
-                            <div class="el-select-dropdown el-popper" style="display: none; min-width: 192px;">
+                        <div class="el-select el-select--small">
+                            <div class="el-input el-input--small el-input--suffix"  onblur="BlurPage()" onclick="batchOperation()">
+                                <input type="text" autocomplete="off" placeholder="批量操作" readonly="readonly"
+                                       class="el-input__inner" onblur="BlurPage()">
+                                <span class="el-input__suffix">
+                                    <span class="el-input__suffix-inner" onblur="BlurPage()">
+                                    <i class="el-select__caret el-input__icon el-icon-arrow-up" onblur="BlurPage()">
+                                    </i>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="el-select-dropdown el-popper" style="display: none;" id="popper">
                                 <div class="el-scrollbar" style="">
                                     <div class="el-select-dropdown__wrap el-scrollbar__wrap"
                                          style="margin-bottom: -15px; margin-right: -15px;">
-                                        <ul class="el-scrollbar__view el-select-dropdown__list"><!---->
+                                        <ul class="el-scrollbar__view el-select-dropdown__list">
                                             <li class="el-select-dropdown__item"><span>设为推荐</span></li>
                                             <li class="el-select-dropdown__item"><span>取消推荐</span></li>
                                             <li class="el-select-dropdown__item"><span>删除</span></li>
@@ -946,77 +751,231 @@
                                     <div class="el-scrollbar__bar is-vertical">
                                         <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
                                     </div>
-                                </div><!----></div>
+                                </div>
+                            </div>
                         </div>
                         <button type="button" class="el-button search-button el-button--primary el-button--small"
-                                style="margin-left: 20px;"><!----><!----><span>
-      确定
-    </span></button>
+                                style="margin-left: 20px;">
+                            <span>确定</span>
+                        </button>
                     </div>
                     <div class="pagination-container">
-                        <div class="el-pagination is-background"><span class="el-pagination__total">共 11 条</span><span
-                                class="el-pagination__sizes"><div class="el-select"><!----><div
-                                class="el-input el-input--suffix"><!----><input type="text" autocomplete="off"
-                                                                                placeholder="请选择" readonly="readonly"
-                                                                                class="el-input__inner"><!----><span
-                                class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
-                            <!----></span><!----></div><div class="el-select-dropdown el-popper"
-                                                            style="display: none; min-width: 110px;"><div
-                                class="el-scrollbar" style=""><div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                                   style="margin-bottom: -15px; margin-right: -15px;"><ul
-                                class="el-scrollbar__view el-select-dropdown__list"><!----><li
-                                class="el-select-dropdown__item selected"><span>5条/页</span></li><li
-                                class="el-select-dropdown__item"><span>10条/页</span></li><li
-                                class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
-                                class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb"
-                                                                             style="transform: translateX(0%);"></div></div><div
-                                class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb"
-                                                                           style="transform: translateY(0%);"></div></div></div>
-                            <!----></div></div></span>
-                            <button type="button" disabled="disabled" class="btn-prev"><i
-                                    class="el-icon el-icon-arrow-left"></i></button>
-                            <ul class="el-pager">
-                                <li class="number active">1</li><!---->
-                                <li class="number">2</li><!---->
-                                <li class="number">3</li>
+                        <div class="el-pagination is-background"><span class="el-pagination__total">共&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                id="total"></span>条</span>
+                            <span class="el-pagination__sizes"><div class="el-select">
+                                <div class="el-input el-input--suffix" onclick="page()" >
+                                    <input type="text" autocomplete="off" placeholder="请选择" readonly="readonly"
+                                           class="el-input__inner" id="pageCondition" >
+
+                                    <span class="el-input__suffix">
+                                        <span class="el-input__suffix-inner" >
+                                        <i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="el-select-dropdown el-popper" style="display: none; min-width: 110px;" id="nowSize" onblur="BlurPage()">
+                                    <div class="el-scrollbar">
+                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                             style="margin-bottom: -15px; margin-right: -15px;">
+                                            <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                <li class="el-select-dropdown__item selected" onclick="pageOne(5)">
+                                                    <span>5条/页</span>
+                                                </li>
+                                                <li class="el-select-dropdown__item" onclick="pageOne(10)">
+                                                    <span>10条/页</span>
+                                                </li>
+                                                <li class="el-select-dropdown__item" onclick="pageOne(15)">
+                                                    <span>15条/页</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        </div>
+                                     </div>
+
+                                        <!--<div class="el-scrollbar__bar is-horizontal">-->
+                                            <!--<div class="el-scrollbar__thumb" style="transform: translateX(0%);">-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="el-scrollbar__bar is-vertical">-->
+                                            <!--<div class="el-scrollbar__thumb" style="transform: translateY(0%);">-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                </div>
+                            </span>
+                            <!--<button type="button" disabled="disabled" class="btn-prev">-->
+                            <!--<i class="el-icon el-icon-arrow-left"></i></button>-->
+                            <ul class="el-pager" id="ul_li">
+                                <!--页面快捷键-->
                             </ul>
-                            <button type="button" class="btn-next"><i class="el-icon el-icon-arrow-right"></i></button>
+                            <!--<button type="button" class="btn-next"><i class="el-icon el-icon-arrow-right"></i></button>-->
                             <span class="el-pagination__jump">前往<div
-                                    class="el-input el-pagination__editor is-in-pagination"><!----><input type="number"
-                                                                                                          autocomplete="off"
-                                                                                                          min="1"
-                                                                                                          class="el-input__inner"
-                                                                                                          max="3">
-                                <!----><!----><!----></div>页</span></div>
+                                    class="el-input el-pagination__editor is-in-pagination">
+                                <input type="number" autocomplete="off" min="1" class="el-input__inner" max="3"
+                                       onblur="pageBlur()" id="pageBlur">
+                            </div>页</span></div>
                     </div>
                     <div class="el-dialog__wrapper" style="display: none;">
                         <div class="el-dialog" style="width: 40%; margin-top: 15vh;">
                             <div class="el-dialog__header"><span class="el-dialog__title">选择品牌</span>
                                 <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
                                         class="el-dialog__close el-icon el-icon-close"></i></button>
-                            </div><!---->
+                            </div>
                             <div class="el-dialog__footer">
                                 <div>
-                                    <button type="button" class="el-button el-button--default el-button--small"><!---->
-                                        <!----><span>取 消</span></button>
-                                    <button type="button" class="el-button el-button--primary el-button--small"><!---->
-                                        <!----><span>确 定</span></button>
+                                    <button type="button" class="el-button el-button--default el-button--small">
+                                        <span>取 消</span></button>
+                                    <button type="button" class="el-button el-button--primary el-button--small">
+                                        <span>确 定</span></button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="el-dialog__wrapper" style="display: none;">
-                        <div class="el-dialog" style="width: 40%; margin-top: 15vh;">
-                            <div class="el-dialog__header"><span class="el-dialog__title">设置排序</span>
-                                <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
-                                        class="el-dialog__close el-icon el-icon-close"></i></button>
-                            </div><!---->
-                            <div class="el-dialog__footer"><span><button type="button"
-                                                                         class="el-button el-button--default el-button--small"><!---->
-                                <!----><span>取 消</span></button> <button type="button"
-                                                                         class="el-button el-button--primary el-button--small"><!---->
-                                <!----><span>确 定</span></button></span></div>
+
+                    <!--选择品牌虚拟窗口-->
+                    <div id="folioModa1" class="modal fade" tabindex="11" role="dialog" style="top: 90px;">
+                        <div class="modal-dialog" role="document" style="width: 500px;">
+                            <div class="modal-content">
+                                <!--内容开始-->
+                                <div class="el-dialog__body">
+                                    <div class="el-input el-input--small el-input-group el-input-group--append" style="width: 250px; margin-bottom: 20px;">
+                                        <input type="text" autocomplete="off" placeholder="品牌名称搜索" class="el-input__inner">
+                                        <div class="el-input-group__append">
+                                            <button type="button" class="el-button el-button--default">
+                                                <i class="el-icon-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="el-table el-table--fit el-table--border el-table--enable-row-hover el-table--enable-row-transition">
+                                        <div class="el-table__header-wrapper">
+                                            <table cellspacing="0" cellpadding="0" border="0" class="el-table__header" style="width: 493px;">
+                                                <colgroup>
+                                                    <col name="el-table_2_column_8" width="60">
+                                                    <col name="el-table_2_column_9" width="213">
+                                                    <col name="el-table_2_column_10" width="220">
+                                                    <col name="gutter" width="0">
+                                                </colgroup>
+                                                <thead class="has-gutter">
+                                                <tr class="">
+                                                    <!--<th colspan="1" rowspan="1" class="el-table_2_column_8  is-center el-table-column&#45;&#45;selection  is-leaf">-->
+                                                        <!--<div class="cell">-->
+                                                            <!--<label role="checkbox" class="el-checkbox">-->
+                                                                <!--<span aria-checked="mixed" class="el-checkbox__input">-->
+                                                                    <!--<span class="el-checkbox__inner">-->
+
+                                                                    <!--</span>-->
+                                                                    <!--<input type="checkbox" aria-hidden="true"  class="el-checkbox__original" value="">-->
+                                                                <!--</span>-->
+                                                            <!--</label>-->
+                                                        <!--</div>-->
+                                                    <!--</th> -->
+                                                    <th colspan="1" rowspan="1" class="el-table_2_column_8  is-center el-table-column--selection  is-leaf">
+                                                        <div class="cell">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </th>
+                                                    <th colspan="1" rowspan="1" class="el-table_2_column_9  is-center is-leaf">
+                                                        <div class="cell">品牌名称</div>
+                                                    </th>
+                                                    <th colspan="1" rowspan="1" class="el-table_2_column_10  is-center is-leaf">
+                                                        <div class="cell">相关</div>
+                                                    </th>
+                                                    <th class="gutter" style="width: 0px; display: none;">
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <div class="el-table__body-wrapper is-scrolling-none">
+                                            <table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width: 493px;">
+                                                <colgroup>
+                                                    <col name="el-table_2_column_8" width="60">
+                                                    <col name="el-table_2_column_9" width="213">
+                                                    <col name="el-table_2_column_10" width="220">
+                                                </colgroup>
+                                                <tbody id="tr_td">
+                                                
+                                                <!--展示内容-->
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="el-table__column-resize-proxy" style="display: none;"></div>
+                                    </div>
+
+                                    <!--分页按钮-->
+                                    <div class="pagination-container">
+                                        <div class="el-pagination is-background" id="buttonul">
+                                            <ul class="el-pager" id="rl_li2">
+                                                <!--下一页-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </div>
+
+                                <!--内容结束-->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addBrands()">确定</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--修改排序虚拟窗口-->
+                    <div id="folioModa2" class="modal fade" tabindex="11" role="dialog" style="top: 90px;">
+                        <div class="modal-dialog" role="document" style="width: 500px;">
+                            <div class="modal-content">
+                                <!--内容开始-->
+                                <div class="el-dialog__header">
+                                    <span class="el-dialog__title">设置排序</span>
+                                </div>
+                                <div class="el-dialog__body">
+                                    <form class="el-form">
+                                        <div class="el-form-item"><label class="el-form-item__label"
+                                                                         style="width: 150px;">排序：</label>
+                                            <div class="el-form-item__content" style="margin-left: 150px;">
+                                                <div class="el-input" style="width: 200px;">
+                                                    <input type="text" autocomplete="off" class="el-input__inner"
+                                                           id="c">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--内容结束-->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                            onclick="submit()">确定
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--删除确认虚拟窗口-->
+                    <div id="folioModa3" class="modal fade" tabindex="11" role="dialog" style="top: 90px;">
+                        <div class="modal-dialog" role="document" style="width: 500px;">
+                            <div class="modal-content">
+                                <!--内容开始-->
+                                <div class="el-message-box">
+                                    <div class="el-message-box__header">
+                                        <div class="el-message-box__title">
+                                            <span>提示</span>
+                                        </div>
+                                    </div>
+                                    <div class="el-message-box__content">
+                                        <div class="el-message-box__status el-icon-warning"></div>
+                                        <div class="el-message-box__message"><p>是否要删除该推荐?</p></div>
+                                    </div>
+                                </div>
+                                <!--内容结束-->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                            onclick="deleteById()">确定
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" >取消</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1024,8 +983,356 @@
         </div>
     </div>
 </div>
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="../static/js/js/bootstrap.js"></script>
+<script type="text/javascript">
+
+    function showBrand(pageNow, pageSize) {
+        //模态框初始化就显示了
+        $("#folioModa1").modal("show");
+        var $trTd = $("#tr_td");
+        $trTd.find("tr").remove();
+        //获取品牌库所有的品牌
+        $.ajax({
+            url: '/selectPmsBrandsAll',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            data: JSON.stringify({
+                "pageNow": pageNow,
+                "pageSize": pageSize
+            }),
+            /*成功*/
+            success: function (data) {
+                var list = data.list;
+                $(list).each(function (index, value) {
+                    var tableTd = "<tr class=\"el-table__row\">\n" +
+                        "<td class=\"el-table_2_column_8 is-center el-table-column--selection\">\n" +
+                        "<div class=\"cell\">\n" +
+                        "<input type=\"checkbox\" name=\"checkbox\" class=\"brand123\" value="+value.id+">" +
+                        "</div>\n" +
+                        "</td>\n" +
+                        "<td class=\"el-table_2_column_9 is-center \">\n" +
+                        "<div class=\"cell\">"+value.name+"</div>\n" +
+                        "</td>\n" +
+                        "<td class=\"el-table_2_column_10 is-center \">\n" +
+                        "<div class=\"cell\">\商" +
+                        "品：<span class=\"color-main\">"+value.product_count+"</span>\评" +
+                        "价：<span class=\"color-main\">"+value.product_comment_count+"</span></div>\n" +
+                        "</td>\n" +
+                        "</tr>";
+                    $trTd.append(tableTd);
+                })
+
+
+                var $ulLi = $("#rl_li2");
+                $ulLi.find("li").remove();
+                var now = data.pageNum;
+                var now1 = now -1;
+
+                var button =  "<li class=\"number \" onclick=\"showBrand(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>"  + "</li>";
+                $ulLi.append(button);
+
+                for (var i = 1; i <= data.pages; i++) {
+                    var li = "";
+                    if (i == now) {
+                        li = "<li class=\"number active\" onclick=\"showBrand(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    } else {
+                        li = "<li class=\"number \" onclick=\"showBrand(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    }
+                    $ulLi.append(li);
+                }
+                var now2 = now +1;
+                var button2 =  "<li class=\"number \" onclick=\"showBrand(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>"  + "</li>";
+                $ulLi.append(button2);
+
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+            }
+        });
+
+    };
+
+
+    function f(pageNow, pageSize) {
+        var $brand = $("#brand");
+        $brand.find("tr").remove();
+        //加载推荐中的品牌
+        $.ajax({
+            url: '/selectBrandAll',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            /*成功*/
+            data: JSON.stringify({
+                "pageNow": pageNow,
+                "pageSize": pageSize
+            }),
+            success: function (data) {
+
+                //显示总记录数
+                $("#total").html(data.total);
+                $("#pageCondition").val(pageSize + "条/页");
+
+                var list = data.list;
+                $(list).each(function (index, val) {
+                    var tableUser = "<tr class=\"el-table__row\">" + " <td class=\"el-table_16_column_122 is-center el-table-column--selection\">" +
+                        "<input type=\"checkbox\" class=\"check\" >" + "</td>" + "<td class=\"el-table_16_column_123 is-center \">" +
+                        "<div class=\"cell\">" + val.id + "</div>" + " </td>" + "<td class=\"el-table_16_column_124 is-center \">" +
+                        " <div class=\"cell\">" + val.name + "</div>" + "</td>" + "<td class=\"el-table_16_column_125 is-center \">" +
+                        "<div class=\"cell\">" + " <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">" +
+                        "<input type=\"checkbox\" name=\"\" true-value=\"1\" false-value=\"0\"\n" +
+                        "  class=\"el-switch__input\"><!----><span class=\"el-switch__core\"\n" +
+                        "  style=\"width: 40px;\"></span>\n" +
+                        "             </div>\n" +
+                        "      </div>\n" +
+                        "  </td>\n" +
+                        "  <td class=\"el-table_16_column_126 is-center \">\n" +
+                        "      <div class=\"cell\">" + val.sort + "</div>\n" +
+                        "  </td>\n" +
+                        "  <td class=\"el-table_16_column_127 is-center \">\n" +
+                        "      <div class=\"cell\">推荐中</div>\n" +
+                        "  </td>\n" +
+                        "  <td class=\"el-table_16_column_128 is-center \">\n" +
+                        "      <div class=\"cell\">\n" +
+                        "          <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"a(" + val.id + "," + val.sort + ")\">\n" +
+                        "              <span>设置排序\n" +
+                        "          </span></button>\n" +
+                        " <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"b(" + val.id + ")\">\n" +
+                        " <span>删除\n" +
+                        "          </span></button>\n" +
+                        "  </div>\n" +
+                        "   </td>\n" +
+                        "  </tr>";
+                    $brand.append(tableUser);
+
+                })
+                var $ulLi = $("#ul_li");
+                $ulLi.find("li").remove();
+                var now = data.pageNum;
+                var now1 = now -1;
+                var button =  "<li class=\"number \" onclick=\"f(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>"  + "</li>";
+                $ulLi.append(button);
+
+                for (var i = 1; i <= data.pages; i++) {
+                    var li = "";
+                    if (i == data.pageNum) {
+                        li = "<li class=\"number active\" onclick=\"f(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    } else {
+                        li = "<li class=\"number \" onclick=\"f(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    }
+                    $ulLi.append(li);
+                }
+                var now2 = now +1;
+                var button2 =  "<li class=\"number \" onclick=\"f(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>"  + "</li>";
+                $ulLi.append(button2);
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+            }
+        });
+    }
+
+    f(1, 5);
+
+    function pageLi(pages, pageNum) {
+        var $ulLi = $("#ul_li");
+        for (var i = 1; i <= pages; i++) {
+            var li = "";
+            if (i == pageNum) {
+                li = "<li class=\"number active\" onclick=\"f()\">" + i + "</li>";
+            } else {
+                li = "<li class=\"number \">" + i + "</li>";
+                ;
+            }
+            $ulLi.append(li);
+        }
+
+    }
+
+    var shortId = 0;
+
+    function a(id, sort) {
+
+        //模态框初始化就显示了
+        $("#folioModa2").modal("show");
+        $("#c").val(sort);
+        shortId = id;
+
+    }
+
+    function b(id, sort) {
+        //打开弹窗
+        $("#folioModa3").modal("show");
+        shortId = id;
+    }
+
+    //每页数据选择
+    function page() {
+        $("#nowSize").attr('style', ' min-width: 110px;');
+    }
+
+    function BlurPage() {
+        $("#nowSize").attr('style', ' display: none;');
+        $("#popper").attr('style', 'display: none;');
+    }
+
+    //批量操作
+    function batchOperation() {
+        $("#popper").attr('style', ' min-width: 192px;');
+
+    }
+
+
+    function pageOne(pageSize) {
+        $("#nowSize").attr('style', ' display: none;');
+        $("#pageCondition").val(pageSize + "条/页");
+        f(1, pageSize);
+    }
+
+    function pageBlur() {
+        var page = $("#pageBlur").val();
+        var pageSize = $("#pageCondition").val().substring(0, 1)
+        f(page, pageSize)
+    }
+
+    /*设置推送的顺序值*/
+    function submit() {
+        var val = $("#c").val();
+        $.ajax({
+            url: '/updateBySort',
+            type: 'POST', //GET
+            contentType: "application/json",
+            data: JSON.stringify({
+                "sort": val,
+                "id": shortId
+            }),
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            /*成功*/
+            success: function (data) {
+                window.location.reload();
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+            }
+        });
+    }
+
+    function deleteById() {
+        $.ajax({
+            url: '/deleteById?id=' + shortId,
+            type: 'GET', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            /*成功*/
+            success: function (data) {
+                if (data == 1) window.location.reload();
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+            }
+        });
+    }
+
+    /*重置*/
+    function reset() {
+        $("#brand_name").val("");
+    }
+    /*条件查询*/
+    function getBrand() {
+        var val = $("#brand_name").val();
+        $.ajax({
+            url: '/getSelectBrand?name='+val,
+            type: 'GET', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            /*成功*/
+            success: function (data) {
+                var $trTd = $("#tr_td");
+                $trTd.find("tr").remove();
+                var list = data.list;
+                $(list).each(function (index, value) {
+                    var tableTd = "<tr class=\"el-table__row\">\n" +
+                        "<td class=\"el-table_2_column_8 is-center el-table-column--selection\">\n" +
+                        "<div class=\"cell\">\n" +
+                        "<input type=\"checkbox\">\n" +
+                        "</div>\n" +
+                        "</td>\n" +
+                        "<td class=\"el-table_2_column_9 is-center \">\n" +
+                        "<div class=\"cell\">"+value.name+"</div>\n" +
+                        "</td>\n" +
+                        "<td class=\"el-table_2_column_10 is-center \">\n" +
+                        "<div class=\"cell\">\商" +
+                        "品：<span class=\"color-main\">"+value.product_count+"</span>\评" +
+                        "价：<span class=\"color-main\">"+value.product_comment_count+"</span></div>\n" +
+                        "</td>\n" +
+                        "</tr>";
+                    $trTd.append(tableTd);
+                })
+
+                var $ulLi = $("#rl_li2");
+                $ulLi.find("li").remove();
+                var now = data.pageNum;
+                var now1 = now -1;
+
+                var button =  "<li class=\"number \" onclick=\"showBrand(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>"  + "</li>";
+                $ulLi.append(button);
+
+                for (var i = 1; i <= data.pages; i++) {
+                    var li = "";
+                    if (i == now) {
+                        li = "<li class=\"number active\" onclick=\"showBrand(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    } else {
+                        li = "<li class=\"number \" onclick=\"showBrand(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    }
+                    $ulLi.append(li);
+                }
+                var now2 = now +1;
+                var button2 =  "<li class=\"number \" onclick=\"showBrand(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>"  + "</li>";
+                $ulLi.append(button2);
+
+            },
+
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+            }
+        });
+
+        $("#folioModa1").modal("show");
+    }
+
+    /*添加品牌*/
+    function addBrands() {
+        var checkID = [];
+        var i = 0;
+        $("input[name='checkbox']:checked").each(function(){//把所有被选中的复选框的值存入数组
+            checkID[i] =$(this).val();
+            i++;
+        });
+        /*批量添加*/
+        $.ajax({
+            url: '/insertBrandById',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            data:JSON.stringify({
+                "checkID":checkID
+            }),
+            /*成功*/
+            success: function (data) {
+               if(data){
+                   window.location.reload();
+                   alert("添加成功!!!")
+               }
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+            }
+        });
+    }
+
+</script>
 </body>
 </html>

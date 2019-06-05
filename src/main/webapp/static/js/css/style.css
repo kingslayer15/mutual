@@ -1,0 +1,80 @@
+#folioModalBody{border: 1px solid #ccc;width: 100%;overflow: hidden;}
+#folioModalBody>div{overflow: auto;max-height: 204px;width: 104%;}
+#folioModal .modal-footer>.btn{padding-left:  30px;padding-right: 30px;}
+#folioModal .modal-footer>.btn.btn-primary{
+    background-color: #3b8cff;
+    border: 1px solid #3b8cff;
+}
+#folioModal .modal-footer>#creatFolio{
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+    color: #3b8cff;
+    border: 1px solid #3b8cff;
+}
+#folioModalBody i.fa{
+    font-size: 15px;
+    width: 18px;
+    text-align: center;
+    height: 18px;
+    line-height: 18px;
+    box-sizing: border-box;
+    font-weight: 600;
+    color: #090909;
+}
+#folioModalBody i.fa-spinner{
+    top: 0;
+    left: 0;
+}
+#folioModalBody div.p{
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    margin: 0;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+
+#folioModalBody div.p:hover{
+    border-top: 1px solid #c7d8ec;
+    border-bottom: 1px solid #c7d8ec;
+    background: #f2f8ffd9;
+}
+#folioModalBody div.p.active-p:hover{
+    border-top: 1px solid #9acdfd;
+    border-bottom: 1px solid #9acdfd;
+    background: #e5f0fb;
+}
+.active-p{
+    border-top: 1px solid #9acdfd;
+    border-bottom: 1px solid #9acdfd;
+    background: #e5f0fb;
+}
+#folioModalBody .fa.fa-folder,#folioModal .fa.fa-folder-open{
+    color: #ffd65a;
+    font-size: 18px;
+}
+#folioModalBody div.childrenDiv [name=fileName]{
+    height: 26px;
+}
+#folioModalBody div.p>i:nth-of-type(2){
+    margin-right: 5px;
+}
+/* ¡Ì¡Á °´Å¥*/
+.spanOption {
+    font-weight: 600;
+    color: #3b8cff;
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    display: inline-block;
+    font-family: verdana;
+    box-shadow: 0 0 1px 1px;
+    margin: 0 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.abcsadas{
+    color: rgb(246, 246, 246);
+}

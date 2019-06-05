@@ -26,6 +26,7 @@
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
         <!--3.3别名-->
         <property name="typeAliasesPackage" value="com.thumb.pojo"></property>
+
         <!--4.分页插件-->
         <property name="plugins">
             <array>
@@ -34,12 +35,13 @@
                         <!--使用下面的方式配置参数，一行配置一个 -->
                         <value>
                             params=value1
+                            pageSizeZero=true
+                            reasonable=true
                         </value>
                     </property>
                 </bean>
             </array>
         </property>
-
     </bean>
 
     <!-- 4、配置mybatis接口扫描器 -->
