@@ -20,7 +20,7 @@ import java.util.*;
 
 @Controller
 @RequestMapping("admin")
-public class OmsOrderController {
+public class AdminMainController {
 
     @Autowired
     OmsOrderService omsOrderService;
@@ -185,6 +185,32 @@ public class OmsOrderController {
     public Object countByEndTime(){
 
         BigDecimal bigDecimal = pmsProductService.countByEndTime();
+
+        return bigDecimal;
+    }
+
+    @ResponseBody
+    @RequestMapping("countByPublishStatus0")
+    public Object countByPublishStatus0(){
+
+        BigDecimal bigDecimal = pmsProductService.countByPublishStatus(0);
+
+        return bigDecimal;
+    }
+
+    @ResponseBody
+    @RequestMapping("countByPublishStatus1")
+    public Object countByPublishStatus1(){
+
+        BigDecimal bigDecimal = pmsProductService.countByPublishStatus(1);
+
+        return bigDecimal;
+    }
+    @ResponseBody
+    @RequestMapping("countAll")
+    public Object countAll(){
+
+        BigDecimal bigDecimal = pmsProductService.countAll();
 
         return bigDecimal;
     }

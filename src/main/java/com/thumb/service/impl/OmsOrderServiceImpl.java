@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.thumb.pojo.OmsOrder;
 import com.thumb.mapper.OmsOrderMapper;
-import com.thumb.service.AdminMainService;
+import com.thumb.service.OmsOrderService;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 @Service
-public class AdminMainServiceImpl implements AdminMainService {
+public class OmsOrderServiceImpl implements OmsOrderService {
 
     @Resource
     private OmsOrderMapper omsOrderMapper;
@@ -75,26 +75,11 @@ public class AdminMainServiceImpl implements AdminMainService {
         return bigDecimal;
     }
 
-    @Override
-    public BigDecimal countByLowStock() {
-
-        BigDecimal bigDecimal = omsOrderMapper.countByLowStock();
-
-        return bigDecimal;
-    }
 
     @Override
     public BigDecimal countByReturnApply(Integer status) {
 
         BigDecimal bigDecimal = omsOrderMapper.countByReturnApply(status);
-
-        return bigDecimal;
-    }
-
-    @Override
-    public BigDecimal countByEndTime() {
-
-        BigDecimal bigDecimal = omsOrderMapper.countByEndTime();
 
         return bigDecimal;
     }

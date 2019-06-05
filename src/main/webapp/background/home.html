@@ -596,14 +596,14 @@
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">新缺货登记</span>
-                                        <span id="lackStock" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
+                                        <span id="lackStock1"  data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待处理退款申请</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
+                                        <span id="TotalReturnApply1" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                             </div>
@@ -619,14 +619,14 @@
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">待处理退货订单</span>
-                                        <span id="TotalReturnApply" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
+                                        <span id="TotalReturnApply0" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                                 <div data-v-13e9f1ae="" class="el-col el-col-8"
                                      style="padding-left: 10px; padding-right: 10px;">
                                     <div data-v-13e9f1ae="" class="un-handle-item"><span data-v-13e9f1ae=""
                                                                                          class="font-medium">广告位即将到期</span>
-                                        <span data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
+                                        <span id="TotalByEndTime" data-v-13e9f1ae="" class="color-danger" style="float: right;"></span>
                                     </div>
                                 </div>
                             </div>
@@ -640,17 +640,17 @@
                                     <div data-v-13e9f1ae="" class="layout-title">商品总览</div>
                                     <div data-v-13e9f1ae="" style="padding: 40px;">
                                         <div data-v-13e9f1ae="" class="el-row">
-                                            <div data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">100
+                                            <div id="TotalByPublishStatus0" data-v-13e9f1ae=""
+                                                 class="color-danger overview-item-value el-col el-col-6">
                                             </div>
-                                            <div data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">400
+                                            <div id="TotalByPublishStatus1" data-v-13e9f1ae=""
+                                                 class="color-danger overview-item-value el-col el-col-6">
                                             </div>
-                                            <div data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">50
+                                            <div id="lackStock2" data-v-13e9f1ae=""
+                                                 class="color-danger overview-item-value el-col el-col-6">
                                             </div>
-                                            <div data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">500
+                                            <div id="allProduct" data-v-13e9f1ae=""
+                                                 class="color-danger overview-item-value el-col el-col-6">
                                             </div>
                                         </div>
                                         <div data-v-13e9f1ae="" class="font-medium el-row">
@@ -914,27 +914,100 @@
             type:"GET",
             contentType: "application/json",
             success: function (data) {
-
                 if (data != "") {
-                    $("#lackStock").text("(" + data + ")");
+                    $("#lackStock1").text("(" + data + ")");
+                    alert(data);
+                    $("#lackStock2").text(data);
                 } else {
-                    $("#lackStock").text("(" + 0 + ")");
+                    $("#lackStock1").text("(" + 0 + ")");
+                    $("#lackStock2").text(0);
                 }
             }
         });
 
         $.ajax({
-            url:"/admin/countByReturnApply",
+            url:"/admin/countByReturnApply?status=0",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+
+                if (data != "") {
+                    $("#TotalReturnApply0").text("(" + data + ")");
+                } else {
+                    $("#TotalReturnApply0").text("(" + 0 + ")");
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countByReturnApply?status=1",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+
+                if (data != "") {
+                    $("#TotalReturnApply1").text("(" + data + ")");
+                } else {
+                    $("#TotalReturnApply1").text("(" + 0 + ")");
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countByEndTime",
             type:"GET",
             contentType: "application/json",
             success: function (data) {
                 if (data != "") {
-                    $("#TotalReturnApply").text("(" + data + ")");
+                    $("#TotalByEndTime").text("(" + data + ")");
                 } else {
-                    $("#TotalReturnApply").text("(" + 0 + ")");
+                    $("#TotalByEndTime").text("(" + 0 + ")");
                 }
             }
         });
+        $.ajax({
+            url:"/admin/countByPublishStatus0",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+
+                if (data != "") {
+                    $("#TotalByPublishStatus0").text(data);
+                } else {
+                    $("#TotalByPublishStatus0").text(0);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countByPublishStatus1",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+
+                if (data != "") {
+                    $("#TotalByPublishStatus1").text(data);
+                } else {
+                    $("#TotalByPublishStatus1").text(0);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countAll",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+                    $("#allProduct").text(data);
+                } else {
+                    $("#allProduct").text(0);
+                }
+            }
+        });
+
+
+
 
 
     })
