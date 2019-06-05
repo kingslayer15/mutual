@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 @Controller
-//@RequestMapping("background")
 public class UmsAdminController {
     @Autowired
     UmsAdminService umsAdminService;
 
     /**
-     * 参数用了对象@param umsAdmin
-     * 存了管理员的session@param httpSession
-     * 返回布尔值@return
+     * 后台登录存session
+     * @param umsAdmin
+     * @param httpSession
+     * @return
      */
     @RequestMapping("backLoginController")
     @ResponseBody

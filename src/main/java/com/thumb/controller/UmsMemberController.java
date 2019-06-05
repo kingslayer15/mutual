@@ -50,6 +50,12 @@ public class UmsMemberController {
         return code;
     }
 
+    /**
+     * 注册会员,对比code,正确则插入,否则失败
+     * @param umsMemberDto
+     * @param httpSession
+     * @return
+     */
     @RequestMapping("regMember")
     @ResponseBody
     public String regMember(@RequestBody UmsMemberDto umsMemberDto, HttpSession httpSession) {
@@ -69,8 +75,5 @@ public class UmsMemberController {
         }
         System.out.println("code对比失败");
         return code;
-
     }
-
-
 }
