@@ -2,13 +2,16 @@ package com.thumb.controller;
 
 
 import com.thumb.dto.OrderStatusDto;
-import com.thumb.service.AdminMainService;
+import com.thumb.service.OmsOrderService;
+import com.thumb.service.PmsProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.support.HttpRequestHandlerServlet;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -20,7 +23,10 @@ import java.util.*;
 public class OmsOrderController {
 
     @Autowired
-    AdminMainService adminMainService;
+    OmsOrderService omsOrderService;
+
+    @Autowired
+    PmsProductService pmsProductService;
 
 
 
@@ -43,17 +49,13 @@ public class OmsOrderController {
         calendar.set(Calendar.SECOND,0);
         calendar.set(Calendar.MILLISECOND,0);
 
-
         Date starTime = calendar.getTime();
-
 
         calendar.add(Calendar.DAY_OF_MONTH,1);
 
         Date endTime = calendar.getTime();
 
-
-
-        Long aLong = adminMainService.countByCreateTime(starTime,endTime);
+        Long aLong = omsOrderService.countByCreateTime(starTime,endTime);
 
 
 
@@ -94,7 +96,7 @@ public class OmsOrderController {
 
         Date endTime = calendar.getTime();
 
-        BigDecimal totalAmount = adminMainService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
+        BigDecimal totalAmount = omsOrderService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
 
 
 
@@ -132,7 +134,7 @@ public class OmsOrderController {
 
         Date endTime = calendar.getTime();
 
-        BigDecimal totalAmount = adminMainService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
+        BigDecimal totalAmount = omsOrderService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
 
         return totalAmount;
     }
@@ -140,7 +142,7 @@ public class OmsOrderController {
     @ResponseBody
     @RequestMapping("countByStatus")
     public Object countByStatus(){
-        List<OrderStatusDto> orderStatusDtos = adminMainService.countByStatus();
+        List<OrderStatusDto> orderStatusDtos = omsOrderService.countByStatus();
         return orderStatusDtos;
     }
 
@@ -148,7 +150,7 @@ public class OmsOrderController {
     @RequestMapping("countByConfirm")
     public Object countByConfirm(){
 
-        BigDecimal bigDecimal = adminMainService.countByConfirm();
+        BigDecimal bigDecimal = omsOrderService.countByConfirm();
 
 
         return bigDecimal;
@@ -156,9 +158,9 @@ public class OmsOrderController {
 
     @ResponseBody
     @RequestMapping("countByLowStock")
-    public Object countByLowStock(){
+    public Object countByLowStock( ){
 
-        BigDecimal bigDecimal = adminMainService.countByLowStock();
+        BigDecimal bigDecimal = pmsProductService.countByLowStock();
 
         return bigDecimal;
     }
@@ -172,8 +174,7 @@ public class OmsOrderController {
     @RequestMapping(value = "countByReturnApply",method = RequestMethod.GET)
     public Object countByReturnApplyStatus(@RequestParam Integer status){
 
-
-        BigDecimal bigDecimal = adminMainService.countByReturnApply(status);
+        BigDecimal bigDecimal = omsOrderService.countByReturnApply(status);
 
         return bigDecimal;
     }
@@ -183,8 +184,7 @@ public class OmsOrderController {
     @RequestMapping("countByEndTime")
     public Object countByEndTime(){
 
-        BigDecimal bigDecimal = adminMainService.countByEndTime();
-
+        BigDecimal bigDecimal = pmsProductService.countByEndTime();
 
         return bigDecimal;
     }
