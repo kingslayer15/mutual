@@ -81,7 +81,7 @@
     </resultMap>
 
     <!--ums_member-->
-    <resultMap id="BaseResultMap" type="com.thumb.entity.pojo.UmsMember" >
+    <!--<resultMap id="umsMemberResultMap" type="com.thumb.entity.pojo.UmsMember" >
         <id column="id" property="id" jdbcType="BIGINT" />
         <result column="member_level_id" property="memberLevelId" jdbcType="BIGINT" />
         <result column="username" property="username" jdbcType="VARCHAR" />
@@ -101,7 +101,7 @@
         <result column="growth" property="growth" jdbcType="INTEGER" />
         <result column="luckey_count" property="luckeyCount" jdbcType="INTEGER" />
         <result column="history_integration" property="historyIntegration" jdbcType="INTEGER" />
-    </resultMap>
+    </resultMap>-->
 
     <!-- 订单的一对多产品项映射 -->
     <resultMap id="omsOrderCollectionItemMap" type="com.thumb.entity.pojo.OmsOrder">
@@ -178,9 +178,9 @@
     </resultMap>
 
     <!--订单的一对一用户映射-->
-    <resultMap id="omsOrder" type="com.thumb.entity.pojo.OmsOrder">
+    <!--<resultMap id="omsOrder" type="com.thumb.entity.pojo.OmsOrder">-->
 
-    </resultMap>
+    <!--</resultMap>-->
 
     <!-- 管理员查询数据库中所有的订单信息（单表查询） -->
     <select id="listAllOmsOrderByAdmin" resultMap="omsOrderResultMap">
@@ -190,53 +190,53 @@
     <!--根据查询条件筛选订单信息（只返回oms_order表）-->
     <select id="searchOmsOrder" resultMap="omsOrderResultMap" parameterType="com.thumb.entity.dto.SearchOmsOrder">
         SELECT
-        oo.id,
-        oo.member_id,
-        oo.coupon_id,
-        oo.order_sn,
-        oo.create_time,
-        oo.member_username,
-        oo.total_amount,
-        oo.pay_amount,
-        oo.freight_amount,
-        oo.promotion_amount,
-        oo.integration_amount,
-        oo.coupon_amount,
-        oo.discount_amount,
-        oo.pay_type,
-        oo.source_type,
-        oo. STATUS,
-        oo.order_type,
-        oo.delivery_company,
-        oo.delivery_sn,
-        oo.auto_confirm_day,
-        oo.integration,
-        oo.growth,
-        oo.promotion_info,
-        oo.bill_type,
-        oo.bill_header,
-        oo.bill_content,
-        oo.bill_receiver_phone,
-        oo.bill_receiver_email,
-        oo.receiver_name,
-        oo.receiver_phone,
-        oo.receiver_post_code,
-        oo.receiver_province,
-        oo.receiver_city,
-        oo.receiver_region,
-        oo.receiver_detail_address,
-        oo.note,
-        oo.confirm_status,
-        oo.delete_status,
-        oo.use_integration,
-        oo.payment_time,
-        oo.delivery_time,
-        oo.receive_time,
-        oo.comment_time,
-        oo.modify_time
+            oo.id,
+            oo.member_id,
+            oo.coupon_id,
+            oo.order_sn,
+            oo.create_time,
+            oo.member_username,
+            oo.total_amount,
+            oo.pay_amount,
+            oo.freight_amount,
+            oo.promotion_amount,
+            oo.integration_amount,
+            oo.coupon_amount,
+            oo.discount_amount,
+            oo.pay_type,
+            oo.source_type,
+            oo. STATUS,
+            oo.order_type,
+            oo.delivery_company,
+            oo.delivery_sn,
+            oo.auto_confirm_day,
+            oo.integration,
+            oo.growth,
+            oo.promotion_info,
+            oo.bill_type,
+            oo.bill_header,
+            oo.bill_content,
+            oo.bill_receiver_phone,
+            oo.bill_receiver_email,
+            oo.receiver_name,
+            oo.receiver_phone,
+            oo.receiver_post_code,
+            oo.receiver_province,
+            oo.receiver_city,
+            oo.receiver_region,
+            oo.receiver_detail_address,
+            oo.note,
+            oo.confirm_status,
+            oo.delete_status,
+            oo.use_integration,
+            oo.payment_time,
+            oo.delivery_time,
+            oo.receive_time,
+            oo.comment_time,
+            oo.modify_time
         FROM
-        oms_order oo,
-        ums_member um
+            oms_order oo,
+            ums_member um
         <where>
             and um.id = oo.member_id
             <if test="order_sn != '' and order_sn != null">
@@ -332,5 +332,43 @@
             oo.id = #{id}
     </select>
 
+
+    <!--订单设置-->
+    <resultMap id="omsOrderSettingResultMap" type="com.thumb.entity.pojo.OmsOrderSetting">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="flash_order_overtime" jdbcType="INTEGER" property="flashOrderOvertime" />
+        <result column="normal_order_overtime" jdbcType="INTEGER" property="normalOrderOvertime" />
+        <result column="confirm_overtime" jdbcType="INTEGER" property="confirmOvertime" />
+        <result column="finish_overtime" jdbcType="INTEGER" property="finishOvertime" />
+        <result column="comment_overtime" jdbcType="INTEGER" property="commentOvertime" />
+    </resultMap>
+
+    <!--获取订单的设置信息-->
+    <select id="getOmsOrderSetting" resultMap="omsOrderSettingResultMap">
+        select * from oms_order_setting where id = 1
+    </select>
+
+    <!--修改订单设置内容-->
+    <update id="updateOmsOrderSetting" parameterType="com.thumb.entity.dto.UpdateOmsOrderSetting">
+        update oms_order_setting
+        <set>
+            <if test="flash_order_overtime!=null and flash_order_overtime!=''">
+                flash_order_overtime = #{flash_order_overtime},
+            </if>
+            <if test="normal_order_overtime!=null and normal_order_overtime!=''">
+                normal_order_overtime = #{normal_order_overtime},
+            </if>
+            <if test="confirm_overtime!=null and confirm_overtime!=''">
+                confirm_overtime = #{confirm_overtime},
+            </if>
+            <if test="finish_overtime!=null and finish_overtime!=''">
+                finish_overtime = #{finish_overtime},
+            </if>
+            <if test="comment_overtime!=null and comment_overtime!=''">
+                comment_overtime = #{comment_overtime},
+            </if>
+        </set>
+        where id = 1
+    </update>
 
 </mapper>

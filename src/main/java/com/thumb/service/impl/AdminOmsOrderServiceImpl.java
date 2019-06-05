@@ -1,7 +1,9 @@
 package com.thumb.service.impl;
 
 import com.thumb.entity.dto.SearchOmsOrder;
+import com.thumb.entity.dto.UpdateOmsOrderSetting;
 import com.thumb.entity.pojo.OmsOrder;
+import com.thumb.entity.pojo.OmsOrderSetting;
 import com.thumb.mapper.AdminOmsOrderMapper;
 import com.thumb.service.AdminOmsOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,11 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
         return adminOmsOrderMapper.searchOmsOrder(searchOmsOrder);
     }
 
-
+    /**
+     * 根据订单的id获取订单详情
+     * @param omsOrderId
+     * @return
+     */
     @Override
     public OmsOrder getOmsOrderById(int omsOrderId) {
         return adminOmsOrderMapper.getOmsOrderById(omsOrderId);
@@ -47,6 +53,26 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
      */
     @Override
     public int deleteOmsOrderById(int omsOrderId) {
-        return adminOmsOrderMapper.deleteOmsOrderById(omsOrderId);
+//        return adminOmsOrderMapper.deleteOmsOrderById(omsOrderId);
+        return 0;
+    }
+
+    /**
+     * 获取订单的设置内容
+     * @return
+     */
+    @Override
+    public OmsOrderSetting getOmsOrderSetting() {
+        return adminOmsOrderMapper.getOmsOrderSetting();
+    }
+
+    /**
+     * 修改订单的设置内容
+     * @param updateOmsOrderSetting
+     * @return
+     */
+    @Override
+    public int updateOmsOrderSetting(UpdateOmsOrderSetting updateOmsOrderSetting) {
+        return adminOmsOrderMapper.updateOmsOrderSetting(updateOmsOrderSetting);
     }
 }

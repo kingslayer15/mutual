@@ -1,8 +1,10 @@
 package com.thumb.controller;
 
 import com.thumb.entity.dto.SearchOmsOrder;
+import com.thumb.entity.dto.UpdateOmsOrderSetting;
 import com.thumb.entity.pojo.OmsOrder;
 import com.thumb.entity.pojo.OmsOrderItem;
+import com.thumb.entity.pojo.OmsOrderSetting;
 import com.thumb.mapper.AdminOmsOrderMapper;
 import com.thumb.service.AdminOmsOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,4 +74,31 @@ public class AdminOmsOrderController {
         return i;
     }
 
+    /**
+     * 获取订单的设置内容
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("getOmsOrderSetting")
+    public Object getOmsOrderSetting() {
+        OmsOrderSetting omsOrderSetting = adminOmsOrderService.getOmsOrderSetting();
+        System.out.println(omsOrderSetting);
+        return omsOrderSetting;
+    }
+
+    /**
+     * 修改订单的设置内容
+     * @param updateOmsOrderSetting
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("updateOmsOrderSetting")
+    public Object updateOmsOrderSetting(@RequestBody UpdateOmsOrderSetting updateOmsOrderSetting) {
+        System.out.println(updateOmsOrderSetting);
+        int i = adminOmsOrderService.updateOmsOrderSetting(updateOmsOrderSetting);
+        return i;
+    }
+
+
 }
+
