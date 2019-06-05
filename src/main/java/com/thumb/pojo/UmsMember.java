@@ -100,8 +100,5 @@ public class UmsMember {
     * 注册邮箱
     */
     private String regemail;
-    /**
-     * 注册验证码
-     */
-    private String regCode;
+
 }

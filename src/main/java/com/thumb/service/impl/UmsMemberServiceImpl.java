@@ -14,6 +14,7 @@ import com.thumb.pojo.UmsMember;
 import com.thumb.service.UmsMemberService;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 @Service
 public class UmsMemberServiceImpl implements UmsMemberService{
@@ -74,6 +75,24 @@ public class UmsMemberServiceImpl implements UmsMemberService{
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public BigDecimal countByCreateTime(Integer dayNum) {
+        BigDecimal bigDecimal = umsMemberMapper.countByCreateTime(dayNum);
+        return bigDecimal;
+    }
+
+    @Override
+    public BigDecimal countByCreateTimeMonth() {
+        BigDecimal bigDecimal = umsMemberMapper.countByCreateTimeMonth();
+        return bigDecimal;
+    }
+
+    @Override
+    public Long countAll(){
+        Long count = umsMemberMapper.countAll();
+        return count;
     }
 
 }

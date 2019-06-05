@@ -672,17 +672,17 @@
                                     <div data-v-13e9f1ae="" class="layout-title">用户总览</div>
                                     <div data-v-13e9f1ae="" style="padding: 40px;">
                                         <div data-v-13e9f1ae="" class="el-row">
-                                            <div data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">100
+                                            <div id="todayNewMember" data-v-13e9f1ae=""
+                                                 class="color-danger overview-item-value el-col el-col-6">
                                             </div>
-                                            <div data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">200
+                                            <div id="yesterdayNewMember" data-v-13e9f1ae=""
+                                                 class="color-danger overview-item-value el-col el-col-6">
                                             </div>
-                                            <div data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">1000
+                                            <div id="monthNewMember" data-v-13e9f1ae=""
+                                                 class="color-danger overview-item-value el-col el-col-6">
                                             </div>
-                                            <div data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">5000
+                                            <div id="totalMember" data-v-13e9f1ae=""
+                                                 class="color-danger overview-item-value el-col el-col-6">
                                             </div>
                                         </div>
                                         <div data-v-13e9f1ae="" class="font-medium el-row">
@@ -709,11 +709,11 @@
                                         <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
                                             本月订单总数
                                         </div>
-                                        <div data-v-13e9f1ae=""
-                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">10000
+                                        <div id="thisMonthOrder" data-v-13e9f1ae=""
+                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
                                         </div>
-                                        <div data-v-13e9f1ae=""><span data-v-13e9f1ae="" class="color-success"
-                                                                      style="font-size: 14px;">+10%</span> <span
+                                        <div data-v-13e9f1ae=""><span id="lastMonthOrder" data-v-13e9f1ae="" class="color-success"
+                                                                      style="font-size: 14px;"></span> <span
                                                 data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上月</span>
                                         </div>
                                     </div>
@@ -721,11 +721,11 @@
                                         <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
                                             本周订单总数
                                         </div>
-                                        <div data-v-13e9f1ae=""
-                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">1000
+                                        <div id="thisWeekOrder" data-v-13e9f1ae=""
+                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
                                         </div>
-                                        <div data-v-13e9f1ae=""><span data-v-13e9f1ae="" class="color-danger"
-                                                                      style="font-size: 14px;">-10%</span> <span
+                                        <div data-v-13e9f1ae=""><span id="lastWeekOrder" data-v-13e9f1ae="" class="color-danger"
+                                                                      style="font-size: 14px;"></span> <span
                                                 data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上周</span>
                                         </div>
                                     </div>
@@ -1005,6 +1005,119 @@
                 }
             }
         });
+
+        $.ajax({
+            url:"/admin/countByCreateTime?dayNum=0",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+                    $("#todayNewMember").text(data);
+                } else {
+                    $("#todayNewMember").text(0);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countByCreateTime?dayNum=1",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+
+                    $("#yesterdayNewMember").text(data);
+                } else {
+                    $("#yesterdayNewMember").text(0);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countByCreateTimeMonth",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+
+                    $("#monthNewMember").text(data);
+                } else {
+                    $("#monthNewMember").text(0);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countMemberAll",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+
+                    $("#totalMember").text(data);
+                } else {
+                    $("#totalMember").text(0);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countOrderByCreateTimeThisMonth",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+
+                    $("#thisMonthOrder").text(data);
+                } else {
+                    $("#thisMonthOrder").text(0);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countOrderByCreateTimeLastMonth",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+
+                    $("#lastMonthOrder").text(data + "%");
+                } else {
+                    $("#lastMonthOrder").text(0 + "%");
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countOrderByCreateTimeWeek",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+                if (data != "") {
+
+                    $("#thisWeekOrder").text(data);
+                } else {
+                    $("#thisWeekOrder").text(0);
+                }
+            }
+        });
+
+        $.ajax({
+            url:"/admin/countOrderByCreateTimeLastWeek",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+
+                if (data != "") {
+                    $("#lastWeekOrder").text(data + "%");
+                } else {
+                    $("#lastWeekOrder").text(0 + "%");
+                }
+            }
+        });
+
+
 
 
 

@@ -1,6 +1,9 @@
 package com.thumb.service;
 
 import com.thumb.pojo.UmsMember;
+
+import java.math.BigDecimal;
+
 public interface UmsMemberService{
 
 
@@ -21,4 +24,12 @@ public interface UmsMemberService{
      * @param regEmail 发送注册验证码给会员
      */
     void sendEmail(String regEmail);
+
+    BigDecimal countByCreateTime(Integer dayNum);
+
+    BigDecimal countByCreateTimeMonth();
+
+    Long countAll();
+
+
 }

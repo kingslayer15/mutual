@@ -49,28 +49,30 @@ public class UmsMemberController {
         }
     }
 
-    @RequestMapping("regMember")
-    @ResponseBody
-    public boolean regMember(@RequestBody UmsMember umsMember,HttpSession httpSession) {
-        System.out.println(umsMember);
-        //从session取code
-        String code = (String) httpSession.getAttribute("code");
-        System.out.println("session拿到"+code);
+//    @RequestMapping("regMember")
+//    @ResponseBody
+//    public boolean regMember(@RequestBody UmsMemberDto umsMemberDto,HttpSession httpSession) {
+//        System.out.println(umsMemberDto);
+//        //从session取code
+//        String code = (String) httpSession.getAttribute("code");
+//        System.out.println("session拿到"+code);
+//
+//        //从前端拿到code
+//        String regCode = umsMemberDto.getRegCode();
+//        System.out.println("前端"+code);
+//        //比较code
+//        if (code.equals(regCode)) {
+//            System.out.println("code对比成功");
+//            boolean i = umsMemberService.insert(umsMemberDto);
+//            System.out.println(i);
+//            return true;
+//        }
+//        System.out.println("code对比失败");
+//        return false;
+//
+//    }
 
-        //从前端拿到code
-        String regCode = umsMember.getRegCode();
-        System.out.println("前端"+code);
-        //比较code
-        if (code.equals(regCode)) {
-            System.out.println("code对比成功");
-            boolean i = umsMemberService.insert(umsMember);
-            System.out.println(i);
-            return true;
-        }
-        System.out.println("code对比失败");
-        return false;
 
-    }
 
 
 }
