@@ -1,10 +1,9 @@
 package com.thumb.mapper;
-import org.apache.ibatis.annotations.Param;
 
+import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public interface UmsMemberMapper {
     int deleteByPrimaryKey(Long id);
@@ -18,6 +17,12 @@ public interface UmsMemberMapper {
     int updateByPrimaryKeySelective(UmsMember record);
 
     int updateByPrimaryKey(UmsMember record);
+
+    /**
+     * @param umsMemberDto 注册会员,插入用户名,密码,邮箱
+     * @return
+     */
+    int insertReg(UmsMemberDto umsMemberDto);
 
     BigDecimal countByCreateTime(Integer dayNum);
 

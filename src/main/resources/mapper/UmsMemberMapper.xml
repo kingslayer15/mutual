@@ -59,6 +59,10 @@
       #{luckeyCount,jdbcType=INTEGER}, #{historyIntegration,jdbcType=INTEGER}, #{regemail,jdbcType=VARCHAR}
       )
   </insert>
+    <insert id="insertReg" parameterType="com.thumb.dto.UmsMemberDto">
+        insert into ums_member (username,password,regemail)
+        values (#{username},#{password},#{regemail})
+    </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.thumb.pojo.UmsMember">
     <!--@mbg.generated-->
     update ums_member

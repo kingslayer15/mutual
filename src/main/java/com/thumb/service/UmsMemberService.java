@@ -1,5 +1,6 @@
 package com.thumb.service;
 
+import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
 
 import java.math.BigDecimal;
@@ -30,6 +31,8 @@ public interface UmsMemberService{
     BigDecimal countByCreateTimeMonth();
 
     Long countAll();
+
+    boolean insertReg(UmsMemberDto umsMemberDto);
 
 
 }

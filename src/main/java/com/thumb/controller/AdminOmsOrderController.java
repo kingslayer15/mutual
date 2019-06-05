@@ -1,7 +1,11 @@
 package com.thumb.controller;
 
 import com.thumb.entity.dto.SearchOmsOrder;
+import com.thumb.entity.dto.UpdateOmsOrderSetting;
 import com.thumb.entity.pojo.OmsOrder;
+import com.thumb.entity.pojo.OmsOrderItem;
+import com.thumb.entity.pojo.OmsOrderSetting;
+import com.thumb.mapper.AdminOmsOrderMapper;
 import com.thumb.service.AdminOmsOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,13 +22,6 @@ public class AdminOmsOrderController {
 
     @Autowired
     AdminOmsOrderService adminOmsOrderService;
-
-    @RequestMapping("t")
-    public String test(@RequestParam String t) {
-        t = "WEB-INF/background/" + t;
-        System.out.println("跳转网页：" + t);
-        return t;
-    }
 
     /**
      * 管理员查询数据库中所有的订单信息
@@ -47,8 +44,8 @@ public class AdminOmsOrderController {
     @RequestMapping("searchOmsOrder")
     public List<OmsOrder> searchOmsOrder(@RequestBody SearchOmsOrder searchOmsOrder) {
         List<OmsOrder> omsOrderLists = adminOmsOrderService.searchOmsOrder(searchOmsOrder);
-//        System.out.println(searchOmsOrder);
-//        System.out.println(omsOrderLists);
+        System.err.println(searchOmsOrder);
+        System.err.println(omsOrderLists);
         return omsOrderLists;
     }
 
@@ -60,6 +57,7 @@ public class AdminOmsOrderController {
     @ResponseBody
     @RequestMapping("showOmsOrderById")
     public OmsOrder showOmsOrderById(@RequestParam int omsOrderId) {
+        System.err.println("showOmsOrderById = " + omsOrderId);
         OmsOrder omsOrder = adminOmsOrderService.getOmsOrderById(omsOrderId);
         System.out.println(omsOrder);
         return omsOrder;
@@ -76,4 +74,31 @@ public class AdminOmsOrderController {
         return i;
     }
 
+    /**
+     * 获取订单的设置内容
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("getOmsOrderSetting")
+    public Object getOmsOrderSetting() {
+        OmsOrderSetting omsOrderSetting = adminOmsOrderService.getOmsOrderSetting();
+        System.out.println(omsOrderSetting);
+        return omsOrderSetting;
+    }
+
+    /**
+     * 修改订单的设置内容
+     * @param updateOmsOrderSetting
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("updateOmsOrderSetting")
+    public Object updateOmsOrderSetting(@RequestBody UpdateOmsOrderSetting updateOmsOrderSetting) {
+        System.out.println(updateOmsOrderSetting);
+        int i = adminOmsOrderService.updateOmsOrderSetting(updateOmsOrderSetting);
+        return i;
+    }
+
+
 }
+

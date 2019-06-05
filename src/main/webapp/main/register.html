@@ -26,12 +26,13 @@
 					
 					<div class="username">确认密码:&nbsp;&nbsp;<input id="repassword" class="shurukuang" type="password" name="repassword" placeholder="请确认你的密码"/><span>两次密码要输入一致哦</span></div>
 					<div class="username">邮箱地址:&nbsp;&nbsp;<input id="regEmail" class="shurukuang" type="text" name="regemail" placeholder="请填写正确的邮箱地址"/>
-                        <button name="getcode" type="button" class="feachBtn">获取验证码</button>
-                        <span type="h" id="tips">填写下邮箱地址，方便我们联系您！</span>
+                        <button id="getCode" name="getcode" type="button" class="feachBtn">获取验证码</button>
+                        <span id="tips">填写下邮箱地址，方便我们联系您！</span>
                     </div>
 
 					<div class="username">
-						<div class="left fl">验&nbsp;&nbsp;证&nbsp;&nbsp;码:&nbsp;&nbsp;<input id="regCode" class="yanzhengma" type="text" name="regcode" placeholder="输入邮箱验证码"/></div>
+						<div class="left fl">验&nbsp;&nbsp;证&nbsp;&nbsp;码:&nbsp;&nbsp;<input id="regCode" class="yanzhengma" type="text" name="regcode" placeholder="输入邮箱验证码"/>
+                        <span id="codeTips"></span></div>
 						<div class="right fl"><!--<img src="../static/image/yanzhengma.jpg">--></div>
 						<div class="clear"></div>
 					</div>
@@ -75,14 +76,14 @@
                         }
                         count--;
                     }, 1000);
-                    $("#tips").text('验证码已发送,请查看邮箱');
 
                     $.ajax({
                         type: 'get',
                         url: "/getValidCode?regEmail="+regEmailVal,
                         contentType:"application/json",
-                        dataType: "json"
+                        dataType: "json",
                     });
+                    $("#tips").text('验证码已发送,请查看邮箱');
                 }
             });
 
@@ -108,7 +109,7 @@
                         },
                         regcode: {
                             required: true,
-                            minlength:6
+                            minlength:6,
                         },
                     },
                     messages: {
@@ -132,6 +133,7 @@
                         },
                     },
 
+
                     submitHandler: function (form) { //通过之后回调
                         $.ajax({
                             type:"post",
@@ -144,26 +146,28 @@
                                 "regCode": $("#regCode").val()
                             }),
                             success: function (data) {
-                                alert("true")
+                                //获取用户验证码
+                                var regCodeVal = $("#regCode").val();
+                                //如果验证码跟后台不一样
+                                if (data != regCodeVal) {
+                                    $("#codeTips").text("验证码错误");
+                                    return false;
+                                }
+                                alert("注册成功");
                                 console.log(data); //  2pm
-                                window.location.href = "main/index.html";
+                                window.location.href = "login.html";
                             },
                             error: function (data) {
-                                alert("false")
                                 console.log(data);
                             },
                             dataType: "json"
                         });
-                        alert("注册成功");
-                        window.location.href="login.html"
-
                     },
 
                     invalidHandler: function(form, validator) {
                         alert("注册失败");
                         return false;
                     }
-
                 })
             });
 

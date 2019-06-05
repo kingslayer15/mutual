@@ -1,5 +1,6 @@
 package com.thumb.controller;
 
+import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
 import com.thumb.service.UmsMemberService;
 import com.thumb.utility.email.CodeUtils;
@@ -49,30 +50,32 @@ public class UmsMemberController {
         }
     }
 
-//    @RequestMapping("regMember")
-//    @ResponseBody
-//    public boolean regMember(@RequestBody UmsMemberDto umsMemberDto,HttpSession httpSession) {
-//        System.out.println(umsMemberDto);
-//        //从session取code
-//        String code = (String) httpSession.getAttribute("code");
-//        System.out.println("session拿到"+code);
-//
-//        //从前端拿到code
-//        String regCode = umsMemberDto.getRegCode();
-//        System.out.println("前端"+code);
-//        //比较code
-//        if (code.equals(regCode)) {
-//            System.out.println("code对比成功");
-//            boolean i = umsMemberService.insert(umsMemberDto);
-//            System.out.println(i);
-//            return true;
-//        }
-//        System.out.println("code对比失败");
-//        return false;
-//
-//    }
+    /**
+     * 注册会员,对比code,正确则插入,否则失败
+     * @param umsMemberDto
+     * @param httpSession
+     * @return
+     */
+    @RequestMapping("regMember")
+    @ResponseBody
+    public String regMember(@RequestBody UmsMemberDto umsMemberDto, HttpSession httpSession) {
+        System.out.println(umsMemberDto);
+        //从session取code
+        String code = (String) httpSession.getAttribute("code");
+        System.out.println("session拿到"+code);
 
-
+        //从前端拿到code
+        String regCode = umsMemberDto.getRegCode();
+        System.out.println("前端"+regCode);
+        //比较code
+        if (code.equals(regCode)) {
+            System.out.println("code对比成功");
+            boolean i = umsMemberService.insertReg(umsMemberDto);
+            System.out.println(i);
+        }
+        System.out.println("code对比失败");
+        return code;
+    }
 
 
 }
