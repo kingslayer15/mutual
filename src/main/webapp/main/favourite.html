@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="order by dede58.com"/>
+    <title>Mutual商城-个人中心</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-fileinput.css">
+    <script src="jquery/jquery-2.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap-fileinput.js"></script>
+
+</head>
+
+<style>
+    .gzxx {font-size: 15px;font-weight: bold;color:rgb(117,117,117);width: 70px;display: inline-block}
+
+</style>
+<body>
+
+<!-- start header -->
+<header id="header">
+
+
+</header>
+<!--end header -->
+<!-- start banner_x -->
+<div class="banner_x center">
+    <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
+    <a href=""><div class="ad_top fl"></div></a>
+    <div class="nav fl">
+        <ul>
+            <li><a href="">商城首页 </a></li>
+
+        </ul>
+    </div>
+    <div class="search fr">
+        <form action="" method="post">
+            <div class="text fl">
+                <input type="text" class="shuru"  placeholder="输入关键字查询宝贝">
+            </div>
+            <div class="submit fl">
+                <input type="submit" class="sousuo" value="搜索"/>
+            </div>
+            <div class="clear"></div>
+        </form>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- end banner_x -->
+<!-- self_info -->
+<div class="grzxbj">
+    <div class="selfinfo center">
+        <div class="lfnav fl" style="height: 700px">
+            <div class="ddzx" style="height: 20px">个人中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="./self_info.html" >我的信息</a></li>
+                    <li><a href="./self_info_edit.html">修改信息</a></li>
+                    <li><a href="./self_info_pwd_edit.html">修改密码</a></li>
+                    <li><a href="">优惠券</a></li>
+                    <li><a href="">收货地址</a></li>
+                    <li><a href="">我的积分</a></li>
+                </ul>
+            </div>
+            <div class="ddzx" style="height: 20px">订单中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="">我的订单</a></li>
+                    <li><a href="">我的购物车</a></li>
+                    <li><a href="">我的收藏</a></li>
+                    <li><a href="footprint.html">我的足迹</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
+            <div class="grzlbt ml40">我的收藏</div>
+
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- self_info -->
+
+<footer class="mt20 center">
+    <div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+    <div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
+    <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+</footer>
+
+
+<script src="jquery/jquery-2.1.1.min.js"></script>
+<script>
+
+
+    $(function () {
+        $("#header").load("header.html");
+    })
+
+    //获取用户id
+    var userId;
+    function getUserId() {
+        userId=window.location.search.split("=")[1]
+        // alert(userId)
+    }
+    getUserId();
+    //根据id获取用户信息
+    function getUserInfoById() {
+        $.ajax({
+            url:'/userInfoById?userId='+userId,
+            type:'GET', //GET
+            contentType:"application/json",
+            dataType:'json',
+            success:function(data){
+                console.log(data)
+
+                $("#phone").html(data.phone);
+                $("#personalized_signature").html(data.personalized_signature);
+                $("#job").html(data.job);
+                $("#city").html(data.city);
+
+            },
+            error:function(data){
+                console.error(data);
+            }
+        })
+    }
+    getUserInfoById();
+
+    function toEdit() {
+        var url="self_info_edit.html";
+        window.location.href=url;
+    }
+
+
+
+</script>
+</body>
+</html>
