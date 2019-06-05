@@ -1,6 +1,5 @@
 package com.thumb.controller;
 
-import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
 import com.thumb.service.UmsMemberService;
 import com.thumb.utility.email.CodeUtils;
@@ -50,6 +49,7 @@ public class UmsMemberController {
         }
     }
 
+
     /**
      * 注册会员,对比code,正确则插入,否则失败
      * @param umsMemberDto
@@ -76,6 +76,8 @@ public class UmsMemberController {
         System.out.println("code对比失败");
         return code;
     }
+
+
 
 
 }

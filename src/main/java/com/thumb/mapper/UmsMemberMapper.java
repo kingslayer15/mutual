@@ -17,6 +17,12 @@ public interface UmsMemberMapper {
     int updateByPrimaryKeySelective(UmsMember record);
 
     int updateByPrimaryKey(UmsMember record);
+    /**
+     * @param umsMemberDto 注册会员,插入用户名,密码,邮箱
+     * @return
+     */
+    int insertReg(UmsMemberDto umsMemberDto);
+
 
     /**
      * @param umsMemberDto 注册会员,插入用户名,密码,邮箱
@@ -29,6 +35,4 @@ public interface UmsMemberMapper {
     BigDecimal countByCreateTimeMonth();
 
     Long countAll();
-
-
 }
