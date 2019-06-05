@@ -1,6 +1,6 @@
 package com.thumb.controller;
 
-import com.thumb.pojo.UmsMember;
+import com.thumb.dto.UmsMemberDto;
 import com.thumb.service.UmsMemberService;
 import com.thumb.utility.email.CodeUtils;
 import com.thumb.utility.email.SendEmailUtil;
@@ -52,19 +52,19 @@ public class UmsMemberController {
 
     @RequestMapping("regMember")
     @ResponseBody
-    public String regMember(@RequestBody UmsMember umsMember,HttpSession httpSession) {
-        System.out.println(umsMember);
+    public String regMember(@RequestBody UmsMemberDto umsMemberDto, HttpSession httpSession) {
+        System.out.println(umsMemberDto);
         //从session取code
         String code = (String) httpSession.getAttribute("code");
         System.out.println("session拿到"+code);
 
         //从前端拿到code
-        String regCode = umsMember.getRegCode();
+        String regCode = umsMemberDto.getRegCode();
         System.out.println("前端"+regCode);
         //比较code
         if (code.equals(regCode)) {
             System.out.println("code对比成功");
-            boolean i = umsMemberService.insert(umsMember);
+            boolean i = umsMemberService.insertReg(umsMemberDto);
             System.out.println(i);
         }
         System.out.println("code对比失败");

@@ -1,5 +1,6 @@
 package com.thumb.service;
 
+import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
 public interface UmsMemberService{
 
@@ -21,4 +22,7 @@ public interface UmsMemberService{
      * @param regEmail 发送注册验证码给会员
      */
     void sendEmail(String regEmail);
+
+    boolean insertReg(UmsMemberDto umsMemberDto);
+
 }

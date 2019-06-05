@@ -1,5 +1,6 @@
 package com.thumb.service.impl;
 
+import com.thumb.dto.UmsMemberDto;
 import com.thumb.utility.MD5Utils;
 import com.thumb.utility.email.CodeUtils;
 import com.thumb.utility.email.SendEmailUtil;
@@ -76,4 +77,12 @@ public class UmsMemberServiceImpl implements UmsMemberService{
 
     }
 
+    public boolean insertReg(UmsMemberDto umsMemberDto) {
+        umsMemberDto.setPassword(MD5Utils.myEncode(umsMemberDto.getPassword()));
+        int i = umsMemberMapper.insertReg(umsMemberDto);
+        if (i > 0) {
+            return true;
+        }
+        return false;
+    }
 }
