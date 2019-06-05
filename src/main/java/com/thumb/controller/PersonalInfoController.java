@@ -34,6 +34,7 @@ public class PersonalInfoController {
         System.out.println(uid);
         System.out.println(personalInfoService.userInfoById(uid));
         return personalInfoService.userInfoById(uid);
+
     }
 
     @ResponseBody
