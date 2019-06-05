@@ -64,7 +64,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.15</version>
+            <version>5.1.45</version>
         </dependency>
         <!--观察待定-->
         <dependency>
@@ -185,6 +185,14 @@
             <artifactId>pagehelper</artifactId>
             <version>5.1.8</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+        <!--邮箱验证依赖-->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
 
     </dependencies>
 
