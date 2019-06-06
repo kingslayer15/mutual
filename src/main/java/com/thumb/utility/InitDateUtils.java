@@ -49,13 +49,17 @@ public class InitDateUtils {
      */
     public static ArrayList getInitMonthDates(int monthNum) {
 
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
         Calendar calendar = Calendar.getInstance();
 
         calendar.setTime(new Date());
 
+        calendar.add(Calendar.MONTH,monthNum);
 
-        calendar.set(Calendar.MONTH,monthNum);
-        calendar.set(Calendar.DAY_OF_MONTH,0);
+        calendar.set(Calendar.DAY_OF_MONTH,1);
+
         calendar.set(Calendar.HOUR_OF_DAY,0);
         calendar.set(Calendar.MINUTE,0);
         calendar.set(Calendar.SECOND,0);
@@ -63,7 +67,6 @@ public class InitDateUtils {
 
 
         Date starTime = calendar.getTime();
-
 
         calendar.add(Calendar.MONTH,1);
         calendar.add(Calendar.MILLISECOND,-1);
@@ -88,6 +91,8 @@ public class InitDateUtils {
         calendar.setTime(new Date());
 
 
+        calendar.add(Calendar.DAY_OF_MONTH,backDayNum * 7);
+
         calendar.set(Calendar.DAY_OF_WEEK,1);
         calendar.set(Calendar.HOUR_OF_DAY,0);
         calendar.set(Calendar.MINUTE,0);
@@ -96,13 +101,12 @@ public class InitDateUtils {
 
         Date starTime = calendar.getTime();
 
-
         calendar.add(Calendar.DAY_OF_MONTH,7);
         calendar.add(Calendar.MILLISECOND,-1);
 
+
+
         Date endTime = calendar.getTime();
-
-
 
         ArrayList<Date> dates = new ArrayList<>();
         dates.add(starTime);

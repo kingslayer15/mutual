@@ -736,11 +736,11 @@
                                         <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
                                             本月销售总额
                                         </div>
-                                        <div data-v-13e9f1ae=""
-                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">100000
+                                        <div id="thisMonthAmount" data-v-13e9f1ae=""
+                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
                                         </div>
-                                        <div data-v-13e9f1ae=""><span data-v-13e9f1ae="" class="color-success"
-                                                                      style="font-size: 14px;">+10%</span> <span
+                                        <div data-v-13e9f1ae=""><span id="lastMonthAmount" data-v-13e9f1ae="" class="color-success"
+                                                                      style="font-size: 14px;"></span> <span
                                                 data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上月</span>
                                         </div>
                                     </div>
@@ -748,11 +748,11 @@
                                         <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
                                             本周销售总额
                                         </div>
-                                        <div data-v-13e9f1ae=""
-                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">50000
+                                        <div id="thisWeekAmount" data-v-13e9f1ae=""
+                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
                                         </div>
-                                        <div data-v-13e9f1ae=""><span data-v-13e9f1ae="" class="color-danger"
-                                                                      style="font-size: 14px;">-10%</span> <span
+                                        <div data-v-13e9f1ae=""><span id="lastWeekAmount" data-v-13e9f1ae="" class="color-danger"
+                                                                      style="font-size: 14px;"></span> <span
                                                 data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上周</span>
                                         </div>
                                     </div>
@@ -848,13 +848,13 @@
             type: 'value'
         },
         series: [{
-            name:"邮件营销",
+            name:"OrderCount",
             data: [820, 932, 901, 934, 11, 111, 111],
             type: 'line',
             smooth: true
         },
             {
-                name:"联盟广告",
+                name:"OrderAmount",
                 data: [841, 912, 111, 111, 321, 111, 111],
                 type: 'line',
 

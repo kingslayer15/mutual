@@ -310,6 +310,66 @@ $(function () {
         }
     });
 
+    $.ajax({
+        url:"/admin/sumAmountThisMonth",
+        type:"GET",
+        contentType: "application/json",
+        success: function (data) {
+
+
+            if (data != "") {
+
+                $("#thisMonthAmount").text(data);
+            } else {
+                $("#thisMonthAmount").text(0);
+            }
+        }
+    });
+
+    $.ajax({
+        url:"/admin/sumAmountLastMonth",
+        type:"GET",
+        contentType: "application/json",
+        success: function (data) {
+            if (data != "") {
+                $("#lastMonthAmount").text(data + "%");
+            } else {
+                $("#lastMonthAmount").text(0 + "%");
+            }
+        }
+    });
+
+    $.ajax({
+        url:"/admin/sumAmountThisWeek",
+        type:"GET",
+        contentType: "application/json",
+        success: function (data) {
+
+
+            if (data != "") {
+
+                $("#thisWeekAmount").text(data);
+            } else {
+                $("#thisWeekAmount").text(0);
+            }
+        }
+    });
+
+    $.ajax({
+        url:"/admin/sumAmountLastWeek",
+        type:"GET",
+        contentType: "application/json",
+        success: function (data) {
+
+
+            if (data != "") {
+                $("#lastWeekAmount").text(data + "%");
+            } else {
+                $("#lastWeekAmount").text(0 + "%");
+            }
+        }
+    });
+
 
 
 
