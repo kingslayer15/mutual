@@ -22,7 +22,7 @@ public interface OmsOrderMapper {
 
     int updateByPrimaryKey(OmsOrder record);
 
-    Long countByCreateTime(@Param("starTime") Date starTime,@Param("endTime") Date endTime);
+    BigDecimal countByCreateTime(@Param("starTime") Date starTime,@Param("endTime") Date endTime);
 
 
     BigDecimal findSumTotalAmountByStatusAndCreateTimeBetween(@Param("starTime")Date starTime,@Param("endTime")Date endTime);
@@ -35,6 +35,8 @@ public interface OmsOrderMapper {
 
 
     BigDecimal countByReturnApply(@Param("status") Integer status);
+
+    BigDecimal countOderByCreateTime(Integer dayNum);
 
 
 

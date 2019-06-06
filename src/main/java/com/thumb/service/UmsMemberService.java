@@ -2,6 +2,9 @@ package com.thumb.service;
 
 import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
+
+import java.math.BigDecimal;
+
 public interface UmsMemberService{
 
 
@@ -24,5 +27,12 @@ public interface UmsMemberService{
     void sendEmail(String regEmail);
 
     boolean insertReg(UmsMemberDto umsMemberDto);
+
+    BigDecimal countByCreateTime(Integer dayNum);
+
+    BigDecimal countByCreateTimeMonth();
+
+    Long countAll();
+
 
 }

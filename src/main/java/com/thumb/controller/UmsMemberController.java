@@ -1,6 +1,7 @@
 package com.thumb.controller;
 
 import com.thumb.dto.UmsMemberDto;
+import com.thumb.pojo.UmsMember;
 import com.thumb.service.UmsMemberService;
 import com.thumb.utility.email.CodeUtils;
 import com.thumb.utility.email.SendEmailUtil;
@@ -27,7 +28,7 @@ public class UmsMemberController {
      */
     @RequestMapping("getValidCode")
     @ResponseBody
-    public String getValidCode(@RequestParam String regEmail, HttpSession httpSession) {
+    public void getValidCode(@RequestParam String regEmail, HttpSession httpSession) {
         //获取用户注册email
         System.out.println(regEmail);
         String toEmail=regEmail;
@@ -47,8 +48,8 @@ public class UmsMemberController {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-        return code;
     }
+
 
     /**
      * 注册会员,对比code,正确则插入,否则失败
@@ -76,4 +77,8 @@ public class UmsMemberController {
         System.out.println("code对比失败");
         return code;
     }
+
+
+
+
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.PersonalInfoMapper">
+    <select id="userInfoById" parameterType="int" resultType="com.thumb.dto.UserInfoDto">
+        select * from ums_member where id=#{userId}
+    </select>
+
+    <update id="iconUpdate" parameterType="com.thumb.dto.UserInfoDto">
+        update ums_member set icon=#{icon} where id=#{id}
+    </update>
+
+    <update id="updateInfo" parameterType="com.thumb.dto.UserInfoDto">
+        update ums_member set
+        nickname=#{nickname},
+        gender=#{gender},
+        phone=#{phone},
+        personalized_signature=#{personalized_signature},
+        job=#{job},
+        city=#{city}
+        where id=#{id}
+    </update>
+
+    <select id="check" parameterType="com.thumb.dto.UserInfoDto" resultType="com.thumb.dto.UserInfoDto">
+        select * from ums_member where password=#{password} and id=#{id}
+    </select>
+
+    <update id="pwdUpdate" parameterType="com.thumb.dto.UserInfoDto">
+        update ums_member set password=#{newPassword} where id=#{id}
+    </update>
+
+</mapper>

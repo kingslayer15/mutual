@@ -1,10 +1,10 @@
 package com.thumb.mapper;
 
 import com.thumb.entity.dto.SearchOmsOrder;
+import com.thumb.entity.dto.SearchOmsOrderReturnApply;
 import com.thumb.entity.dto.UpdateOmsOrderSetting;
-import com.thumb.entity.pojo.OmsOrder;
-import com.thumb.entity.pojo.OmsOrderItem;
-import com.thumb.entity.pojo.OmsOrderSetting;
+import com.thumb.entity.dto.UpdateReturnReason;
+import com.thumb.entity.pojo.*;
 
 import java.util.List;
 
@@ -21,4 +21,18 @@ public interface AdminOmsOrderMapper {
     OmsOrderSetting getOmsOrderSetting();
 
     int updateOmsOrderSetting(UpdateOmsOrderSetting updateOmsOrderSetting);
+
+    List<OmsOrderReturnApply> listAllOmsOrderReturnApply();
+
+    List<OmsOrderReturnApply> searchOmsOrderReturnApply(SearchOmsOrderReturnApply searchApply);
+
+    OmsOrderReturnApply showOmsOrderReturnApplyById(int id);
+
+    List<OmsOrderReturnReason> listAllReturnReason();
+
+    int insertReturnReason(UpdateReturnReason updateReturnReason);
+
+    int updateReturnReason(UpdateReturnReason updateReturnReason);
+
+    int deleteReturnReason(int id);
 }

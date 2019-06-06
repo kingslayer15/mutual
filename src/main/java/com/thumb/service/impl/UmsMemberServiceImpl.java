@@ -15,6 +15,7 @@ import com.thumb.pojo.UmsMember;
 import com.thumb.service.UmsMemberService;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 @Service
 public class UmsMemberServiceImpl implements UmsMemberService{
@@ -77,6 +78,27 @@ public class UmsMemberServiceImpl implements UmsMemberService{
 
     }
 
+
+
+
+    @Override
+    public BigDecimal countByCreateTime(Integer dayNum) {
+        BigDecimal bigDecimal = umsMemberMapper.countByCreateTime(dayNum);
+        return bigDecimal;
+    }
+
+    @Override
+    public BigDecimal countByCreateTimeMonth() {
+        BigDecimal bigDecimal = umsMemberMapper.countByCreateTimeMonth();
+        return bigDecimal;
+    }
+
+    @Override
+    public Long countAll(){
+        Long count = umsMemberMapper.countAll();
+        return count;
+    }
+
     public boolean insertReg(UmsMemberDto umsMemberDto) {
         umsMemberDto.setPassword(MD5Utils.myEncode(umsMemberDto.getPassword()));
         int i = umsMemberMapper.insertReg(umsMemberDto);
@@ -85,4 +107,5 @@ public class UmsMemberServiceImpl implements UmsMemberService{
         }
         return false;
     }
+
 }

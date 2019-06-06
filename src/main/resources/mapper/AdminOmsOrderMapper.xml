@@ -179,7 +179,6 @@
 
     <!--订单的一对一用户映射-->
     <!--<resultMap id="omsOrder" type="com.thumb.entity.pojo.OmsOrder">-->
-
     <!--</resultMap>-->
 
     <!-- 管理员查询数据库中所有的订单信息（单表查询） -->
@@ -333,7 +332,7 @@
     </select>
 
 
-    <!--订单设置-->
+    <!--订单设置映射-->
     <resultMap id="omsOrderSettingResultMap" type="com.thumb.entity.pojo.OmsOrderSetting">
         <id column="id" jdbcType="BIGINT" property="id" />
         <result column="flash_order_overtime" jdbcType="INTEGER" property="flashOrderOvertime" />
@@ -370,5 +369,105 @@
         </set>
         where id = 1
     </update>
+
+    <!--退货处理映射-->
+    <resultMap id="OmsOrderReturnApplyResultMap" type="com.thumb.entity.pojo.OmsOrderReturnApply">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="order_id" jdbcType="BIGINT" property="orderId" />
+        <result column="company_address_id" jdbcType="BIGINT" property="companyAddressId" />
+        <result column="product_id" jdbcType="BIGINT" property="productId" />
+        <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+        <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+        <result column="member_username" jdbcType="VARCHAR" property="memberUsername" />
+        <result column="return_amount" jdbcType="DECIMAL" property="returnAmount" />
+        <result column="return_name" jdbcType="VARCHAR" property="returnName" />
+        <result column="return_phone" jdbcType="VARCHAR" property="returnPhone" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="handle_time" jdbcType="VARCHAR" property="handleTime" />
+        <result column="product_pic" jdbcType="VARCHAR" property="productPic" />
+        <result column="product_name" jdbcType="VARCHAR" property="productName" />
+        <result column="product_brand" jdbcType="VARCHAR" property="productBrand" />
+        <result column="product_attr" jdbcType="VARCHAR" property="productAttr" />
+        <result column="product_count" jdbcType="INTEGER" property="productCount" />
+        <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
+        <result column="product_real_price" jdbcType="DECIMAL" property="productRealPrice" />
+        <result column="reason" jdbcType="VARCHAR" property="reason" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="proof_pics" jdbcType="VARCHAR" property="proofPics" />
+        <result column="handle_note" jdbcType="VARCHAR" property="handleNote" />
+        <result column="handle_man" jdbcType="VARCHAR" property="handleMan" />
+        <result column="receive_man" jdbcType="VARCHAR" property="receiveMan" />
+        <result column="receive_time" jdbcType="VARCHAR" property="receiveTime" />
+        <result column="receive_note" jdbcType="VARCHAR" property="receiveNote" />
+    </resultMap>
+
+    <!--查询所有的退货申请-->
+    <select id="listAllOmsOrderReturnApply" resultMap="OmsOrderReturnApplyResultMap">
+        select * from oms_order_return_apply
+    </select>
+
+    <!--根据条件查询退货申请-->
+    <select id="searchOmsOrderReturnApply" resultMap="OmsOrderReturnApplyResultMap" parameterType="com.thumb.entity.dto.SearchOmsOrderReturnApply">
+        select * from oms_order_return_apply
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="status != null and status != -1">
+                and status like "%"#{status}"%"
+            </if>
+            <if test="create_time != null and create_time != ''">
+                and DATE(create_time) = #{create_time}
+            </if>
+            <if test="handle_man != null and handle_man != ''">
+                and handle_man like "%"#{handle_man}"%"
+            </if>
+            <if test="handle_time != null and handle_time != ''">
+                and DATE(handle_time) = #{handle_time}
+            </if>
+        </where>
+    </select>
+
+    <!--根据服务单号查询退货处理的具体详情-->
+    <select id="showOmsOrderReturnApplyById" resultMap="OmsOrderReturnApplyResultMap" parameterType="int">
+        select * from oms_order_return_apply where id = #{id}
+    </select>
+
+
+    <!--退货原因映射-->
+    <resultMap id="ReturnReasonResultMap" type="com.thumb.entity.pojo.OmsOrderReturnReason">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="sort" jdbcType="INTEGER" property="sort" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    </resultMap>
+
+    <!--查询所有退货原因-->
+    <select id="listAllReturnReason" resultMap="ReturnReasonResultMap">
+        select * from oms_order_return_reason
+    </select>
+
+    <!--添加一个退货原因-->
+    <insert id="insertReturnReason" parameterType="com.thumb.entity.dto.UpdateReturnReason">
+        insert into oms_order_return_reason
+        VALUES (default, #{name}, #{sort}, #{status}, #{create_time})
+    </insert>
+
+    <!--修改一个退货原因-->
+    <update id="updateReturnReason" parameterType="com.thumb.entity.dto.UpdateReturnReason">
+        update oms_order_return_reason
+            set name = #{name},
+                sort = #{sort},
+                status = #{status},
+                create_time = #{create_time}
+        where id = #{id}
+    </update>
+
+    <!--删除一个退货原因-->
+    <delete id="deleteReturnReason" parameterType="int">
+        delete from oms_order_return_reason where id = #{id}
+    </delete>
+
 
 </mapper>
