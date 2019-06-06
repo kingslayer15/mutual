@@ -10,57 +10,20 @@
     <script src="../static/js/js/jquery-3.2.1.js"></script>
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
+    <link href="../static/css/p.css" rel="stylesheet" type="text/css">
+
 
 </head>
 
 <style>
-    .gzxx {font-size: 15px;font-weight: bold;color:rgb(117,117,117);width: 70px;display: inline-block}
+    .gzxx {font-size: 12px;font-weight: bold;color:rgb(117,117,117);width: 100px;display: inline-block}
 
 </style>
 <body>
 
 <!-- start header -->
 <header id="header">
-    <!--<div class="top center" >-->
-    <!--<div class="left fl">-->
-    <!--<ul>-->
-    <!--<li><a href="http://www.mi.com/" target="_blank">小米商城</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">MIUI</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">米聊</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">游戏</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">多看阅读</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">云服务</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">金融</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">小米商城移动版</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">问题反馈</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="">Select Region</a></li>-->
-    <!--<div class="clear"></div>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--<div class="right fr">-->
-    <!--<div class="gouwuche fr"><a href="./dingdanzhongxin.html">我的订单</a></div>-->
-    <!--<div class="fr">-->
-    <!--<ul>-->
-    <!--<li><a href="./login.html" target="_blank">登录</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="./register.html" target="_blank" >注册</a></li>-->
-    <!--<li>|</li>-->
-    <!--<li><a href="#top">个人中心</a></li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--<div class="clear"></div>-->
-    <!--</div>-->
-    <!--<div class="clear"></div>-->
-    <!--</div>-->
+
 </header>
 <!--end header -->
 <!-- start banner_x -->
@@ -90,7 +53,7 @@
 <!-- self_info -->
 <div class="grzxbj">
     <div class="selfinfo center">
-        <div class="lfnav fl" style="height: 700px">
+        <div class="lfnav fl" style="height: 1300px">
             <div class="ddzx" style="height: 20px">个人中心</div>
             <div class="subddzx">
                 <ul>
@@ -112,21 +75,201 @@
                 </ul>
             </div>
         </div>
-        <div class="rtcont fr"  style="width: 978px;height: 700px;background: #fff">
+        <div class="rtcont fr"  style="width: 978px;height: 1300px;background: #fff">
             <div class="grzlbt ml40" id="address">我的收货地址</div>
+            <!--新增地址-->
+
+            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
+                <div class="s-bar" >
+                    <i class="s-icon"></i>新增地址
+                </div>
+                <div class="s-content" style="height: 500px">
+                    <ul class="lg-list">
+                        <li class="lg-item">
+                            <form>
+                                <div hidden><input id="uid" hidden ></div>
+                                <!--<div class=" gzxx ml40" style="width: 550px" >-->
+                                    <!--<span class="gzxx" style="padding-right: 30px">国家：</span>-->
+                                    <!--<input type="text" id="country" style="height: 30px;width: 260px" placeholder="country">-->
+                                <!--</div>-->
+                                <!--<br/><br/>-->
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px">省：</span>
+                                    <input type="text" id="province" style="height: 30px;width: 260px" placeholder="province">
+                                </div>
+                                <br/><br/>
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px">市：</span>
+                                    <input type="text" id="city" style="height: 30px;width: 260px" placeholder="city">
+                                </div>
+                                <br/><br/>
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px">区：</span>
+                                    <input type="text" id="region" style="height: 30px;width: 260px" placeholder="region">
+                                </div>
+                                <br/><br/>
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px" >详细地址：</span>
+                                    <textarea id="detail_address" style="resize: none" rows="3" cols="40" placeholder="请输入详细地址信息，如道路、门牌号、小区、楼栋号、单元等信息"></textarea>
+                                </div>
+                                <br/><br/>
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px">邮政编码：</span>
+                                    <input type="text" id="post_code" style="height: 30px;width: 260px" placeholder="post_code">
+                                </div>
+                                <br/><br/>
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px">收货人姓名：</span>
+                                    <input type="text" id="name" style="height: 30px;width: 260px" placeholder="name">
+                                </div>
+                                <br/><br/>
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px">收货人手机号码：</span>
+                                    <input type="text" id="phone_number" style="height: 30px;width: 260px" placeholder="phone_number">
+                                </div>
+                                <br/><br/>
+                                <div lass=" gzxx ml40">
+                                    <span style="padding-right: 40px"></span>
+                                    <button href="self_info_edit.html" onclick="addAddress()">保存</button>
+                                </div>
+
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--遍历地址-->
+            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
+                <div class="s-bar" >
+                    <i class="s-icon"></i>我的地址
+                </div>
 
 
+                <div class="addressList">
+                    <div class="next-table">
 
-
-        </div>
-        <div class="clear"></div>
-    </div>
+                    <table>
+                        <colgroup>
+                            <col style="width: 70px;">
+                            <col>
+                            <col style="width: 200px;">
+                            <col style="width: 100px;">
+                            <col style="width: 140px;">
+                            <col style="width: 110px;">
+                            <col style="width: 90px;">
+                        </colgroup>
+                        <thead class="next-table-header">
+                        <tr>
+                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
+                                <div class="next-table-cell-wrapper">收货人</div>
+                            </th>
+                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
+                                <div class="next-table-cell-wrapper">所在地区</div>
+                            </th>
+                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
+                                <div class="next-table-cell-wrapper">详细地址</div>
+                            </th>
+                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
+                                <div class="next-table-cell-wrapper">邮编</div>
+                            </th>
+                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
+                                <div class="next-table-cell-wrapper">电话/手机</div>
+                            </th>
+                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
+                                <div class="next-table-cell-wrapper">操作</div>
+                            </th>
+                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
+                                <div class="next-table-cell-wrapper"></div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="next-table-body">
+                        <tr class="next-table-row first" role="row">
+                            <td type="body" class="next-table-cell first" role="gridcell">
+                                <div class="next-table-cell-wrapper">收货人</div>
+                            </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">
+                                    <span>广东省 广州市 天河区 林和街道 </span>
+                                </div>
+                            </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">天河北远东大厦西塔1706  </div>
+                            </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">000000</div>
+                            </td><td type="body" class="next-table-cell" role="gridcell">
+                            <div class="next-table-cell-wrapper">
+                                <span>13*******15<br>
+                                </span>
+                            </div>
+                        </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">
+                                    <div class="tAction">
+                                    <a class="t-change" href="https://member1.taobao.com/member/fresh/deliver_address.htm?spm=a1z02.1.972272805.d4912033.78d3782dfetTjR&amp;addrId=8661951558" target="_self">修改</a>
+                                        <span class="t-line">|</span>
+                                        <span class="t-delete">删除</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td type="body" class="next-table-cell last" role="gridcell">
+                                <div class="next-table-cell-wrapper">
+                                    <div><span class="t-default">默认地址</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="next-table-row" role="row">
+                            <td type="body" class="next-table-cell first" role="gridcell">
+                                <div class="next-table-cell-wrapper">收货人</div>
+                            </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">
+                                <span>广东省 广州市 天河区 元岗街道 </span>
+                                </div>
+                            </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">元岗北街3号 裕隆公寓</div>
+                            </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">邮编</div>
+                            </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">
+                                    <span>13*******15<br></span>
+                                </div>
+                            </td>
+                            <td type="body" class="next-table-cell" role="gridcell">
+                                <div class="next-table-cell-wrapper">
+                                    <div class="tAction">
+                                        <a class="t-change" href="https://member1.taobao.com/member/fresh/deliver_address.htm?spm=a1z02.1.972272805.d4912033.78d3782dfetTjR&amp;addrId=9495793641" target="_self">修改</a>
+                                        <span class="t-line">|</span>
+                                        <span class="t-delete">删除</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td type="body" class="next-table-cell last" role="gridcell">
+                                <div class="next-table-cell-wrapper">
+                                    <div>
+                                    <span class="t-setDefault">设为默认</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
 </div>
 
 <!-- self_info -->
 
 <footer class="mt20 center">
-    <div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+    <!--<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>-->
     <div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
     <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 </footer>
@@ -148,28 +291,12 @@
     //根据id获取用户信息
     function getUserInfoById() {
         $.ajax({
-            url:'/userInfoById?userId='+userId,
+            url:'/userInfoById_',
             type:'GET', //GET
             contentType:"application/json",
             dataType:'json',
             success:function(data){
-                console.log(data)
-                $("#icon").attr("src","userIcon/"+data.icon);
-
-                $("#nickname").html(data.nickname);
-                if (data.gender==1){
-                    $("#gender").html("男");
-                } else if(data.gender==2){
-                    $("#gender").html("女");
-                } else {
-                    $("#gender").html("未设置");
-
-                }
-                $("#phone").html(data.phone);
-                $("#personalized_signature").html(data.personalized_signature);
-                $("#job").html(data.job);
-                $("#city").html(data.city);
-
+                $("#uid").val(data.id);
             },
             error:function(data){
                 console.error(data);
@@ -177,6 +304,71 @@
         })
     }
     getUserInfoById();
+
+
+    var pass=false;
+    //失去焦点判断手机号是否符合规则
+    $("#phone_number").blur(function () {
+        var reg=/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/
+        var p=$("#phone_number").val()
+        if (!reg.test(p)){
+            alert("手机号输入不符合规则")
+        }else {
+            pass=true;
+        }
+    });
+
+
+    // 提交表中信息
+
+    function addAddress() {
+        if ($("#province").val().trim() != '' &&
+            $("#city").val().trim() != '' &&
+            $("#region").val().trim() != '' &&
+            $("#detail_address").val().trim() != '' &&
+            $("#name").val().trim() != '' &&
+            $("#phone_number").val().trim() != ''
+        ) {
+            $.ajax({
+                url:'/addAddress',
+                type:'POST',
+                contentType:"application/json",
+                data:JSON.stringify({
+                    province: $("#province").val(),
+                    city:$("#city").val(),
+                    region:$("#region").val(),
+                    member_id:$("#uid").val(),
+                    detail_address:$("#detail_address").val(),
+                    post_code:$("#post_code").val(),
+                    name:$("#name").val(),
+                    phone_number:$("#phone_number").val(),
+                    default_status:0
+
+                }),
+                dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
+                success:function(data){
+                    alert(data)
+                    console.log(data)
+                    if (data) {
+                        var url= "address.html"
+                        window.location.href = url
+                    }
+                },
+                error:function(data){
+                    if (!data) {
+                        var url= "address.html"
+                        window.location.href = url                }}
+            })
+        }else {
+            alert("地址输入不合法")
+            return false;
+        }
+
+
+
+    }
+
+
 
 
 

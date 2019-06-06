@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.PersonalAddressMapper">
+    <insert id="newAddress" parameterType="com.thumb.dto.ClientAddressDto">
+        insert into ums_member_receive_address (
+        member_id,name,phone_number,default_status,
+        <if test="post_code!=null and post_code!=''">
+            post_code,
+        </if>
+        province,city,region,detail_address)
+        values (
+        #{member_id},
+        #{name},
+        #{phone_number},
+        #{default_status},
+        <if test="post_code!=null and post_code!=''">
+        #{post_code},
+        </if>
+        #{province},
+        #{city},
+        #{region},
+        #{detail_address}
+        )
+    </insert>
+
+    <select id="getAaddressById" parameterType="int" resultType="com.thumb.dto.ClientAddressDto">
+
+    </select>
+
+</mapper>
