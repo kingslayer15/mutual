@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @Controller
-public class MarketingController {
+public class BrandController {
 
     @Autowired
     private MarketingService marketingService;
@@ -70,7 +70,7 @@ public class MarketingController {
     }
 
     /**
-     * 查询品牌库的所有品牌
+     * 查询品牌库的所有没有推荐的品牌
      * @param page
      * @return
      */
@@ -86,7 +86,7 @@ public class MarketingController {
     }
 
     /**
-     * 查询品牌库的所有品牌
+     * 条件查询
      * @param name
      * @return
      */
