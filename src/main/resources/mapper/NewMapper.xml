@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.NewMapper">
+
+
+    <!--获取正在推荐的品牌-->
+    <select id="selectNewAll" resultType="com.thumb.pojo.HomeProduct">
+        select * from sms_home_new_product where recommend_status=1  order by sort desc
+    </select>
+
+
+    <!--修改品牌推荐排序值-->
+    <update id="updateNewBySort" parameterType="com.thumb.pojo.HomeProduct">
+        UPDATE sms_home_new_product SET `sort` = #{sort} WHERE `id` = #{id};
+    </update>
+
+
+    <!--条件查询name-->
+    <select id="getSelectNew" resultType="com.thumb.pojo.HomeProduct" parameterType="String">
+        select * from sms_home_new_product where  name like "%"#{name}"%"
+    </select>
+
+
+    <!--批量修改品牌库数据  -->
+    <update id="updateNewById" parameterType="com.thumb.dto.PageName">
+        update sms_home_new_product   set
+        recommend_status = 1
+        where id in
+        <foreach collection="checkID" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+
+    <!--删除首页推荐品牌-->
+    <update id="deleteNewById" parameterType="int">
+        UPDATE `sms_home_new_product` SET `recommend_status` = 0 WHERE `id` = #{id};
+    </update>
+
+
+    <!--查询品牌库的所有没有推荐品牌-->
+    <select id="selectNewsAll" resultType="com.thumb.pojo.PmsProduct">
+         select *  from pms_product where new_status=0
+    </select>
+
+
+
+
+</mapper>
