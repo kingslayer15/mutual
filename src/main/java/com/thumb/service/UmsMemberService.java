@@ -1,4 +1,5 @@
 package com.thumb.service;
+import java.util.List;
 
 import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
@@ -24,5 +25,23 @@ public interface UmsMemberService{
     void sendEmail(String regEmail);
 
     boolean insertReg(UmsMemberDto umsMemberDto);
+
+    UmsMember selectOneByUsernameAndPassword(UmsMemberDto umsMemberDto);
+
+	UmsMember selectOneByUsername(String username);
+
+	UmsMember selectOneByRegemail(String regemail);
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

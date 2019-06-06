@@ -1,4 +1,5 @@
 package com.thumb.service.impl;
+import java.util.List;
 
 import com.thumb.dto.UmsMemberDto;
 import com.thumb.utility.MD5Utils;
@@ -77,6 +78,7 @@ public class UmsMemberServiceImpl implements UmsMemberService{
 
     }
 
+    @Override
     public boolean insertReg(UmsMemberDto umsMemberDto) {
         umsMemberDto.setPassword(MD5Utils.myEncode(umsMemberDto.getPassword()));
         int i = umsMemberMapper.insertReg(umsMemberDto);
@@ -85,4 +87,25 @@ public class UmsMemberServiceImpl implements UmsMemberService{
         }
         return false;
     }
+
+
+
+    @Override
+    public UmsMember selectOneByUsernameAndPassword(UmsMemberDto umsMemberDto) {
+        umsMemberDto.setPassword(MD5Utils.myEncode(umsMemberDto.getPassword()));
+        return umsMemberMapper.selectOneByUsernameAndPassword(umsMemberDto);
+    }
+
+    @Override
+    public UmsMember selectOneByUsername(String username) {
+        return umsMemberMapper.selectOneByUsername(username);
+    }
+
+	@Override
+	public UmsMember selectOneByRegemail(String regemail){
+		 return umsMemberMapper.selectOneByRegemail(regemail);
+	}
+
+
+
 }
