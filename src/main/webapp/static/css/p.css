@@ -24,6 +24,9 @@ body {
 body:after, body:before {
     content:"";
     display:table
+
+
+
 }
 body:after {
     clear:both

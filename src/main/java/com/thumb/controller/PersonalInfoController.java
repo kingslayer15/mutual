@@ -68,9 +68,9 @@ public class PersonalInfoController {
         int i=personalInfoService.iconUpdate(userInfoDto);
         System.out.println(i);
         if (i!=0){
-            return "self_info_edit";
+            return "main/self_info_edit";
         }
-        return "self_info_edit";
+        return "main/self_info_edit";
     }
 
 
