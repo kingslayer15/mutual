@@ -11,6 +11,7 @@
     <script type="text/javascript" charset="utf-8" async=""
             src="../static/mall-admin-web_files/5.ab752a1a96f36ec723b1.js"></script>
     <script src="../static/jquery/jquery-2.1.1.min.js"></script>
+    <script src="../static/script/echarts.js"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -327,6 +328,8 @@
                                 <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
                             </svg>
                             <span>首页</span></li>
+                        <input id="aaa" type="checkbox" value="芒果" name="check">芒果1</input>
+                        <button id="bbb" onclick="d()">aaa</button>
                     </a>
                         <li role="menuitem" aria-haspopup="true" class="el-submenu">
                             <div class="el-submenu__title"
@@ -702,7 +705,7 @@
                     </div>
                     <div data-v-13e9f1ae="" class="statistics-layout">
                         <div data-v-13e9f1ae="" class="layout-title">订单统计</div>
-                        <div data-v-13e9f1ae="" class="el-row">
+                        <div data-v-13e9f1ae="" style="height: 450px" class="el-row">
                             <div data-v-13e9f1ae="" class="el-col el-col-4">
                                 <div data-v-13e9f1ae="" style="padding: 20px;">
                                     <div data-v-13e9f1ae="">
@@ -758,22 +761,14 @@
                             <div data-v-13e9f1ae="" class="el-col el-col-20">
                                 <div data-v-13e9f1ae=""
                                      style="padding: 10px; border-left: 1px solid rgb(220, 223, 230);">
-                                    <div data-v-13e9f1ae=""
-                                         class="el-date-editor el-range-editor el-input__inner el-date-editor--daterange el-range-editor--small"
-                                         style="float: right; z-index: 1;"><i
-                                            class="el-input__icon el-range__icon el-icon-date"></i><input
-                                            placeholder="开始日期" name="" class="el-range-input"><span
-                                            class="el-range-separator">至</span><input placeholder="结束日期" name=""
-                                                                                      class="el-range-input"><i
-                                            class="el-input__icon el-range__close-icon"></i></div>
+
                                     <div data-v-13e9f1ae="">
                                         <div data-v-13e9f1ae="" class="ve-line"
                                              style="width: auto; height: 400px; position: relative;">
                                             <div class="" _echarts_instance_="ec_1559273991873"
                                                  style="width: auto; height: 400px; position: relative; -webkit-tap-highlight-color: transparent; user-select: none;">
                                                 <div style="position: relative; overflow: hidden; width: 981px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;">
-                                                    <canvas data-zr-dom-id="zr_0" width="1962" height="800"
-                                                            style="position: absolute; left: 0px; top: 0px; width: 981px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                                                    <div id="main" width="1962" height="800" style="position: absolute; left: 0px; top: 0px; width: 981px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></div>
                                                 </div>
                                                 <div></div>
                                             </div>
@@ -799,337 +794,78 @@
         </div>
     </div>
 </div>
+
+
 <!--<script type="text/javascript" src="../static/mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="../static/mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="../static/mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
 
 
+<script src="../static/back-main-home/main-home-ajax.js"></script>
 <script>
-    $(function () {
-        $.ajax({
-            url:"/admin/orderCount",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-                    $("#todayOrderCount").text(data);
-                }else {
-                    $("#todayOrderCount").text(0);
+    function d(){
+        alert($('#aaa').is(':checked'));
+    }
+
+</script>
+
+<script >
+    var myChart = echarts.init(document.getElementById('main'));
+
+    option = {
+        title: {
+            text: '堆叠区域图'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
                 }
             }
-        });
-
-        $.ajax({
-            url:"/admin/sumAmount",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-                    $("#todayTotalAmount").text("￥" + data);
-                }else {
-                    $("#todayTotalAmount").text("￥" + 0);
-                }
+        },
+        legend: {
+            data:['邮件营销','联盟广告']
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
             }
-        });
-        $.ajax({
-            url:"/admin/sumAmountYesterday",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap : false,
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            name:"邮件营销",
+            data: [820, 932, 901, 934, 11, 111, 111],
+            type: 'line',
+            smooth: true
+        },
+            {
+                name:"联盟广告",
+                data: [841, 912, 111, 111, 321, 111, 111],
+                type: 'line',
 
-                    $("#YesterdayTotalAmount").text("￥" + data);
-                } else {
-                    $("#YesterdayTotalAmount").text("￥" + 0);
-                }
+                smooth: true
             }
-        });
-
-    })
-
+        ]
+    };
 
 
-
-    //订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单
-
-    //待付款
-    var order0Num = 0;
-    //待发货
-    var order1Num = 0;
-    //已发货
-    var order2Num = 0;
-    //已完成
-    var order3Num = 0;
-
-    $(function () {
-        $.ajax({
-            url:"/admin/countByStatus",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-
-                $(data).each(function (index, item) {
-                    if(item.status === 0){
-                        order0Num = item.num;
-                    }else if(item.status === 1){
-                        order1Num = item.num;
-                    }else if(item.status === 2){
-                        order2Num = item.num;
-                    }else if(item.status === 3){
-                        order3Num = item.num;
-                    }else if(item.status === 4){
-                        order4Num = item.num;
-                    }
-
-
-                    $("#order0Num").text("(" +order0Num+")");
-                    $("#order1Num").text("(" +order1Num+")");
-                    $("#order2Num").text("(" +order2Num+")");
-                    $("#order3Num").text("(" +order3Num+")");
-                    $("#order4Num").text("(" +order4Num+")");
-
-                })
-
-
-            }
-        });
-
-
-        $.ajax({
-            url:"/admin/countByConfirm",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-
-                    $("#TotalUnconfirm").text("(" + data + ")");
-                } else {
-                    $("#TotalUnconfirm").text("(" + 0 + ")");
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countByLowStock",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-                    $("#lackStock1").text("(" + data + ")");
-                    alert(data);
-                    $("#lackStock2").text(data);
-                } else {
-                    $("#lackStock1").text("(" + 0 + ")");
-                    $("#lackStock2").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countByReturnApply?status=0",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-
-                if (data != "") {
-                    $("#TotalReturnApply0").text("(" + data + ")");
-                } else {
-                    $("#TotalReturnApply0").text("(" + 0 + ")");
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countByReturnApply?status=1",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-
-                if (data != "") {
-                    $("#TotalReturnApply1").text("(" + data + ")");
-                } else {
-                    $("#TotalReturnApply1").text("(" + 0 + ")");
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countByEndTime",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-                    $("#TotalByEndTime").text("(" + data + ")");
-                } else {
-                    $("#TotalByEndTime").text("(" + 0 + ")");
-                }
-            }
-        });
-        $.ajax({
-            url:"/admin/countByPublishStatus0",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-
-                if (data != "") {
-                    $("#TotalByPublishStatus0").text(data);
-                } else {
-                    $("#TotalByPublishStatus0").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countByPublishStatus1",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-
-                if (data != "") {
-                    $("#TotalByPublishStatus1").text(data);
-                } else {
-                    $("#TotalByPublishStatus1").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countAll",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-                    $("#allProduct").text(data);
-                } else {
-                    $("#allProduct").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countByCreateTime?dayNum=0",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-                    $("#todayNewMember").text(data);
-                } else {
-                    $("#todayNewMember").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countByCreateTime?dayNum=1",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-
-                    $("#yesterdayNewMember").text(data);
-                } else {
-                    $("#yesterdayNewMember").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countByCreateTimeMonth",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-
-                    $("#monthNewMember").text(data);
-                } else {
-                    $("#monthNewMember").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countMemberAll",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-
-                    $("#totalMember").text(data);
-                } else {
-                    $("#totalMember").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countOrderByCreateTimeThisMonth",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-
-                    $("#thisMonthOrder").text(data);
-                } else {
-                    $("#thisMonthOrder").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countOrderByCreateTimeLastMonth",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-
-                    $("#lastMonthOrder").text(data + "%");
-                } else {
-                    $("#lastMonthOrder").text(0 + "%");
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countOrderByCreateTimeWeek",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-                if (data != "") {
-
-                    $("#thisWeekOrder").text(data);
-                } else {
-                    $("#thisWeekOrder").text(0);
-                }
-            }
-        });
-
-        $.ajax({
-            url:"/admin/countOrderByCreateTimeLastWeek",
-            type:"GET",
-            contentType: "application/json",
-            success: function (data) {
-
-                if (data != "") {
-                    $("#lastWeekOrder").text(data + "%");
-                } else {
-                    $("#lastWeekOrder").text(0 + "%");
-                }
-            }
-        });
-
-
-
-
-
-
-
-    })
-
-
-
-
-
-
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
 
 </script>
 </body>
