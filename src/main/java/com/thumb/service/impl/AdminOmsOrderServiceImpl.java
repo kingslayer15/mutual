@@ -1,8 +1,12 @@
 package com.thumb.service.impl;
 
 import com.thumb.entity.dto.SearchOmsOrder;
+import com.thumb.entity.dto.SearchOmsOrderReturnApply;
 import com.thumb.entity.dto.UpdateOmsOrderSetting;
+import com.thumb.entity.dto.UpdateReturnReason;
 import com.thumb.entity.pojo.OmsOrder;
+import com.thumb.entity.pojo.OmsOrderReturnApply;
+import com.thumb.entity.pojo.OmsOrderReturnReason;
 import com.thumb.entity.pojo.OmsOrderSetting;
 import com.thumb.mapper.AdminOmsOrderMapper;
 import com.thumb.service.AdminOmsOrderService;
@@ -74,5 +78,70 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     @Override
     public int updateOmsOrderSetting(UpdateOmsOrderSetting updateOmsOrderSetting) {
         return adminOmsOrderMapper.updateOmsOrderSetting(updateOmsOrderSetting);
+    }
+
+    /**
+     * 查询所有的退货申请
+     * @return
+     */
+    @Override
+    public List<OmsOrderReturnApply> listAllOmsOrderReturnApply() {
+        return adminOmsOrderMapper.listAllOmsOrderReturnApply();
+    }
+
+    /**
+     * 根据查询条件所选退货申请信息
+     * @param searchApply
+     * @return
+     */
+    @Override
+    public List<OmsOrderReturnApply> searchOmsOrderReturnApply(SearchOmsOrderReturnApply searchApply) {
+        return adminOmsOrderMapper.searchOmsOrderReturnApply(searchApply);
+    }
+
+    /**
+     * 根据退货id（服务单号）查询订单详情
+     * @param id
+     * @return
+     */
+    @Override
+    public OmsOrderReturnApply showOmsOrderReturnApplyById(int id) {
+        return adminOmsOrderMapper.showOmsOrderReturnApplyById(id);
+    }
+
+    /**
+     * 查询所有退货原因
+     * @return
+     */
+    @Override
+    public List<OmsOrderReturnReason> listAllReturnReason() {
+        return adminOmsOrderMapper.listAllReturnReason();
+    }
+
+    /**
+     * 添加一个退货原因
+     * @return
+     */
+    @Override
+    public int insertReturnReason(UpdateReturnReason updateReturnReason) {
+        return adminOmsOrderMapper.insertReturnReason(updateReturnReason);
+    }
+
+    /**
+     * 修改一个退货原因
+     * @return
+     */
+    @Override
+    public int updateReturnReason(UpdateReturnReason updateReturnReason) {
+        return adminOmsOrderMapper.updateReturnReason(updateReturnReason);
+    }
+
+    /**
+     * 删除一个退货原因
+     * @return
+     */
+    @Override
+    public int deleteReturnReason(int id) {
+        return adminOmsOrderMapper.deleteReturnReason(id);
     }
 }
