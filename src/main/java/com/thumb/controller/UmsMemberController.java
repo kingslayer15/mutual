@@ -38,7 +38,7 @@ public class UmsMemberController {
      */
     @RequestMapping("getValidCode")
     @ResponseBody
-    public String getValidCode(@RequestParam String regEmail, HttpSession httpSession) {
+    public void getValidCode(@RequestParam String regEmail, HttpSession httpSession) {
         //获取用户注册email
         System.out.println(regEmail);
         String toEmail=regEmail;
@@ -58,8 +58,8 @@ public class UmsMemberController {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-        return code;
     }
+
 
     /**
      * 注册用户
@@ -190,4 +190,8 @@ public class UmsMemberController {
         return "对比失败";
 
     }
+
+
+
+
 }

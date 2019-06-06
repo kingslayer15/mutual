@@ -1,10 +1,10 @@
 package com.thumb.controller;
 
 import com.thumb.entity.dto.SearchOmsOrder;
+import com.thumb.entity.dto.SearchOmsOrderReturnApply;
 import com.thumb.entity.dto.UpdateOmsOrderSetting;
-import com.thumb.entity.pojo.OmsOrder;
-import com.thumb.entity.pojo.OmsOrderItem;
-import com.thumb.entity.pojo.OmsOrderSetting;
+import com.thumb.entity.dto.UpdateReturnReason;
+import com.thumb.entity.pojo.*;
 import com.thumb.mapper.AdminOmsOrderMapper;
 import com.thumb.service.AdminOmsOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,6 +98,87 @@ public class AdminOmsOrderController {
         int i = adminOmsOrderService.updateOmsOrderSetting(updateOmsOrderSetting);
         return i;
     }
+
+    /**
+     * 查询所有的退货申请
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("listAllOmsOrderReturnApply")
+    public Object listAllOmsOrderReturnApply() {
+        List<OmsOrderReturnApply> omsOrderReturnApplies = adminOmsOrderService.listAllOmsOrderReturnApply();
+        return omsOrderReturnApplies;
+    }
+
+    /**
+     * 根据查询条件所选退货申请信息
+     * @param searchApply
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("searchOmsOrderReturnApply")
+    public Object searchOmsOrderReturnApply(@RequestBody SearchOmsOrderReturnApply searchApply) {
+        System.out.println(searchApply);
+        List<OmsOrderReturnApply> omsOrderReturnApplies = adminOmsOrderService.searchOmsOrderReturnApply(searchApply);
+        return omsOrderReturnApplies;
+    }
+
+    /**
+     * 根据退货id（服务单号）查询订单详情
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("showOmsOrderReturnApplyById")
+    public Object showOmsOrderReturnApplyById(@RequestParam int id) {
+        OmsOrderReturnApply omsOrderReturnApply = adminOmsOrderService.showOmsOrderReturnApplyById(id);
+        return omsOrderReturnApply;
+    }
+
+    /**
+     * 查询所有的退货原因
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("listAllReturnReason")
+    public Object listAllReturnReason() {
+        List<OmsOrderReturnReason> omsOrderReturnReasons = adminOmsOrderService.listAllReturnReason();
+        return omsOrderReturnReasons;
+    }
+
+    /**
+     * 添加一个退货原因
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("insertReturnReason")
+    public Object insertReturnReason(@RequestBody UpdateReturnReason updateReturnReason) {
+        int i = adminOmsOrderService.insertReturnReason(updateReturnReason);
+        return i;
+    }
+
+    /**
+     * 修改一个退货原因
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("updateReturnReason")
+    public Object updateReturnReason(@RequestBody UpdateReturnReason updateReturnReason) {
+        int i = adminOmsOrderService.updateReturnReason(updateReturnReason);
+        return i;
+    }
+
+    /**
+     * 删除一个退货原因
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("deleteReturnReason")
+    public Object deleteReturnReason(@RequestParam int id) {
+        int i = adminOmsOrderService.deleteReturnReason(id);
+        return i;
+    }
+
 
 
 }

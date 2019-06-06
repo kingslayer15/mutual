@@ -49,9 +49,9 @@ public class OmsOrderServiceImpl implements OmsOrderService {
     }
 
     @Override
-    public Long countByCreateTime(@Param("starTime") Date starTime, @Param("endTime") Date endTime){
-        Long aLong = omsOrderMapper.countByCreateTime(starTime, endTime);
-        return aLong;
+    public BigDecimal countByCreateTime(@Param("starTime") Date starTime, @Param("endTime") Date endTime){
+        BigDecimal bigDecimal = omsOrderMapper.countByCreateTime(starTime, endTime);
+        return bigDecimal;
     }
 
     @Override
@@ -83,5 +83,12 @@ public class OmsOrderServiceImpl implements OmsOrderService {
 
         return bigDecimal;
     }
+
+    @Override
+    public BigDecimal countOderByCreateTime(Integer dayNum) {
+//        omsOrderMapper.countByCreateTime(dayNum);
+        return null;
+    }
+
 
 }

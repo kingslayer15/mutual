@@ -3,6 +3,9 @@ import java.util.List;
 
 import com.thumb.dto.UmsMemberDto;
 import com.thumb.pojo.UmsMember;
+
+import java.math.BigDecimal;
+
 public interface UmsMemberService{
 
 
@@ -42,6 +45,13 @@ public interface UmsMemberService{
 
 
 
+
+
+    BigDecimal countByCreateTime(Integer dayNum);
+
+    BigDecimal countByCreateTimeMonth();
+
+    Long countAll();
 
 
 }
