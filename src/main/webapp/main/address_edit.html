@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="rtcont fr"  style="width: 978px;height: 1300px;background: #fff">
-            <div class="grzlbt ml40" id="address">我的收货地址</div>
+            <div class="grzlbt ml40" id="address">修改收货地址</div>
             <!--新增地址-->
 
             <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
@@ -138,60 +138,7 @@
                     </ul>
                 </div>
             </div>
-
-            <!--遍历地址-->
-            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
-                <div class="s-bar" >
-                    <i class="s-icon"></i>我的地址
-                </div>
-
-
-                <div class="addressList">
-                    <div class="next-table">
-
-                    <table id="addressList">
-                        <colgroup>
-                            <col style="width: 70px;">
-                            <col>
-                            <col style="width: 200px;">
-                            <col style="width: 100px;">
-                            <col style="width: 140px;">
-                            <col style="width: 110px;">
-                            <col style="width: 90px;">
-                        </colgroup>
-                        <thead class="next-table-header">
-                        <tr>
-                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell" style="width: 60px">
-                                <div class="next-table-cell-wrapper">收货人</div>
-                            </th>
-                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell" style="width: 150px;margin-right: 20px" >
-                                <div class="next-table-cell-wrapper">所在地区</div>
-                            </th>
-                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
-                                <div class="next-table-cell-wrapper">详细地址</div>
-                            </th>
-                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
-                                <div class="next-table-cell-wrapper">邮编</div>
-                            </th>
-                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
-                                <div class="next-table-cell-wrapper">电话/手机</div>
-                            </th>
-                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
-                                <div class="next-table-cell-wrapper">操作</div>
-                            </th>
-                            <th rowspan="1" type="header" class="next-table-cell next-table-header-node" role="gridcell">
-                                <div class="next-table-cell-wrapper"></div>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody class="next-table-body" id="addressInfo">
-
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-            </div>
-</div>
+        </div>
     </div>
 </div>
 
@@ -204,9 +151,6 @@
     <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 </footer>
 
-<a onclick="edit(id)"></a>
-
-
 <script>
 
 
@@ -214,19 +158,13 @@
         $("#header").load("header.html");
     })
 
-    function editAddress(id) {
-        // alert(id);
-        var url="address_edit.html?id="+id;
-        window.location.href=url;
+    // 获取地址id
+    var id;
+    function getId() {
+        id=window.location.search.split("=")[1]
+        alert(id)
     }
-
-    //获取用户id
-    // var userId;
-    // function getUserId() {
-    //     userId=window.location.search.split("=")[1]
-    //     // alert(userId)
-    // }
-    // getUserId();
+    getId();
     //根据id获取用户信息
     function getUserInfoById() {
         $.ajax({
@@ -236,87 +174,6 @@
             dataType:'json',
             success:function(data){
                 $("#uid").val(data.id);
-
-
-                //    获取用户所有地址
-                $.ajax({
-                    url:"/addressById",
-                    type:'GET', //GET
-                    contentType:"application/json",
-                    // data:JSON.stringify({keys:key}),
-                    dataType:'json',
-                    success:function(data){
-                        console.log(data)
-                        var addressInfo = $("#addressInfo");
-                        addressInfo.find("tr").remove();
-
-                        var addressList=$("#addressList");
-                        $(data).each(function (index,item) {
-                            var trHtml=" <tr class=\"next-table-row first\" role=\"row\">" +
-                                "<td type=\"body\" class=\"next-table-cell first\" role=\"gridcell\">\n" +
-                                "<div class=\"next-table-cell-wrapper\">"+item.name+"</div>" +
-                                "</td>\n" +
-                                "<td type=\"body\" class=\"next-table-cell\" role=\"gridcell\">\n" +
-                                "<div class=\"next-table-cell-wrapper\">\n" +
-                                "<span>"+item.province+" "+item.city+" "+item.region+"</span>" +
-                                "</div>\n" +
-                                "</td>\n" +
-                                "<td type=\"body\" class=\"next-table-cell\" role=\"gridcell\">\n" +
-                                "<div class=\"next-table-cell-wrapper\">"+item.detail_address+"</div>" +
-                                "</td>\n" +
-                                "<td type=\"body\" class=\"next-table-cell\" role=\"gridcell\">\n" +
-                                "<div class=\"next-table-cell-wrapper\">"+item.post_code+"</div>\n" +
-                                "</td><td type=\"body\" class=\"next-table-cell\" role=\"gridcell\">\n" +
-                                "<div class=\"next-table-cell-wrapper\">\n" +
-                                "<span>"+item.phone_number+"<br>\n" +
-                                "</span>\n" +
-                                "</div>\n" +
-                                "</td>\n" +
-                                "<td type=\"body\" class=\"next-table-cell\" role=\"gridcell\">\n" +
-                                "<div class=\"next-table-cell-wrapper\">\n" +
-                                "<div class=\"tAction\">\n" +
-                                "<a class=\"t-change\""+ "onclick=\"editAddress("+item.id+")\"" +"target=\"_self\">修改</a>\n" +
-                                "<span class=\"t-line\">|</span>\n" +
-                                "<a class=\"t-change\""+ "onclick=\"deleteAddress("+item.id+")\"" +"target=\"_self\">删除</a>\n" +
-                                "</div>\n" +
-                                "</div>\n" +
-                                "</td>\n"
-                                // addressList.append(trHtml);
-                            if (item.default_status=='1') {
-
-                                var defaultAddress = "<td type=\"body\" class=\"next-table-cell last\" role=\"gridcell\">\n" +
-                                    "<div class=\"next-table-cell-wrapper\">\n" +
-                                    "<div><span class=\"t-default\" >默认地址</span>\n" +
-                                    "</div>\n" +
-                                    "</div>\n" +
-                                    "</td>\n" +
-                                "</tr><br/><br/>"
-                                trHtml+=defaultAddress
-                                // addressList.append(defaultAddress);
-                                addressList.append(trHtml)
-                            }else {
-                                var notDefault="<td type=\"body\" class=\"next-table-cell last\" role=\"gridcell\">\n" +
-                                    "<div class=\"next-table-cell-wrapper\">\n" +
-                                    "<div>"+
-                                    "<a class=\"t-change\""+ "onclick=\"setDefault("+item.id+")\"" +"target=\"_self\">设置为默认地址</a>\n" +
-                                    "</div>\n" +
-                                    "</div>\n" +
-                                    "</td>\n" +
-                                "</tr><br/><br/>"
-                                // addressList.append(notDefault);
-                                // console.log(addressList)
-                                trHtml+=notDefault
-                                addressList.append(trHtml)
-
-                            }
-                        })
-                    },
-                    error:function(data){
-                        console.error(data);
-                    }
-                })
-
-
             },
             error:function(data){
                 console.error(data);
@@ -338,34 +195,6 @@
         }
     });
 
-    //删除一个地址
-    function deleteAddress(id) {
-        alert("删除")
-        alert(id)
-
-        $.ajax({
-            url:"/deleteOneAddress?id="+id,
-            type:'POST', //GET
-            // data:JSON.stringify({id:id}),
-            contentType:"application/json",
-            dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
-            success:function(data){
-                console.log(data)
-                if (data) {
-                    alert("删除成功")
-                    window.location.href = "address.html"
-                }
-            },
-            error:function(data){
-                console.log(data)
-                alert("删除失败")
-                window.location.href = "address.html"
-
-            }
-        })
-
-    }
-
 
     // 提交表中信息
 
@@ -378,7 +207,7 @@
             $("#phone_number").val().trim() != ''
         ) {
             $.ajax({
-                url:'/addAddress',
+                url:'/updateOneAddress',
                 type:'POST',
                 contentType:"application/json",
                 data:JSON.stringify({
@@ -390,8 +219,7 @@
                     post_code:$("#post_code").val(),
                     name:$("#name").val(),
                     phone_number:$("#phone_number").val(),
-                    default_status:0
-
+                    id:id,
                 }),
                 dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
                 success:function(data){
@@ -413,30 +241,33 @@
         }
     }
 
-//    设置默认地址
-    function setDefault(id) {
-        alert("设置")
+//    显示编辑的地址信息
+
+    function get() {
         alert(id)
         $.ajax({
             url:'/setDefault?id='+id,
-            type:'POST', //GET
+            type:'GET', //GET
             contentType:"application/json",
             // data:JSON.stringify({addressId:id}),
             dataType:'json',
             success:function(data){
-                alert(data)
                 console.log(data)
-                if (data) {
-                    var url= "address.html"
-                    window.location.href = url
-                }
+                $("#uid").val(data.member_id);
+                $("#province").val(data.province);
+                $("#city").val(data.city);
+                $("#region").val(data.region);
+                $("#detail_address").val(data.detail_address);
+                $("#post_code").val(data.post_code);
+                $("#name").val(data.name);
+                $("#phone_number").val(data.phone_number);
             },
             error:function(data){
                 console.log(data);
             }
         })
-
     }
+    get();
 
 
 

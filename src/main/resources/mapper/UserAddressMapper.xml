@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.PersonalAddressMapper">
+    <insert id="newAddress" parameterType="com.thumb.dto.ClientAddressDto">
+        insert into ums_member_receive_address (
+        member_id,name,phone_number,default_status,
+        <if test="post_code!=null and post_code!=''">
+            post_code,
+        </if>
+        province,city,region,detail_address)
+        values (
+        #{member_id},
+        #{name},
+        #{phone_number},
+        #{default_status},
+        <if test="post_code!=null and post_code!=''">
+        #{post_code},
+        </if>
+        #{province},
+        #{city},
+        #{region},
+        #{detail_address}
+        )
+    </insert>
+
+    <select id="getAaddressById" parameterType="int" resultType="com.thumb.dto.ClientAddressDto">
+        select * from ums_member_receive_address where member_id=#{id}
+    </select>
+
+    <select id="findOneAddress" resultType="com.thumb.dto.ClientAddressDto" parameterType="com.thumb.dto.ClientAddressDto">
+        select * from ums_member_receive_address where id=#{id} and member_id=#{member_id}
+    </select>
+
+    <update id="updateOneAddress" parameterType="com.thumb.dto.ClientAddressDto">
+        update ums_member_receive_address
+        <set>
+            province=#{province},
+            city=#{city},
+            region=#{region},
+            detail_address=#{detail_address},
+            <if test="post_code!=null and post_code!='' ">
+                post_code=#{post_code},
+            </if>
+            name=#{name},
+            phone_number=#{phone_number}
+        </set>
+        where id=#{id} and member_id=#{member_id}
+    </update>
+
+    <delete id="deleteOneAddress" parameterType="int">
+        delete from ums_member_receive_address where id=#{id}
+    </delete>
+
+    <update id="allZero" parameterType="int">
+        update ums_member_receive_address set default_status=0 where member_id=#{uid}
+    </update>
+
+    <update id="setDefault" parameterType="int">
+        update ums_member_receive_address set default_status=1 where id=#{id}
+    </update>
+
+</mapper>

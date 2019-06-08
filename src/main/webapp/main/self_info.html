@@ -98,6 +98,7 @@
 			<div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div> 
 			<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 		</footer>
+	<!--<img src="../userIcon">-->
 
 
 <script src="jquery/jquery-2.1.1.min.js"></script>
@@ -124,7 +125,7 @@
                 dataType:'json',
                 success:function(data){
                     console.log(data)
-                    $("#icon").attr("src","userIcon/"+data.icon);
+                    $("#icon").attr("src","../userIcon/"+data.icon);
 
                     $("#nickname").html(data.nickname);
                     if (data.gender==1){
