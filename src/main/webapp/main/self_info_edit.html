@@ -54,12 +54,12 @@
 				<div class="ddzx" style="height: 20px">个人中心</div>
 				<div class="subddzx">
 					<ul>
-						<li><a href="./self_info.html" >我的信息</a></li>
-						<li><a href="./self_info_edit.html">修改信息</a></li>
-						<li><a href="./self_info_pwd_edit.html">修改密码</a></li>
-						<li><a href="./coupon.html">优惠券</a></li>
-						<li><a href="./address.html">收货地址</a></li>
-						<li><a href="./point.html">我的积分</a></li>
+						<li><a href="/main/self_info.html" >我的信息</a></li>
+						<li><a href="/main/self_info_edit.html">修改信息</a></li>
+						<li><a href="/main/self_info_pwd_edit.html">修改密码</a></li>
+						<li><a href="/main/coupon.html">优惠券</a></li>
+						<li><a href="/main/address.html">收货地址</a></li>
+						<li><a href="/main/point.html">我的积分</a></li>
 					</ul>
 				</div>
 				<div class="ddzx" style="height: 20px">订单中心</div>
@@ -158,7 +158,7 @@
                 success:function(data){
                     alert(data.gender)
                     console.log(data.gender)
-                    $("#icon").attr("src","userIcon/"+data.icon);
+                    $("#icon").attr("src","../userIcon/"+data.icon);
 
                     $("#nickname").val(data.nickname);
                     if (data.gender=="1"){
