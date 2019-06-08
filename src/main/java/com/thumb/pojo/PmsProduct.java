@@ -3,6 +3,7 @@ package com.thumb.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
+
 public class PmsProduct {
     private Long id;
 
@@ -21,7 +22,7 @@ public class PmsProduct {
     /**
      * 货号
      */
-    private String productSn;
+    private String product_sn;
 
     /**
      * 删除状态：0->未删除；1->已删除
@@ -234,12 +235,12 @@ public class PmsProduct {
         this.pic = pic;
     }
 
-    public String getProductSn() {
-        return productSn;
+    public String getproduct_sn() {
+        return product_sn;
     }
 
-    public void setProductSn(String productSn) {
-        this.productSn = productSn;
+    public void setproduct_sn(String product_sn) {
+        this.product_sn = product_sn;
     }
 
     public Integer getDeleteStatus() {
@@ -527,7 +528,7 @@ public class PmsProduct {
         sb.append(", productAttributeCategoryId=").append(productAttributeCategoryId);
         sb.append(", name=").append(name);
         sb.append(", pic=").append(pic);
-        sb.append(", productSn=").append(productSn);
+        sb.append(", product_sn=").append(product_sn);
         sb.append(", deleteStatus=").append(deleteStatus);
         sb.append(", publishStatus=").append(publishStatus);
         sb.append(", newStatus=").append(newStatus);

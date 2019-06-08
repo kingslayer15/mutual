@@ -24,6 +24,11 @@ public class UmsMemberDto {
      */
     private String regCode;
 
+    /**
+     * 登录验证码
+     */
+    private String loginCode;
+
 
 
 }

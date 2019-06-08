@@ -4,7 +4,7 @@
 
     <!--获取正在推荐的品牌-->
     <select id="selectBrandAll" resultType="com.thumb.pojo.Brand">
-        select * from pms_brand where show_status=1
+        select * from pms_brand where show_status=1 order by  sort desc
     </select>
 
     <!--修改品牌推荐排序值-->
@@ -20,14 +20,13 @@
 
     <!--查询品牌库的所有没有推荐品牌-->
     <select id="selectPmsBrandsAll" resultType="com.thumb.pojo.Brand">
-        select * from pms_brand where show_status= 0
+        select * from pms_brand where show_status= 0 order by sort desc
     </select>
 
     <!--条件查询name-->
     <select id="getSelectBrand" resultType="com.thumb.pojo.Brand" parameterType="String">
-        select * from pms_brand where show_status= 0 and name like "%"#{name}"%"
+        select * from pms_brand where show_status= 1 and name like "%"#{name}"%"
     </select>
-
 
     <!--批量修改品牌库数据  -->
     <update id="updateMenuById" parameterType="com.thumb.dto.PageName">

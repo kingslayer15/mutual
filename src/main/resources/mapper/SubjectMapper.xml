@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.SubjectMapper">
+
+    <!--获取正在推荐的品牌-->
+    <select id="selectSubjectAll" resultType="com.thumb.pojo.CmsSubject">
+        select id,title,sort,recommend_status from cms_subject where recommend_status=1  order by sort desc
+    </select>
+
+    <!--修改品牌推荐排序值-->
+    <update id="updateSubjectBySort" parameterType="com.thumb.pojo.CmsSubject">
+        UPDATE cms_subject SET `sort` = #{sort} WHERE `id` = #{id};
+    </update>
+
+    <!--删除首页推荐品牌-->
+    <update id="deleteSubjectById" parameterType="int">
+        UPDATE `cms_subject` SET `recommend_status` = 0 WHERE `id` = #{id};
+    </update>
+
+
+    <!--查询品牌库的所有没有推荐品牌-->
+    <select id="selectSubjectsAll" resultType="com.thumb.pojo.CmsSubject">
+         select *  from cms_subject where recommend_status=0   order by sort desc
+    </select>
+
+    <!--条件查询name-->
+    <select id="getSelectSubject" resultType="com.thumb.pojo.CmsSubject" parameterType="String">
+        select id,title,sort,recommend_status from cms_subject where  name like "%"#{name}"%"
+    </select>
+
+    <!--批量修改品牌库数据  -->
+    <update id="updateSubjectById" parameterType="com.thumb.dto.PageName">
+        update cms_subject   set
+        recommend_status = 1
+        where id in
+        <foreach collection="checkID" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+</mapper>
