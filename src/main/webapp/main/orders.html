@@ -13,6 +13,9 @@
     <link href="../static/css/p.css" rel="stylesheet" type="text/css">
 
 </head>
+<!--<style>-->
+    <!--.tag li a:hover{color: black}-->
+<!--</style>-->
 
 <body>
 
@@ -76,118 +79,99 @@
             <div class="grzlbt ml40">我的订单</div>
 
             <div class="m-userinfo" data-spm="972272805">
-                <!--<div class="s-userbar s-bar" style="padding-top: 10px;">-->
-                    <!--<div class="s-baseinfo">-->
 
-
-                        <!--<a href="./self_info_edit.html" target="_blank" class="s-avatar" data-spm="d4911997">-->
-                            <!--<span class="s-edit-mask">编辑资料</span>-->
-                            <!--<img src=" ">-->
-                        <!--</a>-->
-
-
-                        <!--<input id="mtb-nickname" type="hidden" value="tb16500217">-->
-                        <!--<input id="mtb-userid" type="hidden" value="1828507653">-->
-
-                        <!--<div class="s-name">-->
-                            <!--<a data-spm="d4912005" target="_blank" href="./self_info_edit.html">-->
-                                <!--<em>颖丫丫宝</em>-->
-
-                            <!--</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<ul class="s-my-stuffs">-->
-                        <!--<li class="s-myalipay J_DropRoot" id="J_MyAlipayInfo">-->
-                            <!--<span href="#" class="" style="zoom: 1; cursor: pointer; position: relative; z-index: 2; display: block; padding: 10px 0; color: #546d7e; text-align: center;"></span>-->
-                        <!--</li>-->
-
-                        <!--<li class="s-privilegeinfo J_DropRoot" id="J_MyPrivilegeInfo">-->
-                            <!--<a href="coupon.html"> <span class="J_DropTrigger i-trigger">我的优惠信息</span></a>-->
-                        <!--</li>-->
-
-
-                        <!--<li>-->
-                            <!--<a href="address.html" target="_blank" data-spm="d4912033" class="J_DropTrigger i-trigger">我的收货地址</a>-->
-                        <!--</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
                 <div class="s-my-counts s-content">
                     <ul>
                         <li>
-                            <a data-spm="d4919660" target="_blank" href="waitPay.html"><span>待付款</span></a>
+                            <a data-spm="d4919660" target="_blank" href="orders.html"><span>所有订单</span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919661" target="_blank" href="waitSend.html"><span>待发货</span></a>
+                            <a data-spm="d4919660" target="_blank" href="waitPay.html"><span id="wait_pay">待付款</span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919662" target="_blank" href="waitConfirm.html"><span>待收货<em>5</em></span></a>
+                            <a data-spm="d4919661" target="_blank" href="waitSend.html"><span id="wait_send">待发货</span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919663" target="_blank" href="waitRate.html"><span>待评价<em>4</em></span></a>
+                            <a data-spm="d4919662" target="_blank" href="waitConfirm.html"><span>待收货<em id="wait_confirm">5</em></span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919664" target="_blank" href="refund_list.html"><span>退款</span></a>
+                            <a data-spm="d4919663" target="_blank" href="waitRate.html"><span>待评价<em id="wait_rate">4</em></span></a>
+                        </li>
+                        <li>
+                            <a data-spm="d4919664" target="_blank" href="refund_list.html"><span id="refund">退款</span></a>
                         </li>
                     </ul>
                 </div>
             </div>
 
+            <div class="m-userinfo" data-spm="972272805">
+
+                <div class="s-my-counts s-content">
+                    <ul class="tag">
+                        <li style="width: 350px">
+                            <a><span>商品信息</span></a>
+                        </li>
+                        <li style="width: 120px">
+                            <a><span>单价</span></a>
+                        </li>
+                        <li style="width: 120px">
+                            <a><span>数量</span></a>
+                        </li>
+                        <li style="width: 120px">
+                            <a><span>实付款</span></a>
+                        </li>
+                        <li style="width: 120px">
+                            <a><span>交易状态</span></a>
+                        </li>
+                        <li style="width: 120px">
+                            <a><span>操作</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
             <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set">
                 <div class="s-bar" data-spm-anchor-id="a1z02.1.1998049142.i0.66bc782dbSIL5O">
-                    <i class="s-icon"></i>我的物流
+                    <!--<i class="s-icon"></i>我的物流-->
+                    <i id="orderTime">订单时间：</i><i id="orderNumber">订单编号：</i>
                 </div>
                 <div class="s-content">
                     <ul class="lg-list">
 
                         <li class="lg-item">
                             <div class="item-info">
-                                <a data-spm="d4919535" target="_blank" href="https://buyertrade.taobao.com/trade/detail/trade_item_detail.htm?bizOrderId=472317922927505376&amp;tracelog=yimaidaopic">
-                                    <img src="./我的淘宝_files/TB2hETxIAKWBuNjy1zjXXcOypXa_!!2460983322.jpg_120x120xz.jpg" alt="可爱韩国趴趴猪毛绒玩具猪猪玩偶公仔萌蜜桃猪女孩睡觉抱女生懒人">
-                                </a>
-
-
-
+                                    <img src=""  height="120" width="120">
+                                    <!--图片显示不出来的时候显示商品名称-->
                             </div>
-                            <div class="lg-info">
-
-                                <p>[南京市]快件离开南京中转部已发往广州中心</p>
-                                <time>2019-06-04 23:53:58</time>
-
-
-                                <div class="lg-detail-wrap">
-                                    <a data-spm="d4919528" target="_blank" class="lg-detail i-tip-trigger" href="logistics.html">查看物流明细</a>
-                                    <div class="J_TipsCon hide">
-                                        <div class="s-tip-bar">中通快递&nbsp;&nbsp;&nbsp;&nbsp;运单号：75152939935976</div>
-                                        <div class="s-tip-content">
-                                            <ul>
-                                                <li>[南京市]快件离开南京中转部已发往广州中心
-                                                    2019-06-04 23:53:58</li>
-
-                                                <li>[南京市]快件已到达南京中转部
-                                                    2019-06-04 23:51:13</li>
-
-                                                <li class="s-omit"><a target="_blank" href="https://wuliu.taobao.com/user/order_detail_new.htm?trade_id=472317922927505376&amp;seller_id=2460983322&amp;tracelog=yimaidaologistics">··· 查看全部</a></li>
-
-                                                <li>等待揽收中
-                                                    2019-06-04 08:49:43</li>
-
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-
+                            <div class="lg-info" style="width: 280px">
+                                <p>商品名</p>
+                                <time>商品属性</time>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p>单价</p>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p>数量</p>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p>总价</p>
+                                <p>支付方式</p>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p>订单状态</p>
+                                <a>查看物流</a>
                             </div>
                             <div class="lg-confirm">
-                                <a data-spm="d4919529" target="_blank" class="i-btn-typical" href="https://buyertrade.taobao.com/trade/confirm_goods.htm?biz_order_id=472317922927505376&amp;tracelog=yimaidaocheck">确认收货</a>
+                                <a data-spm="d4919529" target="_blank" class="i-btn-typical" href="">确认收货</a>
+                                <a data-spm="d4919529" target="_blank" class="i-btn-typical" href="" style="width: 40px">评价</a>
                             </div>
                         </li>
 
                     </ul>
-
-
-                    <div class="lg-foot">展开更多信息 <span class="g-arr-down"><i></i><em></em></span></div>
 
                 </div>
 
