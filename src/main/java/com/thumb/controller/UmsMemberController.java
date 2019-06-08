@@ -181,12 +181,13 @@ public class UmsMemberController {
      */
     @RequestMapping("userLogin")
     @ResponseBody
-    public boolean userLogin(@RequestBody UmsMemberDto umsMemberDto) {
+    public boolean userLogin(@RequestBody UmsMemberDto umsMemberDto,HttpSession httpSession) {
         System.out.println(umsMemberDto);
         //去后台查询用户名和密码
         UmsMember umsMember = umsMemberService.selectOneByUsernameAndPassword(umsMemberDto);
         System.out.println(umsMember);
         if (umsMember != null) {
+            httpSession.setAttribute("umsMember",umsMember);
             return true;
         }
         return false;
