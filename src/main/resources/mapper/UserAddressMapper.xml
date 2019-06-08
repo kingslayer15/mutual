@@ -26,7 +26,39 @@
     </insert>
 
     <select id="getAaddressById" parameterType="int" resultType="com.thumb.dto.ClientAddressDto">
-
+        select * from ums_member_receive_address where member_id=#{id}
     </select>
+
+    <select id="findOneAddress" resultType="com.thumb.dto.ClientAddressDto" parameterType="com.thumb.dto.ClientAddressDto">
+        select * from ums_member_receive_address where id=#{id} and member_id=#{member_id}
+    </select>
+
+    <update id="updateOneAddress" parameterType="com.thumb.dto.ClientAddressDto">
+        update ums_member_receive_address
+        <set>
+            province=#{province},
+            city=#{city},
+            region=#{region},
+            detail_address=#{detail_address},
+            <if test="post_code!=null and post_code!='' ">
+                post_code=#{post_code},
+            </if>
+            name=#{name},
+            phone_number=#{phone_number}
+        </set>
+        where id=#{id} and member_id=#{member_id}
+    </update>
+
+    <delete id="deleteOneAddress" parameterType="int">
+        delete from ums_member_receive_address where id=#{id}
+    </delete>
+
+    <update id="allZero" parameterType="int">
+        update ums_member_receive_address set default_status=0 where member_id=#{uid}
+    </update>
+
+    <update id="setDefault" parameterType="int">
+        update ums_member_receive_address set default_status=1 where id=#{id}
+    </update>
 
 </mapper>
