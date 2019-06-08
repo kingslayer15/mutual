@@ -156,38 +156,41 @@ public class UmsMemberController {
 
     }
 
+    /**
+     * 登录时候判断验证码是否一致
+     * @param logincode
+     * @param httpSession
+     * @return
+     */
+    @RequestMapping("isExistLoginCode")
+    @ResponseBody
+    public boolean isExistLoginCode(@RequestParam String logincode,HttpSession httpSession) {
+        System.out.println(logincode);
+        String KAPTCHACode = (String) httpSession.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        if (!logincode.equals(KAPTCHACode)) {
+            return false;
+        }
+        return true;
+    }
+
 
     /**
-     * TODO
+     * 登录的时候根据用户名密码登录
      * @param umsMemberDto
-     * @param httpSession
      * @return
      */
     @RequestMapping("userLogin")
     @ResponseBody
-    public Object userLogin(@RequestBody UmsMemberDto umsMemberDto, HttpSession httpSession) {
+    public boolean userLogin(@RequestBody UmsMemberDto umsMemberDto) {
         System.out.println(umsMemberDto);
-        String kaptchaCode = (String) httpSession.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        System.out.println("后台的logincode"+kaptchaCode);
-
-        String loginCode = umsMemberDto.getLoginCode();
-        System.out.println("前端的loginCode"+loginCode);
-        int flag;
-
-        if (kaptchaCode.equals(loginCode)) {
-            System.out.println("对比成功");
-            //去后台查询用户名和密码
-            UmsMember umsMember = umsMemberService.selectOneByUsernameAndPassword(umsMemberDto);
-            System.out.println(umsMember);
-            flag = 1;
-//        } else if () {
-//            flag = 0;
-//        } else {
-//            System.out.println("对比失败");
+        //去后台查询用户名和密码
+        UmsMember umsMember = umsMemberService.selectOneByUsernameAndPassword(umsMemberDto);
+        System.out.println(umsMember);
+        if (umsMember != null) {
+            return true;
         }
+        return false;
 
-
-        return "对比失败";
 
     }
 

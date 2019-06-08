@@ -13,7 +13,7 @@
         <a href="./index.html" target="_blank"><img src="../static/image/mistore_logo.png" alt=""></a>
     </div>
 </div>
-<form id="form" method="post" class="form center">
+<form id="form" class="form center">
     <div class="login">
         <div class="login_center">
             <div class="login_top">
@@ -23,23 +23,25 @@
                 <div class="xian center"></div>
             </div>
             <div class="login_main center">
-                <div class="username">用户名:&nbsp;<input id="username" class="shurukuang" type="text" name="username"
+                <div class="username">用户名:&nbsp;<input id="userName" class="shurukuang" type="text" name="username"
                                                        placeholder="请输入你的用户名"/></div>
                 <div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input id="password" class="shurukuang"
                                                                               type="password" name="password"
                                                                               placeholder="请输入你的密码"/></div>
                 <div class="username">
-                    <div class="left fl">验证码:&nbsp;<input id="logincode" class="yanzhengma" type="text" name="username"
+                    <div class="left fl">验证码:&nbsp;<input id="loginCode" class="yanzhengma" type="text" name="logincode"
                                                           placeholder="请输入验证码"/></div>
-                    <div class="right fl"><img id="kaptchaImage" src="/captchaController"><span id="code"></span>
+                    <div class="right fl">
+                        <img id="kaptchaImage" src="/captchaController"><span id="code"></span>
                     </div>
                     <div class="clear"></div>
                 </div>
-                <div class="username">3天免登:&nbsp;&nbsp;
-                    <input type="checkbox" id="remember"></div>
+            </div>
+            <div class="username">3天免登:
+                <input type="checkbox" id="remember">
             </div>
             <div class="login_submit">
-                <input onclick="userLogin()" class="submit" type="submit" name="submit" value="立即登录">
+                <input class="submit" type="submit" name="submit" value="立即登录">
             </div>
 
         </div>
@@ -47,21 +49,45 @@
 </form>
 <script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script src="../static/jquery/jquery.cookie.js"></script>
+<script src="../static/jquery/jquery.validate.js"></script>
+<script src="../static/jquery/jquery.validate.min.js"></script>
 <script>
 
-    //进页面,获取cookie的值
     $(function () {
+        //进页面,获取cookie的值
         var username = $.cookie('username');
         var password = $.cookie('password');
         //将获取的值填充入输入框中
-        $('#username').val(username);
+        $('#userName').val(username);
         $('#password').val(password);
+        $.ajax({
+            type: "post",
+            url: "/userLogin",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "username":$('#userName').val(),
+                "password":$('#password').val(),
+            }),
+            success: function (data) {
+                if (data == true) {
+                    window.location.href = "index.html";
+                }
+                console.log(data); //  2pm
+            },
+            error: function (data) {
+                console.log(data);
+            },
+            dataType: "json"
+        });
         //如果cookie有值,勾选记住我
         if (username != null && username != '' && password != null && password != '') {//选中保存秘密的复选框
             //勾选记住我
             $("#remember").prop('checked', true);
         }
+        //从cookie拿出来放进ajax去对比
+        $("#form").vali
         $("#form").validate({
+
             rules: {
                 username: {
                     required: true,
@@ -71,49 +97,55 @@
                     required: true,
                     minlength: 6
                 },
-                regcode: {
+                logincode: {
                     required: true,
-                    minlength:6,
+                    minlength: 4,
+                    remote: {          //远程ajax验证
+                        url: "/isExistLoginCode", //检查是否存在账号，存在则返回true
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            logincode: function () {
+                                return $("#loginCode").val(); //这个是取要验证的验证码
+                            }
+                        }
+                    }
                 },
             },
             messages: {
                 username: {
-                    required: "请输入用户名",
-                    minlength: "用户名必需不能小于6个字母"
+                    required: "<br /><span style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入用户名</span>",
+                    minlength: "<br /><span style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名必需不能小于6位数</span>"
                 },
                 password: {
-                    required: "请输入密码",
-                    minlength: "密码长度不能小于 6 个字母"
+                    required: "<br /><span style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入密码</span>",
+                    minlength: "<br /><span style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码长度不能小于 6位数</span>"
                 },
-                regcode: {
-                    required: "请输入验证码",
-                    minlength: "验证码必须6位数"
+                logincode: {
+                    required: "<div style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入验证码</div>",
+                    minlength: "<div style='color:red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;验证码必须4位数</div>",
+                    remote: "<div style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;验证码错误</divst>"
                 },
             },
 
 
             submitHandler: function (form) { //通过之后回调
                 $.ajax({
-                    type:"post",
-                    url: "/regMember",
+                    type: "post",
+                    url: "/userLogin",
                     contentType: "application/json",
                     data: JSON.stringify({
                         "username": $("#userName").val(),
                         "password": $("#password").val(),
-                        "regemail": $("#regEmail").val(),
-                        "regCode": $("#regCode").val()
                     }),
                     success: function (data) {
-                        //获取用户验证码
-                        var regCodeVal = $("#regCode").val();
-                        //如果验证码跟后台不一样
-                        if (data != regCodeVal) {
-                            $("#codeTips").text("验证码错误");
-                            return false;
+                        if (data == false) {
+                            window.location.href = "login.html";
+                        } else {
+                            saveCookie();
+                            window.location.href = "index.html";
                         }
-                        alert("注册成功");
                         console.log(data); //  2pm
-                        window.location.href = "login.html";
                     },
                     error: function (data) {
                         console.log(data);
@@ -122,12 +154,12 @@
                 });
             },
 
-            invalidHandler: function(form, validator) {
-                alert("注册失败");
+            invalidHandler: function (form, validator) {
+                window.location.href = "login.html";
                 return false;
             }
         })
-    })
+    });
 
     //验证码生成
     $('#kaptchaImage').click(function () {//生成验证码
@@ -135,69 +167,24 @@
         event.cancelBubble = true;
     });
 
-    function userLogin() {
-
-        saveCookie();
-        $.ajax({
-            type: "POST",
-            url: "/userLogin",
-            contentType: "application/json;",
-            data: JSON.stringify({
-                "username": $("#username").val().trim(),
-                "password": $("#password").val().trim(),
-                "loginCode": $("#logincode").val().trim(),
-                // "rememberStatus":rememberStatus
-            }),
-            dataType: "json",
-            success: function (data) {
-                alert(data)
-                alert("success")
-                console.log(data)
-                window.location.href = "index.html";
-                // if (data == 0) {
-                //     $("#code").html("验证码错误！");
-                //     $("#code").css("color", "red");
-                //
-                //     $('#kaptchaImage').click();
-                // } else if (data == 2) {
-                //     $("#code").html("");
-                //     $("#usernameAndPassword").html("用户名或密码错误！");
-                //     $("#usernameAndPassword").css("color", "red");
-                //     $("#username").val("");
-                //     $("#password").val("");
-                //     $("#kaptcha").val("");
-                //     $('#kaptchaImage').click();
-                // } else {
-                //     alert("登录成功！");
-                //     window.location.href = "index.html";
-                // }
-
-            },
-            error: function (data) {
-                alert("false")
-                console.log(data)
-            }
-        });
-
-    }　
     //保存cookie方法
     function saveCookie() {
-        var usernameVal = $("#username").val().trim();
+        var usernameVal = $("#userName").val().trim();
         var passwordVal = $("#password").val().trim();
         //如果选中
         if ($("#remember").prop("checked")) {
             // $.cookie("rmbUser", "true", { expires: 7 }); //存储一个带7天期限的cookie
             //保存用户输入的用户名进cookies的username,时间3天
-            $.cookie("username", usernameVal, { expires: 3 });
+            $.cookie("username", usernameVal, {expires: 3});
             //保存用户输入的密码进cookies的password
-            $.cookie("password", passwordVal, { expires: 3 });
+            $.cookie("password", passwordVal, {expires: 3});
         }
         //不选中
         else {
             // $.cookie("rmbUser", "false", { expire: -1 });
             //cookie销毁
-            $.cookie("username", "", { expires: -1 });
-            $.cookie("password", "", { expires: -1 });
+            $.cookie("username", "", {expires: -1});
+            $.cookie("password", "", {expires: -1});
         }
     }
 
@@ -205,8 +192,8 @@
 </script>
 
 <footer>
-    <div class="copyright">简体 | 繁体 | English | 常见问题</div>
-    <div class="copyright">小米公司版权所有-京ICP备10046444-<img src="../static/image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号
+    <div class="copyright"><!--简体 | 繁体 | English | 常见问题--></div>
+    <div class="copyright">共勉公司版权所有-京ICP备10046444-<img src="../static/image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号
     </div>
 
 </footer>

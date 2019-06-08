@@ -1,4 +1,5 @@
 package com.thumb.service.impl;
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.thumb.dto.UmsMemberDto;
@@ -106,6 +107,20 @@ public class UmsMemberServiceImpl implements UmsMemberService{
 		 return umsMemberMapper.selectOneByRegemail(regemail);
 	}
 
+    @Override
+    public BigDecimal countByCreateTime(Integer dayNum) {
+        return null;
+    }
+
+    @Override
+    public BigDecimal countByCreateTimeMonth() {
+        return null;
+    }
+
+    @Override
+    public Long countAll() {
+        return null;
+    }
 
 
 }
