@@ -1,9 +1,6 @@
 package com.thumb.mapper;
-import org.apache.ibatis.annotations.Param;
 
-import com.thumb.pojo.PmsProduct;
-
-import java.math.BigDecimal;
+import com.thumb.pojo.PmsProduct;import java.math.BigDecimal;
 
 public interface PmsProductMapper {
     int deleteByPrimaryKey(Long id);
@@ -25,6 +22,5 @@ public interface PmsProductMapper {
     BigDecimal countByPublishStatus(Integer status);
 
     BigDecimal countAll();
-
 
 }

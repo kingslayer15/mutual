@@ -9,7 +9,7 @@ import com.thumb.service.PmsProductService;
 import java.math.BigDecimal;
 
 @Service
-public class PmsProductServiceImpl implements PmsProductService{
+public class PmsProductServiceImpl implements PmsProductService {
 
     @Resource
     private PmsProductMapper pmsProductMapper;
@@ -67,9 +67,10 @@ public class PmsProductServiceImpl implements PmsProductService{
 
 
     @Override
-    public BigDecimal countAll(){
+    public BigDecimal countAll() {
         BigDecimal bigDecimal = pmsProductMapper.countAll();
         return bigDecimal;
     }
 
 }
+

@@ -541,7 +541,7 @@
   </select>
 
 
-  <select id="countByPublishStatus" resultType="java.math.BigDecimal" parameterType="java.lang.Integer">
+  <select id="countByPublishStatus" parameterType="java.lang.Integer" resultType="java.math.BigDecimal">
     SELECT count(1) FROM pms_product WHERE publish_status = #{status}
   </select>
 

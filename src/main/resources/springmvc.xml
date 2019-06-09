@@ -72,7 +72,7 @@
                         <prop key="kaptcha.image.height">42</prop>
                         <prop key="kaptcha.textproducer.font.size">45</prop>
                         <prop key="kaptcha.session.key">code</prop>
-                        <prop key="kaptcha.textproducer.char.string">1</prop>
+                        <prop key="kaptcha.textproducer.char.string">12</prop>
                         <prop key="kaptcha.textproducer.char.length">4</prop>
                         <prop key="kaptcha.textproducer.font.names"><!--宋体，楷体，微软雅黑--></prop>
                     </props>

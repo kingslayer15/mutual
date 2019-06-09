@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.imageio.ImageIO;
 import javax.mail.MessagingException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -83,7 +84,6 @@ public class UmsMemberController {
     @RequestMapping("captchaController")
     public String getKaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
-        String code = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
         response.setDateHeader("Expires", 0);
         response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
         response.addHeader("Cache-Control", "post-check=0, pre-check=0");
@@ -99,7 +99,9 @@ public class UmsMemberController {
         } finally {
             out.close();
         }
-        return null;
+        String code = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        System.out.println("code生成"+code);
+        return code;
     }
 
     /**
