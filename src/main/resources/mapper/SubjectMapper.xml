@@ -4,7 +4,7 @@
 
     <!--获取正在推荐的品牌-->
     <select id="selectSubjectAll" resultType="com.thumb.pojo.CmsSubject">
-        select id,title,sort,recommend_status from cms_subject where recommend_status=1  order by sort desc
+        select * from cms_subject where recommend_status=1  order by sort desc
     </select>
 
     <!--修改品牌推荐排序值-->

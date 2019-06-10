@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
         <meta name="author" content="order by dede58.com"/>
-		<title>品牌商品页</title>
+		<title>专题商品页</title>
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 	</head>
 	<body>
@@ -89,7 +89,7 @@
 	<!-- start danpin -->
 		<div class="danpin center">
 			
-			<div class="biaoti center" id="title"></div>
+			<div class="biaoti center" id="title">小米手机</div>
 			<div class="main center" id="li1">
 				<!--<div class="mingxing fl mb20" style="border:2px solid #fff;width:230px;cursor:pointer;" onmouseout="this.style.border='2px solid #fff'" onmousemove="this.style.border='2px solid red'">-->
 					<!--<div class="sub_mingxing"><a href="xiangqing.html" target="_blank"><img src="../image/liebiao_xiaomi6.jpg" alt=""></a></div>-->
@@ -127,12 +127,14 @@
 
 		function get(pageNow,pageSize) {
 
+
+
 			var  id = window.location.search.split("=")[1];
 			// alert(pageNow+":"+pageSize+":"+id)
 			//加载此品牌下的所有商品
 
 			$.ajax({
-				url: '/getBrands',
+				url: '/getSubject',
 				type: 'POST', //GET
 				contentType: "application/json",
 				dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text

@@ -2,6 +2,7 @@ package com.thumb.mapper;
 
 import com.thumb.dto.PageName;
 import com.thumb.pojo.Brand;
+import com.thumb.pojo.PmsProduct;
 
 
 import java.util.List;
@@ -51,5 +52,12 @@ public interface MarketingMapper {
     int updateMenuById(PageName pageName);
 
 
+    /**
+     *  查询指定品牌下的商品
+     * @param id
+     * @return
+     */
+    List<PmsProduct> getBrands(int id);
 
+    List<PmsProduct> getSubject(int id);
 }

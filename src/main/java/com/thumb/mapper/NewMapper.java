@@ -62,4 +62,7 @@ public interface NewMapper {
      * @return
      */
     List<PmsProduct> selectNewsAllNO_folioModal(PageName pageName);
+
+    List<PmsProduct> SubjectIndex();
+
 }
