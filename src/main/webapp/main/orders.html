@@ -83,22 +83,22 @@
                 <div class="s-my-counts s-content">
                     <ul>
                         <li>
-                            <a data-spm="d4919660" target="_blank" href="orders.html"><span>所有订单</span></a>
+                            <a data-spm="d4919660" target="_self" href="orders.html"><span>所有订单</span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919660" target="_blank" href="waitPay.html"><span id="wait_pay">待付款</span></a>
+                            <a data-spm="d4919660" target="_self" href="waitPay.html"><span id="wait_pay">待付款</span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919661" target="_blank" href="waitSend.html"><span id="wait_send">待发货</span></a>
+                            <a data-spm="d4919661" target="_self" href="waitSend.html"><span id="wait_send">待发货</span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919662" target="_blank" href="waitConfirm.html"><span>待收货<em id="wait_confirm">5</em></span></a>
+                            <a data-spm="d4919662" target="_self" href="waitConfirm.html"><span>待收货<em id="wait_confirm"></em></span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919663" target="_blank" href="waitRate.html"><span>待评价<em id="wait_rate">4</em></span></a>
+                            <a data-spm="d4919663" target="_self" href="waitRate.html"><span>待评价<em id="wait_rate"></em></span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919664" target="_blank" href="refund_list.html"><span id="refund">退款</span></a>
+                            <a data-spm="d4919664" target="_self" href="refund_list.html"><span id="refund">退款</span></a>
                         </li>
                     </ul>
                 </div>
@@ -118,7 +118,7 @@
                             <a><span>数量</span></a>
                         </li>
                         <li style="width: 120px">
-                            <a><span>实付款</span></a>
+                            <a><span>支付方式</span></a>
                         </li>
                         <li style="width: 120px">
                             <a><span>交易状态</span></a>
@@ -134,7 +134,7 @@
 
 
 
-            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set">
+            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" id="orderList">
                 <div class="s-bar" data-spm-anchor-id="a1z02.1.1998049142.i0.66bc782dbSIL5O">
                     <!--<i class="s-icon"></i>我的物流-->
                     <i id="orderTime">订单时间：</i><i id="orderNumber">订单编号：</i>
@@ -158,7 +158,7 @@
                                 <p>数量</p>
                             </div>
                             <div class="lg-info" style="width: 120px">
-                                <p>总价</p>
+
                                 <p>支付方式</p>
                             </div>
                             <div class="lg-info" style="width: 120px">
@@ -173,6 +173,47 @@
 
                     </ul>
 
+                </div>
+                <div class="s-content">
+                    <ul class="lg-list">
+
+                        <li class="lg-item">
+                            <div class="item-info">
+                                <img src=""  height="120" width="120">
+                                <!--图片显示不出来的时候显示商品名称-->
+                            </div>
+                            <div class="lg-info" style="width: 280px">
+                                <p>商品名</p>
+                                <time>商品属性</time>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p>单价</p>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p>数量</p>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+
+                                <p>支付方式</p>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p>订单状态</p>
+                                <a>查看物流</a>
+                            </div>
+                            <div class="lg-confirm">
+                                <a data-spm="d4919529" target="_blank" class="i-btn-typical" href="">确认收货</a>
+                                <a data-spm="d4919529" target="_blank" class="i-btn-typical" href="" style="width: 40px">评价</a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="s-bar" data-spm-anchor-id="a1z02.1.1998049142.i0.66bc782dbSIL5O">
+                    <!--<i class="s-icon"></i>我的物流-->
+                    <i id="orderTime">订单时间：</i><i id="orderNumber">订单编号：</i>
                 </div>
 
             </div>
@@ -206,42 +247,145 @@
         $("#header").load("header.html");
     })
 
-    //获取用户id
-    var userId;
-    function getUserId() {
-        userId=window.location.search.split("=")[1]
-        // alert(userId)
-    }
-    getUserId();
-    //根据id获取用户信息
-    function getUserInfoById() {
+    //根据id获取用户订单信息
+    function getUserOrderById() {
         $.ajax({
-            url:'/userInfoById?userId='+userId,
+            url:'/orderByUid',
             type:'GET', //GET
             contentType:"application/json",
             dataType:'json',
             success:function(data){
+                var orderList = $("#orderList");
+                orderList.find("div").remove();
+
                 console.log(data)
+                $(data).each(function (index,item) {
+                    var html="<div class=\"s-bar\" data-spm-anchor-id=\"a1z02.1.1998049142.i0.66bc782dbSIL5O\">" +
+                        "<i id=\"orderTime\">创建时间："+item.create_time+"</i><i id=\"orderNumber\" style=\"padding-left: 50px\">"+
+                        " 订单编号："+item.order_sn+"</i>" +
+                        "<i style=\"padding-left: 230px\">订单总额：￥ "+item.pay_amount+"</i>"+
+                        "                </div>"
 
-                $("#phone").html(data.phone);
-                $("#personalized_signature").html(data.personalized_signature);
-                $("#job").html(data.job);
-                $("#city").html(data.city);
+                    $(item.order_items).each(function (index,product) {
+                        var pay_type;
+                        if (item.pay_type==0){
+                            pay_type="未支付"
+                        } else if (item.pay_type==1) {
+                            pay_type="支付宝"
+                        } else {
+                            pay_type="微信"
+                        }
 
+                        var status;
+                        if (item.status=="0"){
+                            status="待付款"
+                        } else if (item.status=="1") {
+                            status="待发货"
+                        } else if(item.status=="2"){
+                            status="已发货"
+                        } else if (item.status=="3") {
+                            status="已完成"
+                        } else if (item.status=="4") {
+                            status="已关闭"
+                        } else {
+                            status="无效订单"
+                        }
+
+                        html+=" <div class=\"s-content\">\n" +
+                            "                    <ul class=\"lg-list\">\n" +
+                            "\n" +
+                            "                        <li class=\"lg-item\">\n" +
+                            "                            <div class=\"item-info\">\n" +
+                            "                                <img src=\"\"  height=\"120\" width=\"120\">\n" +
+                            "                                <!--图片显示不出来的时候显示商品名称-->\n" +
+                            "                            </div>\n" +
+                            "                            <div class=\"lg-info\" style=\"width: 280px\">\n" +
+                            "                                <p>"+product.product_name+"</p>\n" +
+                            "                                <time>"+product.product_attr+"</time>\n" +
+                            "                            </div>\n" +
+                            "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+                            "                                <p>"+product.product_price+"</p>\n" +
+                            "                            </div>\n" +
+                            "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+                            "                                <p>"+product.product_quantity+"</p>\n" +
+                            "                            </div>\n" +
+                            "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+                            "                                <p>"+pay_type+"</p>\n" +
+                            "                            </div>\n" +
+                            "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+                            "                                <p>"+status+"</p>\n" +
+                            "                                <a>查看物流</a>\n" +
+                            "                            </div>\n" ;
+                                                        
+                                                        if (item.status=="2") {
+                                                            html+="                            <div class=\"lg-confirm\">\n" +
+                                                                "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
+                                                                "                            </div>\n" +
+                                                                "                        </li>\n" +
+                                                                "\n" +
+                                                                "                    </ul>\n" +
+                                                                "\n" +
+                                                                "                </div>"
+                                                        } else if (item.status=="3"){
+                                                            html+="<div class=\"lg-confirm\">\n" +
+                                                            "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\" href=\"\" style=\"width: 40px\">评价</a>\n" +
+                                                            "                            </div>\n" +
+                                                            "                        </li>\n" +
+                                                            "\n" +
+                                                            "                    </ul>\n" +
+                                                            "\n" +
+                                                            "                </div>"
+                                                        } else {
+                                                            html+="                        </li>\n" +
+                                                                "\n" +
+                                                                "                    </ul>\n" +
+                                                                "\n" +
+                                                                "                </div>"
+                                                        }
+
+
+
+                    })
+
+                    orderList.append(html)
+
+
+                })
             },
             error:function(data){
                 console.error(data);
             }
         })
     }
-    getUserInfoById();
+    getUserOrderById();
 
-    function toEdit() {
-        var url="self_info_edit.html";
-        window.location.href=url;
+    //确认收货
+
+    function confirmOrder(product_id) {
+        alert(product_id)
+
+        $.ajax({
+            url:"/changeStatus?id="+product_id,
+            type:'POST', //GET
+            // data:JSON.stringify({id:id}),
+            contentType:"application/json",
+            dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
+            success:function(data){
+                console.log(data)
+                if (data) {
+                    alert("确认成功")
+                    window.location.href = "order.html"
+                }
+            },
+            error:function(data){
+                console.log(data)
+                alert("确认失败")
+                window.location.href = "order.html"
+
+            }
+        })
+
     }
-
-
 
 </script>
 </body>
