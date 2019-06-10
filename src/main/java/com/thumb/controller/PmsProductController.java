@@ -28,54 +28,66 @@ public class PmsProductController {
     @Autowired
     PmsProductCategoryService pmsProductCategoryService;
 
+    /**
+     * 更具商品id存进cookie
+     * @param id
+     * @param request
+     * @param response
+     * @param httpSession
+     */
     @RequestMapping("saveCookies")
     @ResponseBody
     public void getpid(@RequestParam String id, HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) {
+        //首页点了商品的id
         System.out.println(id);
 
-
 //        String pid1=request.getParameter("pid");
-        Long pid = Long.valueOf(id);
-        PmsProduct pmsProduct= pmsProductService.selectByPrimaryKey(pid);
+        //转long
+//        Long pid = Long.valueOf(id);
+        //根据id找商品
+//        PmsProduct pmsProduct= pmsProductService.selectByPrimaryKey(pid);
 //        PmsProductCategory pmsProductCategory= pmsProductCategoryService.selectByPrimaryKey(pmsProduct.getProductCategoryId());
 //        pmsProduct.setPmsProductCategory(pmsProductCategory);
 //        httpSession.setAttribute("pmsProduct", pmsProduct);
-        String pidstr=pid+"";
-        request.setAttribute("pmsProduct", pmsProduct);
 
+//        request.setAttribute("pmsProduct", pmsProduct);
+        //long转string
+//        String id=id+"";
 
-        String pids=pidstr+"";
+        String cookiepids=id;
         //将pid放入cookie中
         Cookie[] cookies=  request.getCookies();
         if(cookies!=null){
             for(Cookie cookie: cookies){
                 if("pids".equals(cookie.getName())){
                     //将值 3-2-8存放
-                    pids=cookie.getValue();
-                    String [] split= pids.split("-");
-                    System.out.println("数组"+split.toString());
+                    cookiepids=cookie.getValue();
+                    String [] split= cookiepids.split("-");
                     List<String> aslist= Arrays.asList(split);
                     LinkedList<String> list=new LinkedList<String>(aslist);
                     System.out.println("集合"+list);
-                    if(list.contains(pidstr)){
-                        list.remove(pidstr);
-                        list.addFirst(pidstr);
+                    if(list.contains(id)){
+                        list.remove(id);
+                        list.addFirst(id);
                     }else{
-                        list.addFirst(pidstr);
+                        list.addFirst(id);
+                        if (list.size() >9) {
+                           list.removeLast();
+                        }
                     }
                     StringBuffer sb=new StringBuffer();
                     for(int i=0;i<list.size();i++){
                         sb.append(list.get(i)).append("-");
                     }
                     sb.deleteCharAt(sb.length()-1);
-                    pids=sb.toString();
-                    System.out.println(pids);
+                    cookiepids=sb.toString();
+                    System.out.println(cookiepids);
                 }
 
             }
         }
 
-        Cookie  cookie=new Cookie("pids", pids);
+        Cookie  cookie=new Cookie("pids", cookiepids);
         response.addCookie(cookie);
 //        try {
 //            request.getRequestDispatcher("product_info.jsp").forward(request, response);
