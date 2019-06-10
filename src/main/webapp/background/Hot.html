@@ -934,7 +934,7 @@
 
         //加载推荐中的新品
         $.ajax({
-            url: '/selectNewAll',
+            url: '/selectHotAll',
             type: 'POST', //GET
             contentType: "application/json",
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
@@ -1031,7 +1031,7 @@
         $("#folioModa1").modal("show");
         //获取新品库所有的新品
         $.ajax({
-            url: '/selectNewsAllNO',
+            url: '/selectHotsAllNO',
             type: 'POST', //GET
             contentType: "application/json",
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
@@ -1147,7 +1147,7 @@
     function submit() {
         var val = $("#cSort").val();
         $.ajax({
-            url: '/updateNowBySort',
+            url: '/updateHotBySort',
             type: 'POST', //GET
             contentType: "application/json",
             data: JSON.stringify({
@@ -1168,7 +1168,7 @@
     //删除展示的专题
     function deleteSubjectById() {
         $.ajax({
-            url: '/deleteNewById?id=' + shortId,
+            url: '/deleteHotById?id=' + shortId,
             type: 'GET', //GET
             contentType: "application/json",
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
@@ -1197,7 +1197,7 @@
         var val = $("#New_name").val();
         if (val != "" && val != null) {
             $.ajax({
-                url: '/getSelectNew?name=' + val,
+                url: '/getSelectHot?name=' + val,
                 type: 'GET', //GET
                 contentType: "application/json",
                 dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
@@ -1298,7 +1298,7 @@
         });
         /*批量添加*/
         $.ajax({
-            url: '/updateNewById',
+            url: '/updateHotById',
             type: 'POST', //GET
             contentType: "application/json",
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
@@ -1325,7 +1325,7 @@
         var $getNewFolioModal = $("#getNew_folioModal").val();
         if ($getNewFolioModal != null && $getNewFolioModal != "") {
             $.ajax({
-                url: '/selectNewsAllNO_folioModal',
+                url: '/selectHotsAllNO_folioModal',
                 type: 'POST', //GET
                 contentType: "application/json",
                 dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
