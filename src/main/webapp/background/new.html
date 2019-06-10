@@ -368,7 +368,8 @@
                                 </svg>
                                 <span slot="product">商品</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);display: none;"
+                            <ul role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86);display: none;"
                                 data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
                                     href="http://39.98.190.128/index.html#/pms/product" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
@@ -416,7 +417,8 @@
                                 </svg>
                                 <span slot="product">订单</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);display: none"
+                            <ul role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86);display: none"
                                 data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
                                     href="http://39.98.190.128/index.html#/oms/order" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
@@ -582,7 +584,7 @@
                             <div><i class="el-icon-search"></i>
                                 <span>筛选搜索</span>
                                 <button type="button" class="el-button el-button--primary el-button--small"
-                                        style="float: right;" onclick="getSubjectName()">
+                                        style="float: right;" onclick="getNew(1,5)">
                                     <span>查询搜索</span>
                                 </button>
                                 <button type="button" class="el-button el-button--default el-button--small"
@@ -597,7 +599,7 @@
                                         <div class="el-form-item__content">
                                             <div class="input-width el-input el-input--small">
                                                 <input type="text" autocomplete="off" placeholder="商品名称"
-                                                       class="el-input__inner" id="Subject_name">
+                                                       class="el-input__inner" id="New_name">
                                             </div>
                                         </div>
                                     </div>
@@ -774,12 +776,14 @@
                                     <div class="el-input el-input--small el-input-group el-input-group--append"
                                          style="width: 250px; margin-bottom: 20px;">
                                         <input type="text" autocomplete="off" placeholder="专题名称搜索"
-                                               class="el-input__inner">
-                                        <div class="el-input-group__append">
-                                            <button type="button" class="el-button el-button--default">
-                                                <i class="el-icon-search"></i>
-                                            </button>
+                                               class="el-input__inner" id="getNew_folioModal" style=" height: 35px">
+
+
+                                        <div class="el-input-group__append" id="button" >
+                                                <!--<i class="el-icon-search"  ></i>-->
+                                            <input type="button" onclick="getNew_folioModal(1,5)" value="搜索">
                                         </div>
+
                                     </div>
                                     <div class="el-table el-table--fit el-table--border el-table--enable-row-hover el-table--enable-row-transition"
                                          style="width: 100%;">
@@ -812,7 +816,7 @@
                                                     <th colspan="1" rowspan="1"
                                                         class="el-table_5_column_27  is-center   is-leaf"
                                                         style="width: 25%;">
-                                                        <div class="cell">货号 </div>
+                                                        <div class="cell">货号</div>
                                                     </th>
                                                     <th colspan="1" rowspan="1"
                                                         class="el-table_5_column_28  is-center   is-leaf"
@@ -1047,17 +1051,17 @@
                             "      <td class=\"el-table_5_column_25 is-center el-table-column--selection\"\n" +
                             "          style=\"width: 15%;\">\n" +
                             "          <div class=\"cell\">\n" +
-                            "              <input type=\"checkbox\" name=\"checkbox\"  value="+value.id+">\n" +
+                            "              <input type=\"checkbox\" name=\"checkbox\"  value=" + value.id + ">\n" +
                             "          </div>\n" +
                             "      </td>\n" +
                             "      <td class=\"el-table_5_column_26 is-center \" style=\"width: 35%;\">\n" +
-                            "          <div class=\"cell\">"+value.name+"</div>\n" +
+                            "          <div class=\"cell\">" + value.name + "</div>\n" +
                             "      </td>\n" +
                             "      <td class=\"el-table_5_column_27 is-center \" style=\"width: 25%;\">\n" +
-                            "          <div class=\"cell\">"+value.product_sn+"</div>\n" +
+                            "          <div class=\"cell\">" + value.product_sn + "</div>\n" +
                             "      </td>\n" +
                             "      <td class=\"el-table_5_column_28 is-center \" style=\"width: 25%;\">\n" +
-                            "          <div class=\"cell\">"+value.price+"</div>\n" +
+                            "          <div class=\"cell\">" + value.price + "</div>\n" +
                             "      </td>\n" +
                             "  </tr>";
                         tbody.append(tableTd);
@@ -1099,7 +1103,7 @@
 
         //模态框初始化就显示了
         $("#folioModa2").modal("show");
-        $("#c").val(sort);
+        $("#cSort").val(sort);
         shortId = id;
 
     }
@@ -1138,6 +1142,7 @@
         var pageSize = $("#pageCondition").val().substring(0, 1)
         f(page, pageSize)
     }
+
     /*设置推送的顺序值,修改排序值*/
     function submit() {
         var val = $("#cSort").val();
@@ -1159,6 +1164,7 @@
             }
         });
     }
+
     //删除展示的专题
     function deleteSubjectById() {
         $.ajax({
@@ -1168,7 +1174,11 @@
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
             success: function (data) {
-                if (data == 1) window.location.reload();
+                if (data == 1) {
+                    window.location.reload()
+                    alert("删除成功!!!")
+                }
+                ;
             },
             /*发生错误时*/
             error: function (xhr, textStatus) {
@@ -1178,77 +1188,112 @@
 
     /*重置*/
     function reset() {
-        $("#Subject_name").val("");
+        $("#New_name").val("");
     }
 
     /*条件查询*/
-    function getSubjectName() {
-        var val = $("#Subject_name").val();
-        $.ajax({
-            url: '/getSelectNew?name=' + val,
-            type: 'GET', //GET
-            contentType: "application/json",
-            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
-            /*成功*/
-            success: function (data) {
+    function getNew(pageNow, pageSize) {
 
-                var tableSubject = "<tr class=\"el-table__row\">\n" +
-                    "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
-                    "         style=\"width: 6%;\">\n" +
-                    "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
-                    "         </div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
-                    "         <div class=\"cell\">" + val.id + "</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_124 is-center \" style=\"width: 38%;\">\n" +
-                    "         <div class=\"cell\">" + val.product + "</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_125 is-center \" style=\"width: 10%;\">\n" +
-                    "         <div class=\"cell\">\n" +
-                    "             <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\" id=\"el_switch\">\n" +
-                    "             <!--<div role=\"switch\"  class=\"el-switch \">-->\n" +
-                    "                 <!--<input type=\"checkbox\"  true-value=\"1\" false-value=\"0\">-->\n" +
-                    "                 <span class=\"el-switch__core\" style=\"width: 40px;\">\n" +
-                    "                 </span>\n" +
-                    "             </div>\n" +
-                    "         </div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_126 is-center \" style=\"width: 10%;\">\n" +
-                    "         <div class=\"cell\">" + val.sort + "</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_127 is-center \" style=\"width: 15%;\">\n" +
-                    "         <div class=\"cell\">推荐中</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_128 is-center \" style=\"width: 20%;\">\n" +
-                    "         <div class=\"cell\">\n" +
-                    "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"aSort(" + val.id + "," + val.sort + ")\">\n" +
-                    "                 <span>设置排序</span>\n" +
-                    "             </button>\n" +
-                    "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"bDelete(" + val.id + ")\">\n" +
-                    "                 <span>删除</span>\n" +
-                    "             </button>\n" +
-                    "         </div>\n" +
-                    "     </td>\n" +
-                    " </tr>";
-                subject.append(tableSubject);
+        var val = $("#New_name").val();
+        if (val != "" && val != null) {
+            $.ajax({
+                url: '/getSelectNew?name=' + val,
+                type: 'GET', //GET
+                contentType: "application/json",
+                dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                /*成功*/
+                success: function (data) {
+                    var subject = $("#subject");
+                    subject.find("tr").remove();
 
+                    //显示总记录数
+                    $("#totalSubject").html(data.total);
+                    $("#pageBlur").val(data.pageNum);
+                    $("#pageCondition").val(pageSize + "条/页");
 
-            },
-            /*发生错误时*/
-            error: function (xhr, textStatus) {
-            }
-        });
+                    var list = data.list;
+                    $(list).each(function (index, val) {
+                        var tableSubject = "<tr class=\"el-table__row\">\n" +
+                            "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
+                            "         style=\"width: 6%;\">\n" +
+                            "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
+                            "         </div>\n" +
+                            "     </td>\n" +
+                            "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
+                            "         <div class=\"cell\">" + val.id + "</div>\n" +
+                            "     </td>\n" +
+                            "     <td class=\"el-table_16_column_124 is-center \" style=\"width: 38%;\">\n" +
+                            "         <div class=\"cell\">" + val.product_name + "</div>\n" +
+                            "     </td>\n" +
+                            "     <td class=\"el-table_16_column_125 is-center \" style=\"width: 10%;\">\n" +
+                            "         <div class=\"cell\">\n" +
+                            "             <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\" id=\"el_switch\">\n" +
+                            "             <!--<div role=\"switch\"  class=\"el-switch \">-->\n" +
+                            "                 <!--<input type=\"checkbox\"  true-value=\"1\" false-value=\"0\">-->\n" +
+                            "                 <span class=\"el-switch__core\" style=\"width: 40px;\">\n" +
+                            "                 </span>\n" +
+                            "             </div>\n" +
+                            "         </div>\n" +
+                            "     </td>\n" +
+                            "     <td class=\"el-table_16_column_126 is-center \" style=\"width: 10%;\">\n" +
+                            "         <div class=\"cell\">" + val.sort + "</div>\n" +
+                            "     </td>\n" +
+                            "     <td class=\"el-table_16_column_127 is-center \" style=\"width: 15%;\">\n" +
+                            "         <div class=\"cell\">推荐中</div>\n" +
+                            "     </td>\n" +
+                            "     <td class=\"el-table_16_column_128 is-center \" style=\"width: 20%;\">\n" +
+                            "         <div class=\"cell\">\n" +
+                            "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"aSort(" + val.id + "," + val.sort + ")\">\n" +
+                            "                 <span>设置排序</span>\n" +
+                            "             </button>\n" +
+                            "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"bDelete(" + val.id + ")\">\n" +
+                            "                 <span>删除</span>\n" +
+                            "             </button>\n" +
+                            "         </div>\n" +
+                            "     </td>\n" +
+                            " </tr>";
+                        subject.append(tableSubject);
+
+                    })
+                    var $ulLi = $("#subject_butten");
+                    $ulLi.find("li").remove();
+                    var now = data.pageNum;
+                    var now1 = now - 1;
+                    var button = "<li class=\"number \" onclick=\"getNew(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>" + "</li>";
+                    $ulLi.append(button);
+
+                    for (var i = 1; i <= data.pages; i++) {
+                        var li = "";
+                        if (i == data.pageNum) {
+                            li = "<li class=\"number active\" onclick=\"getNew(" + i + "," + pageSize + ")\">" + i + "</li>";
+                        } else {
+                            li = "<li class=\"number \" onclick=\"getNew(" + i + "," + pageSize + ")\">" + i + "</li>";
+                        }
+                        $ulLi.append(li);
+                    }
+                    var now2 = now + 1;
+                    var button2 = "<li class=\"number \" onclick=\"getNew(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>" + "</li>";
+                    $ulLi.append(button2);
+
+                },
+                /*发生错误时*/
+                error: function (xhr, textStatus) {
+                }
+            });
+        } else {
+            alert("请输入查询条件!!!")
+        }
     }
 
     /*添加新品*/
     function addBrands() {
+        alert(123)
         var checkID = [];
         var i = 0;
         $("input[name='checkbox']:checked").each(function () {//把所有被选中的复选框的值存入数组
 
             checkID[i] = $(this).val();
-            // alert( checkID[i] )
+            alert(checkID[i])
             i++;
         });
         /*批量添加*/
@@ -1262,16 +1307,95 @@
             }),
             /*成功*/
             success: function (data) {
-                if (data) {
-                    window.location.reload();
-                    alert("添加成功!!!")
-                }
+                alert(data)
+
             },
             /*发生错误时*/
             error: function (xhr, textStatus) {
             }
         });
+
+        window.location.reload();
     }
+
+
+    //虚拟框搜索
+    function getNew_folioModal(pageNow, pageSize) {
+
+        var $getNewFolioModal = $("#getNew_folioModal").val();
+        if ($getNewFolioModal != null && $getNewFolioModal != "") {
+            $.ajax({
+                url: '/selectNewsAllNO_folioModal',
+                type: 'POST', //GET
+                contentType: "application/json",
+                dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                data: JSON.stringify({
+                    "name": $getNewFolioModal,
+                    "pageNow": pageNow,
+                    "pageSize": pageSize
+                }),
+                /*成功*/
+                success: function (data) {
+
+                    if (data != null && data != "") {
+                        var tbody = $("#tbody");
+                        tbody.find("tr").remove();
+                        var list = data.list;
+                        $(list).each(function (index, value) {
+                            var tableTd = "\n" +
+                                "  <tr class=\"el-table__row\">\n" +
+                                "      <td class=\"el-table_5_column_25 is-center el-table-column--selection\"\n" +
+                                "          style=\"width: 15%;\">\n" +
+                                "          <div class=\"cell\">\n" +
+                                "              <input type=\"checkbox\" name=\"checkbox\"  value=" + value.id + ">\n" +
+                                "          </div>\n" +
+                                "      </td>\n" +
+                                "      <td class=\"el-table_5_column_26 is-center \" style=\"width: 35%;\">\n" +
+                                "          <div class=\"cell\">" + value.name + "</div>\n" +
+                                "      </td>\n" +
+                                "      <td class=\"el-table_5_column_27 is-center \" style=\"width: 25%;\">\n" +
+                                "          <div class=\"cell\">" + value.product_sn + "</div>\n" +
+                                "      </td>\n" +
+                                "      <td class=\"el-table_5_column_28 is-center \" style=\"width: 25%;\">\n" +
+                                "          <div class=\"cell\">" + value.price + "</div>\n" +
+                                "      </td>\n" +
+                                "  </tr>";
+                            tbody.append(tableTd);
+                        })
+                        //分页按钮
+                        var $ulLi = $("#ul_li");
+                        $ulLi.find("li").remove();
+                        var now = data.pageNum;
+                        var now1 = now - 1;
+                        var button = "<li class=\"number \" onclick=\"showSubject(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>" + "</li>";
+                        $ulLi.append(button);
+
+                        for (var i = 1; i <= data.pages; i++) {
+                            var li = "";
+                            if (i == now) {
+                                li = "<li class=\"number active\" onclick=\"showSubject(" + i + "," + pageSize + ")\">" + i + "</li>";
+                            } else {
+                                li = "<li class=\"number \" onclick=\"showSubject(" + i + "," + pageSize + ")\">" + i + "</li>";
+                            }
+                            $ulLi.append(li);
+                        }
+                        var now2 = now + 1;
+                        var button2 = "<li class=\"number \" onclick=\"showSubject(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>" + "</li>";
+                        $ulLi.append(button2);
+                    } else {
+                        /*提示没数据*/
+                        alert("没有数据!!!")
+                    }
+                },
+                /*发生错误时*/
+                error: function (xhr, textStatus) {
+                }
+            });
+        } else {
+            alert("请输入查询条件!!!")
+        }
+    }
+
 </script>
 </body>
 </html>

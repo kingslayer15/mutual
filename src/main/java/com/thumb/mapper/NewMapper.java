@@ -32,8 +32,10 @@ public interface NewMapper {
      * @param pageName
      * @return
      */
-    int updateNewById(PageName pageName);
+    List<PmsProduct>  updateNewById(PageName pageName);
 
+
+    int updateNewById_home(PmsProduct homeProduct);
 
     /**
      * 删除首页推荐专题
@@ -47,4 +49,20 @@ public interface NewMapper {
      * @return
      */
     List<PmsProduct> selectNewsAll();
+
+
+
+    void updateNewById_Newproduct(int id);
+
+    void updateNewById_product(PmsProduct pmsProduct);
+
+    /**
+     * 条件查询新品库的所有没有推荐的新品
+     * @param pageName
+     * @return
+     */
+    List<PmsProduct> selectNewsAllNO_folioModal(PageName pageName);
+
+    List<PmsProduct> SubjectIndex();
+
 }

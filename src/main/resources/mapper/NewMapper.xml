@@ -3,9 +3,12 @@
 <mapper namespace="com.thumb.mapper.NewMapper">
 
 
-    <!--获取正在推荐的品牌-->
+    <!--获取正在推荐的新品-->
     <select id="selectNewAll" resultType="com.thumb.pojo.HomeProduct">
         select * from sms_home_new_product where recommend_status=1  order by sort desc
+    </select>
+    <select id="SubjectIndex" resultType="com.thumb.pojo.HomeProduct">
+        select * from pms_product where recommand_status =1  order by sort desc
     </select>
 
 
@@ -17,14 +20,35 @@
 
     <!--条件查询name-->
     <select id="getSelectNew" resultType="com.thumb.pojo.HomeProduct" parameterType="String">
-        select * from sms_home_new_product where  name like "%"#{name}"%"
+        select * from sms_home_new_product where  product_name like "%"#{name}"%"
     </select>
 
 
-    <!--批量修改品牌库数据  -->
-    <update id="updateNewById" parameterType="com.thumb.dto.PageName">
-        update sms_home_new_product   set
-        recommend_status = 1
+    <!--&lt;!&ndash;批量修改品牌库数据  &ndash;&gt;-->
+    <!--<update id="" parameterType="com.thumb.dto.PageName">-->
+    <!--update sms_home_new_product   set-->
+    <!--recommend_status = 1-->
+    <!--where id in-->
+    <!--<foreach collection="checkID" index="index" item="item" open="(" separator="," close=")">-->
+    <!--#{item}-->
+    <!--</foreach>-->
+    <!--</update>-->
+    <!--批量查询商品信息  -->
+    <select id="updateNewById" parameterType="com.thumb.dto.PageName" resultType="com.thumb.pojo.PmsProduct">
+        select id,name from pms_product
+        where id in
+        <foreach collection="checkID" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <!--updateNewById_home-->
+    <insert id="updateNewById_home" parameterType="Collection">
+        insert into sms_home_new_product values   (default,#{id},#{name},1,0)
+    </insert>
+    <!--updateNewById_product-->
+    <update id="updateNewById_product" parameterType="com.thumb.dto.PageName">
+        update pms_product set
+        new_status = 1
         where id in
         <foreach collection="checkID" index="index" item="item" open="(" separator="," close=")">
             #{item}
@@ -36,11 +60,25 @@
     <update id="deleteNewById" parameterType="int">
         UPDATE `sms_home_new_product` SET `recommend_status` = 0 WHERE `id` = #{id};
     </update>
+    <!--&lt;!&ndash;删除首页推荐品牌&ndash;&gt;-->
+    <!--<delete id="deleteNewById" parameterType="int">-->
+    <!--delete from sms_home_new_product were id=#{id}-->
+    <!--</delete>-->
+    <update id="updateNewById_Newproduct" parameterType="int">
+        update pms_product set
+        new_status = 0
+        where id =#{id}
+    </update>
 
 
     <!--查询品牌库的所有没有推荐品牌-->
     <select id="selectNewsAll" resultType="com.thumb.pojo.PmsProduct">
          select *  from pms_product where new_status=0
+    </select>
+
+    <!--条件查询品牌库的所有没有推荐品牌-->
+    <select id="selectNewsAllNO_folioModal" resultType="com.thumb.pojo.PmsProduct">
+         select *  from pms_product where new_status=0 and `name` like "%"#{name}"%"
     </select>
 
 

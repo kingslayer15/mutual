@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.PersonalOrderMapper">
+    <select id="orderByUid" parameterType="int" resultMap="order">
+      SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`create_time`,o.`pay_amount`,o.`pay_type`,
+      i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`product_price`,i.`product_quantity`
+      FROM oms_order o
+      LEFT JOIN oms_order_item i
+      ON o.`id`=i.`order_id`
+      AND o.`member_id`=#{uid}
+      ORDER BY o.`create_time` DESC
+    </select>
+
+    <resultMap id="order" type="com.thumb.dto.ClientOrderDto">
+        <id property="order_sn" column="order_sn"></id>
+        <result property="order_id" column="order_id"></result>
+        <result property="member_id" column="member_id"></result>
+        <result property="status" column="status"></result>
+        <result property="create_time" column="create_time"></result>
+        <result property="pay_amount" column="pay_amount"></result>
+        <result property="pay_type" column="pay_type"></result>
+        <collection property="order_items" ofType="com.thumb.dto.Client_order_item">
+            <id property="id" column="id"></id>
+            <result property="product_id" column="product_id"></result>
+            <result property="product_pic" column="product_pic"></result>
+            <result property="product_name" column="product_name"></result>
+            <result property="product_attr" column="product_attr"></result>
+            <result property="product_price" column="product_price"></result>
+            <result property="product_quantity" column="product_quantity"></result>
+        </collection>
+    </resultMap>
+
+    <update id="changeStatus" parameterType="int">
+        update oms_order set status=3 where id=#{orderId}
+    </update>
+</mapper>
+

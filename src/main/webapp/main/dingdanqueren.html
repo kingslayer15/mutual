@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://order.mi.com/buy/checkout?r=77643.1560135720 -->
+<html lang="zh-CN" xml:lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="../static/xiaomi/mstr.js"></script><script type="text/javascript" async="" src="../static/xiaomi/jquery.statData.min.js"></script><script type="text/javascript" async="" src="../static/xiaomi/xmst.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>填写订单信息</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1226">
+    <link rel="shortcut icon" href="https://s01.mifile.cn/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/xiaomi/base.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/xiaomi/checkout.min.css">
+<!--    <script src="../static/xiaomi/userInfoJsonP" type="text/javascript" async=""></script></head>-->
+    <script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<body>
+<div class="site-header site-mini-header">
+    <div class="container">
+        <div class="header-logo">
+<!--            <a class="logo " href="https://www.mi.com/index.html" title="小米官网" data-stat-id="ea54c9fed6a874d7" onclick="_msq.push([&#39;trackEvent&#39;, &#39;17a1f380b9d4cd2e-ea54c9fed6a874d7&#39;, &#39;//www.mi.com/index.html&#39;, &#39;pcpid&#39;, &#39;&#39;]);"></a>-->
+        </div>
+        <div class="header-title" id="J_miniHeaderTitle"><h2>确认订单</h2></div>
+
+    </div>
+</div>
+<!-- .site-mini-header END -->
+<script type="text/javascript">
+    var checkoutConfig = {
+        addressMatch:'common',
+        addressMatchVarName: new Function('return ' + 'data'),
+        hasPresales:false,
+        hasBigTv:false,
+        hasAir:false,
+        hasScales:false,
+        hasWater:false,
+        hasWater2:false,
+        hasMobile:true,
+        hasEboiler:false,
+        hasEvent:false,
+        hasGiftcard:false,
+        totalPrice:2999,
+        needPayAmount:2999,
+        preDeductible:0,
+        postage:0,
+        postFree:true,
+        bcPrice:'150',
+        activityDiscountMoney:0.00,//活动优惠
+        showCouponBox:0,
+        showCaptcha:'0',
+        invoice:[{"type":"electron","value":4,"desc":"\u7535\u5b50\u53d1\u7968","checked":true}],
+        quickOrder: '',
+        hasBigPro: false,
+        onlinePayTips: '支持微信支付、支付宝、银联、财付通、小米钱包等',
+        subsidyPrice: 0};
+</script>
+
+<div class="page-main">
+    <!-- 春节发货公告 -->
+    <!-- 春节发货公告 END-->
+    <div class="container">
+        <div class="checkout-box">
+            <div class="section section-address">
+                <div class="section-header clearfix">
+                    <h3 class="title">收货地址</h3>
+
+                    <div class="more">
+                    </div>
+
+                    <div class="mitv-tips hide" style="margin-left: 0;border: none;" id="J_bigproPostTip"></div>
+
+
+                </div>
+                <div class="section-body clearfix" id="J_addressList">
+                    <!-- addresslist begin -->
+                    <div class="address-item J_addressItem">
+                        <dl>
+                            <dt>
+                                <span class="tag"></span>
+                                <em class="uname">李文博</em>
+                            </dt>
+                            <dd class="utel">
+                                135****9389                            </dd>
+                            <dd class="uaddress">
+                                广东 广州市 增城市 荔城街道<br>
+                                广东工业大学华立学院（专科商业街）                            </dd>
+                        </dl>
+                        <div class="actions">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section section-goods">
+                <div class="section-header clearfix">
+                    <h3 class="title">商品及优惠券</h3>
+                </div>
+                <div class="section-body">
+                    <ul class="goods-list" id="J_goodsList">
+
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <div class="section section-options section-shipment clearfix">
+                <div class="section-header">
+                    <h3 class="title">配送方式</h3>
+                </div>
+                <div class="section-body clearfix">
+                    <ul class="clearfix J_optionList options ">
+                        <li data-type="shipment" class="J_option selected" data-amount="0" data-value="2">
+                            包邮                                                    </li>
+                    </ul>
+
+                    <div class="service-self-tip" id="J_serviceSelfTip" style="display: none;"></div>
+                </div>
+            </div>
+
+
+
+            <div class="section section-count clearfix">
+                <div class="count-actions">
+
+                </div>
+
+
+                <div class="money-box" id="J_moneyBox">
+                    <ul>
+                        <li class="clearfix">
+                            <label>商品件数：</label>
+                            <span id="totalNum" class="val"></span>
+                        </li>
+                        <li class="clearfix">
+                            <label>商品总价：</label>
+                            <span id="totalPrice" class="val"></span>
+                        </li>
+
+                        <li class="clearfix">
+                            <label>运费：</label>
+                            <span class="val"><i data-id="J_postageVal">0</i>元</span>
+                        </li>
+                        <li class="clearfix total-price">
+                            <label>应付总额：</label>
+                            <span id="realTotalPrice" class="val"><em data-id="J_totalPrice"></em>元</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-bar clearfix">
+                <div class="fl">
+                    <div class="seleced-address hide" id="J_confirmAddress">
+                    </div>
+                    <div class="big-pro-tip hide J_confirmBigProTip"></div>
+                </div>
+                <div class="fr">
+
+                    <a href="javascript:void(0);" class="btn btn-primary" id="J_checkoutToPay" data-stat-id="9dc0c7cf32a1c0ca">去结算</a>
+                    <a href="/main/gouwuche.html" class="btn  btn-return" data-stat-id="d5777c2afc47dad1">返回购物车</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--<script src="../static/xiaomi/base.min.js"></script><div id="J_agreeModal" class="modal fade modal-agree in modal-hide"> <div class="modal-hd"> <a class="close J_close" data-dismiss="modal" data-stat-id="a0641baa711604bc" onclick="_msq.push([&#39;trackEvent&#39;, &#39;17a1f380b9d4cd2e-a0641baa711604bc&#39;, &#39;&#39;, &#39;pcpid&#39;, &#39;&#39;]);"><i class="iconfont"></i></a> <h3>小米商城协议更新</h3> </div> <div class="modal-body"> <div class="desc"></div> <div class="con">  </div>  </div>  <div class="modal-ft"> <div class="actions"> <button class="btn btn-line-gray J_close" data-dismiss="modal">不同意</button> <button class="btn btn-primary J_sure">同意</button> </div> </div></div>-->
+
+
+<!--<script type="text/javascript" src="../static/xiaomi/checkout.min.js"></script>-->
+
+
+<script>
+    var totalNum=0;
+    var totalPrice = 0;
+
+    $(function () {
+        $.ajax({
+            url:"/getItem",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+
+                $(data).each(function (index, item) {
+                    totalPrice += item.price;
+                    totalNum++;
+
+                    $("#J_goodsList").append("<li class=\"clearfix\">\n" +
+                        "                            <div class=\"col col-img\">\n" +
+                        "                                <img src=\"../static/xiaomi/pms_1550642185.33171962!30x30.jpg\" width=\"30\" height=\"30\">\n" +
+                        "                            </div>\n" +
+                        "                            <div class=\"col col-name\">\n" +
+                        "\n" +
+                        "                                <a href=\"https://item.mi.com/1190800034.html\" target=\"_blank\" data-stat-id=\"8ee4246ac0021155\">\n" +
+                        "                                    "+item.productName +"                                        </a>\n" +
+                        "\n" +
+                        "                            </div>\n" +
+                        "\n" +
+                        "                            <div class=\"col col-price\">\n" +
+                        "                                "+ item.price+"元 x "+ item.quantity+"                                    </div>\n" +
+                        "                            <div class=\"col col-status\">&nbsp;</div>\n" +
+                        "                            <div class=\"col col-total\">\n" +
+                        "                                "+ item.price +"元\n" +
+                        "                            </div>\n" +
+                        "\n" +
+                        "                        </li>");
+                });
+                $("#totalNum").text(totalNum + "件");
+                $("#totalPrice").text(totalPrice + "元");
+                $("#realTotalPrice").text(totalPrice + "元");
+            }
+
+        });
+
+        $.ajax({
+            url:"/getAddress",
+            type:"GET",
+            contentType: "application/json",
+            success: function (data) {
+
+                $(data).each(function (index, item) {
+
+                    if (index < 2){
+                        $("#J_addressList").append("<div class=\"address-item J_addressItem\">\n" +
+                            "                        <dl>\n" +
+                            "                            <dt>\n" +
+                            "                                <span class=\"tag\"></span>\n" +
+                            "                                <em class=\"uname\">"+item.name+"</em>\n" +
+                            "                            </dt>\n" +
+                            "                            <dd class=\"utel\">\n" +
+                            "                                "+ item.phoneNumber+"                            </dd>\n" +
+                            "                            <dd class=\"uaddress\">\n" +
+                            "                                "+ item.province+" "+ item.city+" "+item.region+" <br>\n" +
+                            "                                "+ item.detailAddress+"                            </dd>\n" +
+                            "                        </dl>\n" +
+                            "                        <div class=\"actions\">\n" +
+                            "\n" +
+                            "                        </div>\n" +
+                            "                    </div>");
+                    }
+                });
+
+                $("#J_addressList").append("<!-- addresslist end -->\n" +
+                    "                    <div class=\"address-item address-item-new\" id=\"J_newAddress\">\n" +
+                    "                        <i class=\"iconfont\"></i>\n" +
+                    "                        添加新地址\n" +
+                    "                    </div>")
+            }
+        });
+
+    });
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

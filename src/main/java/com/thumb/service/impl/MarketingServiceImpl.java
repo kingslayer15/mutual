@@ -4,6 +4,7 @@ import com.thumb.dto.PageName;
 import com.thumb.mapper.MarketingMapper;
 import com.thumb.pojo.Brand;
 
+import com.thumb.pojo.PmsProduct;
 import com.thumb.service.MarketingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,5 +78,20 @@ public class MarketingServiceImpl implements MarketingService {
 
         return marketingMapper.updateMenuById(pageName);
 
+    }
+
+    /**
+     *  查询指定品牌下的商品
+     * @param id
+     * @return
+     */
+    @Override
+    public List<PmsProduct> getBrands(int id) {
+        return marketingMapper.getBrands(id);
+    }
+
+    @Override
+    public List<PmsProduct> getSubject(int id) {
+        return marketingMapper.getSubject(id);
     }
 }

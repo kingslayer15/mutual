@@ -328,8 +328,6 @@
                                 <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
                             </svg>
                             <span>首页</span></li>
-                        <input id="aaa" type="checkbox" value="芒果" name="check">芒果1</input>
-                        <button id="bbb" onclick="d()">aaa</button>
                     </a>
                         <li role="menuitem" aria-haspopup="true" class="el-submenu">
                             <div class="el-submenu__title"
@@ -705,7 +703,7 @@
                     </div>
                     <div data-v-13e9f1ae="" class="statistics-layout">
                         <div data-v-13e9f1ae="" class="layout-title">订单统计</div>
-                        <div data-v-13e9f1ae="" style="height: 450px" class="el-row">
+                        <div data-v-13e9f1ae="" style="height: 420px" class="el-row">
                             <div data-v-13e9f1ae="" class="el-col el-col-4">
                                 <div data-v-13e9f1ae="" style="padding: 20px;">
                                     <div data-v-13e9f1ae="">
@@ -802,19 +800,13 @@
 
 
 <script src="../static/back-main-home/main-home-ajax.js"></script>
-<script>
-    function d(){
-        alert($('#aaa').is(':checked'));
-    }
-
-</script>
 
 <script >
     var myChart = echarts.init(document.getElementById('main'));
 
     option = {
         title: {
-            text: '堆叠区域图'
+            text: ''
         },
         tooltip : {
             trigger: 'axis',
