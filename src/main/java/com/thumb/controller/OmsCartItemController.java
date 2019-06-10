@@ -46,13 +46,4 @@ public class OmsCartItemController {
         return items;
     }
 
-    @ResponseBody
-    @RequestMapping(value = "getItem",method = RequestMethod.GET)
-    public Object getItem(HttpSession httpSession){
-
-        List<OmsCartItem> omsCartItems = (List<OmsCartItem>) httpSession.getAttribute("omsCartItems");
-
-        return omsCartItems;
-    }
-
 }
