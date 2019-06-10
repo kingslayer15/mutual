@@ -23,4 +23,6 @@ public interface PmsProductMapper {
 
     BigDecimal countAll();
 
+    PmsProduct selectOneById(Long id);
+
 }

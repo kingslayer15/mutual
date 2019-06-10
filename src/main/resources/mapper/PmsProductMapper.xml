@@ -552,4 +552,12 @@
     from pms_product
   </select>
 
+  <select id="selectOneById" resultMap="BaseResultMap" parameterType="int">
+    select pss.*
+    from pms_product pp,
+         pms_sku_stock pss
+    where pp.id = pss.product_id
+      and pp.id = 27;
+  </select>
+
 </mapper>

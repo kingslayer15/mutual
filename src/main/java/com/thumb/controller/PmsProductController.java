@@ -53,7 +53,7 @@ public class PmsProductController {
 //        request.setAttribute("pmsProduct", pmsProduct);
         //long转string
 //        String id=id+"";
-
+        //初始化
         String cookiepids=id;
         //将pid放入cookie中
         Cookie[] cookies=  request.getCookies();
@@ -75,6 +75,7 @@ public class PmsProductController {
                            list.removeLast();
                         }
                     }
+                    //放进sb里面
                     StringBuffer sb=new StringBuffer();
                     for(int i=0;i<list.size();i++){
                         sb.append(list.get(i)).append("-");
@@ -86,7 +87,7 @@ public class PmsProductController {
 
             }
         }
-
+        //如果没有cookie,把id放进cookie里面
         Cookie  cookie=new Cookie("pids", cookiepids);
         response.addCookie(cookie);
 //        try {
@@ -103,15 +104,20 @@ public class PmsProductController {
     public Object historyList(HttpSession httpSession,HttpServletRequest request,HttpServletResponse response) {
     //浏览记录
         List<PmsProduct> historyList=new ArrayList<PmsProduct>();
+        //去拿cookie
         Cookie [] cookies=request.getCookies();
         if(cookies!=null){
             for(Cookie cookie : cookies){
                 if("pids".equals(cookie.getName())){
                     String pids=cookie.getValue();
+                    System.out.println("cookie里面的"+pids);
                     String [] splits=pids.split("-");
                     for (int i = 0; i < splits.length; i++) {
                         String pid=splits[i];
+                        System.out.println("遍历"+pid);
+                        //把cookie的id拿出来,查询返回给产品对象
                         PmsProduct pmsProduct= pmsProductService.selectByPrimaryKey(Long.valueOf(pid));
+                        //把产品对象加入到对象集合
                         historyList.add(pmsProduct);
                     }
                 }
@@ -120,6 +126,7 @@ public class PmsProductController {
 //
 //        System.out.println(historyList);
 //        request.setAttribute("historyList",historyList);
+        //返回对象集合
         return historyList;
 
 
