@@ -6,6 +6,7 @@ import com.thumb.service.PmsProductCategoryService;
 import com.thumb.service.PmsProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -129,6 +130,35 @@ public class PmsProductController {
         //返回对象集合
         return historyList;
 
+
+    }
+
+    @RequestMapping("getProductDetails")
+    @ResponseBody
+    public Object getProductDetails(@RequestParam String id) {
+        System.out.println(id);
+        Long pid = Long.valueOf(id);
+        PmsProduct pmsProduct = pmsProductService.selectOneById(pid);
+        System.out.println(pmsProduct);
+        if (pmsProduct != null) {
+            System.out.println(pmsProduct);
+            return pmsProduct;
+        }
+        return false;
+
+    }
+    @RequestMapping("getColorBySelectedRomAndId")
+    @ResponseBody
+    public Object getColorBySelectedRomAndId(@RequestBody String id) {
+        System.out.println(id);
+        Long pid = Long.valueOf(id);
+        PmsProduct pmsProduct = pmsProductService.selectOneById(pid);
+        System.out.println(pmsProduct);
+        if (pmsProduct != null) {
+            System.out.println(pmsProduct);
+            return pmsProduct;
+        }
+        return false;
 
     }
 }

@@ -2,12 +2,15 @@ package com.thumb.pojo;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PmsProduct {
+    List<PmsSkuStock> pmsSkuStock;
     private PmsProductCategory pmsProductCategory;
 
     private Long id;

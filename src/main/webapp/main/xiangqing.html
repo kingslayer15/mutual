@@ -108,8 +108,8 @@
 		</div>	
 	</div>
 	
-	<div class="jieshao mt20 w">
-		<div class="left fl"><img src="../image/liebiao_xiaomi6.jpg"></div>
+	<div class="jieshao mt20 w" id="appenddiv">
+		<div class="left fl"><img src="../static/image/liebiao_xiaomi6.jpg"></div>
 		<div class="right fr">
 			<div class="h3 ml20 mt20">小米6</div>
 			<div class="jianjie mr40 ml20 mt10">变焦双摄，4 轴防抖 / 骁龙835 旗舰处理器，6GB 大内存，最大可选128GB 闪存 / 5.15" 护眼屏 / 四曲面玻璃/陶瓷机身</div>
@@ -132,14 +132,22 @@
 			</div>
 			<div class="ft20 ml20 mt20">选择颜色</div>
 			<div class="xzbb ml20 mt10">
-				<div class="banben">
+				<div class="banben fl">
 					<a>
 						<span class="yuandian"></span>
 						<span class="yanse">亮黑色</span>
 					</a>
 				</div>
-				
+				<div class="banben fr">
+					<a>
+						<span class="yuandian"></span>
+						<span class="yanse">蓝色</span>
+					</a>
+				</div>
+				<div class="clear"></div>
+
 			</div>
+
 			<div class="xqxq mt20 ml20">
 				<div class="top1 mt10">
 					<div class="left1 fl">小米6 全网通版 6GB内存 64GB 亮黑色</div>
@@ -165,6 +173,82 @@
 			<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 
 		</footer>
+
+
+	<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+    <script>
+        // function r1() {
+        //     $("#r1").attr("style", "background:red");
+        // }
+		// $(function () {
+        //     $.ajax({
+        //         type: "get",
+        //         url: "/getProductDetails?id="+27,
+        //         contentType: "application/json",
+        //         success: function (data) {
+        //             var appenddiv = $("#appenddiv");
+        //             var innerHtml= "";
+        //             $(data).each(function (index,item) {
+        //                 innerHtml += "\t\t<div class=\"left fl\"><img src=\""+item.pic+"\"></div>\n" +
+        //                 "\t\t<div class=\"right fr\">\n" +
+		// 				"\t\t\t<div class=\"h3 ml20 mt20\">"+item.name+"</div>\n" +
+        //                 "\t\t\t<div class=\"jianjie mr40 ml20 mt10\">"+item.subTitle+"</div>\n" +
+        //                 "\t\t\t<div class=\"jiage ml20 mt10\">"+item.price+"元</div>\n"+
+		// 			"\t\t\t<div class=\"ft20 ml20 mt20\">选择版本</div>\n" +
+        //                 "\t\t\t<div class=\"xzbb ml20 mt10\">\n";
+        //                 $(item.pmsSkuStock).each(function (index, item) {
+        //                     innerHtml+="\t\t\t\t<div class=\"banben fl\">\n" +
+        //                         "\t\t\t\t\t<a>\n" +
+        //                         "\t\t\t\t\t\t<span>"+item.sp2+"</span>\n" +
+        //                         "\t\t\t\t\t</a>\n" +
+        //                         "\t\t\t\t</div>\n"+
+		// 							"\n" +
+        //                         "\t\t\t\t<div class=\"banben fr\">\n" +
+        //                         "\t\t\t\t\t<a>\n" +
+        //                         "\t\t\t\t\t\t<span>"+item.sp2+"</span>\n" +
+        //                         "\t\t\t\t\t\t<span></span>\n" +
+        //                         "\t\t\t\t\t</a>\n" +
+        //                         "\t\t\t\t</div>"+
+		// 							"\t\t\t\t<div class=\"clear\"></div>\n"
+        //                 })
+		//
+        //             })
+        //             appenddiv.empty();
+		// 			appenddiv.append(innerHtml);
+        //             console.log(data); //  2pm
+		//
+        //         },
+        //         error: function (data) {
+        //             console.log(data);
+        //         },
+        //         dataType: "json"
+        //     });
+        // })
+
+		// function b1() {
+        //     $.ajax({
+        //         type: "get",
+        //         url: "/getProductDetails?id="+27,
+        //         contentType: "application/json",
+        //         success: function (data) {
+        //             var appenddiv = $("#appenddiv");
+        //             var innerHtml= "";
+        //             $(data).each(function (index,item) {
+        //                 innerHtml+="";
+        //             })
+        //             appenddiv.empty();
+        //             appenddiv.append(innerHtml);
+        //             console.log(data); //  2pm
+		//
+        //         },
+        //         error: function (data) {
+        //             console.log(data);
+        //         },
+        //         dataType: "json"
+        //     });
+        // }
+
+	</script>
 
 	</body>
 </html>

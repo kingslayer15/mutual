@@ -27,5 +27,7 @@ public interface PmsProductService {
     BigDecimal countByPublishStatus(Integer status);
 
     BigDecimal countAll();
-}
 
+    PmsProduct selectOneById(Long id);
+
+}

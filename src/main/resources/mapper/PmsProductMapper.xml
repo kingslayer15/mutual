@@ -45,6 +45,21 @@
     <result column="promotion_type" jdbcType="INTEGER" property="promotionType" />
     <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
     <result column="product_category_name" jdbcType="VARCHAR" property="productCategoryName" />
+    <collection property="pmsSkuStock" ofType="com.thumb.pojo.PmsSkuStock">
+      <id column="id" jdbcType="BIGINT" property="id" />
+      <result column="product_id" jdbcType="BIGINT" property="productId" />
+      <result column="sku_code" jdbcType="VARCHAR" property="skuCode" />
+      <result column="price" jdbcType="DECIMAL" property="price" />
+      <result column="stock" jdbcType="INTEGER" property="stock" />
+      <result column="low_stock" jdbcType="INTEGER" property="lowStock" />
+      <result column="sp1" jdbcType="VARCHAR" property="sp1" />
+      <result column="sp2" jdbcType="VARCHAR" property="sp2" />
+      <result column="sp3" jdbcType="VARCHAR" property="sp3" />
+      <result column="pic" jdbcType="VARCHAR" property="pic" />
+      <result column="sale" jdbcType="INTEGER" property="sale" />
+      <result column="promotion_price" jdbcType="DECIMAL" property="promotionPrice" />
+      <result column="lock_stock" jdbcType="INTEGER" property="lockStock" />
+    </collection>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
@@ -55,6 +70,11 @@
     service_ids, keywords, note, album_pics, detail_title, detail_desc, detail_html, 
     detail_mobile_html, promotion_start_time, promotion_end_time, promotion_per_limit, 
     promotion_type, brand_name, product_category_name
+  </sql>
+  <sql id="pmsSkuStock_Base_Column_List">
+    <!--@mbg.generated-->
+    id, product_id, sku_code, price, stock, low_stock, sp1, sp2, sp3, pic, sale, promotion_price,
+    lock_stock
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -552,12 +572,17 @@
     from pms_product
   </select>
 
-  <select id="selectOneById" resultMap="BaseResultMap" parameterType="int">
-    select pss.*
+  <select id="selectOneById" resultMap="BaseResultMap" parameterType="long">
+    select pp.*,pss.*
     from pms_product pp,
          pms_sku_stock pss
     where pp.id = pss.product_id
-      and pp.id = 27;
+      and pp.id = #{id} ;
   </select>
+    
+    
+    <select id="getColorByid" >
+    select * from pms_sku_stock where product_id=27
+    </select>
 
 </mapper>

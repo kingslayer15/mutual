@@ -72,5 +72,9 @@ public class PmsProductServiceImpl implements PmsProductService {
         return bigDecimal;
     }
 
+    @Override
+    public PmsProduct selectOneById(Long id) {
+        return pmsProductMapper.selectOneById(id);
+    }
 }
 

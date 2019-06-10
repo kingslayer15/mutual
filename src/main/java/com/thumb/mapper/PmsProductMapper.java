@@ -25,4 +25,6 @@ public interface PmsProductMapper {
 
     PmsProduct selectOneById(Long id);
 
+
+
 }
