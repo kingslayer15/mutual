@@ -1,206 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.thumb.mapper.UmsMemberMapper">
-  <resultMap id="BaseResultMap" type="com.thumb.pojo.UmsMember">
-    <!--@mbg.generated-->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="member_level_id" jdbcType="BIGINT" property="memberLevelId" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="icon" jdbcType="VARCHAR" property="icon" />
-    <result column="gender" jdbcType="INTEGER" property="gender" />
-    <result column="birthday" jdbcType="DATE" property="birthday" />
-    <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="job" jdbcType="VARCHAR" property="job" />
-    <result column="personalized_signature" jdbcType="VARCHAR" property="personalizedSignature" />
-    <result column="source_type" jdbcType="INTEGER" property="sourceType" />
-    <result column="integration" jdbcType="INTEGER" property="integration" />
-    <result column="growth" jdbcType="INTEGER" property="growth" />
-    <result column="luckey_count" jdbcType="INTEGER" property="luckeyCount" />
-    <result column="history_integration" jdbcType="INTEGER" property="historyIntegration" />
-    <result column="regemail" jdbcType="VARCHAR" property="regemail" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, member_level_id, username, `password`, nickname, phone, `status`, create_time, 
-    icon, gender, birthday, city, job, personalized_signature, source_type, integration, 
-    growth, luckey_count, history_integration, regemail
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from ums_member
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--@mbg.generated-->
-    delete from ums_member
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.thumb.pojo.UmsMember" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into ums_member (member_level_id, username, `password`, 
-      nickname, phone, `status`, 
-      create_time, icon, gender, 
-      birthday, city, job, personalized_signature, 
-      source_type, integration, growth, 
-      luckey_count, history_integration, regemail
-      )
-    values (#{memberLevelId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{nickname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{icon,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
-      #{birthday,jdbcType=DATE}, #{city,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, #{personalizedSignature,jdbcType=VARCHAR}, 
-      #{sourceType,jdbcType=INTEGER}, #{integration,jdbcType=INTEGER}, #{growth,jdbcType=INTEGER}, 
-      #{luckeyCount,jdbcType=INTEGER}, #{historyIntegration,jdbcType=INTEGER}, #{regemail,jdbcType=VARCHAR}
-      )
-  </insert>
+    <resultMap id="BaseResultMapDto" type="com.thumb.dto.UmsMemberDto">
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="regemail" property="regemail"/>
+        <result column="regCode" property="regCode"/>
+        <result column="loginCode" property="loginCode"/>
+    </resultMap>
+    <resultMap id="BaseResultMap" type="com.thumb.pojo.UmsMember">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="member_level_id" jdbcType="BIGINT" property="memberLevelId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="job" jdbcType="VARCHAR" property="job"/>
+        <result column="personalized_signature" jdbcType="VARCHAR" property="personalizedSignature"/>
+        <result column="source_type" jdbcType="INTEGER" property="sourceType"/>
+        <result column="integration" jdbcType="INTEGER" property="integration"/>
+        <result column="growth" jdbcType="INTEGER" property="growth"/>
+        <result column="luckey_count" jdbcType="INTEGER" property="luckeyCount"/>
+        <result column="history_integration" jdbcType="INTEGER" property="historyIntegration"/>
+        <result column="regemail" jdbcType="VARCHAR" property="regemail"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, member_level_id, username, `password`, nickname, phone, `status`, create_time,
+        icon, gender, birthday, city, job, personalized_signature, source_type, integration,
+        growth, luckey_count, history_integration, regemail
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from ums_member
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from ums_member
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.thumb.pojo.UmsMember"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into ums_member (member_level_id, username, `password`,
+        nickname, phone, `status`,
+        create_time, icon, gender,
+        birthday, city, job, personalized_signature,
+        source_type, integration, growth,
+        luckey_count, history_integration, regemail
+        )
+        values (#{memberLevelId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{nickname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+        #{createTime,jdbcType=TIMESTAMP}, #{icon,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER},
+        #{birthday,jdbcType=DATE}, #{city,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR},
+        #{personalizedSignature,jdbcType=VARCHAR},
+        #{sourceType,jdbcType=INTEGER}, #{integration,jdbcType=INTEGER}, #{growth,jdbcType=INTEGER},
+        #{luckeyCount,jdbcType=INTEGER}, #{historyIntegration,jdbcType=INTEGER}, #{regemail,jdbcType=VARCHAR}
+        )
+    </insert>
     <insert id="insertReg" parameterType="com.thumb.dto.UmsMemberDto">
-        insert into ums_member (username,password,regemail)
-        values (#{username},#{password},#{regemail})
+        insert into ums_member (username, password, regemail)
+        values (#{username}, #{password}, #{regemail})
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.thumb.pojo.UmsMember">
-    <!--@mbg.generated-->
-    update ums_member
-    <set>
-      <if test="memberLevelId != null">
-        member_level_id = #{memberLevelId,jdbcType=BIGINT},
-      </if>
-      <if test="username != null">
+        <!--@mbg.generated-->
+        update ums_member
+        <set>
+            <if test="memberLevelId != null">
+                member_level_id = #{memberLevelId,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="icon != null">
+                icon = #{icon,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=INTEGER},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday,jdbcType=DATE},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="job != null">
+                job = #{job,jdbcType=VARCHAR},
+            </if>
+            <if test="personalizedSignature != null">
+                personalized_signature = #{personalizedSignature,jdbcType=VARCHAR},
+            </if>
+            <if test="sourceType != null">
+                source_type = #{sourceType,jdbcType=INTEGER},
+            </if>
+            <if test="integration != null">
+                integration = #{integration,jdbcType=INTEGER},
+            </if>
+            <if test="growth != null">
+                growth = #{growth,jdbcType=INTEGER},
+            </if>
+            <if test="luckeyCount != null">
+                luckey_count = #{luckeyCount,jdbcType=INTEGER},
+            </if>
+            <if test="historyIntegration != null">
+                history_integration = #{historyIntegration,jdbcType=INTEGER},
+            </if>
+            <if test="regemail != null">
+                regemail = #{regemail,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.thumb.pojo.UmsMember">
+        <!--@mbg.generated-->
+        update ums_member
+        set member_level_id = #{memberLevelId,jdbcType=BIGINT},
         username = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
         `password` = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="nickname != null">
         nickname = #{nickname,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
         `status` = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="icon != null">
         icon = #{icon,jdbcType=VARCHAR},
-      </if>
-      <if test="gender != null">
         gender = #{gender,jdbcType=INTEGER},
-      </if>
-      <if test="birthday != null">
         birthday = #{birthday,jdbcType=DATE},
-      </if>
-      <if test="city != null">
         city = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="job != null">
         job = #{job,jdbcType=VARCHAR},
-      </if>
-      <if test="personalizedSignature != null">
         personalized_signature = #{personalizedSignature,jdbcType=VARCHAR},
-      </if>
-      <if test="sourceType != null">
         source_type = #{sourceType,jdbcType=INTEGER},
-      </if>
-      <if test="integration != null">
         integration = #{integration,jdbcType=INTEGER},
-      </if>
-      <if test="growth != null">
         growth = #{growth,jdbcType=INTEGER},
-      </if>
-      <if test="luckeyCount != null">
         luckey_count = #{luckeyCount,jdbcType=INTEGER},
-      </if>
-      <if test="historyIntegration != null">
         history_integration = #{historyIntegration,jdbcType=INTEGER},
-      </if>
-      <if test="regemail != null">
-        regemail = #{regemail,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.thumb.pojo.UmsMember">
-    <!--@mbg.generated-->
-    update ums_member
-    set member_level_id = #{memberLevelId,jdbcType=BIGINT},
-      username = #{username,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
-      nickname = #{nickname,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      `status` = #{status,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      icon = #{icon,jdbcType=VARCHAR},
-      gender = #{gender,jdbcType=INTEGER},
-      birthday = #{birthday,jdbcType=DATE},
-      city = #{city,jdbcType=VARCHAR},
-      job = #{job,jdbcType=VARCHAR},
-      personalized_signature = #{personalizedSignature,jdbcType=VARCHAR},
-      source_type = #{sourceType,jdbcType=INTEGER},
-      integration = #{integration,jdbcType=INTEGER},
-      growth = #{growth,jdbcType=INTEGER},
-      luckey_count = #{luckeyCount,jdbcType=INTEGER},
-      history_integration = #{historyIntegration,jdbcType=INTEGER},
-      regemail = #{regemail,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
+        regemail = #{regemail,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
 
-<!--auto generated by MybatisCodeHelper on 2019-06-04-->
-  <insert id="insertSelective">
-        INSERT INTO ums_member
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="umsMember.id!=null">id,</if>
-            <if test="umsMember.memberLevelId!=null">member_level_id,</if>
-            <if test="umsMember.username!=null">username,</if>
-            <if test="umsMember.password!=null">password,</if>
-            <if test="umsMember.nickname!=null">nickname,</if>
-            <if test="umsMember.phone!=null">phone,</if>
-            <if test="umsMember.status!=null">status,</if>
-            <if test="umsMember.createTime!=null">create_time,</if>
-            <if test="umsMember.icon!=null">icon,</if>
-            <if test="umsMember.gender!=null">gender,</if>
-            <if test="umsMember.birthday!=null">birthday,</if>
-            <if test="umsMember.city!=null">city,</if>
-            <if test="umsMember.job!=null">job,</if>
-            <if test="umsMember.personalizedSignature!=null">personalized_signature,</if>
-            <if test="umsMember.sourceType!=null">source_type,</if>
-            <if test="umsMember.integration!=null">integration,</if>
-            <if test="umsMember.growth!=null">growth,</if>
-            <if test="umsMember.luckeyCount!=null">luckey_count,</if>
-            <if test="umsMember.historyIntegration!=null">history_integration,</if>
-            <if test="umsMember.regemail!=null">regemail</if>
-        </trim>
-        VALUES
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="umsMember.id!=null">#{umsMember.id,jdbcType=BIGINT},</if>
-            <if test="umsMember.memberLevelId!=null">#{umsMember.memberLevelId,jdbcType=BIGINT},</if>
-            <if test="umsMember.username!=null">#{umsMember.username,jdbcType=VARCHAR},</if>
-            <if test="umsMember.password!=null">#{umsMember.password,jdbcType=VARCHAR},</if>
-            <if test="umsMember.nickname!=null">#{umsMember.nickname,jdbcType=VARCHAR},</if>
-            <if test="umsMember.phone!=null">#{umsMember.phone,jdbcType=VARCHAR},</if>
-            <if test="umsMember.status!=null">#{umsMember.status,jdbcType=INTEGER},</if>
-            <if test="umsMember.createTime!=null">#{umsMember.createTime,jdbcType=TIMESTAMP},</if>
-            <if test="umsMember.icon!=null">#{umsMember.icon,jdbcType=VARCHAR},</if>
-            <if test="umsMember.gender!=null">#{umsMember.gender,jdbcType=INTEGER},</if>
-            <if test="umsMember.birthday!=null">#{umsMember.birthday,jdbcType=DATE},</if>
-            <if test="umsMember.city!=null">#{umsMember.city,jdbcType=VARCHAR},</if>
-            <if test="umsMember.job!=null">#{umsMember.job,jdbcType=VARCHAR},</if>
-            <if test="umsMember.personalizedSignature!=null">#{umsMember.personalizedSignature,jdbcType=VARCHAR},</if>
-            <if test="umsMember.sourceType!=null">#{umsMember.sourceType,jdbcType=INTEGER},</if>
-            <if test="umsMember.integration!=null">#{umsMember.integration,jdbcType=INTEGER},</if>
-            <if test="umsMember.growth!=null">#{umsMember.growth,jdbcType=INTEGER},</if>
-            <if test="umsMember.luckeyCount!=null">#{umsMember.luckeyCount,jdbcType=INTEGER},</if>
-            <if test="umsMember.historyIntegration!=null">#{umsMember.historyIntegration,jdbcType=INTEGER},</if>
-            <if test="umsMember.regemail!=null">#{umsMember.regemail,jdbcType=VARCHAR}</if>
-        </trim>
+    <!--auto generated by MybatisCodeHelper on 2019-06-04-->
+    <insert id="insertSelective">
+    INSERT INTO ums_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+    <if test="umsMember.id!=null">id,</if>
+    <if test="umsMember.memberLevelId!=null">member_level_id,</if>
+    <if test="umsMember.username!=null">username,</if>
+    <if test="umsMember.password!=null">password,</if>
+    <if test="umsMember.nickname!=null">nickname,</if>
+    <if test="umsMember.phone!=null">phone,</if>
+    <if test="umsMember.status!=null">status,</if>
+    <if test="umsMember.createTime!=null">create_time,</if>
+    <if test="umsMember.icon!=null">icon,</if>
+    <if test="umsMember.gender!=null">gender,</if>
+    <if test="umsMember.birthday!=null">birthday,</if>
+    <if test="umsMember.city!=null">city,</if>
+    <if test="umsMember.job!=null">job,</if>
+    <if test="umsMember.personalizedSignature!=null">personalized_signature,</if>
+    <if test="umsMember.sourceType!=null">source_type,</if>
+    <if test="umsMember.integration!=null">integration,</if>
+    <if test="umsMember.growth!=null">growth,</if>
+    <if test="umsMember.luckeyCount!=null">luckey_count,</if>
+    <if test="umsMember.historyIntegration!=null">history_integration,</if>
+    <if test="umsMember.regemail!=null">regemail</if>
+    </trim>
+    VALUES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+    <if test="umsMember.id!=null">#{umsMember.id,jdbcType=BIGINT},</if>
+    <if test="umsMember.memberLevelId!=null">#{umsMember.memberLevelId,jdbcType=BIGINT},</if>
+    <if test="umsMember.username!=null">#{umsMember.username,jdbcType=VARCHAR},</if>
+    <if test="umsMember.password!=null">#{umsMember.password,jdbcType=VARCHAR},</if>
+    <if test="umsMember.nickname!=null">#{umsMember.nickname,jdbcType=VARCHAR},</if>
+    <if test="umsMember.phone!=null">#{umsMember.phone,jdbcType=VARCHAR},</if>
+    <if test="umsMember.status!=null">#{umsMember.status,jdbcType=INTEGER},</if>
+    <if test="umsMember.createTime!=null">#{umsMember.createTime,jdbcType=TIMESTAMP},</if>
+    <if test="umsMember.icon!=null">#{umsMember.icon,jdbcType=VARCHAR},</if>
+    <if test="umsMember.gender!=null">#{umsMember.gender,jdbcType=INTEGER},</if>
+    <if test="umsMember.birthday!=null">#{umsMember.birthday,jdbcType=DATE},</if>
+    <if test="umsMember.city!=null">#{umsMember.city,jdbcType=VARCHAR},</if>
+    <if test="umsMember.job!=null">#{umsMember.job,jdbcType=VARCHAR},</if>
+    <if test="umsMember.personalizedSignature!=null">#{umsMember.personalizedSignature,jdbcType=VARCHAR},</if>
+    <if test="umsMember.sourceType!=null">#{umsMember.sourceType,jdbcType=INTEGER},</if>
+    <if test="umsMember.integration!=null">#{umsMember.integration,jdbcType=INTEGER},</if>
+    <if test="umsMember.growth!=null">#{umsMember.growth,jdbcType=INTEGER},</if>
+    <if test="umsMember.luckeyCount!=null">#{umsMember.luckeyCount,jdbcType=INTEGER},</if>
+    <if test="umsMember.historyIntegration!=null">#{umsMember.historyIntegration,jdbcType=INTEGER},</if>
+    <if test="umsMember.regemail!=null">#{umsMember.regemail,jdbcType=VARCHAR}</if>
+    </trim>
     </insert>
+
+<!--auto generated by MybatisCodeHelper on 2019-06-06-->
+    <select id="selectOneByUsernameAndPassword" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ums_member
+        where username=#{username,jdbcType=VARCHAR} and `password`=#{password,jdbcType=VARCHAR}
+    </select>
+
+
+<!--auto generated by MybatisCodeHelper on 2019-06-07-->
+    <select id="selectOneByUsername" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ums_member
+        where username=#{username,jdbcType=VARCHAR}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-06-07-->
+    <select id="selectOneByRegemail" resultMap="BaseResultMap">
+        select
+        *
+        from ums_member
+        where regemail=#{regemail,jdbcType=VARCHAR}
+    </select>
+
 
     <select id="countByCreateTime" resultType="java.math.BigDecimal" parameterType="int">
         SELECT count(1) FROM ums_member WHERE timestampdiff(DAY,create_time,NOW()) = #{dayNum}

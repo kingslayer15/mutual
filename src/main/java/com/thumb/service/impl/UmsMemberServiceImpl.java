@@ -1,4 +1,6 @@
 package com.thumb.service.impl;
+import java.math.BigDecimal;
+import java.util.List;
 
 import com.thumb.dto.UmsMemberDto;
 import com.thumb.utility.MD5Utils;
@@ -15,7 +17,6 @@ import com.thumb.pojo.UmsMember;
 import com.thumb.service.UmsMemberService;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 
 @Service
 public class UmsMemberServiceImpl implements UmsMemberService{
@@ -78,27 +79,7 @@ public class UmsMemberServiceImpl implements UmsMemberService{
 
     }
 
-
-
-
     @Override
-    public BigDecimal countByCreateTime(Integer dayNum) {
-        BigDecimal bigDecimal = umsMemberMapper.countByCreateTime(dayNum);
-        return bigDecimal;
-    }
-
-    @Override
-    public BigDecimal countByCreateTimeMonth() {
-        BigDecimal bigDecimal = umsMemberMapper.countByCreateTimeMonth();
-        return bigDecimal;
-    }
-
-    @Override
-    public Long countAll(){
-        Long count = umsMemberMapper.countAll();
-        return count;
-    }
-
     public boolean insertReg(UmsMemberDto umsMemberDto) {
         umsMemberDto.setPassword(MD5Utils.myEncode(umsMemberDto.getPassword()));
         int i = umsMemberMapper.insertReg(umsMemberDto);
@@ -107,5 +88,39 @@ public class UmsMemberServiceImpl implements UmsMemberService{
         }
         return false;
     }
+
+
+
+    @Override
+    public UmsMember selectOneByUsernameAndPassword(UmsMemberDto umsMemberDto) {
+        umsMemberDto.setPassword(MD5Utils.myEncode(umsMemberDto.getPassword()));
+        return umsMemberMapper.selectOneByUsernameAndPassword(umsMemberDto);
+    }
+
+    @Override
+    public UmsMember selectOneByUsername(String username) {
+        return umsMemberMapper.selectOneByUsername(username);
+    }
+
+	@Override
+	public UmsMember selectOneByRegemail(String regemail){
+		 return umsMemberMapper.selectOneByRegemail(regemail);
+	}
+
+    @Override
+    public BigDecimal countByCreateTime(Integer dayNum) {
+        return null;
+    }
+
+    @Override
+    public BigDecimal countByCreateTimeMonth() {
+        return null;
+    }
+
+    @Override
+    public Long countAll() {
+        return null;
+    }
+
 
 }

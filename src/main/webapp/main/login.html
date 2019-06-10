@@ -1,48 +1,200 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-        <meta name="author" content="order by dede58.com"/>
-		<title>会员登录</title>
-		<link rel="stylesheet" type="text/css" href="../static/css/login.css">
-		
-	</head>
-	<body>
-		<!-- login -->
-		<div class="top center">
-			<div class="logo center">
-				<a href="./index.html" target="_blank"><img src="../image/mistore_logo.png" alt=""></a>
-			</div>
-		</div>
-		<form  method="post" action="./login.php" class="form center">
-		<div class="login">
-			<div class="login_center">
-				<div class="login_top">
-					<div class="left fl">会员登录</div>
-					<div class="right fr">您还不是我们的会员？<a href="register.html" target="_self">立即注册</a></div>
-					<div class="clear"></div>
-					<div class="xian center"></div>
-				</div>
-				<div class="login_main center">
-					<div class="username">用户名:&nbsp;<input class="shurukuang" type="text" name="username" placeholder="请输入你的用户名"/></div>
-					<div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input class="shurukuang" type="password" name="password" placeholder="请输入你的密码"/></div>
-					<div class="username">
-						<div class="left fl">验证码:&nbsp;<input class="yanzhengma" type="text" name="username" placeholder="请输入验证码"/></div>
-						<div class="right fl"><img src="../image/yanzhengma.jpg"></div>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="login_submit">
-					<input class="submit" type="submit" name="submit" value="立即登录" >
-				</div>
-				
-			</div>
-		</div>
-		</form>
-		<footer>
-			<div class="copyright">简体 | 繁体 | English | 常见问题</div>
-			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="../image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="order by dede58.com"/>
+    <title>会员登录</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+</head>
+<body>
+<!-- login -->
+<div class="top center">
+    <div class="logo center">
+        <a href="./index.html" target="_blank"><img src="../static/image/mistore_logo.png" alt=""></a>
+    </div>
+</div>
+<form id="form" class="form center">
+    <div class="login">
+        <div class="login_center">
+            <div class="login_top">
+                <div class="left fl">会员登录</div>
+                <div class="right fr">您还不是我们的会员？<a href="register.html" target="_self">立即注册</a></div>
+                <div class="clear"></div>
+                <div class="xian center"></div>
+            </div>
+            <div class="login_main center">
+                <div class="username">用户名:&nbsp;<input id="userName" class="shurukuang" type="text" name="username"
+                                                       placeholder="请输入你的用户名"/></div>
+                <div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input id="password" class="shurukuang"
+                                                                              type="password" name="password"
+                                                                              placeholder="请输入你的密码"/></div>
+                <div class="username">
+                    <div class="left fl">验证码:&nbsp;<input id="loginCode" class="yanzhengma" type="text" name="logincode"
+                                                          placeholder="请输入验证码"/></div>
+                    <div class="right fl">
+                        <img id="kaptchaImage" src="/captchaController"><span id="code"></span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="username">3天免登:
+                <input type="checkbox" id="remember">
+            </div>
+            <div class="login_submit">
+                <input class="submit" type="submit" name="submit" value="立即登录">
+            </div>
 
-		</footer>
-	</body>
+        </div>
+    </div>
+</form>
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/jquery/jquery.cookie.js"></script>
+<script src="../static/jquery/jquery.validate.js"></script>
+<script src="../static/jquery/jquery.validate.min.js"></script>
+<script>
+
+    $(function () {
+        //进页面,获取cookie的值
+        var username = $.cookie('username');
+        var password = $.cookie('password');
+        //将获取的值填充入输入框中
+        $('#userName').val(username);
+        $('#password').val(password);
+        $.ajax({
+            type: "post",
+            url: "/userLogin",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "username":$('#userName').val(),
+                "password":$('#password').val(),
+            }),
+            success: function (data) {
+                if (data == true) {
+                    window.location.href = "index.html";
+                }
+                console.log(data); //  2pm
+            },
+            error: function (data) {
+                console.log(data);
+            },
+            dataType: "json"
+        });
+        //如果cookie有值,勾选记住我
+        if (username != null && username != '' && password != null && password != '') {//选中保存秘密的复选框
+            //勾选记住我
+            $("#remember").prop('checked', true);
+        }
+        //从cookie拿出来放进ajax去对比
+        $("#form").validate({
+
+            rules: {
+                username: {
+                    required: true,
+                    minlength: 6
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                logincode: {
+                    required: true,
+                    minlength: 4,
+                    remote: {          //远程ajax验证
+                        url: "/isExistLoginCode", //检查是否存在账号，存在则返回true
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            logincode: function () {
+                                return $("#loginCode").val(); //这个是取要验证的验证码
+                            }
+                        }
+                    }
+                },
+            },
+            messages: {
+                username: {
+                    required: "<br /><span style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入用户名</span>",
+                    minlength: "<br /><span style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名必需不能小于6位数</span>"
+                },
+                password: {
+                    required: "<br /><span style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入密码</span>",
+                    minlength: "<br /><span style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码长度不能小于 6位数</span>"
+                },
+                logincode: {
+                    required: "<div style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入验证码</div>",
+                    minlength: "<div style='color:red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;验证码必须4位数</div>",
+                    remote: "<div style='color: red'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;验证码错误</divst>"
+                },
+            },
+
+
+            submitHandler: function (form) { //通过之后回调
+                $.ajax({
+                    type: "post",
+                    url: "/userLogin",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "username": $("#userName").val(),
+                        "password": $("#password").val(),
+                    }),
+                    success: function (data) {
+                        if (data == false) {
+                            window.location.href = "login.html";
+                        } else {
+                            saveCookie();
+                            window.location.href = "index.html";
+                        }
+                        console.log(data); //  2pm
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    },
+                    dataType: "json"
+                });
+            },
+
+            invalidHandler: function (form, validator) {
+                window.location.href = "login.html";
+                return false;
+            }
+        })
+    });
+
+    //验证码生成
+    $('#kaptchaImage').click(function () {//生成验证码
+        $(this).hide().attr('src', '/captchaController?' + Math.floor(Math.random() * 100)).fadeIn();
+        event.cancelBubble = true;
+    });
+
+    //保存cookie方法
+    function saveCookie() {
+        var usernameVal = $("#userName").val().trim();
+        var passwordVal = $("#password").val().trim();
+        //如果选中
+        if ($("#remember").prop("checked")) {
+            // $.cookie("rmbUser", "true", { expires: 7 }); //存储一个带7天期限的cookie
+            //保存用户输入的用户名进cookies的username,时间3天
+            $.cookie("username", usernameVal, {expires: 3});
+            //保存用户输入的密码进cookies的password
+            $.cookie("password", passwordVal, {expires: 3});
+        }
+        //不选中
+        else {
+            // $.cookie("rmbUser", "false", { expire: -1 });
+            //cookie销毁
+            $.cookie("username", "", {expires: -1});
+            $.cookie("password", "", {expires: -1});
+        }
+    }
+
+
+</script>
+
+<footer>
+    <div class="copyright"><!--简体 | 繁体 | English | 常见问题--></div>
+    <div class="copyright">共勉公司版权所有-京ICP备10046444-<img src="../static/image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号
+    </div>
+
+</footer>
+</body>
 </html>

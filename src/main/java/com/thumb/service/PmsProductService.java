@@ -4,7 +4,7 @@ import com.thumb.pojo.PmsProduct;
 
 import java.math.BigDecimal;
 
-public interface PmsProductService{
+public interface PmsProductService {
 
 
     int deleteByPrimaryKey(Long id);
@@ -28,3 +28,4 @@ public interface PmsProductService{
 
     BigDecimal countAll();
 }
+

@@ -92,7 +92,17 @@
                     rules: {
                         username: {
                             required: true,
-                            minlength: 6
+                            minlength: 6,
+                            remote: {          //远程ajax验证
+                                url: "/isExistUsername", //检查是否存在账号，存在则返回true
+                                type: "post",
+                                dataType: "json",
+                                data: {
+                                    username: function () {
+                                        return $("#userName").val(); //这个是取要验证的用户名
+                                    }
+                                }
+                            }
                         },
                         password: {
                             required: true,
@@ -105,17 +115,39 @@
                         },
                         regemail: {
                             required: true,
-                            email: true
+                            email: true,
+                            remote: {          //远程ajax验证
+                                url: "/isExistRegEmail", //检查是否存在账号，存在则返回true
+                                type: "post",
+                                dataType: "json",
+                                data: {
+                                    regemail: function () {
+                                        return $("#regEmail").val(); //这个是取要验证的用户名
+                                    }
+                                }
+                            }
                         },
                         regcode: {
                             required: true,
                             minlength:6,
+                            remote: {          //远程ajax验证
+                                url: "/isExistRegCode", //检查是否存在账号，存在则返回true
+                                type: "post",
+                                dataType: "json",
+                                data: {
+                                    regcode: function () {
+                                        return $("#regCode").val(); //这个是取要验证的用户名
+                                    }
+                                }
+                            }
                         },
                     },
                     messages: {
                         username: {
                             required: "请输入用户名",
-                            minlength: "用户名必需不能小于6个字母"
+                            minlength: "用户名必需不能小于6个字母",
+                            //这个地方如果不写的话，是自带的提示内容，加上就是这个内容。
+                            remote: "用户名已存在!"
                         },
                         password: {
                             required: "请输入密码",
@@ -126,10 +158,15 @@
                             minlength: "密码长度不能小于 6 个字母",
                             equalTo: "两次密码输入不一致"
                         },
-                        regemail: "请输入邮箱",
+                        regemail: {
+                            required: "邮箱不能为空",
+                            email: "请输入邮箱",
+                            remote: "邮箱已存在!"
+                        },
                         regcode: {
                             required: "请输入验证码",
-                            minlength: "验证码必须6位数"
+                            minlength: "验证码必须6位数",
+                            remote: "验证码错误"
                         },
                     },
 
@@ -143,16 +180,16 @@
                                 "username": $("#userName").val(),
                                 "password": $("#password").val(),
                                 "regemail": $("#regEmail").val(),
-                                "regCode": $("#regCode").val()
+                                // "regCode": $("#regCode").val()
                             }),
                             success: function (data) {
                                 //获取用户验证码
-                                var regCodeVal = $("#regCode").val();
-                                //如果验证码跟后台不一样
-                                if (data != regCodeVal) {
-                                    $("#codeTips").text("验证码错误");
-                                    return false;
-                                }
+                                // var regCodeVal = $("#regCode").val();
+                                // //如果验证码跟后台不一样
+                                // if (data != regCodeVal) {
+                                //     $("#codeTips").text("验证码错误");
+                                //     return false;
+                                // }
                                 alert("注册成功");
                                 console.log(data); //  2pm
                                 window.location.href = "login.html";

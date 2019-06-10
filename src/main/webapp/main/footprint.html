@@ -74,15 +74,20 @@
                 </ul>
             </div>
         </div>
-        <div class="rtcont fr"  style="width: 978px;height: 700px;background: #fff">
-            <div class="grzlbt ml40" id="address">我的足迹</div>
+        <div class="rtcont fr" style="width: 988px;height: 1700px;background: #fff">
+            <div class="grzlbt ml40" id="address">我的足迹
+            <div class="danpin center">
+                <div class="main center" style="width: 758px;height: 500px;background: #fff" id="appenddiv">
+                    <div class="clear"></div>
+                </div>
 
+            </div>
+            </div>
 
 
 
         </div>
         <div class="clear"></div>
-    </div>
 </div>
 
 <!-- self_info -->
@@ -94,43 +99,70 @@
 </footer>
 
 
-<script src="jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script>
 
 
     $(function () {
         $("#header").load("header.html");
-    })
-
-    //获取用户id
-    var userId;
-    function getUserId() {
-        userId=window.location.search.split("=")[1]
-        // alert(userId)
-    }
-    getUserId();
-    //根据id获取用户信息
-    function getUserInfoById() {
         $.ajax({
-            url:'/userInfoById?userId='+userId,
-            type:'GET', //GET
+            url: '/pmsProductOfHistoryList',
+            type:'get', //GET
             contentType:"application/json",
             dataType:'json',
             success:function(data){
-                console.log(data)
+                var appenddiv = $("#appenddiv");
+                var divHtml = "";
+                $(data).each(function (index,item) {
+                    divHtml+="<div class=\"mingxing fl\">\n" +
+                        "<div class=\"sub_mingxing\"><a href=\"\"><img src=\""+item.pic+"\" alt=\"\"></a></div>\n" +
+                        "<div class=\"pinpai\"><a href=\"\">"+item.name+"</a></div>\n" +
+                        "<div class=\"youhui\">"+item.subTitle+"</div>\n" +
+                        "<div class=\"jiage\">"+item.price+"</div>\n" +
+                        "</div>\n"
+                })
+                appenddiv.empty();
+                appenddiv.append(divHtml)
 
-                $("#phone").html(data.phone);
-                $("#personalized_signature").html(data.personalized_signature);
-                $("#job").html(data.job);
-                $("#city").html(data.city);
+                console.log(data)
 
             },
             error:function(data){
                 console.error(data);
             }
         })
-    }
-    getUserInfoById();
+    })
+
+    // //获取用户id
+    // var userId;
+    // function getUserId() {
+    //     userId=window.location.search.split("=")[1]
+    //     // alert(userId)
+    // }
+    // getUserId();
+    // //根据id获取用户信息
+    // function getUserInfoById() {
+    //     $.ajax({
+    //         url:'/userInfoById?userId='+userId,
+    //         type:'GET', //GET
+    //         contentType:"application/json",
+    //         dataType:'json',
+    //         success:function(data){
+    //             console.log(data)
+    //
+    //             $("#phone").html(data.phone);
+    //             $("#personalized_signature").html(data.personalized_signature);
+    //             $("#job").html(data.job);
+    //             $("#city").html(data.city);
+    //
+    //         },
+    //         error:function(data){
+    //             console.error(data);
+    //         }
+    //     })
+    // }
+    // getUserInfoById();
+
 
 
 
