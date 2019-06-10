@@ -72,9 +72,10 @@ public class NewController {
     @RequestMapping("getSelectNew")
     public Object getSelectNew(@RequestParam String name) {
 
-        PageHelper.startPage(1, 4);
+        PageHelper.startPage(1, 5);
 
         List<HomeProduct> homeProducts = newService.getSelectNew(name);
+        System.out.println(homeProducts);
 
         return new PageInfo(homeProducts);
 
@@ -82,32 +83,40 @@ public class NewController {
 
 
     /**
-     * 批量添加专题
+     * 批量添加新品
      * @return
      */
     @ResponseBody
     @RequestMapping("updateNewById")
     public Object updateNewById( @RequestBody PageName pageName) {
 
-        return newService.updateNewById(pageName) != 0;
+        List<PmsProduct> homeProducts = newService.updateNewById(pageName);
 
+        int i1 = 0;
+        for (int i = 0; i <= homeProducts.size()-1 ; i++) {
+            i1 = newService.updateNewById_home(homeProducts.get(i));
+            newService.updateNewById_product(homeProducts.get(i));
+        }
+
+        return i1;
     }
 
     /**
-     * 删除首页推荐专题
+     * 删除首页推荐新品
      * @param id
      * @return
      */
     @ResponseBody
     @RequestMapping("deleteNewById")
     public Object deleteNewById(@RequestParam  int id) {
+        newService.updateNewById_Newproduct(id);
         return newService.deleteNewById(id);
     }
 
 
 
     /**
-     * 查询新品库的所有没有推荐的专题
+     * 查询新品库的所有没有推荐的新品
      * @param page
      * @returnR
      */
@@ -121,6 +130,24 @@ public class NewController {
 
         return new PageInfo(homeProducts);
     }
+    /**
+     * 条件查询新品库的所有没有推荐的新品
+     * @param pageName
+     * @returnR
+     */
+    @ResponseBody
+    @RequestMapping("selectNewsAllNO_folioModal")
+    public Object selectNewsAllNO_folioModal(@RequestBody PageName pageName) {
+        //分页显示
+        PageHelper.startPage(pageName.getPageNow(), pageName.getPageSize());
+
+        List<PmsProduct> homeProducts = newService.selectNewsAllNO_folioModal(pageName);
+
+        return new PageInfo(homeProducts);
+    }
+
+
+
 
 
 }
