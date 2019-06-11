@@ -1,188 +1,101 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-        <meta name="author" content="order by dede58.com"/>
-		<title>专题商品页</title>
-		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-	</head>
-	<body>
-	<!-- start header -->
-		<header>
-			<div class="top center">
-				<div class="left fl">
-					<ul>
-						<li><a href="http://www.mi.com/" target="_blank">小米商城</a></li>
-						<li>|</li>
-						<li><a href="">MIUI</a></li>
-						<li>|</li>
-						<li><a href="">米聊</a></li>
-						<li>|</li>
-						<li><a href="">游戏</a></li>
-						<li>|</li>
-						<li><a href="">多看阅读</a></li>
-						<li>|</li>
-						<li><a href="">云服务</a></li>
-						<li>|</li>
-						<li><a href="">金融</a></li>
-						<li>|</li>
-						<li><a href="">小米商城移动版</a></li>
-						<li>|</li>
-						<li><a href="">问题反馈</a></li>
-						<li>|</li>
-						<li><a href="">Select Region</a></li>
-						<div class="clear"></div>
-					</ul>
-				</div>
-				<div class="right fr">
-					<div class="gouwuche fr"><a href="">购物车</a></div>
-					<div class="fr">
-						<ul>
-							<li><a href="login.html" target="_blank">登录</a></li>
-							<li>|</li>
-							<li><a href="register.html" target="_blank" >注册</a></li>
-							<li>|</li>
-							<li><a href="">消息通知</a></li>
-						</ul>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</header>
-	<!--end header -->
-
-<!-- start banner_x -->
-		<div class="banner_x center">
-			<a href="./index.html" target="_blank"><div class="logo fl"></div></a>
-			<a href=""><div class="ad_top fl"></div></a>
-			<div class="nav fl">
-				<ul>
-					<li><a href="">小米手机</a></li>
-					<li><a href="">红米</a></li>
-					<li><a href="">平板·笔记本</a></li>
-					<li><a href="">电视</a></li>
-					<li><a href="">盒子·影音</a></li>
-					<li><a href="">路由器</a></li>
-					<li><a href="">智能硬件</a></li>
-					<li><a href="">服务</a></li>
-					<li><a href="">社区</a></li>
-				</ul>
-			</div>
-			<div class="search fr">
-				<form action="" method="post">
-					<div class="text fl">
-						<input type="text" class="shuru"  placeholder="小米6&nbsp;小米MIX现货">
-					</div>
-					<div class="submit fl">
-						<input type="submit" class="sousuo" value="搜索"/>
-					</div>
-					<div class="clear"></div>
-				</form>
-				<div class="clear"></div>
-			</div>
-		</div>
-<!-- end banner_x -->
-
-	<!-- start banner_y -->
-	<!-- end banner -->
-	<!-- start danpin -->
-		<div class="danpin center">
-			
-			<div class="biaoti center" id="title">小米手机</div>
-			<div class="main center" id="li1">
-				<!--<div class="mingxing fl mb20" style="border:2px solid #fff;width:230px;cursor:pointer;" onmouseout="this.style.border='2px solid #fff'" onmousemove="this.style.border='2px solid red'">-->
-					<!--<div class="sub_mingxing"><a href="xiangqing.html" target="_blank"><img src="../image/liebiao_xiaomi6.jpg" alt=""></a></div>-->
-					<!--<div class="pinpai"><a href="xiangqing.html" target="_blank">小米6</a></div>-->
-					<!--<div class="youhui">5.16早10点开售</div>-->
-					<!--<div class="jiage">2499.00元</div>-->
-				<!--</div>-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="order by dede58.com"/>
+    <title>专题商品页</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+<!-- start header -->
+<div id="header"></div>
+<!--end header -->
 
 
-				<div class="clear"></div>
-			</div>
-			<div class="main center mb20" id="li2">
-				<!--<div class="mingxing fl mb20" style="border:2px solid #fff;width:230px;cursor:pointer;" onmouseout="this.style.border='2px solid #fff'" onmousemove="this.style.border='2px solid red'">-->
-					<!--<div class="sub_mingxing"><a href=""><img src="../image/liebiao_xiaomi5.jpg" alt=""></a></div>-->
-					<!--<div class="pinpai"><a href="">小米手机5</a></div>-->
-					<!--<div class="youhui">骁龙820处理器 / UFS 2.0 闪存</div>-->
-					<!--<div class="jiage">1799.00元</div>-->
-				<!--</div>-->
+<div class="danpin center">
 
-				<div class="clear"></div>
-			</div>
-		</div>
-		
-
-		<footer class="mt20 center">			
-			<div class="mt20">共勉商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
-			<div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
-		</footer>
+    <div class="biaoti center" id="title"></div>
+    <div class="main center" id="li1">
 
 
+        <div class="clear"></div>
+    </div>
+    <div class="main center mb20" id="li2">
 
-	<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
-	<!-- end danpin -->
-	<script>
-
-		function get(pageNow,pageSize) {
-
-
-
-			var  id = window.location.search.split("=")[1];
-			// alert(pageNow+":"+pageSize+":"+id)
-			//加载此品牌下的所有商品
-
-			$.ajax({
-				url: '/getSubject',
-				type: 'POST', //GET
-				contentType: "application/json",
-				dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
-				data: JSON.stringify({
-					"id":id,
-					"pageNow": pageNow,
-					"pageSize": pageSize
-				}),
-				/*成功*/
-				success: function (data) {
+        <div class="clear"></div>
+    </div>
+</div>
 
 
-					var $li1 = $("#li1");
-					$li1.find("div").remove();
-					var $li2 = $("#li2");
-					$li2.find("div").remove();
-
-					var list = data.list;
-					$(list).each(function (index, val) {
-						var table = "<div class=\"mingxing fl mb20\" style=\"border:2px solid #fff;width:230px;cursor:pointer;\" onmouseout=\"this.style.border='2px solid #fff'\" onmousemove=\"this.style.border='2px solid red'\">\n" +
-								"\t\t\t\t\t<div class=\"sub_mingxing\"><a href=\"/main/xiangqing.html?id="+val.id+"\" target=\"_blank\"><img src=\""+val.pic+"\" alt=\"\"></a></div>\n" +
-								"\t\t\t\t\t<div class=\"pinpai\"><a href=\"xiangqing.html\" target=\"_blank\">"+val.name+"</a></div>\n" +
-								"\t\t\t\t\t<div class=\"youhui\">"+""+"</div>\n" +
-								"\t\t\t\t\t<div class=\"jiage\">"+val.price+"元</div>" +
-								"\t\t\t\t</div>";
-						if(index<5){
-							$li1.append(table)
-						}else {
-							$li2.append(table)
-						}
-						if(index==0){
-							$("#title").html(val.brand_name)
-						}
-
-					})
-				},
-				/*发生错误时*/
-				error: function (xhr, textStatus) {
-					alert("错误请求!!!")
-				}
-			});
-
-		}
-
-		get(1,10);
-
-	</script>
+<footer class="mt20 center">
+    <div class="mt20">共勉商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+    <div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
+</footer>
 
 
-	</body>
+<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
+<!-- end danpin -->
+<script>
+
+    $("#header").load("head.html");
+
+
+    function get(pageNow, pageSize) {
+
+
+        var id = window.location.search.split("=")[1];
+        // alert(pageNow+":"+pageSize+":"+id)
+        //加载此品牌下的所有商品
+
+        $.ajax({
+            url: '/getSubject',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            data: JSON.stringify({
+                "id": id,
+                "pageNow": pageNow,
+                "pageSize": pageSize
+            }),
+            /*成功*/
+            success: function (data) {
+
+
+                var $li1 = $("#li1");
+                $li1.find("div").remove();
+                var $li2 = $("#li2");
+                $li2.find("div").remove();
+
+                var list = data.list;
+                $(list).each(function (index, val) {
+                    var table = "<div class=\"mingxing fl mb20\" style=\"border:2px solid #fff;width:230px;cursor:pointer;\" onmouseout=\"this.style.border='2px solid #fff'\" onmousemove=\"this.style.border='2px solid red'\">\n" +
+                        "\t\t\t\t\t<div class=\"sub_mingxing\"><a href=\"/main/xiangqing.html?id=" + val.id + "\" target=\"_blank\"><img src=\"" + val.pic + "\" alt=\"\"></a></div>\n" +
+                        "\t\t\t\t\t<div class=\"pinpai\"><a href=\"xiangqing.html\" target=\"_blank\">" + val.name + "</a></div>\n" +
+                        "\t\t\t\t\t<div class=\"youhui\">" + "" + "</div>\n" +
+                        "\t\t\t\t\t<div class=\"jiage\">" + val.price + "元</div>" +
+                        "\t\t\t\t</div>";
+                    if (index < 5) {
+                        $li1.append(table)
+                    } else {
+                        $li2.append(table)
+                    }
+                    if (index == 0) {
+                        $("#title").html(val.brand_name)
+                    }
+
+                })
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+                alert("错误请求!!!")
+            }
+        });
+
+    }
+    get(1, 10);
+
+</script>
+
+
+</body>
 </html>

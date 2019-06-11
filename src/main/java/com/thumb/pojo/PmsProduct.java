@@ -8,7 +8,16 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PmsProduct {
+
     private PmsProductCategory pmsProductCategory;
+
+
+
+    private int product_id;
+    private String product_name;
+    private int recommend_status;
+
+
 
     private Long id;
 
