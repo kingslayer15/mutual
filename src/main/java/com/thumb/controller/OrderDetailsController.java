@@ -58,19 +58,26 @@ public class OrderDetailsController {
         UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
 
 
+
         System.out.println(total_amount + "yuan");
         //获取最后一个订单的创建时间
         Date lastDate = omsOrderService.findFirstCreateTimeOrderByCreateTimeDesc();
 
         String orderNo = orderNoUtils.creatOrderNo(lastDate);
 
-//        OmsOrder omsOrder = new OmsOrder();
-//        omsOrder.setOrderSn(orderNo);
-//        omsOrder.setCreateTime(new Date());
+        OmsOrder omsOrder = new OmsOrder();
+        omsOrder.setOrderSn(orderNo);
+        omsOrder.setCreateTime(new Date());
 //        omsOrder.setMemberUsername(umsMember.getUsername());
-//        omsOrder.setTotalAmount(new BigDecimal(total_amount));
-//        omsOrder.setPayAmount(new BigDecimal(total_amount));
-//        omsOrder.
+        omsOrder.setTotalAmount(new BigDecimal(total_amount));
+        omsOrder.setPayAmount(new BigDecimal(total_amount));
+        omsOrder.setFreightAmount(new BigDecimal(0));
+        omsOrder.setPayType(1);
+        omsOrder.setSourceType(1);
+        omsOrder.setStatus(0);
+
+
+
 
 
 

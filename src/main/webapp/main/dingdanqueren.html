@@ -227,7 +227,7 @@
                 $(data).each(function (index, item) {
 
                     if (index < 3){
-                        $("#J_addressList").append("<div class=\"address-item J_addressItem\">\n" +
+                        $("#J_addressList").append("<div id='"+index+"' class=\"address-item J_addressItem\">\n" +
                             "                        <dl>\n" +
                             "                            <dt>\n" +
                             "                                <span class=\"tag\"></span>\n" +
@@ -243,17 +243,35 @@
                             "\n" +
                             "                        </div>\n" +
                             "                    </div>");
+
+                        $("#" +index).click(function () {
+
+                            $(".J_addressItem").prop("class","address-item J_addressItem");
+
+                            var self = event.currentTarget;
+
+                            self.className = "address-item J_addressItem selected";
+
+
+                        })
                     }
+
+
+
+
                 });
 
                 $("#J_addressList").append("<!-- addresslist end -->\n" +
                     "                    <div class=\"address-item address-item-new\" id=\"J_newAddress\">\n" +
                     "                        <i class=\"iconfont\"></i>\n" +
                     "                        添加新地址\n" +
-                    "                    </div>")
+                    "                    </div>");
+
+
+
+
             }
         });
-
     });
 
     <!--out_trade_no = "1231";-->
@@ -286,6 +304,9 @@
     //         }
     //     });
     // }
+
+
+
 
 </script>
 
