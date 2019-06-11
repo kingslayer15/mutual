@@ -246,7 +246,7 @@
     function get() {
         alert(id)
         $.ajax({
-            url:'/getOneAddress?addressId='+id,
+            url:'/setDefault?id='+id,
             type:'GET', //GET
             contentType:"application/json",
             // data:JSON.stringify({addressId:id}),

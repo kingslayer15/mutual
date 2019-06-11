@@ -5,7 +5,7 @@
 <mapper namespace="com.thumb.mapper.PersonalOrderMapper">
     <select id="orderByUid" parameterType="int" resultMap="order">
       SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`create_time`,o.`pay_amount`,o.`pay_type`,
-      i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+      i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`product_price`,i.`product_quantity`
       FROM oms_order o
       LEFT JOIN oms_order_item i
       ON o.`id`=i.`order_id`
@@ -21,13 +21,13 @@
         <result property="create_time" column="create_time"></result>
         <result property="pay_amount" column="pay_amount"></result>
         <result property="pay_type" column="pay_type"></result>
-        <collection property="order_items" ofType="com.thumb.dto.Client_order_itemDto">
+        <collection property="order_items" ofType="com.thumb.dto.Client_order_item">
             <id property="id" column="id"></id>
             <result property="product_id" column="product_id"></result>
             <result property="product_pic" column="product_pic"></result>
             <result property="product_name" column="product_name"></result>
             <result property="product_attr" column="product_attr"></result>
-            <result property="real_amount" column="real_amount"></result>
+            <result property="product_price" column="product_price"></result>
             <result property="product_quantity" column="product_quantity"></result>
         </collection>
     </resultMap>
@@ -35,84 +35,5 @@
     <update id="changeStatus" parameterType="int">
         update oms_order set status=3 where id=#{orderId}
     </update>
-
-    <select id="getRefundProduct" parameterType="int" resultType="com.thumb.dto.Client_order_itemDto">
-        SELECT * FROM `oms_order_item` WHERE id =#{id}
-    </select>
-
-    <select id="getreasons" resultType="com.thumb.dto.RefundReasonsDto">
-        select * from oms_order_return_reason where status=1
-    </select>
-
-
-    <select id="getReturnInfo" resultType="com.thumb.dto.ClientRefundDto" parameterType="int">
-        SELECT i.`id`,i.`order_id`,i.`product_id`,i.`order_sn`,i.`product_pic`,i.`product_name`,i.`product_brand`,i.`product_attr`,i.`product_price`,i.`real_amount` product_real_price,
-        o.`receiver_name` return_name,o.`receiver_phone` return_phone,
-        u.username member_username
-        FROM `oms_order_item` i
-        LEFT JOIN `oms_order` o
-        ON i.`order_id`=o.`id`
-        LEFT JOIN `ums_member` u
-        ON u.id=o.`member_id`
-        WHERE i.id=#{id}
-    </select>
-
-    <insert id="addReturnAapply" parameterType="com.thumb.dto.ClientRefundDto" >
-        insert into oms_order_return_apply (
-        order_id,
-        product_id,
-        order_sn,
-        create_time,
-        member_username,
-        return_amount,
-        return_name,
-        return_phone,
-        status,
-        product_pic,
-        product_name,
-        product_brand,
-        product_attr,
-        product_count,
-        product_price,
-        <if test="reason!=null and reason!=''">
-            reason,
-        </if>
-        <if test="description!=null and description!=''">
-            description,
-        </if>
-        <if test="proof_pics!=null and proof_pics!=''">
-            proof_pics,
-        </if>
-        product_real_price
-
-        )
-        values (
-        #{order_id},
-        #{product_id},
-        #{order_sn},
-        NOW(),
-        #{member_username},
-        #{return_amount},
-        #{return_name},
-        #{return_phone},
-        #{status},
-        #{product_pic},
-        #{product_name},
-        #{product_brand},
-        #{product_attr},
-        #{product_count},
-        #{product_price},
-        <if test="reason!=null and reason!=''">
-            #{reason},
-        </if>
-        <if test="description!=null and description!=''">
-            #{description},
-        </if>
-        <if test="proof_pics!=null and proof_pics!=''">
-            #{proof_pics},
-        </if>
-        #{product_real_price}
-        )
-    </insert>
 </mapper>
 

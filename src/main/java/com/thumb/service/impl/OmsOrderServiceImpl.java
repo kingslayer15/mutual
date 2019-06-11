@@ -90,11 +90,5 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         return null;
     }
 
-    @Override
-    public Date findFirstCreateTimeOrderByCreateTimeDesc() {
-        Date firstCreateTimeOrderByCreateTimeDesc = omsOrderMapper.findFirstCreateTimeOrderByCreateTimeDesc();
-        return firstCreateTimeOrderByCreateTimeDesc;
-    }
-
 
 }

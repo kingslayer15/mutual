@@ -1,8 +1,9 @@
 package com.thumb.controller;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import com.thumb.entity.dto.*;
+import com.thumb.entity.dto.SearchOmsOrder;
+import com.thumb.entity.dto.SearchOmsOrderReturnApply;
+import com.thumb.entity.dto.UpdateOmsOrderSetting;
+import com.thumb.entity.dto.UpdateReturnReason;
 import com.thumb.entity.pojo.*;
 import com.thumb.mapper.AdminOmsOrderMapper;
 import com.thumb.service.AdminOmsOrderService;
@@ -13,11 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 
 @Controller
@@ -32,12 +29,10 @@ public class AdminOmsOrderController {
      */
     @ResponseBody
     @RequestMapping("listAllOmsOrderByAdmin")
-    public Object listAllOmsOrderByAdmin(@RequestBody Page page) {
-        PageHelper.startPage(page.getPageNum(), page.getPageSize());
+    public List<OmsOrder> listAllOmsOrderByAdmin() {
         List<OmsOrder> omsOrders = adminOmsOrderService.listAllOmsOrderByAdmin();
-        PageInfo<OmsOrder> pageInfo = new PageInfo<>(omsOrders);
-        for (OmsOrder omsOrder : omsOrders) System.out.println(omsOrder);
-        return pageInfo;
+//        for (OmsOrder omsOrder : omsOrders) System.out.println(omsOrder);
+        return omsOrders;
     }
 
     /**
@@ -110,12 +105,9 @@ public class AdminOmsOrderController {
      */
     @ResponseBody
     @RequestMapping("listAllOmsOrderReturnApply")
-    public Object listAllOmsOrderReturnApply(@RequestBody Page page) {
-        PageHelper.startPage(page.getPageNum(), page.getPageSize());
+    public Object listAllOmsOrderReturnApply() {
         List<OmsOrderReturnApply> omsOrderReturnApplies = adminOmsOrderService.listAllOmsOrderReturnApply();
-        PageInfo<OmsOrderReturnApply> pageInfo = new PageInfo<>(omsOrderReturnApplies);
-        for (OmsOrderReturnApply oora : omsOrderReturnApplies) System.out.println(oora);
-        return pageInfo;
+        return omsOrderReturnApplies;
     }
 
     /**
@@ -149,11 +141,9 @@ public class AdminOmsOrderController {
      */
     @ResponseBody
     @RequestMapping("listAllReturnReason")
-    public Object listAllReturnReason(@RequestBody Page page) {
-        PageHelper.startPage(page.getPageNum(), page.getPageSize());
+    public Object listAllReturnReason() {
         List<OmsOrderReturnReason> omsOrderReturnReasons = adminOmsOrderService.listAllReturnReason();
-        PageInfo<OmsOrderReturnReason> pageInfo = new PageInfo<>(omsOrderReturnReasons);
-        return pageInfo;
+        return omsOrderReturnReasons;
     }
 
     /**
@@ -163,11 +153,6 @@ public class AdminOmsOrderController {
     @ResponseBody
     @RequestMapping("insertReturnReason")
     public Object insertReturnReason(@RequestBody UpdateReturnReason updateReturnReason) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-hh HH:mm:ss");
-        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-        String format = dateFormat.format(new Date());
-//        System.out.println(format);
-        updateReturnReason.setCreate_time(format);
         int i = adminOmsOrderService.insertReturnReason(updateReturnReason);
         return i;
     }
@@ -179,7 +164,6 @@ public class AdminOmsOrderController {
     @ResponseBody
     @RequestMapping("updateReturnReason")
     public Object updateReturnReason(@RequestBody UpdateReturnReason updateReturnReason) {
-        System.out.println(updateReturnReason);
         int i = adminOmsOrderService.updateReturnReason(updateReturnReason);
         return i;
     }

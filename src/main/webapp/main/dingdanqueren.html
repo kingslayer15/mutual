@@ -70,7 +70,22 @@
                 </div>
                 <div class="section-body clearfix" id="J_addressList">
                     <!-- addresslist begin -->
+                    <div class="address-item J_addressItem">
+                        <dl>
+                            <dt>
+                                <span class="tag"></span>
+                                <em class="uname">李文博</em>
+                            </dt>
+                            <dd class="utel">
+                                135****9389                            </dd>
+                            <dd class="uaddress">
+                                广东 广州市 增城市 荔城街道<br>
+                                广东工业大学华立学院（专科商业街）                            </dd>
+                        </dl>
+                        <div class="actions">
 
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -143,7 +158,7 @@
                 </div>
                 <div class="fr">
 
-                    <a href="javascript:void(0);" onclick="pay()" class="btn btn-primary" id="J_checkoutToPay" data-stat-id="9dc0c7cf32a1c0ca">去结算</a>
+                    <a href="javascript:void(0);" class="btn btn-primary" id="J_checkoutToPay" data-stat-id="9dc0c7cf32a1c0ca">去结算</a>
                     <a href="/main/gouwuche.html" class="btn  btn-return" data-stat-id="d5777c2afc47dad1">返回购物车</a>
                 </div>
             </div>
@@ -151,18 +166,9 @@
     </div>
 </div>
 
-<!--out_trade_no = "1231";-->
-<!--total_amount = "1231";-->
-<!--subject="1231";-->
-<!--body  ="1231";-->
 
-<div style="display: none">
-<form id="myform" action="/ttt" method="POST" >
-<input  name="total_amount">
-<input  name="subject">
-<input  name="body">
-</form>
-</div>
+
+
 
 
 
@@ -175,8 +181,6 @@
 <script>
     var totalNum=0;
     var totalPrice = 0;
-    var sumProductName ="";
-    var realTotalPrice = 0;
 
     $(function () {
         $.ajax({
@@ -188,7 +192,6 @@
                 $(data).each(function (index, item) {
                     totalPrice += item.price;
                     totalNum++;
-                    sumProductName += item.productName+"和";
 
                     $("#J_goodsList").append("<li class=\"clearfix\">\n" +
                         "                            <div class=\"col col-img\">\n" +
@@ -223,10 +226,9 @@
             contentType: "application/json",
             success: function (data) {
 
-
                 $(data).each(function (index, item) {
 
-                    if (index < 3){
+                    if (index < 2){
                         $("#J_addressList").append("<div class=\"address-item J_addressItem\">\n" +
                             "                        <dl>\n" +
                             "                            <dt>\n" +
@@ -256,36 +258,7 @@
 
     });
 
-    <!--out_trade_no = "1231";-->
-    <!--total_amount = "1231";-->
-    <!--subject="1231";-->
-    <!--body  ="1231";-->
 
-    function pay() {
-        $("input[name='total_amount']").val(totalPrice);
-        $("input[name='subject']").val(sumProductName);
-        $("input[name='body']").val("222");
-
-
-        $('#myform').submit();
-    }
-
-
-    // function pay() {
-    //     $.ajax({
-    //         url:"/tt",
-    //         type:"POST",
-    //         contentType: "application/json",
-    //         data:JSON.stringify({
-    //             "total_amount": 111,
-    //             "subject":"购物",
-    //             "body":1111
-    //         }),
-    //         success: function (data) {
-    //
-    //         }
-    //     });
-    // }
 
 </script>
 
