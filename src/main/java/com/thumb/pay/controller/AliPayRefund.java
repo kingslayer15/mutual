@@ -15,7 +15,7 @@ public class AliPayRefund {
      * @param refund_reason 退款的原因说明
      * @return
      */
-    public static String sendAliPay(String out_trade_no,String refund_amount, String refund_reason,) {
+    public static String sendAliPay(String out_trade_no,String refund_amount, String refund_reason) {
 
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl,AlipayConfig.app_id,AlipayConfig.merchant_private_key,"json","UTF-8",AlipayConfig.alipay_public_key,AlipayConfig.sign_type);
 
@@ -57,6 +57,6 @@ public class AliPayRefund {
         System.out.println(result);
 
 //为确保安全通信，需自行验证响应示例中的sign值是否为蚂蚁金服所提供。
-        return "";
+        return result;
     }
 }

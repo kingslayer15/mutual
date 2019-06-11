@@ -2,6 +2,7 @@ package com.thumb.controller;
 
 import com.thumb.mapper.OmsOrderMapper;
 import com.thumb.pay.controller.AliPayAction;
+import com.thumb.pay.controller.AliPayRefund;
 import com.thumb.pay.utils.OrderNoUtils;
 import com.thumb.pay.vo.AliPayInfoVo;
 import com.thumb.pojo.OmsCartItem;
@@ -107,8 +108,9 @@ public class OrderDetailsController {
     @RequestMapping("aliPayRefundRequest")
     public Object aliPayRefundRequest(HttpSession httpSession,AliPayInfoVo aliPayInfoVo) {
 
+        String result = AliPayRefund.sendAliPay("", "", "");
 
-        return "";
+        return result;
     }
 
     }
