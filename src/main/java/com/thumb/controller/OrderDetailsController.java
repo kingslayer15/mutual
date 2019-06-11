@@ -50,38 +50,42 @@ public class OrderDetailsController {
 
 
     @ResponseBody
-    @RequestMapping("ttt")
-    public Object ttt(HttpSession httpSession,@RequestParam String total_amount,@RequestParam String subject,@RequestParam String body){
+    @RequestMapping("aliPayActionRequest")
+    public Object aliPayActionRequest(HttpSession httpSession,AliPayInfoVo aliPayInfoVo){
+
+
 
         OrderNoUtils orderNoUtils = new OrderNoUtils();
 
-        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
+//        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
 
 
 
-        System.out.println(total_amount + "yuan");
+
         //获取最后一个订单的创建时间
         Date lastDate = omsOrderService.findFirstCreateTimeOrderByCreateTimeDesc();
 
         String orderNo = orderNoUtils.creatOrderNo(lastDate);
 
-        OmsOrder omsOrder = new OmsOrder();
-        omsOrder.setOrderSn(orderNo);
-        omsOrder.setCreateTime(new Date());
+        aliPayInfoVo.setOut_trade_no(orderNo);
+
+        System.out.println(aliPayInfoVo);
+
+//        OmsOrder omsOrder = new OmsOrder();
+//        omsOrder.setOrderSn(orderNo);
+//        omsOrder.setCreateTime(new Date());
 //        omsOrder.setMemberUsername(umsMember.getUsername());
-        omsOrder.setTotalAmount(new BigDecimal(total_amount));
-        omsOrder.setPayAmount(new BigDecimal(total_amount));
-        omsOrder.setFreightAmount(new BigDecimal(0));
-        omsOrder.setPayType(1);
-        omsOrder.setSourceType(1);
-        omsOrder.setStatus(0);
+//        omsOrder.setTotalAmount(new BigDecimal(total_amount));
+//        omsOrder.setPayAmount(new BigDecimal(total_amount));
+//        omsOrder.setFreightAmount(new BigDecimal(0));
+//        omsOrder.setPayType(1);
+//        omsOrder.setSourceType(1);
+//        omsOrder.setStatus(0);
 
 
 
 
-
-
-        String result = AliPayAction.sendAliPay(orderNo, total_amount, subject, body);
+        String result = AliPayAction.sendAliPay(orderNo, aliPayInfoVo.getTotal_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
 
 
 
@@ -98,4 +102,13 @@ public class OrderDetailsController {
 //    }
 
 
-}
+
+    @ResponseBody
+    @RequestMapping("aliPayRefundRequest")
+    public Object aliPayRefundRequest(HttpSession httpSession,AliPayInfoVo aliPayInfoVo) {
+
+
+        return "";
+    }
+
+    }
