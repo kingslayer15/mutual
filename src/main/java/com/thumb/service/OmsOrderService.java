@@ -36,5 +36,6 @@ public interface OmsOrderService {
 
     BigDecimal countOderByCreateTime(Integer dayNum);
 
+    Date findFirstCreateTimeOrderByCreateTimeDesc();
 
 }
