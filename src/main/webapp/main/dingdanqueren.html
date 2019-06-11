@@ -227,26 +227,45 @@
                 $(data).each(function (index, item) {
 
                     if (index < 3){
-                        $("#J_addressList").append("<div id='"+index+"' class=\"address-item J_addressItem\">\n" +
-                            "                        <dl>\n" +
-                            "                            <dt>\n" +
-                            "                                <span class=\"tag\"></span>\n" +
-                            "                                <em class=\"uname\">"+item.name+"</em>\n" +
-                            "                            </dt>\n" +
-                            "                            <dd class=\"utel\">\n" +
-                            "                                "+ item.phoneNumber+"                            </dd>\n" +
-                            "                            <dd class=\"uaddress\">\n" +
-                            "                                "+ item.province+" "+ item.city+" "+item.region+" <br>\n" +
-                            "                                "+ item.detailAddress+"                            </dd>\n" +
-                            "                        </dl>\n" +
-                            "                        <div class=\"actions\">\n" +
-                            "\n" +
-                            "                        </div>\n" +
-                            "                    </div>");
+                        if (index == 0) {
+                            $("#J_addressList").append("<div id='" + index + "' class=\"address-item J_addressItem selected\">\n" +
+                                "                        <dl>\n" +
+                                "                            <dt>\n" +
+                                "                                <span class=\"tag\"></span>\n" +
+                                "                                <em class=\"uname\">" + item.name + "</em>\n" +
+                                "                            </dt>\n" +
+                                "                            <dd class=\"utel\">\n" +
+                                "                                " + item.phoneNumber + "                            </dd>\n" +
+                                "                            <dd class=\"uaddress\">\n" +
+                                "                                " + item.province + " " + item.city + " " + item.region + " <br>\n" +
+                                "                                " + item.detailAddress + "                            </dd>\n" +
+                                "                        </dl>\n" +
+                                "                        <div class=\"actions\">\n" +
+                                "\n" +
+                                "                        </div>\n" +
+                                "                    </div>");
+                        }else {
+                            $("#J_addressList").append("<div id='" + index + "' class=\"address-item J_addressItem \">\n" +
+                                "                        <dl>\n" +
+                                "                            <dt>\n" +
+                                "                                <span class=\"tag\"></span>\n" +
+                                "                                <em class=\"uname\">" + item.name + "</em>\n" +
+                                "                            </dt>\n" +
+                                "                            <dd class=\"utel\">\n" +
+                                "                                " + item.phoneNumber + "                            </dd>\n" +
+                                "                            <dd class=\"uaddress\">\n" +
+                                "                                " + item.province + " " + item.city + " " + item.region + " <br>\n" +
+                                "                                " + item.detailAddress + "                            </dd>\n" +
+                                "                        </dl>\n" +
+                                "                        <div class=\"actions\">\n" +
+                                "\n" +
+                                "                        </div>\n" +
+                                "                    </div>");
+                        }
 
                         $("#" +index).click(function () {
 
-                            $(".J_addressItem").prop("class","address-item J_addressItem");
+                            $(".J_addressItem").prop("class", "address-item J_addressItem");
 
                             var self = event.currentTarget;
 
@@ -254,6 +273,7 @@
 
 
                         });
+
                     }
 
 
@@ -315,6 +335,8 @@
     //         }
     //     });
     // }
+
+
 
 
 
