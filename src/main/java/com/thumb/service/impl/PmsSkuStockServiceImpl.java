@@ -58,6 +58,24 @@ public class PmsSkuStockServiceImpl implements PmsSkuStockService{
 	}
 
 
+    @Override
+	public List<PmsSkuStock> selectByAll(PmsSkuStock pmsSkuStock){
+		 return pmsSkuStockMapper.selectByAll(pmsSkuStock);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

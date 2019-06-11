@@ -19,6 +19,8 @@ public interface PmsSkuStockService{
     int updateByPrimaryKeySelective(PmsSkuStock record);
 
     int updateByPrimaryKey(PmsSkuStock record);
+
+
     List<PmsSkuStock> selectByPid(Long id);
 
 
@@ -27,6 +29,14 @@ public interface PmsSkuStockService{
 
 
 	List<PmsSkuStock> selectAllByPriceAndsp2(BigDecimal price,String sp2);
+
+
+
+	List<PmsSkuStock> selectByAll(PmsSkuStock pmsSkuStock);
+
+
+
+
 
 
 

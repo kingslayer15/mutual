@@ -168,7 +168,7 @@
 	<!-- footer -->
 	<footer class="mt20 center">
 			
-			<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+			<!--<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>-->
 			<div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div> 
 			<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 
@@ -180,8 +180,17 @@
         // function r1() {
         //     $("#r1").attr("style", "background:red");
         // }
-		var id;
-        id=window.location.search.split("=")[1]
+
+        // var memberNickname;
+        // var createDate;
+        var id=window.location.search.split("=")[1]
+        var productId=id;
+        var memberId=48;
+        var quantity=1
+        var deleteStatus = 0;
+        var productName;
+        var productSubTitle;
+        var productCategoryId;
         function a() {
             $.ajax({
                 type: "get",
@@ -191,6 +200,10 @@
                     var appenddiv = $("#appenddiv");
                     var innerHtml = "";
                     $(data).each(function (index, item) {
+                        productName = item.name
+                        productSubTitle =item.subTitle
+                        productCategoryId = item.productCategoryId
+
                         innerHtml += "\t\t<div class=\"left fl\"><img src=\"" + item.pic + "\"></div>\n" +
                             "\t\t<div class=\"right fr\">\n" +
                             "\t\t\t<div class=\"h3 ml20 mt20\">" + item.name + "</div>\n" +
@@ -288,6 +301,10 @@
                 dataType: "json"
             });
         }
+        var productSkuId;
+        var price;
+        var sp1;
+        var sp2;
         function d(id) {
             $.ajax({
                 type: "get",
@@ -297,6 +314,11 @@
                     var appenddiv = $("#sum");
                     var innerHtml ="";
                     $(data).each(function (index, item) {
+                        productSkuId = item.id
+                        price = item.price
+                        sp1 = item.sp1
+                        sp2 = item.sp2
+
                         innerHtml +="\n" +
                             "\t\t\t\t<div class=\"top1 mt10\">\n" +
                             "\t\t\t\t\t<div class=\"left1 fl\">"+item.sp2+item.price+"元"+item.sp1+"</div>\n" +
@@ -310,7 +332,7 @@
                         "\t\t\t</div>\n" +
                         "\t\t\t<div class=\"xiadan ml20 mt20\">\n" +
                         "\t\t\t\t\t<input class=\"jrgwc\"  type=\"button\" name=\"jrgwc\" value=\"立即选购\" />\n" +
-                        "\t\t\t\t\t<input class=\"jrgwc\" type=\"button\" name=\"jrgwc\" value=\"加入购物车\" />\n" +
+                        "\t\t\t\t\t<input onclick='cart()' class=\"jrgwc\" type=\"button\" name=\"jrgwc\" value=\"加入购物车\" />\n" +
                         "\t\t\t\t\n" +
                         "\t\t\t</div>\n" +
                         "\t\t</div>\n" +
@@ -328,7 +350,35 @@
             });
         }
 
-
+        function cart() {
+            $.ajax({
+                type: "post",
+                url: "/insertCart",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "productId": productId,
+                    "productSkuId": productSkuId,
+                    "memberId": memberId,
+                    "quantity": quantity,
+                    "price": price,
+                    "sp1": sp1,
+                    "sp2": sp2,
+                    "productName": productName,
+                    "productSubTitle": productSubTitle,
+                    // "createDate": createDate,
+                    "deleteStatus": deleteStatus,
+                    "productCategoryId": productCategoryId
+                }),
+                success: function (data) {
+                    alert("succuss")
+                    console.log(data); //  2pm
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
 	</script>
 
 	</body>
