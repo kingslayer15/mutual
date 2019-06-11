@@ -253,7 +253,7 @@
                             self.className = "address-item J_addressItem selected";
 
 
-                        })
+                        });
                     }
 
 
@@ -271,6 +271,17 @@
 
 
             }
+        });
+
+        $(".J_addressItem").click(function () {
+
+            $(".J_addressItem").prop("class","address-item J_addressItem");
+
+            var self = event.currentTarget;
+
+            self.className = "address-item J_addressItem selected";
+
+
         });
     });
 
