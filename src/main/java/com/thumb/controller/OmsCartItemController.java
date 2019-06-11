@@ -1,7 +1,6 @@
 package com.thumb.controller;
 
 
-import com.thumb.dto.OmsCartItemDto;
 import com.thumb.pojo.OmsCartItem;
 import com.thumb.service.OmsCartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,18 +45,5 @@ public class OmsCartItemController {
 
         return items;
     }
-
-
-    @ResponseBody
-    @RequestMapping(value = "insertCart",method = RequestMethod.POST)
-    public Object insertCart(@RequestBody OmsCartItemDto omsCartItemDto){
-        System.out.println(omsCartItemDto+"------------------------------------------------------------");
-        int insert = omsCartItemService.insertCart(omsCartItemDto);
-        System.out.println(insert);
-        return true;
-
-
-    }
-
 
 }
