@@ -459,7 +459,8 @@
         update oms_order_return_reason
             set name = #{name},
                 sort = #{sort},
-                status = #{status}
+                status = #{status},
+                create_time = #{create_time}
         where id = #{id}
     </update>
 
