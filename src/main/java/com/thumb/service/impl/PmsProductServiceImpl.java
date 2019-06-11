@@ -1,5 +1,6 @@
 package com.thumb.service.impl;
 
+import com.thumb.pojo.PmsSkuStock;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.thumb.mapper.PmsProductMapper;
@@ -7,6 +8,7 @@ import com.thumb.pojo.PmsProduct;
 import com.thumb.service.PmsProductService;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class PmsProductServiceImpl implements PmsProductService {
@@ -73,8 +75,15 @@ public class PmsProductServiceImpl implements PmsProductService {
     }
 
     @Override
-    public PmsProduct selectOneById(Long id) {
+    public List<PmsProduct> selectOneById(Long id) {
+        System.out.println("service"+id);
         return pmsProductMapper.selectOneById(id);
     }
+
+    @Override
+    public List<PmsProduct> getColorById(Long id) {
+        return pmsProductMapper.getColorById(id);
+    }
+
 }
 

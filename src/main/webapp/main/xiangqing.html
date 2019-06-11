@@ -114,8 +114,8 @@
 			<div class="h3 ml20 mt20">小米6</div>
 			<div class="jianjie mr40 ml20 mt10">变焦双摄，4 轴防抖 / 骁龙835 旗舰处理器，6GB 大内存，最大可选128GB 闪存 / 5.15" 护眼屏 / 四曲面玻璃/陶瓷机身</div>
 			<div class="jiage ml20 mt10">2499.00元</div>
-			<div class="ft20 ml20 mt20">选择版本</div>
-			<div class="xzbb ml20 mt10">
+			<div class="ft20 ml20 mt20" >选择版本</div>
+			<div class="xzbb ml20 mt10" id="version" >
 				<div class="banben fl">
 					<a>
 						<span>全网通版 6GB+64GB </span>
@@ -134,7 +134,7 @@
 			<div class="xzbb ml20 mt10">
 				<div class="banben fl">
 					<a>
-						<span class="yuandian"></span>
+						<span class="yuandian" ></span>
 						<span class="yanse">亮黑色</span>
 					</a>
 				</div>
@@ -180,73 +180,154 @@
         // function r1() {
         //     $("#r1").attr("style", "background:red");
         // }
-		// $(function () {
-        //     $.ajax({
-        //         type: "get",
-        //         url: "/getProductDetails?id="+27,
-        //         contentType: "application/json",
-        //         success: function (data) {
-        //             var appenddiv = $("#appenddiv");
-        //             var innerHtml= "";
-        //             $(data).each(function (index,item) {
-        //                 innerHtml += "\t\t<div class=\"left fl\"><img src=\""+item.pic+"\"></div>\n" +
-        //                 "\t\t<div class=\"right fr\">\n" +
-		// 				"\t\t\t<div class=\"h3 ml20 mt20\">"+item.name+"</div>\n" +
-        //                 "\t\t\t<div class=\"jianjie mr40 ml20 mt10\">"+item.subTitle+"</div>\n" +
-        //                 "\t\t\t<div class=\"jiage ml20 mt10\">"+item.price+"元</div>\n"+
-		// 			"\t\t\t<div class=\"ft20 ml20 mt20\">选择版本</div>\n" +
-        //                 "\t\t\t<div class=\"xzbb ml20 mt10\">\n";
-        //                 $(item.pmsSkuStock).each(function (index, item) {
-        //                     innerHtml+="\t\t\t\t<div class=\"banben fl\">\n" +
-        //                         "\t\t\t\t\t<a>\n" +
-        //                         "\t\t\t\t\t\t<span>"+item.sp2+"</span>\n" +
-        //                         "\t\t\t\t\t</a>\n" +
-        //                         "\t\t\t\t</div>\n"+
-		// 							"\n" +
-        //                         "\t\t\t\t<div class=\"banben fr\">\n" +
-        //                         "\t\t\t\t\t<a>\n" +
-        //                         "\t\t\t\t\t\t<span>"+item.sp2+"</span>\n" +
-        //                         "\t\t\t\t\t\t<span></span>\n" +
-        //                         "\t\t\t\t\t</a>\n" +
-        //                         "\t\t\t\t</div>"+
-		// 							"\t\t\t\t<div class=\"clear\"></div>\n"
-        //                 })
-		//
-        //             })
-        //             appenddiv.empty();
-		// 			appenddiv.append(innerHtml);
-        //             console.log(data); //  2pm
-		//
-        //         },
-        //         error: function (data) {
-        //             console.log(data);
-        //         },
-        //         dataType: "json"
-        //     });
-        // })
+		var id;
+        id=window.location.search.split("=")[1]
+        function a() {
+            $.ajax({
+                type: "get",
+                url: "/getProductDetailsById?id=" + id,
+                contentType: "application/json",
+                success: function (data) {
+                    var appenddiv = $("#appenddiv");
+                    var innerHtml = "";
+                    $(data).each(function (index, item) {
+                        innerHtml += "\t\t<div class=\"left fl\"><img src=\"" + item.pic + "\"></div>\n" +
+                            "\t\t<div class=\"right fr\">\n" +
+                            "\t\t\t<div class=\"h3 ml20 mt20\">" + item.name + "</div>\n" +
+                            "\t\t\t<div class=\"jianjie mr40 ml20 mt10\">" + item.subTitle + "</div>\n" +
+                            "\t\t\t<div class=\"jiage ml20 mt10\">" + item.price + "元</div>\n" +
+                            "\t\t\t<div class=\"ft20 ml20 mt20\"'>选择版本</div>\n"+
+                            "\t\t\t<div class=\"xzbb ml20 mt10\" id=\"version\" >"
+                    });
 
-		// function b1() {
-        //     $.ajax({
-        //         type: "get",
-        //         url: "/getProductDetails?id="+27,
-        //         contentType: "application/json",
-        //         success: function (data) {
-        //             var appenddiv = $("#appenddiv");
-        //             var innerHtml= "";
-        //             $(data).each(function (index,item) {
-        //                 innerHtml+="";
-        //             })
-        //             appenddiv.empty();
-        //             appenddiv.append(innerHtml);
-        //             console.log(data); //  2pm
-		//
-        //         },
-        //         error: function (data) {
-        //             console.log(data);
-        //         },
-        //         dataType: "json"
-        //     });
-        // }
+                    appenddiv.empty();
+                    appenddiv.append(innerHtml);
+                    console.log(data); //  2pm
+                    console.log(innerHtml); //  2pm
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+        a()
+        function b() {
+            $.ajax({
+                type: "get",
+                url: "/getVersion?productId=" + id,
+                contentType: "application/json",
+                success: function (data) {
+                    var appenddiv = $("#version");
+                    var innerHtml ="";
+                    $(data).each(function (index, item) {
+                        innerHtml +="\n" +
+                            "\t\t\t\t<div id='div1' class=\"banben fl\">\n" +
+                            "\t\t\t\t\t<a onclick=\"c('"+item.sp2+"','"+item.price+"')\">\n" +
+                            "\t\t\t\t\t\t<span>"+item.sp2+"</span>\n" +
+                            "\t\t\t\t\t\t<span>"+item.price+"元</span>\n" +
+                            "\t\t\t\t\t</a>\n" +
+                            "\t\t\t\t</div>\n" ;
+                    });
+                    innerHtml+="\t\t\t\t<div class=\"clear\"></div>\n" +
+                        "\t\t\t</div>\n"+
+                    "\t\t\t<div class=\"ft20 ml20 mt20\">选择颜色</div>\n" +
+                    "\t\t\t<div class=\"xzbb ml20 mt10\" id='color'>";
+                    appenddiv.empty();
+                    appenddiv.append(innerHtml);
+                    console.log(data); //  2pm
+                    console.log(innerHtml); //  2pm
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+
+        b();
+
+        function c(sp2,price) {
+            $.ajax({
+                type: "post",
+                url: "/getColorByRom",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "sp2":sp2,
+                    "price":price
+                }),
+                success: function (data) {
+                    var appenddiv = $("#color");
+                    var innerHtml ="";
+                    $(data).each(function (index, item) {
+                        innerHtml +="\n" +
+                            "\t\t\t\t<div class=\"banben fl\">\n" +
+                            "\t\t\t\t\t<a onclick=\"d('"+item.id+"')\">\n" +
+                            "\t\t\t\t\t\t<span class=\"yuandian\" ></span>\n" +
+                            "\t\t\t\t\t\t<span class=\"yanse\">"+item.sp1+"</span>\n" +
+                            "\t\t\t\t\t</a>\n" +
+                            "\t\t\t\t</div>\n" ;
+                    });
+                    innerHtml+="\n" +
+                        "\t\t\t\t<div class=\"clear\"></div>\n" +
+                        "\n" +
+                        "\t\t\t</div>\n" +
+                        "\n" +
+                        "\t\t\t<div class=\"xqxq mt20 ml20\" id='sum'>\n";
+                    appenddiv.empty();
+                    appenddiv.append(innerHtml);
+                    console.log(data); //  2pm
+                    console.log(innerHtml); //  2pm
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+        function d(id) {
+            $.ajax({
+                type: "get",
+                url: "/getSumById?id=" + id,
+                contentType: "application/json",
+                success: function (data) {
+                    var appenddiv = $("#sum");
+                    var innerHtml ="";
+                    $(data).each(function (index, item) {
+                        innerHtml +="\n" +
+                            "\t\t\t\t<div class=\"top1 mt10\">\n" +
+                            "\t\t\t\t\t<div class=\"left1 fl\">"+item.sp2+item.price+"元"+item.sp1+"</div>\n" +
+                            "\t\t\t\t\t<div class=\"right1 fr\">"+item.price+"元</div>\n" +
+                            "\t\t\t\t\t<div class=\"clear\"></div>\n" +
+                            "\t\t\t\t</div>\n" +
+                            "\t\t\t\t<div class=\"bot mt20 ft20 ftbc\">总计："+item.price+"元</div>\n" +
+                            "\t\t\t" ;
+                    });
+                    innerHtml+="\n" +
+                        "\t\t\t</div>\n" +
+                        "\t\t\t<div class=\"xiadan ml20 mt20\">\n" +
+                        "\t\t\t\t\t<input class=\"jrgwc\"  type=\"button\" name=\"jrgwc\" value=\"立即选购\" />\n" +
+                        "\t\t\t\t\t<input class=\"jrgwc\" type=\"button\" name=\"jrgwc\" value=\"加入购物车\" />\n" +
+                        "\t\t\t\t\n" +
+                        "\t\t\t</div>\n" +
+                        "\t\t</div>\n" +
+                        "\t\t<div class=\"clear\"></div>";
+                    appenddiv.empty();
+                    appenddiv.append(innerHtml);
+                    console.log(data); //  2pm
+                    console.log(innerHtml); //  2pm
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+
 
 	</script>
 

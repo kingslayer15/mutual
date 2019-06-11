@@ -2,8 +2,10 @@ package com.thumb.controller;
 
 import com.thumb.pojo.PmsProduct;
 import com.thumb.pojo.PmsProductCategory;
+import com.thumb.pojo.PmsSkuStock;
 import com.thumb.service.PmsProductCategoryService;
 import com.thumb.service.PmsProductService;
+import com.thumb.service.PmsSkuStockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +30,6 @@ public class PmsProductController {
     PmsProductService pmsProductService;
     @Autowired
     PmsProductCategoryService pmsProductCategoryService;
-
     /**
      * 更具商品id存进cookie
      * @param id
@@ -133,12 +134,27 @@ public class PmsProductController {
 
     }
 
-    @RequestMapping("getProductDetails")
+
+    @RequestMapping("getProductDetailsById")
     @ResponseBody
-    public Object getProductDetails(@RequestParam String id) {
+    public Object getProductDetailsById(@RequestParam String id) {
         System.out.println(id);
         Long pid = Long.valueOf(id);
-        PmsProduct pmsProduct = pmsProductService.selectOneById(pid);
+        PmsProduct pmsProduct = pmsProductService.selectByPrimaryKey(pid);
+        System.out.println(pmsProduct);
+        if (pmsProduct != null) {
+            System.out.println("pmsProduct = " + pmsProduct);
+            return pmsProduct;
+        }
+        return false;
+
+    }
+    @RequestMapping("getColorById")
+    @ResponseBody
+    public Object getColorById(@RequestParam String id) {
+        System.out.println(id);
+        Long pid = Long.valueOf(id);
+        List<PmsProduct> pmsProduct = pmsProductService.getColorById(pid);
         System.out.println(pmsProduct);
         if (pmsProduct != null) {
             System.out.println(pmsProduct);
@@ -147,18 +163,19 @@ public class PmsProductController {
         return false;
 
     }
-    @RequestMapping("getColorBySelectedRomAndId")
-    @ResponseBody
-    public Object getColorBySelectedRomAndId(@RequestBody String id) {
-        System.out.println(id);
-        Long pid = Long.valueOf(id);
-        PmsProduct pmsProduct = pmsProductService.selectOneById(pid);
-        System.out.println(pmsProduct);
-        if (pmsProduct != null) {
-            System.out.println(pmsProduct);
-            return pmsProduct;
-        }
-        return false;
 
-    }
+//    @RequestMapping("getColorBySelectedRomAndId")
+//    @ResponseBody
+//    public Object getColorBySelectedRomAndId(@RequestBody String id) {
+//        System.out.println(id);
+//        Long pid = Long.valueOf(id);
+//        PmsProduct pmsProduct = pmsProductService.selectOneById(pid);
+//        System.out.println(pmsProduct);
+//        if (pmsProduct != null) {
+//            System.out.println(pmsProduct);
+//            return pmsProduct;
+//        }
+//        return false;
+//
+//    }
 }
