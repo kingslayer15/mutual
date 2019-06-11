@@ -2,13 +2,10 @@ package com.thumb.controller;
 
 import com.thumb.pojo.PmsProduct;
 import com.thumb.pojo.PmsProductCategory;
-import com.thumb.pojo.PmsSkuStock;
 import com.thumb.service.PmsProductCategoryService;
 import com.thumb.service.PmsProductService;
-import com.thumb.service.PmsSkuStockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +27,7 @@ public class PmsProductController {
     PmsProductService pmsProductService;
     @Autowired
     PmsProductCategoryService pmsProductCategoryService;
+
     /**
      * 更具商品id存进cookie
      * @param id
@@ -55,7 +53,7 @@ public class PmsProductController {
 //        request.setAttribute("pmsProduct", pmsProduct);
         //long转string
 //        String id=id+"";
-        //初始化
+
         String cookiepids=id;
         //将pid放入cookie中
         Cookie[] cookies=  request.getCookies();
@@ -77,7 +75,6 @@ public class PmsProductController {
                            list.removeLast();
                         }
                     }
-                    //放进sb里面
                     StringBuffer sb=new StringBuffer();
                     for(int i=0;i<list.size();i++){
                         sb.append(list.get(i)).append("-");
@@ -89,7 +86,7 @@ public class PmsProductController {
 
             }
         }
-        //如果没有cookie,把id放进cookie里面
+
         Cookie  cookie=new Cookie("pids", cookiepids);
         response.addCookie(cookie);
 //        try {
@@ -106,20 +103,15 @@ public class PmsProductController {
     public Object historyList(HttpSession httpSession,HttpServletRequest request,HttpServletResponse response) {
     //浏览记录
         List<PmsProduct> historyList=new ArrayList<PmsProduct>();
-        //去拿cookie
         Cookie [] cookies=request.getCookies();
         if(cookies!=null){
             for(Cookie cookie : cookies){
                 if("pids".equals(cookie.getName())){
                     String pids=cookie.getValue();
-                    System.out.println("cookie里面的"+pids);
                     String [] splits=pids.split("-");
                     for (int i = 0; i < splits.length; i++) {
                         String pid=splits[i];
-                        System.out.println("遍历"+pid);
-                        //把cookie的id拿出来,查询返回给产品对象
                         PmsProduct pmsProduct= pmsProductService.selectByPrimaryKey(Long.valueOf(pid));
-                        //把产品对象加入到对象集合
                         historyList.add(pmsProduct);
                     }
                 }
@@ -128,54 +120,8 @@ public class PmsProductController {
 //
 //        System.out.println(historyList);
 //        request.setAttribute("historyList",historyList);
-        //返回对象集合
         return historyList;
 
 
     }
-
-
-    @RequestMapping("getProductDetailsById")
-    @ResponseBody
-    public Object getProductDetailsById(@RequestParam String id) {
-        System.out.println(id);
-        Long pid = Long.valueOf(id);
-        PmsProduct pmsProduct = pmsProductService.selectByPrimaryKey(pid);
-        System.out.println(pmsProduct);
-        if (pmsProduct != null) {
-            System.out.println("pmsProduct = " + pmsProduct);
-            return pmsProduct;
-        }
-        return false;
-
-    }
-    @RequestMapping("getColorById")
-    @ResponseBody
-    public Object getColorById(@RequestParam String id) {
-        System.out.println(id);
-        Long pid = Long.valueOf(id);
-        List<PmsProduct> pmsProduct = pmsProductService.getColorById(pid);
-        System.out.println(pmsProduct);
-        if (pmsProduct != null) {
-            System.out.println(pmsProduct);
-            return pmsProduct;
-        }
-        return false;
-
-    }
-
-//    @RequestMapping("getColorBySelectedRomAndId")
-//    @ResponseBody
-//    public Object getColorBySelectedRomAndId(@RequestBody String id) {
-//        System.out.println(id);
-//        Long pid = Long.valueOf(id);
-//        PmsProduct pmsProduct = pmsProductService.selectOneById(pid);
-//        System.out.println(pmsProduct);
-//        if (pmsProduct != null) {
-//            System.out.println(pmsProduct);
-//            return pmsProduct;
-//        }
-//        return false;
-//
-//    }
 }

@@ -1,9 +1,11 @@
 package com.thumb.dto;
 
 import java.math.BigInteger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
-import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -19,7 +21,8 @@ public class ClientOrderDto {
     String create_time;//订单提交时间
     String pay_amount;//付款总额
     int pay_type;//支付方式
-    List<Client_order_item> order_items;
+    int duration;
+    List<Client_order_itemDto> order_items;
 
     public BigInteger getOrder_id() {
         return order_id;
@@ -49,7 +52,25 @@ public class ClientOrderDto {
         return pay_type;
     }
 
-    public List<Client_order_item> getOrder_items() {
+    public List<Client_order_itemDto> getOrder_items() {
         return order_items;
+    }
+
+    public int getDuration() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        try {
+            Date date = sdf.parse(create_time);
+            long time = date.getTime();
+            long l = System.currentTimeMillis();
+            long d=l-time;
+            if (d<1000*60*60*24*7){
+                this.duration=1;
+            }else {
+                this.duration=0;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return duration;
     }
 }
