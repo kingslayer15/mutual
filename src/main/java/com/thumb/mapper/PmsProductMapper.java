@@ -1,6 +1,6 @@
 package com.thumb.mapper;
 
-import com.thumb.pojo.PmsProduct;import java.math.BigDecimal;import java.util.List;
+import com.thumb.pojo.PmsProduct;import java.math.BigDecimal;
 
 public interface PmsProductMapper {
     int deleteByPrimaryKey(Long id);
@@ -23,7 +23,4 @@ public interface PmsProductMapper {
 
     BigDecimal countAll();
 
-    List<PmsProduct> selectOneById(Long id);
-
-    List<PmsProduct> getColorById(Long id);
 }
