@@ -38,6 +38,16 @@
         </foreach>
     </update>
 
+    <select id="getBrands" resultType="com.thumb.pojo.PmsProduct" parameterType="int">
+        select * from pms_product where brand_id = #{id}
+    </select>
+
+     <select id="getSubject" resultType="com.thumb.pojo.PmsProduct" parameterType="int">
+        select * from pms_product where id in
+        (select product_id from cms_subject_product_relation where subject_id = #{id})
+    </select>
+
+
 </mapper>
 
 

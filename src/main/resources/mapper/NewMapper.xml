@@ -3,9 +3,12 @@
 <mapper namespace="com.thumb.mapper.NewMapper">
 
 
-    <!--获取正在推荐的品牌-->
+    <!--获取正在推荐的新品-->
     <select id="selectNewAll" resultType="com.thumb.pojo.HomeProduct">
         select * from sms_home_new_product where recommend_status=1  order by sort desc
+    </select>
+    <select id="SubjectIndex" resultType="com.thumb.pojo.PmsProduct">
+        select * from pms_product where recommand_status =1  order by sort desc
     </select>
 
 

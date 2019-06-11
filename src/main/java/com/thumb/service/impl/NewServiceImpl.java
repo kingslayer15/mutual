@@ -76,6 +76,11 @@ public class NewServiceImpl implements NewService {
         return newMapper.selectNewsAllNO_folioModal(pageName);
     }
 
+    @Override
+    public List<PmsProduct> SubjectIndex() {
+        return newMapper.SubjectIndex();
+    }
+
     /**
      * 删除首页推荐专题
      * @param id
