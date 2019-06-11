@@ -1,5 +1,4 @@
 package com.thumb.mapper;
-import com.thumb.dto.OmsCartItemDto;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -20,9 +19,6 @@ public interface OmsCartItemMapper {
 
 
     List<OmsCartItem> findByMemberId(@Param("memberId")Long memberId);
-
-
-    int insertCart(OmsCartItemDto omsCartItemDto);
 
 
 }

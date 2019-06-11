@@ -552,21 +552,4 @@
     from pms_product
   </select>
 
-  <select id="selectOneById" parameterType="long" resultMap="BaseResultMap">
-    select distinct pss.sp2
-    from pms_product pp,
-         pms_sku_stock pss
-    where pp.id = pss.product_id
-      and pp.id = #{id}
-  </select>
-    <select id="getColorById" parameterType="long" resultMap="BaseResultMap">
-        select pss.sp1
-        from pms_product pp,
-             pms_sku_stock pss
-        where pp.id = pss.product_id
-          and pp.id = #{id} group by pss.sp1
-    </select>
-
-
-
 </mapper>
