@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
         <meta name="author" content="order by dede58.com"/>
-		<title>小米6立即购买-小米商城</title>
+		<title>商品详情</title>
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 	</head>
 	<body>
@@ -108,14 +108,14 @@
 		</div>	
 	</div>
 	
-	<div class="jieshao mt20 w">
-		<div class="left fl"><img src="../image/liebiao_xiaomi6.jpg"></div>
+	<div class="jieshao mt20 w" id="appenddiv">
+		<div class="left fl"><img src="../static/image/liebiao_xiaomi6.jpg"></div>
 		<div class="right fr">
 			<div class="h3 ml20 mt20">小米6</div>
 			<div class="jianjie mr40 ml20 mt10">变焦双摄，4 轴防抖 / 骁龙835 旗舰处理器，6GB 大内存，最大可选128GB 闪存 / 5.15" 护眼屏 / 四曲面玻璃/陶瓷机身</div>
 			<div class="jiage ml20 mt10">2499.00元</div>
-			<div class="ft20 ml20 mt20">选择版本</div>
-			<div class="xzbb ml20 mt10">
+			<div class="ft20 ml20 mt20" >选择版本</div>
+			<div class="xzbb ml20 mt10" id="version" >
 				<div class="banben fl">
 					<a>
 						<span>全网通版 6GB+64GB </span>
@@ -132,14 +132,22 @@
 			</div>
 			<div class="ft20 ml20 mt20">选择颜色</div>
 			<div class="xzbb ml20 mt10">
-				<div class="banben">
+				<div class="banben fl">
 					<a>
-						<span class="yuandian"></span>
+						<span class="yuandian" ></span>
 						<span class="yanse">亮黑色</span>
 					</a>
 				</div>
-				
+				<div class="banben fr">
+					<a>
+						<span class="yuandian"></span>
+						<span class="yanse">蓝色</span>
+					</a>
+				</div>
+				<div class="clear"></div>
+
 			</div>
+
 			<div class="xqxq mt20 ml20">
 				<div class="top1 mt10">
 					<div class="left1 fl">小米6 全网通版 6GB内存 64GB 亮黑色</div>
@@ -160,11 +168,218 @@
 	<!-- footer -->
 	<footer class="mt20 center">
 			
-			<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+			<!--<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>-->
 			<div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div> 
 			<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 
 		</footer>
+
+
+	<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+    <script>
+        // function r1() {
+        //     $("#r1").attr("style", "background:red");
+        // }
+
+        // var memberNickname;
+        // var createDate;
+        var id=window.location.search.split("=")[1]
+        var productId=id;
+        var memberId=48;
+        var quantity=1
+        var deleteStatus = 0;
+        var productName;
+        var productSubTitle;
+        var productCategoryId;
+        function a() {
+            $.ajax({
+                type: "get",
+                url: "/getProductDetailsById?id=" + id,
+                contentType: "application/json",
+                success: function (data) {
+                    var appenddiv = $("#appenddiv");
+                    var innerHtml = "";
+                    $(data).each(function (index, item) {
+                        productName = item.name
+                        productSubTitle =item.subTitle
+                        productCategoryId = item.productCategoryId
+
+                        innerHtml += "\t\t<div class=\"left fl\"><img src=\"" + item.pic + "\"></div>\n" +
+                            "\t\t<div class=\"right fr\">\n" +
+                            "\t\t\t<div class=\"h3 ml20 mt20\">" + item.name + "</div>\n" +
+                            "\t\t\t<div class=\"jianjie mr40 ml20 mt10\">" + item.subTitle + "</div>\n" +
+                            "\t\t\t<div class=\"jiage ml20 mt10\">" + item.price + "元</div>\n" +
+                            "\t\t\t<div class=\"ft20 ml20 mt20\"'>选择版本</div>\n"+
+                            "\t\t\t<div class=\"xzbb ml20 mt10\" id=\"version\" >"
+                    });
+
+                    appenddiv.empty();
+                    appenddiv.append(innerHtml);
+                    console.log(data); //  2pm
+                    console.log(innerHtml); //  2pm
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+        a()
+        function b() {
+            $.ajax({
+                type: "get",
+                url: "/getVersion?productId=" + id,
+                contentType: "application/json",
+                success: function (data) {
+                    var appenddiv = $("#version");
+                    var innerHtml ="";
+                    $(data).each(function (index, item) {
+                        innerHtml +="\n" +
+                            "\t\t\t\t<div id='div1' class=\"banben fl\">\n" +
+                            "\t\t\t\t\t<a onclick=\"c('"+item.sp2+"','"+item.price+"')\">\n" +
+                            "\t\t\t\t\t\t<span>"+item.sp2+"</span>\n" +
+                            "\t\t\t\t\t\t<span>"+item.price+"元</span>\n" +
+                            "\t\t\t\t\t</a>\n" +
+                            "\t\t\t\t</div>\n" ;
+                    });
+                    innerHtml+="\t\t\t\t<div class=\"clear\"></div>\n" +
+                        "\t\t\t</div>\n"+
+                    "\t\t\t<div class=\"ft20 ml20 mt20\">选择颜色</div>\n" +
+                    "\t\t\t<div class=\"xzbb ml20 mt10\" id='color'>";
+                    appenddiv.empty();
+                    appenddiv.append(innerHtml);
+                    console.log(data); //  2pm
+                    console.log(innerHtml); //  2pm
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+
+        b();
+
+        function c(sp2,price) {
+            $.ajax({
+                type: "post",
+                url: "/getColorByRom",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "sp2":sp2,
+                    "price":price
+                }),
+                success: function (data) {
+                    var appenddiv = $("#color");
+                    var innerHtml ="";
+                    $(data).each(function (index, item) {
+                        innerHtml +="\n" +
+                            "\t\t\t\t<div class=\"banben fl\">\n" +
+                            "\t\t\t\t\t<a onclick=\"d('"+item.id+"')\">\n" +
+                            "\t\t\t\t\t\t<span class=\"yuandian\" ></span>\n" +
+                            "\t\t\t\t\t\t<span class=\"yanse\">"+item.sp1+"</span>\n" +
+                            "\t\t\t\t\t</a>\n" +
+                            "\t\t\t\t</div>\n" ;
+                    });
+                    innerHtml+="\n" +
+                        "\t\t\t\t<div class=\"clear\"></div>\n" +
+                        "\n" +
+                        "\t\t\t</div>\n" +
+                        "\n" +
+                        "\t\t\t<div class=\"xqxq mt20 ml20\" id='sum'>\n";
+                    appenddiv.empty();
+                    appenddiv.append(innerHtml);
+                    console.log(data); //  2pm
+                    console.log(innerHtml); //  2pm
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+        var productSkuId;
+        var price;
+        var sp1;
+        var sp2;
+        function d(id) {
+            $.ajax({
+                type: "get",
+                url: "/getSumById?id=" + id,
+                contentType: "application/json",
+                success: function (data) {
+                    var appenddiv = $("#sum");
+                    var innerHtml ="";
+                    $(data).each(function (index, item) {
+                        productSkuId = item.id
+                        price = item.price
+                        sp1 = item.sp1
+                        sp2 = item.sp2
+
+                        innerHtml +="\n" +
+                            "\t\t\t\t<div class=\"top1 mt10\">\n" +
+                            "\t\t\t\t\t<div class=\"left1 fl\">"+item.sp2+item.price+"元"+item.sp1+"</div>\n" +
+                            "\t\t\t\t\t<div class=\"right1 fr\">"+item.price+"元</div>\n" +
+                            "\t\t\t\t\t<div class=\"clear\"></div>\n" +
+                            "\t\t\t\t</div>\n" +
+                            "\t\t\t\t<div class=\"bot mt20 ft20 ftbc\">总计："+item.price+"元</div>\n" +
+                            "\t\t\t" ;
+                    });
+                    innerHtml+="\n" +
+                        "\t\t\t</div>\n" +
+                        "\t\t\t<div class=\"xiadan ml20 mt20\">\n" +
+                        "\t\t\t\t\t<input class=\"jrgwc\"  type=\"button\" name=\"jrgwc\" value=\"立即选购\" />\n" +
+                        "\t\t\t\t\t<input onclick='cart()' class=\"jrgwc\" type=\"button\" name=\"jrgwc\" value=\"加入购物车\" />\n" +
+                        "\t\t\t\t\n" +
+                        "\t\t\t</div>\n" +
+                        "\t\t</div>\n" +
+                        "\t\t<div class=\"clear\"></div>";
+                    appenddiv.empty();
+                    appenddiv.append(innerHtml);
+                    console.log(data); //  2pm
+                    console.log(innerHtml); //  2pm
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+
+        function cart() {
+            $.ajax({
+                type: "post",
+                url: "/insertCart",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "productId": productId,
+                    "productSkuId": productSkuId,
+                    "memberId": memberId,
+                    "quantity": quantity,
+                    "price": price,
+                    "sp1": sp1,
+                    "sp2": sp2,
+                    "productName": productName,
+                    "productSubTitle": productSubTitle,
+                    // "createDate": createDate,
+                    "deleteStatus": deleteStatus,
+                    "productCategoryId": productCategoryId
+                }),
+                success: function (data) {
+                    alert("succuss")
+                    console.log(data); //  2pm
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
+        }
+	</script>
 
 	</body>
 </html>

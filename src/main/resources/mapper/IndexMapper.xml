@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.thumb.mapper.IndexMapper">
 
+    <select id="BrandIndex" resultType="com.thumb.pojo.Brand">
 
-    <select id="selectHomeAdvertise" resultType="com.thumb.pojo.HomeAdvertise">
-        select * from sms_home_advertise where status = 1
     </select>
+
 
 </mapper>

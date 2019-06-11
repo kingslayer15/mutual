@@ -1,5 +1,6 @@
 package com.thumb.service;
 
+import com.thumb.dto.OmsCartItemDto;
 import com.thumb.pojo.OmsCartItem;
 import org.apache.ibatis.annotations.Param;
 
@@ -21,5 +22,6 @@ public interface OmsCartItemService{
     int updateByPrimaryKey(OmsCartItem record);
 
     List<OmsCartItem> findByMemberId(@Param("memberId")Long memberId);
+    int insertCart(OmsCartItemDto omsCartItemDto);
 
 }
