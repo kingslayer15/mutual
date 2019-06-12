@@ -182,45 +182,44 @@
                 console.log(data)
 
                 $(data).each(function (index,item) {
+                    var pay_type;
+                    if (item.pay_type==0){
+                        pay_type="未支付"
+                    } else if (item.pay_type==1) {
+                        pay_type="支付宝"
+                    } else {
+                        pay_type="微信"
+                    }
+
+                    var status;
+                    if (item.status == "0") {
+                        status = "待付款"
+                    } else if (item.status == "1") {
+                        status = "待发货"
+                    } else if (item.status == "2") {
+                        status = "已发货"
+                    } else if (item.status == "3") {
+                        status = "已完成"
+                    } else if (item.status == "4") {
+                        status = "已关闭"
+                    } else {
+                        status = "无效订单"
+                    }
+
                     if (item.status == "3") {
                         var html = "<div class=\"s-bar\" data-spm-anchor-id=\"a1z02.1.1998049142.i0.66bc782dbSIL5O\">" +
                             "                    <i id=\"orderTime\">创建时间：" + item.create_time + "</i><i id=\"orderNumber\" style=\"padding-left: 50px\">" +
                             " 订单编号：" + item.order_sn + "</i>" +
                             "<i style=\"padding-left: 230px\">订单总额：￥ "+item.pay_amount+"</i>"+
-
-                            "                </div>"
+                            "</div>"
 
                         $(item.order_items).each(function (index, product) {
-                            var pay_type;
-                            if (item.pay_type==0){
-                                pay_type="未支付"
-                            } else if (item.pay_type==1) {
-                                pay_type="支付宝"
-                            } else {
-                                pay_type="微信"
-                            }
-
-                            var status;
-                            if (item.status == "0") {
-                                status = "待付款"
-                            } else if (item.status == "1") {
-                                status = "待发货"
-                            } else if (item.status == "2") {
-                                status = "已发货"
-                            } else if (item.status == "3") {
-                                status = "已完成"
-                            } else if (item.status == "4") {
-                                status = "已关闭"
-                            } else {
-                                status = "无效订单"
-                            }
-
                             html += " <div class=\"s-content\">\n" +
                                 "                    <ul class=\"lg-list\">\n" +
                                 "\n" +
                                 "                        <li class=\"lg-item\">\n" +
                                 "                            <div class=\"item-info\">\n" +
-                                "                                <img src=\"\"  height=\"120\" width=\"120\">\n" +
+                                "                                <img src="+product.product_pic+" height=\"120\" width=\"120\">\n" +
                                 "                                <!--图片显示不出来的时候显示商品名称-->\n" +
                                 "                            </div>\n" +
                                 "                            <div class=\"lg-info\" style=\"width: 280px\">\n" +
@@ -228,7 +227,7 @@
                                 "                                <time>" + product.product_attr + "</time>\n" +
                                 "                            </div>\n" +
                                 "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
-                                "                                <p>" + product.product_price + "</p>\n" +
+                                "                                <p>" + product.real_amount + "</p>\n" +
                                 "                            </div>\n" +
                                 "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
                                 "                                <p>" + product.product_quantity + "</p>\n" +
@@ -239,15 +238,32 @@
                                 "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
                                 "                                <p>" + status + "</p>\n" +
                                 "                                <a>查看物流</a>\n" +
-                                "                            </div>\n"+
-                                "<div class=\"lg-confirm\">\n" +
-                                "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\" href=\"\" style=\"width: 40px\">评价</a>\n" +
-                                "                            </div>\n" +
-                                "                        </li>\n" +
-                                "\n" +
-                                "                    </ul>\n" +
-                                "\n" +
-                                "                </div>"
+                                "                            </div>\n";
+
+                            if (item.status=="3"){
+                                if (item.duration==1) {
+                                    html+="<div class=\"lg-confirm\">\n" +
+                                        "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\" href=\"\" style=\"width: 40px\">评价</a>\n" +
+                                        "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+">申请退货</a>\n" +
+
+                                        "                            </div>\n" +
+                                        "                        </li>\n" +
+                                        "\n" +
+                                        "                    </ul>\n" +
+                                        "\n" +
+                                        "                </div>"
+                                }else {
+                                    html+="<div class=\"lg-confirm\">\n" +
+                                        "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\" href=\"\" style=\"width: 40px\">评价</a>\n" +
+                                        "                            </div>\n" +
+                                        "                        </li>\n" +
+                                        "\n" +
+                                        "                    </ul>\n" +
+                                        "\n" +
+                                        "                </div>"
+                                }
+
+                            }
 
                         })
 
@@ -262,6 +278,13 @@
         })
     }
     getUserOrderById();
+
+
+    function refund(product_id) {
+        // alert(id);
+        var url="refund.html?id="+product_id;
+        window.location.href=url;
+    }
 
 
 

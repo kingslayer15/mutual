@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="order by dede58.com"/>
+    <title>Mutual商城-个人中心</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
+    <script src="../static/js/js/jquery-3.2.1.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
+    <link href="../static/css/p.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../static/plugins/basic.min.css" />
+    <link rel="stylesheet" href="../static/plugins/dropzone.min.css" />
+    <script src="../static/plugins/dropzone.min.js"></script>
+
+</head>
+
+
+<style>
+    .gzxx {font-size: 12px;font-weight: bold;color:rgb(117,117,117);width: 100px;display: inline-block}
+
+</style>
+
+
+<body>
+
+<!-- start header -->
+<header id="header">
+
+
+</header>
+<!--end header -->
+<!-- start banner_x -->
+<div class="banner_x center">
+    <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
+    <a href=""><div class="ad_top fl"></div></a>
+    <div class="nav fl">
+        <ul>
+            <li><a href="">商城首页 </a></li>
+
+        </ul>
+    </div>
+    <div class="search fr">
+        <form action="" method="post">
+            <div class="text fl">
+                <input type="text" class="shuru"  placeholder="输入关键字查询宝贝">
+            </div>
+            <div class="submit fl">
+                <input type="submit" class="sousuo" value="搜索"/>
+            </div>
+            <div class="clear"></div>
+        </form>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- end banner_x -->
+<!-- self_info -->
+<div class="grzxbj">
+    <div class="selfinfo center">
+        <div class="lfnav fl" style="height: 700px">
+            <div class="ddzx" style="height: 20px">个人中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="./self_info.html" >我的信息</a></li>
+                    <li><a href="./self_info_edit.html">修改信息</a></li>
+                    <li><a href="./self_info_pwd_edit.html">修改密码</a></li>
+                    <li><a href="./coupon.html">优惠券</a></li>
+                    <li><a href="./address.html">收货地址</a></li>
+                    <li><a href="./point.html">我的积分</a></li>
+                </ul>
+            </div>
+            <div class="ddzx" style="height: 20px">订单中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="./orders.html">我的订单</a></li>
+                    <li><a href="./basket.html">我的购物车</a></li>
+                    <li><a href="./favourite.html">我的收藏</a></li>
+                    <li><a href="./footprint.html">我的足迹</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--//===============================================================================-->
+        <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
+            <div class="grzlbt ml40">评价</div>
+
+
+            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
+                <div class="s-bar" >
+                    <i></i>商品信息
+                </div>
+                <div class="s-content" style="height: 110px">
+                    <ul class="lg-list">
+
+                        <li class="lg-item">
+                            <div class="item-info">
+                                <img src=""  height="120" width="120" id="pic">
+                                <!--图片显示不出来的时候显示商品名称-->
+                            </div>
+                            <div class="lg-info" style="width: 280px">
+                                <p id="name">商品名</p>
+                                <p id="attr">商品属性</p>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p id="price">单价</p>
+                            </div>
+                            <div class="lg-info" style="width: 120px">
+                                <p id="amount">数量</p>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <br/><br/><br/>
+                <div class="s-content" style="height: 650px">
+
+                    <ul class="lg-list">
+                        <li class="lg-item">
+                            <form>
+                                <div hidden><input id="uid" hidden ></div>
+                                <div hidden><input id="pid" hidden></div>
+
+
+                                <br/><br/>
+
+
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px" >描述：</span><br/>
+                                    <textarea id="description" style="resize: none" rows="4" cols="100" placeholder="详细评价"></textarea>
+                                </div>
+                                <br/><br/>
+
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <span class="gzxx" style="padding-right: 30px">上传美照：</span><br/>
+                                    <div id="dropzoneDiv" class="dropzone" style="height: 200px;width: 250px" ></div>
+
+
+                                    <!--<div id="dropzoneDiv" class="dropzone" style="height: 200px;width: 850px" ></div>-->
+
+                                </div>
+                                <br/><br/>
+
+
+                                <div lass=" gzxx ml40">
+                                    <span style="padding-right: 40px"></span>
+                                    <button href="self_info_edit.html" onclick="submitInfo()" id="submit">确认评价</button>
+                                </div>
+
+                            </form>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+            <!--//=======================================================-->
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- self_info -->
+
+<footer class="mt20 center">
+</footer>
+
+
+<script>
+
+
+    $(function () {
+        $("#header").load("header.html");
+    })
+
+    //获取退货商品id
+
+    var product;
+    function getProductId() {
+        product=window.location.search.split("=")[1]
+        alert("评价商品id"+product)
+        $("#pid").val(product)
+    }
+    getProductId();
+
+    //获取用户id
+
+    function getUserInfoById() {
+        $.ajax({
+            url:'/userInfoById_',
+            type:'GET', //GET
+            contentType:"application/json",
+            dataType:'json',
+            success:function(data){
+                $("#uid").val(data.id);
+            },
+            error:function(data){
+                console.error(data);
+            }
+        })
+    }
+    getUserInfoById();
+
+    //获取退货原因列表
+    function getreasons() {
+        $.ajax({
+            url:'/getreasons',
+            type:'GET', //GET
+            contentType:"application/json",
+            dataType:'json',
+            success:function(data){
+                var reasons = $("#reason");
+                $(data).each(function (index,item) {
+                    var o="<option>"+item.name+"</option>"
+                    reasons.append(o)
+                })
+            },
+            error:function(data){
+                console.error(data);
+            }
+        })
+    }
+    getreasons();
+
+    var max;
+    //获取需要退货的商品信息
+    function getProduct() {
+        $.ajax({
+            url:"/getRefundProduct?id="+product,
+            type:'GET', //GET
+            contentType:"application/json",
+            dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
+            success:function(data){
+                console.log(data)
+                $("#pic").attr("src",data.product_pic)
+                $("#name").html(data.product_name)
+                $("#attr").html(data.product_attr)
+                $("#price").html("单价：￥"+data.real_amount)
+                $("#amount").html("数量："+data.product_quantity)
+                $("#product_real_price").html("￥ "+data.real_amount)
+                max=data.product_quantity
+            },
+            error:function(data){
+                console.log(data)
+
+            }
+        })
+
+    }
+
+    getProduct();
+
+
+    Dropzone.options.dropzoneDiv = {
+        url: "/upload", // 文件提交地址
+        method: "post",  // 也可用put
+        paramName: "dropzFile", // 默认为file
+        maxFiles: 1,// 一次性上传的文件数量上限
+        maxFilesize: 2, // 文件大小，单位：MB
+        acceptedFiles: ".jpg,.png,.jpeg", // 上传的类型
+        addRemoveLinks: true,
+        parallelUploads: 1,// 一次上传的文件数量
+        //previewsContainer:"#preview", // 上传图片的预览窗口
+        dictDefaultMessage: '拖动文件至此或者点击上传',
+        dictMaxFilesExceeded: "您最多只能上传1个文件！",
+        dictResponseError: '文件上传失败!',
+        dictInvalidFileType: "文件类型只能是*.jpg,*.png,*.jpeg",
+        dictFallbackMessage: "浏览器不受支持",
+        dictFileTooBig: "文件过大上传文件最大支持.",
+        dictRemoveLinks: "删除",
+        dictCancelUpload: "取消",
+        init: function () {
+            this.on("addedfile", function (file) {
+                // 上传文件时触发的事件
+            });
+            this.on("success", function (file, data) {
+                // 上传成功触发的事件
+            });
+            this.on("error", function (file, data) {
+                // 上传失败触发的事件
+            });
+            this.on("removedfile", function (file) {
+                // 删除文件时触发的方法
+            });
+        }
+
+    }
+
+
+    function submitInfo() {
+        alert("申请退货")
+        console.log($("#pid").val())
+        console.log($("#reason option:selected").val())
+        console.log($("#value").val())
+        console.log($("#description").val())
+        console.log($("#uid").val())
+
+        $.ajax({
+            url:'/refundText',
+            type:'POST',
+            contentType:"application/json",
+            data:JSON.stringify({
+                id: $("#pid").val(),
+                reason:$("#reason option:selected").val(),
+                product_count:$("#value").val(),
+                description:$("#description").val(),
+            }),
+            dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
+            success:function(data){
+                alert("申请成功")
+                console.log(data)
+                if (data) {
+                    var url= "orders.html"
+                    window.location.href = url
+                }
+            },
+            error:function(data){
+                alert("申请失败")
+                var url= "refund.html?id="+product
+                window.location.href = url
+
+            }
+        })
+
+    }
+
+
+
+</script>
+</body>
+</html>

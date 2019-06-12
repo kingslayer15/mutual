@@ -11,13 +11,13 @@ import java.math.BigInteger;
 @Setter
 @ToString
 
-public class Client_order_item {
+public class Client_order_itemDto {
     BigInteger id;
     BigInteger product_id;
     String product_pic;
     String product_name;
     String product_attr;
-    BigDecimal product_price;
+    BigDecimal real_amount;
     int product_quantity;
 
 }

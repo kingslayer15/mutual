@@ -2,7 +2,6 @@ package com.thumb.controller;
 
 import com.thumb.mapper.OmsOrderMapper;
 import com.thumb.pay.controller.AliPayAction;
-import com.thumb.pay.controller.AliPayRefund;
 import com.thumb.pay.utils.OrderNoUtils;
 import com.thumb.pay.vo.AliPayInfoVo;
 import com.thumb.pojo.OmsCartItem;
@@ -51,26 +50,19 @@ public class OrderDetailsController {
 
 
     @ResponseBody
-    @RequestMapping("aliPayActionRequest")
-    public Object aliPayActionRequest(HttpSession httpSession,AliPayInfoVo aliPayInfoVo){
-
-
+    @RequestMapping("ttt")
+    public Object ttt(HttpSession httpSession,@RequestParam String total_amount,@RequestParam String subject,@RequestParam String body){
 
         OrderNoUtils orderNoUtils = new OrderNoUtils();
 
-//        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
+        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
 
 
-
-
+        System.out.println(total_amount + "yuan");
         //获取最后一个订单的创建时间
         Date lastDate = omsOrderService.findFirstCreateTimeOrderByCreateTimeDesc();
 
         String orderNo = orderNoUtils.creatOrderNo(lastDate);
-
-        aliPayInfoVo.setOut_trade_no(orderNo);
-
-        System.out.println(aliPayInfoVo);
 
 //        OmsOrder omsOrder = new OmsOrder();
 //        omsOrder.setOrderSn(orderNo);
@@ -78,15 +70,11 @@ public class OrderDetailsController {
 //        omsOrder.setMemberUsername(umsMember.getUsername());
 //        omsOrder.setTotalAmount(new BigDecimal(total_amount));
 //        omsOrder.setPayAmount(new BigDecimal(total_amount));
-//        omsOrder.setFreightAmount(new BigDecimal(0));
-//        omsOrder.setPayType(1);
-//        omsOrder.setSourceType(1);
-//        omsOrder.setStatus(0);
+//        omsOrder.
 
 
 
-
-        String result = AliPayAction.sendAliPay(orderNo, aliPayInfoVo.getTotal_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
+        String result = AliPayAction.sendAliPay(orderNo, total_amount, subject, body);
 
 
 
@@ -103,14 +91,4 @@ public class OrderDetailsController {
 //    }
 
 
-
-    @ResponseBody
-    @RequestMapping("aliPayRefundRequest")
-    public Object aliPayRefundRequest(HttpSession httpSession,AliPayInfoVo aliPayInfoVo) {
-
-        String result = AliPayRefund.sendAliPay("", "", "");
-
-        return result;
-    }
-
-    }
+}

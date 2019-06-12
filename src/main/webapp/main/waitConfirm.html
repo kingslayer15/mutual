@@ -220,7 +220,7 @@
                                 "\n" +
                                 "                        <li class=\"lg-item\">\n" +
                                 "                            <div class=\"item-info\">\n" +
-                                "                                <img src=\"\"  height=\"120\" width=\"120\">\n" +
+                                "                                <img src="+product.product_pic+" height=\"120\" width=\"120\">\n" +
                                 "                                <!--图片显示不出来的时候显示商品名称-->\n" +
                                 "                            </div>\n" +
                                 "                            <div class=\"lg-info\" style=\"width: 280px\">\n" +
@@ -228,7 +228,7 @@
                                 "                                <time>" + product.product_attr + "</time>\n" +
                                 "                            </div>\n" +
                                 "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
-                                "                                <p>" + product.product_price + "</p>\n" +
+                                "                                <p>" + product.real_amount + "</p>\n" +
                                 "                            </div>\n" +
                                 "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
                                 "                                <p>" + product.product_quantity + "</p>\n" +
@@ -242,6 +242,7 @@
                                 "                            </div>\n"+
                                 "                            <div class=\"lg-confirm\">\n" +
                                 "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
+                                "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+">申请退货</a>\n" +
                                 "                            </div>\n" +
                                 "                        </li>\n" +
                                 "\n" +
@@ -294,6 +295,14 @@
         })
 
     }
+
+    function refund(product_id) {
+        // alert(id);
+        var url="refund.html?id="+product_id;
+        window.location.href=url;
+    }
+
+
 
 
 
