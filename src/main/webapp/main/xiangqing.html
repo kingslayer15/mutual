@@ -180,6 +180,7 @@
 	<script src="../static/jquery/jquery-2.1.1.min.js"></script>
     <script>
         var id=window.location.search.split("=")[1]
+        var memberId;
         $(function () {
 
             $.ajax({
@@ -195,6 +196,20 @@
                 },
                 dataType: "json"
             });
+            $.ajax({
+                type: "get",
+                url: "/getMemberId",
+                contentType: "application/json",
+                success: function (data) {
+                    console.log(data); //  2pm
+					memberId = data;
+
+                },
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            });
         })
         // function r1() {
         //     $("#r1").attr("style", "background:red");
@@ -203,7 +218,6 @@
         // var memberNickname;
         // var createDate;
         var productId=id;
-        var memberId=48;
         var quantity=1
         var deleteStatus = 0;
         var productName;
@@ -388,7 +402,7 @@
                     "productCategoryId": productCategoryId
                 }),
                 success: function (data) {
-                    alert("succuss")
+                    alert("succuss");
                     console.log(data); //  2pm
                 },
                 error: function (data) {
