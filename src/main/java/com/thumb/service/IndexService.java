@@ -18,4 +18,6 @@ public interface IndexService {
 
     List<PmsProductCategory> getType();
 
+    List<HomeAdvertise> getAdvertise();
+
 }

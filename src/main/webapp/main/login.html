@@ -6,6 +6,7 @@
     <title>会员登录</title>
     <link rel="stylesheet" type="text/css" href="../static/css/login.css">
 </head>
+
 <body>
 <!-- login -->
 <div class="top center">
@@ -47,12 +48,20 @@
         </div>
     </div>
 </form>
+
+
+
+<footer>
+    <div class="copyright"><!--简体 | 繁体 | English | 常见问题--></div>
+    <div class="copyright">共勉公司版权所有-京ICP备10046444-<img src="../static/image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号
+    </div>
+
+</footer>
 <script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script src="../static/jquery/jquery.cookie.js"></script>
 <script src="../static/jquery/jquery.validate.js"></script>
 <script src="../static/jquery/jquery.validate.min.js"></script>
 <script>
-
     $(function () {
         //进页面,获取cookie的值
         var username = $.cookie('username');
@@ -189,12 +198,5 @@
 
 
 </script>
-
-<footer>
-    <div class="copyright"><!--简体 | 繁体 | English | 常见问题--></div>
-    <div class="copyright">共勉公司版权所有-京ICP备10046444-<img src="../static/image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号
-    </div>
-
-</footer>
 </body>
 </html>
