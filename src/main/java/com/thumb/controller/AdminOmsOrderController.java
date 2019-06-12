@@ -27,7 +27,7 @@ public class AdminOmsOrderController {
     AdminOmsOrderService adminOmsOrderService;
 
     /**
-     * 管理员查询数据库中所有的订单信息
+     * 管理员分页查询数据库中的订单信息
      * @return
      */
     @ResponseBody
@@ -119,7 +119,7 @@ public class AdminOmsOrderController {
     }
 
     /**
-     * 根据查询条件所选退货申请信息
+     * 根据查询条件查询退货申请信息
      * @param searchApply
      * @return
      */

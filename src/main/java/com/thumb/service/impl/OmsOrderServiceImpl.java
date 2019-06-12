@@ -104,5 +104,12 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         return i;
     }
 
+    @Override
+    public Long selectOneIdByOrderSn(String orderSn) {
+        Long id = omsOrderMapper.selectOneIdByOrderSn(orderSn);
+
+        return id;
+    }
+
 
 }
