@@ -6,6 +6,8 @@
 		<title>我的购物车-小米商城</title>
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+
+
 	</head>
 	<body>
 
@@ -62,46 +64,62 @@
 
 	<script>
 
+
 		var totalNum=0;
 		
 		var iData;
 
+		var memberId = "";
 
-		$(function () {
+
+		$(function (){
 			$.ajax({
-				url:"/findByMemberId?id=1",
+				url:"/getMenberId",
 				type:"GET",
-				contentType: "application/json",
 				success: function (data) {
-				iData = data;
 
-					$(data).each(function (index, item) {
-						$("#list").append("<div class=\"content2 center\">\n" +
-								"\t\t\t\t\t<div class=\"sub_content fl \">\n" +
-								"\t\t\t\t\t\t<input id='"+item.id +"' onclick=\"f()\" type=\"checkbox\" value=\"quanxuan\" class=\"quanxuan\" />\n" +
-								"\t\t\t\t\t</div>\n" +
-								"\t\t\t\t\t<div class=\"sub_content fl\"><img src=\"../static/image/gwc_xiaomi6.jpg\"></div>\n" +
-								"\t\t\t\t\t<div class=\"sub_content fl ft20\">"+item.productName+"</div>\n" +
-								"\t\t\t\t\t<div class=\"sub_content fl \">"+item.price+"</div>\n" +
-								"\t\t\t\t\t<div class=\"sub_content fl\">\n" +
-								"\t\t\t\t\t\t<input class=\"shuliang\" type=\"number\" value=\""+item.quantity+"\" step=\"1\" min=\"1\" >\n" +
-								"\t\t\t\t\t</div>\n" +
-								"\t\t\t\t\t<div class=\"sub_content fl\">"+item.price+"</div>\n" +
-								"\t\t\t\t\t<div class=\"sub_content fl\"><a href=\"/deleteByPrimaryKey?id="+ item.id+"\">×</a></div>\n" +
-								"\t\t\t\t\t<div class=\"clear\"></div>\n" +
-								"\t\t\t\t</div>");
+					memberId = data;
 
-						totalNum++;
+					$.ajax({
+						url:"/findByMemberId?id=" + 48,
+						type:"GET",
+						contentType: "application/json",
+						success: function (data) {
+							iData = data;
 
-					})
+							$(data).each(function (index, item) {
+								var productName = item.productName.toString().substr(0,16);
+								$("#list").append("<div class=\"content2 center\">\n" +
+										"\t\t\t\t\t<div class=\"sub_content fl \">\n" +
+										"\t\t\t\t\t\t<input id='"+item.id +"' onclick=\"f()\" type=\"checkbox\" value=\"quanxuan\" class=\"quanxuan\" />\n" +
+										"\t\t\t\t\t</div>\n" +
+										"\t\t\t\t\t<div class=\"sub_content fl\"><img src=\"../static/image/gwc_xiaomi6.jpg\"></div>\n" +
+										"\t\t\t\t\t<div href='/main/xiangqing.html?id="+item.id+"' class=\"sub_content fl ft20\">"+productName+"</div>\n" +
+										"\t\t\t\t\t<div class=\"sub_content fl \">"+item.price+"</div>\n" +
+										"\t\t\t\t\t<div class=\"sub_content fl\">\n" +
+										"\t\t\t\t\t\t<input class=\"shuliang\" type=\"number\" value=\""+item.quantity+"\" step=\"1\" min=\"1\" >\n" +
+										"\t\t\t\t\t</div>\n" +
+										"\t\t\t\t\t<div class=\"sub_content fl\">"+item.price+"</div>\n" +
+										"\t\t\t\t\t<div class=\"sub_content fl\"><a href=\"/deleteByPrimaryKey?id="+ item.id+"\">×</a></div>\n" +
+										"\t\t\t\t\t<div class=\"clear\"></div>\n" +
+										"\t\t\t\t</div>");
 
-					f();
+								totalNum++;
+
+							})
+
+							f();
 
 
+						}
+					});
 				}
 			});
 
+
 		});
+
+
 
 
 		$("#all").click(function(){
