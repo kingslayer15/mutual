@@ -161,10 +161,14 @@
 <input  name="pay_amount">
 <input  name="subject">
 <input  name="body">
+<input  name="receiverName">
+<input  name="receiverPhone">
+<input  name="receiverPostCode">
 <input  name="receiverProvince">
 <input  name="receiverCity">
 <input  name="receiverRegion">
 <input  name="receiverDetailAddress">
+
 </form>
 </div>
 
@@ -186,6 +190,10 @@
     var city = "";
     var region = "";
     var detail_address = "";
+
+    var receiverName = "";
+    var receiverPhone = "";
+    var receiverPostCode = "";
 
     $(function () {
         $.ajax({
@@ -255,12 +263,12 @@
                                 "                    </div>");
 
                             province = item.province;
-
                             city = item.city;
-
                             region = item.region;
-
                             detail_address = item.detailAddress;
+                            receiverName = item.name;
+                            receiverPhone = item.phoneNumber;
+                            receiverPostCode = item.postCode;
 
 
                         }else {
@@ -338,6 +346,9 @@
     <!--subject="1231";-->
     <!--body  ="1231";-->
 
+
+
+
     function pay() {
         $("input[name='pay_amount']").val(totalPrice);
         $("input[name='subject']").val(sumProductName);
@@ -346,6 +357,9 @@
         $("input[name='receiverCity']").val(city);
         $("input[name='receiverRegion']").val(region);
         $("input[name='receiverDetailAddress']").val(detail_address);
+        $("input[name='receiverName']").val(receiverName);
+        $("input[name='receiverPhone']").val(receiverPhone);
+        $("input[name='receiverPostCode']").val(receiverPostCode);
 
 
 

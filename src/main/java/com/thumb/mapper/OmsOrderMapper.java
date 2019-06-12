@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import com.thumb.dto.OrderStatusDto;
+import com.thumb.pay.vo.AliPayInfoVo;
 import org.apache.ibatis.annotations.Param;
 
 import com.thumb.pojo.OmsOrder;
@@ -41,6 +42,7 @@ public interface OmsOrderMapper {
     Date findFirstCreateTimeOrderByCreateTimeDesc();
 
 
+    int insertVo(AliPayInfoVo aliPayInfoVo);
 
 
 

@@ -22,12 +22,13 @@ public class AliPayInfoVo {
 
     private Long memberId;
 
-
+    private Long couponId;
 
     /**
      * 订单总金额
      */
     private BigDecimal totalAmount;
+
     /**
      * 提交时间
      */
@@ -275,6 +276,13 @@ public class AliPayInfoVo {
 
     public void setOrder_sn(String order_sn) {
         this.order_sn = order_sn;
+    }
+    public Long getCouponId() {
+        return couponId;
+    }
+
+    public void setCouponId(Long couponId) {
+        this.couponId = couponId;
     }
 
     public BigDecimal getTotalAmount() {
