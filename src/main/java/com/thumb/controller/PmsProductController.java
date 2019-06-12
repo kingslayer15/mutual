@@ -2,8 +2,10 @@ package com.thumb.controller;
 
 import com.thumb.pojo.PmsProduct;
 import com.thumb.pojo.PmsProductCategory;
+import com.thumb.pojo.PmsProductCollection;
 import com.thumb.pojo.PmsSkuStock;
 import com.thumb.service.PmsProductCategoryService;
+import com.thumb.service.PmsProductCollectionService;
 import com.thumb.service.PmsProductService;
 import com.thumb.service.PmsSkuStockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,8 @@ public class PmsProductController {
     PmsProductService pmsProductService;
     @Autowired
     PmsProductCategoryService pmsProductCategoryService;
+    @Autowired
+    PmsProductCollectionService pmsProductCollectionService;
     /**
      * 更具商品id存进cookie
      * @param id
@@ -164,18 +168,15 @@ public class PmsProductController {
 
     }
 
-//    @RequestMapping("getColorBySelectedRomAndId")
-//    @ResponseBody
-//    public Object getColorBySelectedRomAndId(@RequestBody String id) {
-//        System.out.println(id);
-//        Long pid = Long.valueOf(id);
-//        PmsProduct pmsProduct = pmsProductService.selectOneById(pid);
-//        System.out.println(pmsProduct);
-//        if (pmsProduct != null) {
-//            System.out.println(pmsProduct);
-//            return pmsProduct;
-//        }
-//        return false;
-//
-//    }
+    @RequestMapping("getCollection")
+    @ResponseBody
+    public Object getCollection(@RequestParam long id) {
+        System.out.println(id);
+        List<PmsProduct> pmsProducts = pmsProductCollectionService.selectAllBymemberId(id);
+        if (pmsProducts != null) {
+            System.out.println("pmsProducts = " + pmsProducts);
+            return pmsProducts;
+        }
+        return false;
+    }
 }
