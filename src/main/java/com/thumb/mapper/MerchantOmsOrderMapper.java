@@ -21,4 +21,6 @@ public interface MerchantOmsOrderMapper {
     List<OmsOrderReturnApply> merchantOmsOrderReturnApply(int id);
 
     OmsOrderReturnApply merchantOmsOrderReturnApplyById(MerchantDto merchantDto);
+
+
 }
