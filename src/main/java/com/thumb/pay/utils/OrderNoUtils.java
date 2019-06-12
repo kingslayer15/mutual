@@ -43,11 +43,11 @@ public class OrderNoUtils {
 
         //时间信息6位+6位自增流水号+下单时间的毫秒值后八位
 
-        System.out.println(numberUtils.getNewAutoNum());
+
 
         String orderNo = format + numberUtils.getNewAutoNum() +substring;
 
-        System.out.println(numberUtils.getNewAutoNum());
+
 
 
         return orderNo;
