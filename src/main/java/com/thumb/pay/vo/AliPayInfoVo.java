@@ -23,6 +23,11 @@ public class AliPayInfoVo {
     private Long memberId;
 
 
+
+    /**
+     * 订单总金额
+     */
+    private BigDecimal totalAmount;
     /**
      * 提交时间
      */
@@ -272,6 +277,14 @@ public class AliPayInfoVo {
         this.order_sn = order_sn;
     }
 
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
     public String getPay_amount() {
         return pay_amount;
     }
@@ -279,6 +292,8 @@ public class AliPayInfoVo {
     public void setPay_amount(String pay_amount) {
         this.pay_amount = pay_amount;
     }
+
+
 
     public String getSubject() {
         return subject;
