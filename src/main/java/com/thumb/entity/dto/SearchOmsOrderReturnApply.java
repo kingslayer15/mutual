@@ -12,7 +12,7 @@ public class SearchOmsOrderReturnApply {
     //服务单号
     private int id;
     //处理状态（状态-1为全选）
-    private int status;
+    private int status = -1;
     //申请时间
     private String create_time;
     //操作人员

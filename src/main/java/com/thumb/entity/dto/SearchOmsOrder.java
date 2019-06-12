@@ -4,6 +4,9 @@ import lombok.Data;
 
 @Data
 public class SearchOmsOrder {
+
+    //商家id
+    private int merchant_id;
     //订单编号模糊查询条件
     private String order_sn;
     //客户的(客户表)账号或者(订单表接收者)手机 模糊查询

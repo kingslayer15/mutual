@@ -31,7 +31,7 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     }
 
     /**
-     * 根据查询条件所选订单信息
+     * 根据查询条件查询订单信息
      * @param searchOmsOrder
      * @return
      */
@@ -90,12 +90,13 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     }
 
     /**
-     * 根据查询条件所选退货申请信息
+     * 根据查询条件筛选退货申请信息
      * @param searchApply
      * @return
      */
     @Override
     public List<OmsOrderReturnApply> searchOmsOrderReturnApply(SearchOmsOrderReturnApply searchApply) {
+        System.out.println(searchApply);
         return adminOmsOrderMapper.searchOmsOrderReturnApply(searchApply);
     }
 
