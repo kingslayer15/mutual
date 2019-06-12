@@ -2,6 +2,8 @@ package com.thumb.controller;
 
 import com.thumb.mapper.OmsOrderMapper;
 import com.thumb.pay.controller.AliPayAction;
+import com.thumb.pay.controller.AliPayQuery;
+import com.thumb.pay.controller.AliPayRefund;
 import com.thumb.pay.utils.OrderNoUtils;
 import com.thumb.pay.vo.AliPayInfoVo;
 import com.thumb.pojo.OmsCartItem;
@@ -50,19 +52,26 @@ public class OrderDetailsController {
 
 
     @ResponseBody
-    @RequestMapping("ttt")
-    public Object ttt(HttpSession httpSession,@RequestParam String total_amount,@RequestParam String subject,@RequestParam String body){
+    @RequestMapping("aliPayActionRequest")
+    public Object aliPayActionRequest(HttpSession httpSession,AliPayInfoVo aliPayInfoVo){
+
+
 
         OrderNoUtils orderNoUtils = new OrderNoUtils();
 
-        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
+//        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
 
 
-        System.out.println(total_amount + "yuan");
+
+
         //获取最后一个订单的创建时间
         Date lastDate = omsOrderService.findFirstCreateTimeOrderByCreateTimeDesc();
 
         String orderNo = orderNoUtils.creatOrderNo(lastDate);
+
+        aliPayInfoVo.setOut_trade_no(orderNo);
+
+        System.out.println(aliPayInfoVo);
 
 //        OmsOrder omsOrder = new OmsOrder();
 //        omsOrder.setOrderSn(orderNo);
@@ -70,11 +79,15 @@ public class OrderDetailsController {
 //        omsOrder.setMemberUsername(umsMember.getUsername());
 //        omsOrder.setTotalAmount(new BigDecimal(total_amount));
 //        omsOrder.setPayAmount(new BigDecimal(total_amount));
-//        omsOrder.
+//        omsOrder.setFreightAmount(new BigDecimal(0));
+//        omsOrder.setPayType(1);
+//        omsOrder.setSourceType(1);
+//        omsOrder.setStatus(0);
 
 
 
-        String result = AliPayAction.sendAliPay(orderNo, total_amount, subject, body);
+
+        String result = AliPayAction.sendAliPay("9999", aliPayInfoVo.getTotal_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
 
 
 
@@ -90,5 +103,25 @@ public class OrderDetailsController {
 //        return "/ttt";
 //    }
 
+
+
+    @ResponseBody
+    @RequestMapping("/aliPayRefundRequest")
+    public Object aliPayRefundRequest() {
+
+        String result = AliPayRefund.sendAliPay("9999", "9546", "第一次退款");
+
+        return result;
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/aliPayQueryRequest")
+    public Object aliPayQueryRequest() {
+
+        String result = AliPayQuery.sendAliPay("9999");
+
+        return result;
+    }
 
 }
