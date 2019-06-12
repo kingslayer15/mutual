@@ -99,7 +99,6 @@
 </footer>
 
 
-<script src="jquery/jquery-2.1.1.min.js"></script>
 <script>
 
 
@@ -155,7 +154,6 @@
             alert("两次新密码输入不一致")
         }else if (pass==true)
             {
-                alert("验证旧密码与修改")
             $.ajax({
                 url:'/pwdCheck',
                 type:'POST',
@@ -166,11 +164,9 @@
                 }),
                 dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
                 success:function(data){
-                    console.log(data)
-                    alert(data)
-                    if (data) {
-                        alert("修改成功")
-                    }
+                    alert("修改成功")
+                    var url= "self_info.html"
+                    window.location.href = url
                     },
                 error:function(data){
                     if (!data) {

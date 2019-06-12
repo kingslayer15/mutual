@@ -238,7 +238,7 @@
                                 "                            </div>\n" +
                                 "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
                                 "                                <p>" + status + "</p>\n" +
-                                "                                <a>查看物流</a>\n" +
+                                "<a"+" onclick=\"logistics("+product.id+")\""+">查看物流</a>\n"+
                                 "                            </div>\n"+
                                 "                            <div class=\"lg-confirm\">\n" +
                                 "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
@@ -302,8 +302,10 @@
         window.location.href=url;
     }
 
-
-
+    function logistics(product_id) {
+        var url="logistics.html?id="+product_id;
+        window.location.href=url;
+    }
 
 
 </script>

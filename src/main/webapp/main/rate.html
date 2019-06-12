@@ -21,6 +21,53 @@
 <style>
     .gzxx {font-size: 12px;font-weight: bold;color:rgb(117,117,117);width: 100px;display: inline-block}
 
+    .content{
+        width: 100%;
+        height: 30px;
+    }
+    .stars{
+        width: 50%;
+        list-style: none;
+        margin: 0;
+        line-height: 50px;
+        color: #ccc;
+        /*margin-left: 10px;*/
+        float: left;
+    }
+    .stars span{
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .stars span:after{
+        content: '☆';
+    }
+    .stars .show:after,.stars .show2:after{
+        content: '★';
+    }
+    .info{
+        float: left;
+        width: 50px;
+        height: 20px;
+        background: #e15671;
+        border-radius: 5px;
+        color: #fff;
+        margin-top: 21px;
+        text-align: center;
+        line-height: 20px;
+        display: none;
+    }
+    .show {
+        color: #e4c6e4;
+    }
+    .show2{
+        color: #e15671;
+    }
+
+
+/*====================*/
+
+
+
 </style>
 
 
@@ -83,7 +130,7 @@
         </div>
         <!--//===============================================================================-->
         <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
-            <div class="grzlbt ml40">退货申请</div>
+            <div class="grzlbt ml40">商品评价</div>
 
 
             <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
@@ -114,6 +161,8 @@
 
                 </div>
                 <br/><br/><br/>
+
+
                 <div class="s-content" style="height: 650px">
 
                     <ul class="lg-list">
@@ -122,8 +171,26 @@
                                 <div hidden><input id="uid" hidden ></div>
                                 <div hidden><input id="pid" hidden></div>
 
+                                <div class=" gzxx ml40" style="width: 550px" >
+                                    <!--<div class="pingfen">-->
+                                        <div class="content" >
+                                            <div class="stars" >
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                            <div class="info" id="info">优秀</div>
+                                            <span class="info" hidden></span>
+                                        </div>
+                                        <!--<div class="tips">小提示：点击星星就能打分-->
+                                        <!--</div>-->
+                                    <!--</div>-->
 
-                                <br/><br/>
+
+
+                                </div>
 
 
                                 <div class=" gzxx ml40" style="width: 550px" >
@@ -177,6 +244,37 @@
 
 
 <script>
+
+
+    var stars=document.querySelectorAll('.stars span');
+    var info=document.querySelector('.info');
+    var grades = ["极差","差","一般","良好","优秀"];
+    var active=-1;   //记录当前点击的是哪颗星星
+
+    for(var i=0;i<stars.length;i++){
+        stars[i].index=i;
+        stars[i].onmouseover=function(){setStar(this.index);};
+        stars[i].onmouseout=function(){setStar(active);};
+        stars[i].onclick=setClick;
+    }
+
+    function setStar(nub){
+        var name='';
+        name= nub<2?'show':'show2';
+        for(var i=0;i<stars.length;i++){
+            stars[i].className= i<=nub?name:'';
+        }
+        info.style.display= nub<0? 'none':'block';
+        info.innerHTML=grades[nub];
+    }
+
+    function setClick(){
+        active=this.index;
+        alert($("#info").innerHTML)
+
+    }
+
+
 
 
     $(function () {

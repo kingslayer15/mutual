@@ -51,6 +51,8 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("getRefundProduct")
     public Object getRefundProduct(@RequestParam("id") int product_id){
+        System.out.println(product_id);
+        System.out.println(personalOrderService.getRefundProduct(product_id));
         return personalOrderService.getRefundProduct(product_id);
     }
 

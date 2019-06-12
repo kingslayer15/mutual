@@ -237,7 +237,7 @@
                                 "                            </div>\n" +
                                 "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
                                 "                                <p>" + status + "</p>\n" +
-                                "                                <a>查看物流</a>\n" +
+                                "<a"+" onclick=\"logistics("+product.id+")\""+">查看物流</a>\n"+
                                 "                            </div>\n";
 
                             if (item.status=="3"){
@@ -283,6 +283,11 @@
     function refund(product_id) {
         // alert(id);
         var url="refund.html?id="+product_id;
+        window.location.href=url;
+    }
+
+    function logistics(product_id) {
+        var url="logistics.html?id="+product_id;
         window.location.href=url;
     }
 

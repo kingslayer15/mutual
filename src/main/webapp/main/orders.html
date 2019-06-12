@@ -316,7 +316,7 @@
                             "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
                             "                                <p>"+status+"</p>\n"
                                 if (item.status=="3" || item.status=="2"){
-                                    html+="<a>查看物流</a>\n"
+                                    html+="<a"+" onclick=\"logistics("+product.id+")\""+">查看物流</a>\n"
                                 }
                                 html+="</div>\n" ;
                                                         if (item.status=="2") {
@@ -404,13 +404,13 @@
                 console.log(data)
                 if (data) {
                     alert("确认成功")
-                    window.location.href = "order.html"
+                    window.location.href = "orders.html"
                 }
             },
             error:function(data){
                 console.log(data)
                 alert("确认失败")
-                window.location.href = "order.html"
+                window.location.href = "orders.html"
 
             }
         })
@@ -426,6 +426,11 @@
     function toRate(product_id) {
         // alert(id);
         var url="rate.html?id="+product_id;
+        window.location.href=url;
+    }
+
+    function logistics(product_id) {
+        var url="logistics.html?id="+product_id;
         window.location.href=url;
     }
 
