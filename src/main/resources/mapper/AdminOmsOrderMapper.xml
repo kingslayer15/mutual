@@ -331,6 +331,13 @@
             oo.id = #{id}
     </select>
 
+    <!--根据订单id修改订单的状态-->
+    <update id="updateOmsOrderStatusByOrderId" parameterType="com.thumb.entity.dto.UpdateStatus">
+        <if test="id!=null and status!=null">
+            update oms_order set status = #{status} where id = #{id}
+        </if>
+    </update>
+
 
     <!--订单设置映射-->
     <resultMap id="omsOrderSettingResultMap" type="com.thumb.entity.pojo.OmsOrderSetting">
@@ -414,7 +421,7 @@
                 and id = #{id}
             </if>
             <if test="status != null and status != -1">
-                and status like "%"#{status}"%"
+                and status = #{status}
             </if>
             <if test="create_time != null and create_time != ''">
                 and DATE(create_time) = #{create_time}
@@ -433,6 +440,12 @@
         select * from oms_order_return_apply where id = #{id}
     </select>
 
+    <!--根据服务id修改退货处理的状态-->
+    <update id="updateReturnApplyStatusById" parameterType="com.thumb.entity.dto.UpdateStatus">
+        <if test="id!=null and status!=null">
+            update oms_order_return_apply set status = #{status} where id = #{id}
+        </if>
+    </update>
 
     <!--退货原因映射-->
     <resultMap id="ReturnReasonResultMap" type="com.thumb.entity.pojo.OmsOrderReturnReason">

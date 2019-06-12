@@ -75,12 +75,11 @@ public class MerchantOmsOrderController {
      * @param merchantDto
      * @return
      */
-    @RequestMapping
+    @RequestMapping("merchantOmsOrderReturnApplyById")
     public Object merchantOmsOrderReturnApplyById(@RequestBody MerchantDto merchantDto) {
         OmsOrderReturnApply omsOrderReturnApply = merchantOmsOrderService.merchantOmsOrderReturnApplyById(merchantDto);
         return omsOrderReturnApply;
     }
-
 
 
 }

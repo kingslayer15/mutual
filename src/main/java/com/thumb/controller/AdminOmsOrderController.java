@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.thumb.entity.dto.*;
 import com.thumb.entity.pojo.*;
-import com.thumb.mapper.AdminOmsOrderMapper;
 import com.thumb.service.AdminOmsOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -69,10 +68,24 @@ public class AdminOmsOrderController {
     }
 
     /**
+     * 根据订单id修改订单的状态
+     * 0->
+     * @param updateStatus
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("updateOmsOrderStatusByOrderId")
+    public Object updateOmsOrderStatusByOrderId(@RequestBody UpdateStatus updateStatus) {
+        int i = adminOmsOrderService.updateOmsOrderStatusByOrderId(updateStatus);
+        return i;
+    }
+
+    /**
      * 根据订单id删除该订单的信息
      * @param omsOrderId
      * @return
      */
+    @ResponseBody
     @RequestMapping("deleteOmsOrderById")
     public Object deleteOmsOrderById(@RequestParam int omsOrderId) {
         int i = adminOmsOrderService.deleteOmsOrderById(omsOrderId);
@@ -141,6 +154,19 @@ public class AdminOmsOrderController {
     public Object showOmsOrderReturnApplyById(@RequestParam int id) {
         OmsOrderReturnApply omsOrderReturnApply = adminOmsOrderService.showOmsOrderReturnApplyById(id);
         return omsOrderReturnApply;
+    }
+
+    /**
+     * 根据服务id修改退货处理的状态
+     * @param updateStatus
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("updateReturnApplyStatusById")
+    public Object updateReturnApplyStatusById(@RequestBody UpdateStatus updateStatus) {
+        System.out.println(updateStatus);
+        int i = adminOmsOrderService.updateReturnApplyStatusById(updateStatus);
+        return i;
     }
 
     /**

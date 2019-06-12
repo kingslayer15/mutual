@@ -334,7 +334,7 @@
                                 </svg>
                                 <span slot="title">商品</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
+                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86); display: none;"
                                 data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
                                     href="http://39.98.190.128/index.html#/pms/product" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
@@ -386,21 +386,21 @@
                             <ul role="menu" class="el-menu el-menu--inline" data-old-padding-top=""
                                 data-old-padding-bottom="" data-old-overflow=""
                                 style="background-color: rgb(48, 65, 86);"><a
-                                    href="http://39.98.190.128/index.html#/oms/order" class="">
+                                    href="order.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
                                     </svg>
                                     <span>订单列表</span></li>
-                            </a><!----><!----><a href="http://39.98.190.128/index.html#/oms/orderSetting" class="">
+                            </a><!----><!----><a href="orderSetting.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-order-setting"></use>
                                     </svg>
                                     <span>订单设置</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnApply"
+                            </a><a href="returnApply.html"
                                    class="router-link-exact-active router-link-active">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
                                     style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
@@ -408,7 +408,7 @@
                                         <use data-v-81d70f2a="" xlink:href="#icon-order-return"></use>
                                     </svg>
                                     <span>退货申请处理</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnReason" class="">
+                            </a><a href="returnReason.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -425,7 +425,7 @@
                                 </svg>
                                 <span slot="title">营销</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
+                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86); display: none;"
                                 data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
                                     href="http://39.98.190.128/index.html#/sms/flash" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
@@ -539,12 +539,12 @@
                         <div class="el-card__body">
                             <div data-v-4c7852dc=""><i data-v-4c7852dc="" class="el-icon-search"></i> <span
                                     data-v-4c7852dc="">筛选搜索</span>
-                                <button data-v-4c7852dc="" type="button"
+                                <button onclick="searchReturnApply()" data-v-4c7852dc="" type="button"
                                         class="el-button el-button--primary el-button--small" style="float: right;">
                                     <!----><!----><span>
         查询搜索
       </span></button>
-                                <button data-v-4c7852dc="" type="button"
+                                <button onclick="resetValue()" data-v-4c7852dc="" type="button"
                                         class="el-button el-button--default el-button--small"
                                         style="float: right; margin-right: 15px;"><!----><!----><span>
         重置
@@ -555,7 +555,7 @@
                                     <div data-v-4c7852dc="" class="el-form-item el-form-item--small"><label
                                             class="el-form-item__label" style="width: 140px;">输入搜索：</label>
                                         <div class="el-form-item__content">
-                                            <div data-v-4c7852dc="" class="input-width el-input el-input--small"><!----><input
+                                            <div data-v-4c7852dc="" class="input-width el-input el-input--small"><!----><input id="returnApplyId"
                                                     type="text" autocomplete="off" placeholder="服务单号"
                                                     class="el-input__inner"><!----><!----><!----></div><!----></div>
                                     </div>
@@ -1165,11 +1165,7 @@
                             <button id="btnNext" type="button" class="btn-next"><i class="el-icon el-icon-arrow-right"></i></button>
                             <span class="el-pagination__jump">前往<div
                                     class="el-input el-pagination__editor is-in-pagination"><!---->
-                                <input id="numberInput" type="number"
-                                                                                                          autocomplete="off"
-                                                                                                          min="1"
-                                                                                                          class="el-input__inner"
-                                                                                                          max="3">
+                                <input id="numberInput" type="number" autocomplete="off" min="1" class="el-input__inner" max="3">
                                 </div>页</span></div>
                     </div>
                     <!--分页 end-->
@@ -1242,6 +1238,7 @@
 
                 $("#total").text(data.total);
                 pages = data.pages;
+
                 appendPageNum(data.pages);
                 $("#pageLi_"+data.pageNum).attr("class","active");
                 if ( data.prePage==0 ) $("#btnPrev").attr("disabled", "disabled");
@@ -1274,6 +1271,8 @@
                 case 2 : statusText = "已完成"; break;
                 case 3 : statusText = "已拒绝"; break;
             }
+            console.log("jj");
+            console.log(item);
 
             str = "<tr class=\"el-table__row\">\n" +
                 "    <td class=\"el-table_1_column_1 is-center el-table-column--selection\">\n" +
@@ -1306,14 +1305,37 @@
                 "    </td>\n" +
                 "    <td class=\"el-table_1_column_8 is-center \">\n" +
                 "        <div class=\"cell\">\n" +
-                "            <button data-v-4c7852dc=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\">\n" +
+                "            <a href=\"returnApplyDetail.html?id="+ item.id +"\"><button data-v-4c7852dc=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\">\n" +
                 "                <span>查看详情</span>\n" +
-                "            </button>\n" +
+                "            </button></a>\n" +
                 "        </div>\n" +
                 "    </td>\n" +
                 "</tr>";
             roleTbody.append(str);
         });
+    }
+
+    function searchReturnApply() {
+        $.ajax({
+            type: 'POST',
+            url: "/searchOmsOrderReturnApply",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({
+                "id" : $("#returnApplyId").val()
+            }),
+            success: function (data) {
+                console.log(data);
+                appendStrByReturnApply(data);
+            },
+            error: function (data) {
+                console.error(data);
+            }
+        });
+    }
+
+    function resetValue() {
+        $("#returnApplyId").val("");
     }
 
     /**
@@ -1326,6 +1348,7 @@
             str += "<li id=\"pageLi_"+ i +"\" onclick=\"pageLiClick("+i+")\" class=\"number\">"+ i +"</li>";
         }
         $("#numberInput").val(pageNum);
+        $("#numberInput").attr("max", pages);
         $("#pagesUl").empty();
         $("#pagesUl").append(str);
     }

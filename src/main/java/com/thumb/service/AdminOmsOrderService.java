@@ -1,9 +1,6 @@
 package com.thumb.service;
 
-import com.thumb.entity.dto.SearchOmsOrder;
-import com.thumb.entity.dto.SearchOmsOrderReturnApply;
-import com.thumb.entity.dto.UpdateOmsOrderSetting;
-import com.thumb.entity.dto.UpdateReturnReason;
+import com.thumb.entity.dto.*;
 import com.thumb.entity.pojo.OmsOrder;
 import com.thumb.entity.pojo.OmsOrderReturnApply;
 import com.thumb.entity.pojo.OmsOrderReturnReason;
@@ -38,4 +35,8 @@ public interface AdminOmsOrderService {
     int updateReturnReason(UpdateReturnReason updateReturnReason);
 
     int deleteReturnReason(int id);
+
+    int updateOmsOrderStatusByOrderId(UpdateStatus updateStatus);
+
+    int updateReturnApplyStatusById(UpdateStatus updateStatus);
 }

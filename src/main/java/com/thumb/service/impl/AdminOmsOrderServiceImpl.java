@@ -1,9 +1,6 @@
 package com.thumb.service.impl;
 
-import com.thumb.entity.dto.SearchOmsOrder;
-import com.thumb.entity.dto.SearchOmsOrderReturnApply;
-import com.thumb.entity.dto.UpdateOmsOrderSetting;
-import com.thumb.entity.dto.UpdateReturnReason;
+import com.thumb.entity.dto.*;
 import com.thumb.entity.pojo.OmsOrder;
 import com.thumb.entity.pojo.OmsOrderReturnApply;
 import com.thumb.entity.pojo.OmsOrderReturnReason;
@@ -144,5 +141,15 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     @Override
     public int deleteReturnReason(int id) {
         return adminOmsOrderMapper.deleteReturnReason(id);
+    }
+
+    @Override
+    public int updateOmsOrderStatusByOrderId(UpdateStatus updateStatus) {
+        return adminOmsOrderMapper.updateOmsOrderStatusByOrderId(updateStatus);
+    }
+
+    @Override
+    public int updateReturnApplyStatusById(UpdateStatus updateStatus) {
+        return adminOmsOrderMapper.updateReturnApplyStatusById(updateStatus);
     }
 }
