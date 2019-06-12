@@ -239,7 +239,6 @@
 </footer>
 
 
-<script src="jquery/jquery-2.1.1.min.js"></script>
 <script>
 
 
@@ -249,6 +248,8 @@
 
     //根据id获取用户订单信息
     function getUserOrderById() {
+        // var myDate = new Date();
+        // alert(myDate)
         $.ajax({
             url:'/orderByUid',
             type:'GET', //GET
@@ -296,7 +297,7 @@
                             "\n" +
                             "                        <li class=\"lg-item\">\n" +
                             "                            <div class=\"item-info\">\n" +
-                            "                                <img src=\"\"  height=\"120\" width=\"120\">\n" +
+                            "                                <img src="+product.product_pic+" height=\"120\" width=\"120\">\n" +
                             "                                <!--图片显示不出来的时候显示商品名称-->\n" +
                             "                            </div>\n" +
                             "                            <div class=\"lg-info\" style=\"width: 280px\">\n" +
@@ -304,7 +305,7 @@
                             "                                <time>"+product.product_attr+"</time>\n" +
                             "                            </div>\n" +
                             "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
-                            "                                <p>"+product.product_price+"</p>\n" +
+                            "                                <p>"+product.real_amount+"</p>\n" +
                             "                            </div>\n" +
                             "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
                             "                                <p>"+product.product_quantity+"</p>\n" +
@@ -313,28 +314,57 @@
                             "                                <p>"+pay_type+"</p>\n" +
                             "                            </div>\n" +
                             "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
-                            "                                <p>"+status+"</p>\n" +
-                            "                                <a>查看物流</a>\n" +
-                            "                            </div>\n" ;
-                                                        
+                            "                                <p>"+status+"</p>\n"
+                                if (item.status=="3" || item.status=="2"){
+                                    html+="<a"+" onclick=\"logistics("+product.id+")\""+">查看物流</a>\n"
+                                }
+                                html+="</div>\n" ;
                                                         if (item.status=="2") {
-                                                            html+="                            <div class=\"lg-confirm\">\n" +
-                                                                "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
-                                                                "                            </div>\n" +
-                                                                "                        </li>\n" +
-                                                                "\n" +
-                                                                "                    </ul>\n" +
-                                                                "\n" +
-                                                                "                </div>"
+                                                            if (item.duration==1){
+                                                                html+="                            <div class=\"lg-confirm\">\n" +
+                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
+                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+">申请退货</a>\n" +
+
+                                                                    "                            </div>\n" +
+                                                                    "                        </li>\n" +
+                                                                    "\n" +
+                                                                    "                    </ul>\n" +
+                                                                    "\n" +
+                                                                    "                </div>"
+                                                            }else {
+                                                                html+="                            <div class=\"lg-confirm\">\n" +
+                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
+                                                                    "                            </div>\n" +
+                                                                    "                        </li>\n" +
+                                                                    "\n" +
+                                                                    "                    </ul>\n" +
+                                                                    "\n" +
+                                                                    "                </div>"
+                                                            }
+
                                                         } else if (item.status=="3"){
-                                                            html+="<div class=\"lg-confirm\">\n" +
-                                                            "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\" href=\"\" style=\"width: 40px\">评价</a>\n" +
-                                                            "                            </div>\n" +
-                                                            "                        </li>\n" +
-                                                            "\n" +
-                                                            "                    </ul>\n" +
-                                                            "\n" +
-                                                            "                </div>"
+                                                            if (item.duration==1) {
+                                                                html+="<div class=\"lg-confirm\">\n" +
+                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
+                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+"> 申请退货</a>\n" +
+
+                                                                    "                            </div>\n" +
+                                                                    "                        </li>\n" +
+                                                                    "\n" +
+                                                                    "                    </ul>\n" +
+                                                                    "\n" +
+                                                                    "                </div>"
+                                                            }else {
+                                                                html+="<div class=\"lg-confirm\">\n" +
+                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
+                                                                    "                            </div>\n" +
+                                                                    "                        </li>\n" +
+                                                                    "\n" +
+                                                                    "                    </ul>\n" +
+                                                                    "\n" +
+                                                                    "                </div>"
+                                                            }
+
                                                         } else {
                                                             html+="                        </li>\n" +
                                                                 "\n" +
@@ -361,11 +391,11 @@
 
     //确认收货
 
-    function confirmOrder(product_id) {
-        alert(product_id)
+    function confirmOrder(order_id) {
+        // alert(product_id)
 
         $.ajax({
-            url:"/changeStatus?id="+product_id,
+            url:"/changeStatus?id="+order_id,
             type:'POST', //GET
             // data:JSON.stringify({id:id}),
             contentType:"application/json",
@@ -374,17 +404,34 @@
                 console.log(data)
                 if (data) {
                     alert("确认成功")
-                    window.location.href = "order.html"
+                    window.location.href = "orders.html"
                 }
             },
             error:function(data){
                 console.log(data)
                 alert("确认失败")
-                window.location.href = "order.html"
+                window.location.href = "orders.html"
 
             }
         })
 
+    }
+
+    function refund(product_id) {
+            // alert(id);
+            var url="refund.html?id="+product_id;
+            window.location.href=url;
+    }
+
+    function toRate(product_id) {
+        // alert(id);
+        var url="rate.html?id="+product_id;
+        window.location.href=url;
+    }
+
+    function logistics(product_id) {
+        var url="logistics.html?id="+product_id;
+        window.location.href=url;
     }
 
 </script>

@@ -3,6 +3,7 @@ package com.thumb.controller;
 
 import com.thumb.dto.OmsCartItemDto;
 import com.thumb.pojo.OmsCartItem;
+import com.thumb.pojo.UmsMember;
 import com.thumb.service.OmsCartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,5 +60,18 @@ public class OmsCartItemController {
 
     }
 
+
+    @ResponseBody
+    @RequestMapping(value = "getMemberId",method = RequestMethod.GET)
+    public Object getMenberId(HttpSession httpSession){
+
+        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
+
+        Long memberId = umsMember.getId();
+
+        return memberId;
+
+
+    }
 
 }

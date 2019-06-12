@@ -1,6 +1,7 @@
 package com.thumb.service;
 
 import com.thumb.dto.OrderStatusDto;
+import com.thumb.pay.vo.AliPayInfoVo;
 import com.thumb.pojo.OmsOrder;
 import org.apache.ibatis.annotations.Param;
 
@@ -35,6 +36,12 @@ public interface OmsOrderService {
     BigDecimal countByReturnApply(Integer status);
 
     BigDecimal countOderByCreateTime(Integer dayNum);
+
+    Date findFirstCreateTimeOrderByCreateTimeDesc();
+
+    int insertVo(AliPayInfoVo aliPayInfoVo);
+
+    Long selectOneIdByOrderSn(String orderSn);
 
 
 }

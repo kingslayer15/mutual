@@ -1,6 +1,9 @@
 package com.thumb.service;
 
-import com.thumb.pojo.Brand;
+
+import com.thumb.pojo.HomeAdvertise;
+import com.thumb.pojo.PmsProduct;
+import com.thumb.pojo.PmsProductCategory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,9 +11,11 @@ import java.util.List;
 @Service
 public interface IndexService {
 
-    /**
-     * 获取正在推荐的品牌
-     * @return
-     */
-    List<Brand> BrandIndex();
+
+    List<HomeAdvertise> selectHomeAdvertise();
+
+    List<PmsProduct> getName(String name);
+
+    List<PmsProductCategory> getType();
+
 }

@@ -1,6 +1,7 @@
 package com.thumb.service.impl;
 
 import com.thumb.dto.OrderStatusDto;
+import com.thumb.pay.vo.AliPayInfoVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -88,6 +89,26 @@ public class OmsOrderServiceImpl implements OmsOrderService {
     public BigDecimal countOderByCreateTime(Integer dayNum) {
 //        omsOrderMapper.countByCreateTime(dayNum);
         return null;
+    }
+
+    @Override
+    public Date findFirstCreateTimeOrderByCreateTimeDesc() {
+        Date firstCreateTimeOrderByCreateTimeDesc = omsOrderMapper.findFirstCreateTimeOrderByCreateTimeDesc();
+        return firstCreateTimeOrderByCreateTimeDesc;
+    }
+
+    @Override
+    public int insertVo(AliPayInfoVo aliPayInfoVo) {
+
+        int i = omsOrderMapper.insertVo(aliPayInfoVo);
+        return i;
+    }
+
+    @Override
+    public Long selectOneIdByOrderSn(String orderSn) {
+        Long id = omsOrderMapper.selectOneIdByOrderSn(orderSn);
+
+        return id;
     }
 
 

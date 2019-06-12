@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="author" content="order by dede58.com"/>
+		<title>专题商品页</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	</head>
+	<body>
+	<!-- start header -->
+	<div id="header"></div>
+
+	<!-- start danpin -->
+		<div class="danpin center">
+			
+			<div class="biaoti center" id="title"></div>
+			<div class="main center" id="li1">
+
+
+				<div class="clear"></div>
+			</div>
+			<div class="main center mb20" id="li2">
+
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+
+		<footer class="mt20 center">			
+			<div class="mt20">共勉商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+			<div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
+		</footer>
+
+
+
+	<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
+	<!-- end danpin -->
+
+
+	<script>
+
+		$("#header").load("head.html");
+
+		function get(pageNow,pageSize) {
+
+			var  name = window.location.search.split("=")[1];
+			var  searchText =decodeURI(name);
+			alert(pageNow+":"+pageSize+":"+searchText)
+			//加载此品牌下的所有商品
+			$.ajax({
+				url: '/getName',
+				type: 'POST', //GET
+				contentType: "application/json",
+				dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+				data: JSON.stringify({
+					"name":searchText,
+					"pageNow": pageNow,
+					"pageSize": pageSize
+				}),
+				/*成功*/
+				success: function (data) {
+					var $li1 = $("#li1");
+					$li1.find("div").remove();
+					var $li2 = $("#li2");
+					$li2.find("div").remove();
+
+					var list = data.list;
+					$(list).each(function (index, val) {
+						var table = "<div class=\"mingxing fl mb20\" style=\"border:2px solid #fff;width:230px;cursor:pointer;\" onmouseout=\"this.style.border='2px solid #fff'\" onmousemove=\"this.style.border='2px solid red'\">\n" +
+								"\t\t\t\t\t<div class=\"sub_mingxing\"><a href=\"/main/xiangqing.html?id="+val.id+"\" target=\"_blank\"><img src=\""+val.pic+"\" alt=\"\"></a></div>\n" +
+								"\t\t\t\t\t<div class=\"pinpai\"><a href=\"xiangqing.html\" target=\"_blank\">"+val.name+"</a></div>\n" +
+								"\t\t\t\t\t<div class=\"youhui\">"+""+"</div>\n" +
+								"\t\t\t\t\t<div class=\"jiage\">"+val.price+"元</div>" +
+								"\t\t\t\t</div>";
+						if(index<5){
+							$li1.append(table)
+						}else {
+							$li2.append(table)
+						}
+						if(index==0){
+							$("#title").html(val.brand_name)
+						}
+					})
+				},
+				/*发生错误时*/
+				error: function (xhr, textStatus) {
+					alert("错误请求!!!")
+				}
+			});
+		}
+		get(1,10);
+	</script>
+	</body>
+</html>
