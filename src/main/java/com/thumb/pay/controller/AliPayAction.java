@@ -29,7 +29,14 @@ public class AliPayAction {
 //    String subject;
 //    String body;
 
-
+    /**
+     *
+     * @param out_trade_no //商户订单号，商户网站订单系统中唯一订单号，必填
+     * @param total_amount //付款金额，必填
+     * @param subject //订单名称，必填
+     * @param body //商品描述，可空
+     * @return
+     */
         public static String sendAliPay(String out_trade_no, String total_amount, String subject, String body){
 
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl,AlipayConfig.app_id,AlipayConfig.merchant_private_key,"json","UTF-8",AlipayConfig.alipay_public_key,AlipayConfig.sign_type);

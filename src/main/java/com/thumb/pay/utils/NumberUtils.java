@@ -5,6 +5,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class NumberUtils {
 
+    public static NumberUtils getNumberUtils() {
+        return numberUtils;
+    }
+
+    private static NumberUtils numberUtils = new NumberUtils();
 
     public static AtomicInteger getAtomicNum() {
         return atomicNum;
