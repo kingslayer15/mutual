@@ -75,8 +75,14 @@
             </div>
         </div>
         <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
-            <div class="grzlbt ml40">我的收藏</div>
+            <div class="grzlbt ml40" id="address">我的收藏夹
+                <div class="danpin center">
+                    <div class="main center" style="width: 758px;height: 500px;background: #fff" id="appenddiv">
+                        <div class="clear"></div>
+                    </div>
 
+                </div>
+            </div>
 
         </div>
         <div class="clear"></div>
@@ -92,51 +98,97 @@
 </footer>
 
 
-<script src="jquery/jquery-2.1.1.min.js"></script>
-<script>
-
-
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+    <script>
+    var memberId;
     $(function () {
         $("#header").load("header.html");
-    })
-
-    //获取用户id
-    var userId;
-    function getUserId() {
-        userId=window.location.search.split("=")[1]
-        // alert(userId)
-    }
-    getUserId();
-    //根据id获取用户信息
-    function getUserInfoById() {
         $.ajax({
-            url:'/userInfoById?userId='+userId,
-            type:'GET', //GET
+            async: false,
+            type: "get",
+            url: "/getMemberId",
+            contentType: "application/json",
+            success: function (data) {
+                console.log(data); //  2pm
+                memberId = data;
+
+            },
+            error: function (data) {
+                console.log(data);
+            },
+            dataType: "json"
+        });
+        $.ajax({
+            async: false,
+            url: '/getCollection?id='+memberId,
+            type:'get', //GET
             contentType:"application/json",
             dataType:'json',
             success:function(data){
-                console.log(data)
+                var appenddiv = $("#appenddiv");
+                var divHtml = "";
+                $(data).each(function (index,item) {
+                    divHtml+="<div class=\"mingxing fl\">\n" +
+                        "<div class=\"sub_mingxing\"><a href=\"/main/xiangqing.html?id="+item.id+"\"><img src=\""+item.pic+"\" alt=\"\"></a></div>\n" +
+                        "<div class=\"pinpai\"><a href=\"\">"+item.name+"</a></div>\n" +
+                        "<div class=\"youhui\"></div>\n" +
+                        "<div class=\"jiage\">"+item.price+"</div>\n" +
+                        "</div>\n"
+                })
+                appenddiv.empty();
 
-                $("#phone").html(data.phone);
-                $("#personalized_signature").html(data.personalized_signature);
-                $("#job").html(data.job);
-                $("#city").html(data.city);
+                appenddiv.append(divHtml)
+
+                console.log(data)
+                console.log(divHtml);
 
             },
             error:function(data){
-                console.error(data);
+                console.log(data);
             }
         })
-    }
-    getUserInfoById();
+    })
 
-    function toEdit() {
-        var url="self_info_edit.html";
-        window.location.href=url;
-    }
-
-
+//    $(function () {
+//        $("#header").load("header.html");
+//    })
+//
+//    //获取用户id
+//    var userId;
+//    function getUserId() {
+//        userId=window.location.search.split("=")[1]
+//        // alert(userId)
+//    }
+//    getUserId();
+//    //根据id获取用户信息
+//    function getUserInfoById() {
+//        $.ajax({
+//            url:'/userInfoById?userId='+userId,
+//            type:'GET', //GET
+//            contentType:"application/json",
+//            dataType:'json',
+//            success:function(data){
+//                console.log(data)
+//
+//                $("#phone").html(data.phone);
+//                $("#personalized_signature").html(data.personalized_signature);
+//                $("#job").html(data.job);
+//                $("#city").html(data.city);
+//
+//            },
+//            error:function(data){
+//                console.error(data);
+//            }
+//        })
+//    }
+//    getUserInfoById();
+//
+//    function toEdit() {
+//        var url="self_info_edit.html";
+//        window.location.href=url;
+//    }
 
 </script>
 </body>
+
 </html>

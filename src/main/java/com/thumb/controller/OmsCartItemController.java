@@ -3,8 +3,10 @@ package com.thumb.controller;
 
 import com.thumb.dto.OmsCartItemDto;
 import com.thumb.pojo.OmsCartItem;
+import com.thumb.pojo.PmsProductCollection;
 import com.thumb.pojo.UmsMember;
 import com.thumb.service.OmsCartItemService;
+import com.thumb.service.PmsProductCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,8 @@ public class OmsCartItemController {
 
     @Autowired
     OmsCartItemService omsCartItemService;
+    @Autowired
+    PmsProductCollectionService pmsProductCollectionService;
 
 
     @RequestMapping(value = "findByMemberId",method = RequestMethod.GET)
@@ -62,15 +66,25 @@ public class OmsCartItemController {
 
 
     @ResponseBody
-    @RequestMapping(value = "getMenberId",method = RequestMethod.GET)
+    @RequestMapping(value = "getMemberId",method = RequestMethod.GET)
     public Object getMenberId(HttpSession httpSession){
-
         UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
-
         Long memberId = umsMember.getId();
-
         return memberId;
 
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "insertCollection", method = RequestMethod.POST)
+    public Object insertCollection(@RequestBody OmsCartItemDto omsCartItemDto) {
+        System.out.println(omsCartItemDto);
+        int insert = pmsProductCollectionService.insertCollection(omsCartItemDto);
+        if (insert != 0) {
+            System.out.println(insert);
+            return true;
+        }
+        return false;
 
     }
 

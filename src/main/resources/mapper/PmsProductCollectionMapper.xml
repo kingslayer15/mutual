@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.PmsProductCollectionMapper">
+  <resultMap id="BaseResultMapDto" type="com.thumb.dto.OmsCartItemDto">
+    <result column="productId" property="productId"/>
+    <result column="productSkuId" property="productSkuId"/>
+    <result column="memberId" property="memberId"/>
+    <result column="quantity" property="quantity"/>
+    <result column="price" property="price"/>
+    <result column="sp1" property="sp1"/>
+    <result column="sp2" property="sp2"/>
+    <result column="productName" property="productName"/>
+    <result column="productSubTitle" property="productSubTitle"/>
+    <result column="memberNickname" property="memberNickname"/>
+    <result column="createDate" property="createDate"/>
+    <result column="deleteStatus" property="deleteStatus"/>
+    <result column="productCategoryId" property="productCategoryId"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+           id,
+           states,
+           product_id,
+           member_id
+  </sql>
+  <resultMap id="BaseResultMap" type="com.thumb.pojo.PmsProductCollection">
+    <!--@mbg.generated-->
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="states" jdbcType="INTEGER" property="states" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+  </resultMap>
+  <insert id="insertCollection" parameterType="com.thumb.dto.OmsCartItemDto">
+    <!--@mbg.generated-->
+    insert into pms_product_collection (product_id,
+    member_id)
+    values (#{productId,jdbcType=INTEGER},
+    #{memberId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insert" parameterType="com.thumb.pojo.PmsProductCollection">
+    <!--@mbg.generated-->
+    insert into pms_product_collection (id, states, product_id, 
+      member_id)
+    values (#{id,jdbcType=INTEGER}, #{states,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
+      #{memberId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.thumb.pojo.PmsProductCollection">
+    <!--@mbg.generated-->
+    insert into pms_product_collection
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="states != null">
+        states,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="memberId != null">
+        member_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="states != null">
+        #{states,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+    <select id="selectAllBymemberId" parameterType="long" resultType="com.thumb.pojo.PmsProduct">
+      select pp.* from pms_product_collection ppc,pms_product pp
+      where ppc.product_id=pp.id
+      and ppc.member_id=#{id}
+    </select>
+</mapper>
