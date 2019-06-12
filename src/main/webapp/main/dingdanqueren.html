@@ -183,7 +183,7 @@
 <script>
     var totalNum=0;
     var totalPrice = 0;
-    var sumProductName ="";
+    var productName ="";
     var realTotalPrice = 0;
 
     var province = "";
@@ -203,9 +203,18 @@
             success: function (data) {
 
                 $(data).each(function (index, item) {
+
                     totalPrice += item.price;
                     totalNum++;
-                    sumProductName += item.productName+"和";
+
+                    if (index == 0){
+                        if ($(data).length > 1) {
+                            productName = item.productName +"等商品";
+                        }else {
+                            productName = item.productName;
+                        }
+
+                    }
 
                     $("#J_goodsList").append("<li class=\"clearfix\">\n" +
                         "                            <div class=\"col col-img\">\n" +
@@ -300,13 +309,13 @@
                             self.className = "address-item J_addressItem selected";
 
                             province = item.province;
-                            alert(province);
+
                             city = item.city;
-                            alert(city);
+
                             region = item.region;
-                            alert(region);
+
                             detail_address = item.detailAddress;
-                            alert(detail_address);
+
 
                         });
 
@@ -351,7 +360,7 @@
 
     function pay() {
         $("input[name='pay_amount']").val(totalPrice);
-        $("input[name='subject']").val(sumProductName);
+        $("input[name='subject']").val(productName);
         $("input[name='body']").val("222");
         $("input[name='receiverProvince']").val(province);
         $("input[name='receiverCity']").val(city);

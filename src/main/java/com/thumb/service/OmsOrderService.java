@@ -41,4 +41,7 @@ public interface OmsOrderService {
 
     int insertVo(AliPayInfoVo aliPayInfoVo);
 
+    Long selectOneIdByOrderSn(String orderSn);
+
+
 }
