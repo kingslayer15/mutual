@@ -320,90 +320,88 @@
               p-id="7987"></path>
     </symbol>
 </svg>
-
-<!--<script src="./mall-admin-web_files/tinymce.min.js"></script>-->
+<script src="./mall-admin-web_files/tinymce.min.js"></script>
 <div id="app">
     <div data-v-0ef526f4="" class="app-wrapper">
         <div data-v-69d4f5dd="" data-v-0ef526f4="" class="scroll-container sidebar-container">
             <div data-v-69d4f5dd="" class="scroll-wrapper" style="top: 0px;">
                 <ul role="menubar" class="el-menu" show-timeout="200" data-v-69d4f5dd=""
                     style="background-color: rgb(48, 65, 86);">
-                    <div class="menu-wrapper"><!----><!----><a href="http://39.98.190.128/index.html#/home" class="">
-                        <li role="menuitem" tabindex="-1" class="el-menu-item submenu-title-noDropdown"
-                            style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                            <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
-                            </svg>
-                            <span>首页</span></li>
-                    </a>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-active is-opened"
-                            aria-expanded="true">
-                            <div class="el-submenu__title"
-                                 style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                    <div class="menu-wrapper">
+                        <a href="http://39.98.190.128/index.html#/home" class="">
+                            <li role="menuitem" tabindex="-1" class="el-menu-item submenu-title-noDropdown"
+                                style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                    <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
+                                </svg>
+                                <span>首页</span>
+                            </li>
+                        </a>
+                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
+                            <div class="el-submenu__title" style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);" onclick="a1()">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-product"></use>
                                 </svg>
                                 <span slot="title">商品</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
-                                    href="http://39.98.190.128/index.html#/pms/product"
-                                    class="router-link-exact-active router-link-active">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
-                                    style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
-                                    </svg>
-                                    <span>商品列表</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/pms/addProduct" class="">
+                            <ul role="menu" class="el-menu el-menu--inline" style=" display: none; "
+                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow="" id="a">
+                                <a href="http://39.98.190.128/index.html#/pms/product" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
+                                        </svg>
+                                        <span>商品列表</span>
+                                    </li>
+                                </a><a href="http://39.98.190.128/index.html#/pms/addProduct" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-add"></use>
                                     </svg>
                                     <span>添加商品</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/pms/productCate"
-                                                        class="">
+                            </a><a href="http://39.98.190.128/index.html#/pms/productCate"
+                                   class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-cate"></use>
                                     </svg>
                                     <span>商品分类</span></li>
-                            </a><!----><!----><a href="http://39.98.190.128/index.html#/pms/productAttr" class="">
+                            </a><a href="http://39.98.190.128/index.html#/pms/productAttr" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-attr"></use>
                                     </svg>
                                     <span>商品类型</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/pms/brand" class="">
+                            </a><a href="http://39.98.190.128/index.html#/pms/brand" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
                                     </svg>
                                     <span>品牌管理</span></li>
-                            </a><!----><!----></ul>
+                            </a>
+                            </ul>
                         </li>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
-                            <div class="el-submenu__title"
-                                 style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-active is-opened" aria-expanded="true">
+                            <div class="el-submenu__title" style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);" onclick="b1()">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-order"></use>
                                 </svg>
                                 <span slot="title">订单</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
-                                    href="http://39.98.190.128/index.html#/oms/order" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
-                                    </svg>
-                                    <span>订单列表</span></li>
-                            </a><!----><!----><a href="http://39.98.190.128/index.html#/oms/orderSetting" class="">
+                            <ul role="menu" class="el-menu el-menu--inline" data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""
+                                style="display: none;" id="b">
+                                <a href="http://39.98.190.128/index.html#/oms/order" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
+                                        </svg>
+                                        <span>订单列表</span></li>
+                                </a><!----><!----><a href="http://39.98.190.128/index.html#/oms/orderSetting" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -417,9 +415,10 @@
                                         <use data-v-81d70f2a="" xlink:href="#icon-order-return"></use>
                                     </svg>
                                     <span>退货申请处理</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnReason" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                            </a><a href="http://39.98.190.128/index.html#/oms/returnReason"
+                                   class="router-link-exact-active router-link-active">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
+                                    style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-order-return-reason"></use>
                                     </svg>
@@ -427,66 +426,46 @@
                             </a><!----></ul>
                         </li>
                         <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
-                            <div class="el-submenu__title"
-                                 style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                            <div class="el-submenu__title" style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);"  onclick="c1()">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-sms"></use>
                                 </svg>
                                 <span slot="title">营销</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
-                                    href="http://39.98.190.128/index.html#/sms/flash" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-flash"></use>
-                                    </svg>
-                                    <span>秒杀活动列表</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/coupon" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-coupon"></use>
-                                    </svg>
-                                    <span>优惠券列表</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/brand" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
-                                    </svg>
-                                    <span>品牌推荐</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/sms/new" class="">
+                            <ul role="menu" class="el-menu el-menu--inline" style="display: none;background-color: rgb(48, 65, 86);"
+                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow="" id="c">
+                                <a href="/background/brands.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
+                                        </svg>
+                                        <span>品牌推荐</span></li>
+                                </a><a href="/background/new.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-new"></use>
                                     </svg>
                                     <span>新品推荐</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/sms/hot" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-hot"></use>
-                                    </svg>
-                                    <span>人气推荐</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/sms/subject" class="">
+                            </a><a href="/background/subject.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-subject"></use>
                                     </svg>
                                     <span>专题推荐</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/sms/advertise" class="">
+                            </a><a href="/background/advertise.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-ad"></use>
                                     </svg>
                                     <span>广告列表</span></li>
-                            </a><!----><!----></ul>
-                        </li><!----></div>
+                            </a>
+                            </ul>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -527,7 +506,7 @@
                 <div data-v-453b378a="" class="avatar-container el-dropdown" tabindex="0">
                     <div data-v-453b378a="" class="avatar-wrapper el-dropdown-selfdefine" aria-haspopup="list"
                          aria-controls="dropdown-menu-5061" role="button" tabindex="0"><img data-v-453b378a=""
-                                                                                            src="\mall-admin-web_files\5a9d248cN071f4959.jpg"
+                                                                                            src="./mall-admin-web_files/timg.jpg"
                                                                                             class="user-avatar"> <i
                             data-v-453b378a="" class="el-icon-caret-bottom"></i></div>
                     <ul data-v-453b378a="" class="el-dropdown-menu el-popper user-dropdown" id="dropdown-menu-5061"
@@ -550,83 +529,160 @@
                         <div class="el-card__body">
                             <div><i class="el-icon-search"></i> <span>筛选搜索</span>
                                 <button type="button" class="el-button el-button--primary el-button--small"
-                                        style="float: right;" onclick="submitForm()">
-                                    <span>查询结果</span>
-                                </button>
+                                        style="float: right;"><!----><!----><span>
+        查询结果
+      </span></button>
                                 <button type="button" class="el-button el-button--default el-button--small"
-                                        style="float: right; margin-right: 15px;" onclick="resetCondition()"><!---->
-                                    <!----><span>
+                                        style="float: right; margin-right: 15px;"><!----><!----><span>
         重置
       </span></button>
                             </div>
                             <div style="margin-top: 15px;">
-                                <form class="el-form el-form--inline" id="findByCondition">
+                                <form class="el-form el-form--inline">
                                     <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
                                                                                          style="width: 140px;">输入搜索：</label>
                                         <div class="el-form-item__content">
-                                            <div class="el-input el-input--small" style="width: 203px;"><!---->
-                                                <input type="text" autocomplete="off" placeholder="商品名称"
-                                                       class="el-input__inner" id="productName">
-                                            </div>
-                                        </div>
+                                            <div class="el-input el-input--small" style="width: 203px;"><!----><input
+                                                    type="text" autocomplete="off" placeholder="商品名称"
+                                                    class="el-input__inner"><!----><!----><!----></div><!----></div>
                                     </div>
                                     <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
                                                                                          style="width: 140px;">商品货号：</label>
                                         <div class="el-form-item__content">
-                                            <div class="el-input el-input--small" style="width: 203px;">
-                                                <input type="text" autocomplete="off" placeholder="商品货号"
-                                                       class="el-input__inner" id="productSn"><!----><!----><!---->
-                                            </div><!----></div>
+                                            <div class="el-input el-input--small" style="width: 203px;"><!----><input
+                                                    type="text" autocomplete="off" placeholder="商品货号"
+                                                    class="el-input__inner"><!----><!----><!----></div><!----></div>
                                     </div>
-                                    <div class="el-form-item el-form-item--small">
-                                        <label class="el-form-item__label" style="width: 140px;">商品分类：</label>
-
-                                        <div class="el-form-item__content">
-                                            <!--<span class="el-cascader el-cascader&#45;&#45;small">
-                                            <div class="el-input el-input&#45;&#45;small el-input&#45;&#45;suffix">
-                                                <input type="text" autocomplete="off" readonly="readonly" placeholder="请选择"
-                                                class="el-input__inner" value=""><span
+                                    <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
+                                                                                         style="width: 140px;">商品分类：</label>
+                                        <div class="el-form-item__content"><span class="el-cascader el-cascader--small"><div
+                                                class="el-input el-input--small el-input--suffix"><!----><input
+                                                type="text" autocomplete="off" readonly="readonly" placeholder="请选择"
+                                                class="el-input__inner" value=""><!----><span
                                                 class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                class="el-input__icon el-icon-arrow-down"></i></span>
-                                           </span></div><span class="el-cascader__label"></span></span>
-                                            -->
-                                            <select id="productCategory">
-                                                <option value="">请选择..</option>
-                                                <!--<option value="volvo">Volvo</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="opel">Opel</option>
-                                                <option value="audi">Audi</option>-->
-
-                                            </select>
-                                        </div>
+                                                class="el-input__icon el-icon-arrow-down"></i><!----></span>
+                                            <!----></span><!----></div><span class="el-cascader__label"></span></span>
+                                            <!----></div>
                                     </div>
                                     <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
                                                                                          style="width: 140px;">商品品牌：</label>
                                         <div class="el-form-item__content">
-                                            <select id="productBrand">
-                                                <option value="">请选择..</option>
-                                            </select>
-                                        </div>
+                                            <div class="el-select el-select--small"><!---->
+                                                <div class="el-input el-input--small el-input--suffix"><!----><input
+                                                        type="text" autocomplete="off" placeholder="请选择品牌"
+                                                        readonly="readonly" class="el-input__inner"><!----><span
+                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
+                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                    <!----></span><!----></span><!----></div>
+                                                <div class="el-select-dropdown el-popper"
+                                                     style="display: none; min-width: 192px;">
+                                                    <div class="el-scrollbar" style="">
+                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                             style="margin-bottom: -15px; margin-right: -15px;">
+                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                <!---->
+                                                                <li class="el-select-dropdown__item"><span>小米</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>七匹狼</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>海澜之家</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>苹果</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>三星</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>华为</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>格力</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>方太</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>万和</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>OPPO</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>NIKE</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="el-scrollbar__bar is-horizontal">
+                                                            <div class="el-scrollbar__thumb"
+                                                                 style="transform: translateX(0%);"></div>
+                                                        </div>
+                                                        <div class="el-scrollbar__bar is-vertical">
+                                                            <div class="el-scrollbar__thumb"
+                                                                 style="transform: translateY(0%);"></div>
+                                                        </div>
+                                                    </div><!----></div>
+                                            </div><!----></div>
                                     </div>
-                                    <div class="el-form-item el-form-item--small">
-                                        <label class="el-form-item__label" style="width: 140px;">上架状态：</label>
+                                    <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
+                                                                                         style="width: 140px;">上架状态：</label>
                                         <div class="el-form-item__content">
-                                            <select id="publishStatus">
-                                                <option value="-1">请选择..</option>
-                                                <option value="1">上架</option>
-                                                <option value="0">下架</option>
-                                            </select>
-                                        </div>
+                                            <div class="el-select el-select--small"><!---->
+                                                <div class="el-input el-input--small el-input--suffix"><!----><input
+                                                        type="text" autocomplete="off" placeholder="全部"
+                                                        readonly="readonly" class="el-input__inner"><!----><span
+                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
+                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                    <!----></span><!----></span><!----></div>
+                                                <div class="el-select-dropdown el-popper"
+                                                     style="display: none; min-width: 192px;">
+                                                    <div class="el-scrollbar" style="">
+                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                             style="margin-bottom: -15px; margin-right: -15px;">
+                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                <!---->
+                                                                <li class="el-select-dropdown__item"><span>上架</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>下架</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="el-scrollbar__bar is-horizontal">
+                                                            <div class="el-scrollbar__thumb"
+                                                                 style="transform: translateX(0%);"></div>
+                                                        </div>
+                                                        <div class="el-scrollbar__bar is-vertical">
+                                                            <div class="el-scrollbar__thumb"
+                                                                 style="transform: translateY(0%);"></div>
+                                                        </div>
+                                                    </div><!----></div>
+                                            </div><!----></div>
                                     </div>
-                                    <div class="el-form-item el-form-item--small">
-                                        <label class="el-form-item__label" style="width: 140px;">审核状态：</label>
+                                    <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
+                                                                                         style="width: 140px;">审核状态：</label>
                                         <div class="el-form-item__content">
-                                            <select id="verify_status">
-                                                <option value="-1">请选择..</option>
-                                                <option value="1">已审核</option>
-                                                <option value="0">未审核</option>
-                                            </select>
-                                        </div>
+                                            <div class="el-select el-select--small"><!---->
+                                                <div class="el-input el-input--small el-input--suffix"><!----><input
+                                                        type="text" autocomplete="off" placeholder="全部"
+                                                        readonly="readonly" class="el-input__inner"><!----><span
+                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
+                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                    <!----></span><!----></span><!----></div>
+                                                <div class="el-select-dropdown el-popper"
+                                                     style="display: none; min-width: 192px;">
+                                                    <div class="el-scrollbar" style="">
+                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                             style="margin-bottom: -15px; margin-right: -15px;">
+                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                <!---->
+                                                                <li class="el-select-dropdown__item"><span>审核通过</span>
+                                                                </li>
+                                                                <li class="el-select-dropdown__item"><span>未审核</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="el-scrollbar__bar is-horizontal">
+                                                            <div class="el-scrollbar__thumb"
+                                                                 style="transform: translateX(0%);"></div>
+                                                        </div>
+                                                        <div class="el-scrollbar__bar is-vertical">
+                                                            <div class="el-scrollbar__thumb"
+                                                                 style="transform: translateY(0%);"></div>
+                                                        </div>
+                                                    </div><!----></div>
+                                            </div><!----></div>
                                     </div>
                                 </form>
                             </div>
@@ -634,9 +690,10 @@
                     </div>
                     <div class="el-card operate-container is-never-shadow"><!---->
                         <div class="el-card__body"><i class="el-icon-tickets"></i> <span>数据列表</span>
-                            <button type="button" class="el-button btn-add el-button--default el-button--mini"
-                                    onclick="jumptoAddProduct()"><!---->
-                                <!----><span>添加</span></button>
+                            <button type="button" class="el-button btn-add el-button--default el-button--mini"><!---->
+                                <!----><span>
+      添加
+    </span></button>
                         </div>
                     </div>
                     <div class="table-container">
@@ -657,17 +714,17 @@
                             </div>
                             <div class="el-table__header-wrapper">
                                 <table cellspacing="0" cellpadding="0" border="0" class="el-table__header"
-                                       style="width: 1294px;">
+                                       style="width: 1444px;">
                                     <colgroup>
                                         <col name="el-table_2_column_12" width="60">
                                         <col name="el-table_2_column_13" width="100">
                                         <col name="el-table_2_column_14" width="120">
-                                        <col name="el-table_2_column_15" width="244">
+                                        <col name="el-table_2_column_15" width="344">
                                         <col name="el-table_2_column_16" width="120">
                                         <col name="el-table_2_column_17" width="140">
                                         <col name="el-table_2_column_18" width="100">
-                                        <col name="el-table_2_column_19" width="75">
-                                        <col name="el-table_2_column_20" width="75">
+                                        <col name="el-table_2_column_19" width="100">
+                                        <col name="el-table_2_column_20" width="100">
                                         <col name="el-table_2_column_21" width="100">
                                         <col name="el-table_2_column_22" width="160">
                                         <col name="gutter" width="0">
@@ -721,22 +778,21 @@
                             </div>
                             <div class="el-table__body-wrapper is-scrolling-none">
                                 <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
-                                       style="width: 1294px;">
+                                       style="width: 1444px;">
                                     <colgroup>
                                         <col name="el-table_2_column_12" width="60">
                                         <col name="el-table_2_column_13" width="100">
                                         <col name="el-table_2_column_14" width="120">
-                                        <col name="el-table_2_column_15" width="244">
+                                        <col name="el-table_2_column_15" width="344">
                                         <col name="el-table_2_column_16" width="120">
                                         <col name="el-table_2_column_17" width="140">
                                         <col name="el-table_2_column_18" width="100">
-                                        <col name="el-table_2_column_19" width="75">
-                                        <col name="el-table_2_column_20" width="75">
+                                        <col name="el-table_2_column_19" width="100">
+                                        <col name="el-table_2_column_20" width="100">
                                         <col name="el-table_2_column_21" width="100">
                                         <col name="el-table_2_column_22" width="160">
                                     </colgroup>
-
-                                    <tbody id="dataTr">
+                                    <tbody>
                                     <tr class="el-table__row">
                                         <td class="el-table_2_column_12 is-center el-table-column--selection">
                                             <div class="cell"><label role="checkbox" class="el-checkbox"><span
@@ -751,7 +807,7 @@
                                             <div class="cell">26</div>
                                         </td>
                                         <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell"><img src="/mall-admin-web_files/5ac1bf58Ndefaac16.jpg"
+                                            <div class="cell"><img src="./mall-admin-web_files/5ac1bf58Ndefaac16.jpg"
                                                                    style="height: 80px;"></div>
                                         </td>
                                         <td class="el-table_2_column_15 is-center ">
@@ -763,9 +819,7 @@
                                                 <p>货号：6946605</p></div>
                                         </td>
                                         <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">
-                                                <p>
-                                                    上架：
+                                            <div class="cell"><p>上架：
                                                 <div role="switch" aria-checked="true" class="el-switch is-checked">
                                                     <input type="checkbox" name="" true-value="1" false-value="0"
                                                            class="el-switch__input"><!----><span class="el-switch__core"
@@ -801,7 +855,8 @@
                                             <div class="cell"><p>未审核</p>
                                                 <p>
                                                     <button type="button" class="el-button el-button--text"><!---->
-                                                        <!----><span>审核详情</span></button>
+                                                        <!----><span>审核详情
+            </span></button>
                                                 </p>
                                             </div>
                                         </td>
@@ -813,9 +868,9 @@
                                                         <!----><span>查看
             </span></button>
                                                     <button type="button"
-                                                            class="el-button el-button--default el-button--mini"
-                                                            onclick="jumptoUpdateProduct()"><!---->
-                                                        <span>编辑</span></button>
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>编辑
+            </span></button>
                                                 </p>
                                                 <p>
                                                     <button type="button"
@@ -830,7 +885,376 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    </tbody>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_2_column_12 is-center el-table-column--selection">
+                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
+                                                    aria-checked="mixed" class="el-checkbox__input"><span
+                                                    class="el-checkbox__inner"></span><input type="checkbox"
+                                                                                             aria-hidden="true"
+                                                                                             class="el-checkbox__original"
+                                                                                             value=""></span><!---->
+                                            </label></div>
+                                        </td>
+                                        <td class="el-table_2_column_13 is-center ">
+                                            <div class="cell">27</div>
+                                        </td>
+                                        <td class="el-table_2_column_14 is-center ">
+                                            <div class="cell"><img src="./mall-admin-web_files/xiaomi.jpg"
+                                                                   style="height: 80px;"></div>
+                                        </td>
+                                        <td class="el-table_2_column_15 is-center ">
+                                            <div class="cell"><p>小米8 全面屏游戏智能手机 6GB+64GB 黑色 全网通4G 双卡双待</p>
+                                                <p>品牌：小米</p></div>
+                                        </td>
+                                        <td class="el-table_2_column_16 is-center ">
+                                            <div class="cell"><p>价格：￥2699</p>
+                                                <p>货号：7437788</p></div>
+                                        </td>
+                                        <td class="el-table_2_column_17 is-center ">
+                                            <div class="cell"><p>上架：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p> <p>新品：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p> <p>推荐：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p></div>
+                                        </td>
+                                        <td class="el-table_2_column_18 is-center ">
+                                            <div class="cell">0</div>
+                                        </td>
+                                        <td class="el-table_2_column_19 is-center ">
+                                            <div class="cell">
+                                                <button type="button" class="el-button el-button--primary is-circle">
+                                                    <!----><i class="el-icon-edit"></i><!----></button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_2_column_20 is-center ">
+                                            <div class="cell">0</div>
+                                        </td>
+                                        <td class="el-table_2_column_21 is-center ">
+                                            <div class="cell"><p>未审核</p>
+                                                <p>
+                                                    <button type="button" class="el-button el-button--text"><!---->
+                                                        <!----><span>审核详情
+            </span></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_2_column_22 is-center ">
+                                            <div class="cell">
+                                                <p>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>查看
+            </span></button>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>编辑
+            </span></button>
+                                                </p>
+                                                <p>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>日志
+            </span></button>
+                                                    <button type="button"
+                                                            class="el-button el-button--danger el-button--mini"><!---->
+                                                        <!----><span>删除
+            </span></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_2_column_12 is-center el-table-column--selection">
+                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
+                                                    aria-checked="mixed" class="el-checkbox__input"><span
+                                                    class="el-checkbox__inner"></span><input type="checkbox"
+                                                                                             aria-hidden="true"
+                                                                                             class="el-checkbox__original"
+                                                                                             value=""></span><!---->
+                                            </label></div>
+                                        </td>
+                                        <td class="el-table_2_column_13 is-center ">
+                                            <div class="cell">28</div>
+                                        </td>
+                                        <td class="el-table_2_column_14 is-center ">
+                                            <div class="cell"><img src="./mall-admin-web_files/5a9d248cN071f4959.jpg"
+                                                                   style="height: 80px;"></div>
+                                        </td>
+                                        <td class="el-table_2_column_15 is-center ">
+                                            <div class="cell"><p>小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待</p>
+                                                <p>品牌：小米</p></div>
+                                        </td>
+                                        <td class="el-table_2_column_16 is-center ">
+                                            <div class="cell"><p>价格：￥649</p>
+                                                <p>货号：7437789</p></div>
+                                        </td>
+                                        <td class="el-table_2_column_17 is-center ">
+                                            <div class="cell"><p>上架：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p> <p>新品：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p> <p>推荐：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p></div>
+                                        </td>
+                                        <td class="el-table_2_column_18 is-center ">
+                                            <div class="cell">0</div>
+                                        </td>
+                                        <td class="el-table_2_column_19 is-center ">
+                                            <div class="cell">
+                                                <button type="button" class="el-button el-button--primary is-circle">
+                                                    <!----><i class="el-icon-edit"></i><!----></button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_2_column_20 is-center ">
+                                            <div class="cell">0</div>
+                                        </td>
+                                        <td class="el-table_2_column_21 is-center ">
+                                            <div class="cell"><p>未审核</p>
+                                                <p>
+                                                    <button type="button" class="el-button el-button--text"><!---->
+                                                        <!----><span>审核详情
+            </span></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_2_column_22 is-center ">
+                                            <div class="cell">
+                                                <p>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>查看
+            </span></button>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>编辑
+            </span></button>
+                                                </p>
+                                                <p>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>日志
+            </span></button>
+                                                    <button type="button"
+                                                            class="el-button el-button--danger el-button--mini"><!---->
+                                                        <!----><span>删除
+            </span></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_2_column_12 is-center el-table-column--selection">
+                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
+                                                    aria-checked="mixed" class="el-checkbox__input"><span
+                                                    class="el-checkbox__inner"></span><input type="checkbox"
+                                                                                             aria-hidden="true"
+                                                                                             class="el-checkbox__original"
+                                                                                             value=""></span><!---->
+                                            </label></div>
+                                        </td>
+                                        <td class="el-table_2_column_13 is-center ">
+                                            <div class="cell">29</div>
+                                        </td>
+                                        <td class="el-table_2_column_14 is-center ">
+                                            <div class="cell"><img src="./mall-admin-web_files/5acc5248N6a5f81cd.jpg"
+                                                                   style="height: 80px;"></div>
+                                        </td>
+                                        <td class="el-table_2_column_15 is-center ">
+                                            <div class="cell"><p>Apple iPhone 8 Plus 64GB 红色特别版 移动联通电信4G手机</p>
+                                                <p>品牌：苹果</p></div>
+                                        </td>
+                                        <td class="el-table_2_column_16 is-center ">
+                                            <div class="cell"><p>价格：￥5499</p>
+                                                <p>货号：7437799</p></div>
+                                        </td>
+                                        <td class="el-table_2_column_17 is-center ">
+                                            <div class="cell"><p>上架：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p> <p>新品：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p> <p>推荐：
+                                                <div role="switch" class="el-switch"><input type="checkbox" name=""
+                                                                                            true-value="1"
+                                                                                            false-value="0"
+                                                                                            class="el-switch__input">
+                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p></div>
+                                        </td>
+                                        <td class="el-table_2_column_18 is-center ">
+                                            <div class="cell">0</div>
+                                        </td>
+                                        <td class="el-table_2_column_19 is-center ">
+                                            <div class="cell">
+                                                <button type="button" class="el-button el-button--primary is-circle">
+                                                    <!----><i class="el-icon-edit"></i><!----></button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_2_column_20 is-center ">
+                                            <div class="cell">0</div>
+                                        </td>
+                                        <td class="el-table_2_column_21 is-center ">
+                                            <div class="cell"><p>未审核</p>
+                                                <p>
+                                                    <button type="button" class="el-button el-button--text"><!---->
+                                                        <!----><span>审核详情
+            </span></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_2_column_22 is-center ">
+                                            <div class="cell">
+                                                <p>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>查看
+            </span></button>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>编辑
+            </span></button>
+                                                </p>
+                                                <p>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>日志
+            </span></button>
+                                                    <button type="button"
+                                                            class="el-button el-button--danger el-button--mini"><!---->
+                                                        <!----><span>删除
+            </span></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_2_column_12 is-center el-table-column--selection">
+                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
+                                                    aria-checked="mixed" class="el-checkbox__input"><span
+                                                    class="el-checkbox__inner"></span><input type="checkbox"
+                                                                                             aria-hidden="true"
+                                                                                             class="el-checkbox__original"
+                                                                                             value=""></span><!---->
+                                            </label></div>
+                                        </td>
+                                        <td class="el-table_2_column_13 is-center ">
+                                            <div class="cell">30</div>
+                                        </td>
+                                        <td class="el-table_2_column_14 is-center ">
+                                            <div class="cell"><img
+                                                    src="./mall-admin-web_files/5ad83a4fN6ff67ecd.jpg!cc_350x449.jpg"
+                                                    style="height: 80px;"></div>
+                                        </td>
+                                        <td class="el-table_2_column_15 is-center ">
+                                            <div class="cell"><p>HLA海澜之家简约动物印花短袖T恤</p>
+                                                <p>品牌：海澜之家</p></div>
+                                        </td>
+                                        <td class="el-table_2_column_16 is-center ">
+                                            <div class="cell"><p>价格：￥98</p>
+                                                <p>货号：HNTBJ2E042A</p></div>
+                                        </td>
+                                        <td class="el-table_2_column_17 is-center ">
+                                            <div class="cell"><p>上架：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p> <p>新品：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p> <p>推荐：
+                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
+                                                    <input type="checkbox" name="" true-value="1" false-value="0"
+                                                           class="el-switch__input"><!----><span class="el-switch__core"
+                                                                                                 style="width: 40px;"></span>
+                                                    <!----></div>
+                                                </p></div>
+                                        </td>
+                                        <td class="el-table_2_column_18 is-center ">
+                                            <div class="cell">0</div>
+                                        </td>
+                                        <td class="el-table_2_column_19 is-center ">
+                                            <div class="cell">
+                                                <button type="button" class="el-button el-button--primary is-circle">
+                                                    <!----><i class="el-icon-edit"></i><!----></button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_2_column_20 is-center ">
+                                            <div class="cell">0</div>
+                                        </td>
+                                        <td class="el-table_2_column_21 is-center ">
+                                            <div class="cell"><p>未审核</p>
+                                                <p>
+                                                    <button type="button" class="el-button el-button--text"><!---->
+                                                        <!----><span>审核详情
+            </span></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_2_column_22 is-center ">
+                                            <div class="cell">
+                                                <p>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>查看
+            </span></button>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>编辑
+            </span></button>
+                                                </p>
+                                                <p>
+                                                    <button type="button"
+                                                            class="el-button el-button--default el-button--mini"><!---->
+                                                        <!----><span>日志
+            </span></button>
+                                                    <button type="button"
+                                                            class="el-button el-button--danger el-button--mini"><!---->
+                                                        <!----><span>删除
+            </span></button>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr><!----></tbody>
                                 </table><!----><!----></div><!----><!----><!----><!---->
                             <div class="el-table__column-resize-proxy" style="display: none;"></div>
                             <div class="el-loading-mask" style="display: none;">
@@ -879,32 +1303,7 @@
       确定
     </span></button>
                     </div>
-
-
-                    <!--<div class="el-select-dropdown el-popper"
-                         style="min-width: 110px; position: absolute; top: 1050px; left: 1062px; transform-origin: center bottom; z-index: 2001;"
-                         x-placement="top-start">
-                        <div class="el-scrollbar" style="">
-                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                 style="margin-bottom: -17px; margin-right: -17px;">
-                                <ul class="el-scrollbar__view el-select-dropdown__list">&lt;!&ndash;&ndash;&gt;
-                                    <li class="el-select-dropdown__item selected hover"><span>5条/页</span></li>
-                                    <li class="el-select-dropdown__item"><span>10条/页</span></li>
-                                    <li class="el-select-dropdown__item"><span>15条/页</span></li>
-                                </ul>
-                            </div>
-                            <div class="el-scrollbar__bar is-horizontal">
-                                <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-                            </div>
-                            <div class="el-scrollbar__bar is-vertical">
-                                <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-                            </div>
-                        </div>&lt;!&ndash;&ndash;&gt;
-                        <div x-arrow="" class="popper__arrow" style="left: 35px;"></div>
-                    </div>-->
-
-
-                    <div class="pagination-container" id="pagination">
+                    <div class="pagination-container">
                         <div class="el-pagination is-background"><span class="el-pagination__total">共 11 条</span><span
                                 class="el-pagination__sizes"><div class="el-select"><!----><div
                                 class="el-input el-input--suffix"><!----><input type="text" autocomplete="off"
@@ -912,29 +1311,19 @@
                                                                                 class="el-input__inner"><!----><span
                                 class="el-input__suffix"><span class="el-input__suffix-inner"><i
                                 class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
-                            <!----></span><!----></div>
-                           <div class="el-select-dropdown el-popper"
-                                style="min-width: 110px; position: absolute; top: 1050px; left: 1062px; transform-origin: center bottom; z-index: 2001;"
-                                x-placement="top-start">
-                        <div class="el-scrollbar" style="">
-                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                 style="margin-bottom: -17px; margin-right: -17px;">
-                                <ul class="el-scrollbar__view el-select-dropdown__list">&lt;!&ndash;&ndash;&gt;
-                                    <li class="el-select-dropdown__item selected hover"><span>5条/页</span></li>
-                                    <li class="el-select-dropdown__item"><span>10条/页</span></li>
-                                    <li class="el-select-dropdown__item"><span>15条/页</span></li>
-                                </ul>
-                            </div>
-                            <div class="el-scrollbar__bar is-horizontal">
-                                <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-                            </div>
-                            <div class="el-scrollbar__bar is-vertical">
-                                <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-                            </div>
-                        </div>&lt;!&ndash;&ndash;&gt;
-                        <div x-arrow="" class="popper__arrow" style="left: 35px;"></div>
-                    </div>
-                        </div></span>
+                            <!----></span><!----></div><div class="el-select-dropdown el-popper"
+                                                            style="display: none; min-width: 110px;"><div
+                                class="el-scrollbar" style=""><div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                   style="margin-bottom: -15px; margin-right: -15px;"><ul
+                                class="el-scrollbar__view el-select-dropdown__list"><!----><li
+                                class="el-select-dropdown__item selected"><span>5条/页</span></li><li
+                                class="el-select-dropdown__item"><span>10条/页</span></li><li
+                                class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
+                                class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb"
+                                                                             style="transform: translateX(0%);"></div></div><div
+                                class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb"
+                                                                           style="transform: translateY(0%);"></div></div></div>
+                            <!----></div></div></span>
                             <button type="button" disabled="disabled" class="btn-prev"><i
                                     class="el-icon el-icon-arrow-left"></i></button>
                             <ul class="el-pager">
@@ -969,28 +1358,43 @@
         </div>
     </div>
 </div>
+<script>
+    var a = 0;
+    var b = 0;
+    var c = 0;
 
-<div class="el-select-dropdown el-popper"
-     style="min-width: 110px; position: absolute; top: 1050px; left: 1062px; transform-origin: center bottom; z-index: 2001; display: none"
-     x-placement="top-start" id="splitPage">
-    <div class="el-scrollbar" style="">
-        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-             style="margin-bottom: -17px; margin-right: -17px;">
-            <ul class="el-scrollbar__view el-select-dropdown__list">&lt;!&ndash;&ndash;&gt;
-                <li class="el-select-dropdown__item selected hover"><span>5条/页</span></li>
-                <li class="el-select-dropdown__item"><span>10条/页</span></li>
-                <li class="el-select-dropdown__item"><span>15条/页</span></li>
-            </ul>
-        </div>
-        <div class="el-scrollbar__bar is-horizontal">
-            <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-        </div>
-        <div class="el-scrollbar__bar is-vertical">
-            <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-        </div>
-    </div>&lt;!&ndash;&ndash;&gt;
-    <div x-arrow="" class="popper__arrow" style="left: 35px;"></div>
-</div>
+    function a1() {
+
+        if(a==0){
+            $("#a").attr('style', 'background-color: rgb(48, 65, 86); ');
+            a=1;
+        } else if(a==1){
+            $("#a").attr('style', 'display:none; ');
+            a=0;
+        }
+    }
+    function b1() {
+
+        if(b==0){
+            $("#b").attr('style', 'background-color: rgb(48, 65, 86); ');
+            b=1;
+        } else if(b==1){
+            $("#b").attr('style', 'display:none; ');
+            b=0;
+        }
+    }
+    function c1() {
+
+        if(c==0){
+            $("#c").attr('style', 'background-color: rgb(48, 65, 86); ');
+            c=1;
+        } else if(c==1){
+            $("#c").attr('style', 'display:none; ');
+            c=0;
+        }
+    }
+</script>
+
 <!--<script type="text/javascript" src="./mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->

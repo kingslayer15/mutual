@@ -92,15 +92,11 @@ public class PersonalInfoController {
     @ResponseBody
     @RequestMapping("pwdCheck")
     public boolean pwdCheck(@RequestBody UserInfoDto userInfoDto,HttpServletRequest httpServletRequest){
-        System.out.println(userInfoDto);
         BigInteger uId =BigInteger.valueOf( Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString()));
         userInfoDto.setId(uId);
-        System.out.println(userInfoDto);
         UserInfoDto check = personalInfoService.check(userInfoDto);
-        System.out.println("密码查询"+userInfoDto);
         if (check!=null){
             int i=personalInfoService.pwdUpdate(userInfoDto);
-            System.out.println("密码修改"+i);
             if (i!=0){
                 return true;
             }

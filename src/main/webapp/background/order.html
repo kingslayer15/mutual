@@ -1,4 +1,4 @@
-﻿﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -417,7 +417,7 @@
                                 style="background-color: rgb(48, 65, 86);"
                                 data-old-padding-top="" data-old-padding-bottom=""
                                 data-old-overflow="">
-                                <a href="http://39.98.190.128/index.html#/oms/order"
+                                <a href="order.html"
                                    class="router-link-exact-active router-link-active">
                                     <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
                                         style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
@@ -437,7 +437,7 @@
                                         </svg>
                                         <span>订单设置</span></li>
                                 </a>
-                                <a href="#####.html" class="">
+                                <a href="returnApply.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -446,7 +446,7 @@
                                     </svg>
                                     <span>退货申请处理</span></li>
                                 </a>
-                                <a href="http://39.98.190.128/index.html#/oms/returnReason" class="">
+                                <a href="returnReason.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a=""
@@ -1073,15 +1073,10 @@
                             </div>
                         </div>
                     </div>
-                    <div data-v-ebcc336a="" class="el-dialog__wrapper" style="display: none;">
-                        <div class="el-dialog" style="width: 40%; margin-top: 15vh;">
-                            <div class="el-dialog__header"><span
-                                    class="el-dialog__title">订单跟踪</span>
-                                <button type="button" aria-label="Close"
-                                        class="el-dialog__headerbtn"><i
-                                        class="el-dialog__close el-icon el-icon-close"></i></button>
-                            </div><!----><!----></div>
-                    </div>
+
+                    <!--订单跟踪 begin-->
+                    <div id="trackingDiv" data-v-ebcc336a="" class="el-dialog__wrapper" style="z-index: 2044; display: none;"><div class="el-dialog" style="width: 40%; margin-top: 15vh;"><div class="el-dialog__header"><span class="el-dialog__title">订单跟踪</span><button onclick="hideTrackingDiv()" type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><div class="el-dialog__body"><div class="el-steps el-steps--vertical"><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 0ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">订单已提交，等待付款</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 150ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">订单付款成功</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 300ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">在北京市进行下级地点扫描，等待付款</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 450ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">在分拨中心广东深圳公司进行卸车扫描，等待付款</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 600ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">在广东深圳公司进行发出扫描</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 750ms; border-width: 0px; height: 0%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">到达目的地网点广东深圳公司，快件将很快进行派送</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-process"><div class="el-step__line"><i class="el-step__line-inner"></i></div><div class="el-step__icon is-text"><!----><div class="el-step__icon-inner">7</div></div></div><div class="el-step__main"><div class="el-step__title is-process">订单已签收，期待再次为您服务</div><div class="el-step__description is-process">2017-04-01 12:00:00 </div></div></div></div></div><!----></div></div>
+                    <!--订单跟踪 end-->
 
 
                 </div>
@@ -1122,12 +1117,23 @@
             left_status = 0;
         }
     });
+
     // 隐藏：hamburger
     // app-wrapper hideSidebar withoutAnimation
     // 显示：hamburger is-active
+    //---------------------------------------
+
     // app-wrapper withoutAnimation
 
-    //---------------------------------------
+
+    //订单跟踪弹窗
+    function hideTrackingDiv() {
+        // $("#trackingDiv").css("display", "none");
+        $("#trackingDiv").hide();
+    }
+    function showTrackingDiv() {
+        $("#trackingDiv").show();
+    }
 
 
     /**
@@ -1254,10 +1260,10 @@
                 "            <button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[1]+";\">\n" +
                 "                <span>关闭订单</span>\n" +
                 "            </button>\n" +
-                "            <button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[2]+";\">\n" +
+                "            <a href='deliverOrderList.html?id="+ item.id +"'><button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[2]+";\">\n" +
                 "                <span>订单发货</span>\n" +
-                "            </button>\n" +
-                "            <button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[3]+";\">\n" +
+                "            </button></a>\n" +
+                "            <button onclick='showTrackingDiv()' data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[3]+";\">\n" +
                 "                <span>订单跟踪</span>\n" +
                 "            </button>\n" +
                 "            <button onclick=\"removeOmsOrderById(" + item.id + ")\" data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--danger el-button--mini\" style=\"display: "+dis[4]+";\">\n" +

@@ -46,6 +46,16 @@ public interface OmsOrderMapper {
 
 
 
+    Long selectOneIdByOrderSn(@Param("orderSn")String orderSn);
+
+
+
+
+
+
+
+
+
 
 
 

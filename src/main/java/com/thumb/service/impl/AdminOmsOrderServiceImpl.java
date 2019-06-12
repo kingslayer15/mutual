@@ -1,9 +1,6 @@
 package com.thumb.service.impl;
 
-import com.thumb.entity.dto.SearchOmsOrder;
-import com.thumb.entity.dto.SearchOmsOrderReturnApply;
-import com.thumb.entity.dto.UpdateOmsOrderSetting;
-import com.thumb.entity.dto.UpdateReturnReason;
+import com.thumb.entity.dto.*;
 import com.thumb.entity.pojo.OmsOrder;
 import com.thumb.entity.pojo.OmsOrderReturnApply;
 import com.thumb.entity.pojo.OmsOrderReturnReason;
@@ -31,7 +28,7 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     }
 
     /**
-     * 根据查询条件所选订单信息
+     * 根据查询条件查询订单信息
      * @param searchOmsOrder
      * @return
      */
@@ -90,12 +87,13 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     }
 
     /**
-     * 根据查询条件所选退货申请信息
+     * 根据查询条件筛选退货申请信息
      * @param searchApply
      * @return
      */
     @Override
     public List<OmsOrderReturnApply> searchOmsOrderReturnApply(SearchOmsOrderReturnApply searchApply) {
+        System.out.println(searchApply);
         return adminOmsOrderMapper.searchOmsOrderReturnApply(searchApply);
     }
 
@@ -143,5 +141,15 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     @Override
     public int deleteReturnReason(int id) {
         return adminOmsOrderMapper.deleteReturnReason(id);
+    }
+
+    @Override
+    public int updateOmsOrderStatusByOrderId(UpdateStatus updateStatus) {
+        return adminOmsOrderMapper.updateOmsOrderStatusByOrderId(updateStatus);
+    }
+
+    @Override
+    public int updateReturnApplyStatusById(UpdateStatus updateStatus) {
+        return adminOmsOrderMapper.updateReturnApplyStatusById(updateStatus);
     }
 }
