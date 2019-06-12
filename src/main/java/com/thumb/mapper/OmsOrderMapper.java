@@ -38,6 +38,11 @@ public interface OmsOrderMapper {
 
     BigDecimal countOderByCreateTime(Integer dayNum);
 
+    Date findFirstCreateTimeOrderByCreateTimeDesc();
+
+
+
+
 
 
 

@@ -1,6 +1,5 @@
 package com.thumb.service.impl;
 
-import com.thumb.dto.OmsCartItemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -51,11 +50,6 @@ public class OmsCartItemServiceImpl implements OmsCartItemService{
     public List<OmsCartItem> findByMemberId(Long memberId) {
         List<OmsCartItem> cartItem = omsCartItemMapper.findByMemberId(memberId);
         return cartItem;
-    }
-
-    @Override
-    public int insertCart(OmsCartItemDto omsCartItemDto) {
-        return omsCartItemMapper.insertCart(omsCartItemDto);
     }
 
 }

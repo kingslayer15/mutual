@@ -1100,7 +1100,7 @@
 
         //模态框初始化就显示了
         $("#folioModa2").modal("show");
-        $("#c").val(sort);
+        $("#cSort").val(sort);
         shortId = id;
 
     }
@@ -1137,7 +1137,7 @@
     function pageBlur() {
         var page = $("#pageBlur").val();
         var pageSize = $("#pageCondition").val().substring(0, 1)
-        f(page, pageSize)
+        fSubject(page, pageSize)
     }
     /*设置推送的顺序值,修改排序值*/
     function submit() {
