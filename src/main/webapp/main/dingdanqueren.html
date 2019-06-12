@@ -158,7 +158,7 @@
 
 <div style="display: none">
 <form id="myform" name="aliPayInfoVo" action="/aliPayActionRequest" method="POST" >
-<input  name="total_amount">
+<input  name="pay_amount">
 <input  name="subject">
 <input  name="body">
 <input  name="receiverProvince">
@@ -339,7 +339,7 @@
     <!--body  ="1231";-->
 
     function pay() {
-        $("input[name='total_amount']").val(totalPrice);
+        $("input[name='pay_amount']").val(totalPrice);
         $("input[name='subject']").val(sumProductName);
         $("input[name='body']").val("222");
         $("input[name='receiverProvince']").val(province);

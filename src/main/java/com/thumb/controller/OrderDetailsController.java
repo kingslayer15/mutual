@@ -69,7 +69,7 @@ public class OrderDetailsController {
 
         String orderNo = orderNoUtils.creatOrderNo(lastDate);
 
-        aliPayInfoVo.setOut_trade_no(orderNo);
+        aliPayInfoVo.setOrder_sn(orderNo);
 
         System.out.println(aliPayInfoVo);
 
@@ -87,7 +87,7 @@ public class OrderDetailsController {
 
 
 
-        String result = AliPayAction.sendAliPay("9999", aliPayInfoVo.getTotal_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
+        String result = AliPayAction.sendAliPay(orderNo, aliPayInfoVo.getPay_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
 
 
 

@@ -7,9 +7,9 @@ import java.util.Date;
 public class AliPayInfoVo {
 
     //商户订单号，商户网站订单系统中唯一订单号
-    String out_trade_no;
+    String order_sn;
     //付款金额，必填
-    String total_amount;
+    String pay_amount;
     //订单名称，必填
     String subject;
     //商品描述，可空
@@ -214,12 +214,11 @@ public class AliPayInfoVo {
      */
     private Date modifyTime;
 
-
     @Override
     public String toString() {
         return "AliPayInfoVo{" +
-                "out_trade_no='" + out_trade_no + '\'' +
-                ", total_amount='" + total_amount + '\'' +
+                "order_sn='" + order_sn + '\'' +
+                ", pay_amount='" + pay_amount + '\'' +
                 ", subject='" + subject + '\'' +
                 ", body='" + body + '\'' +
                 ", id=" + id +
@@ -265,20 +264,20 @@ public class AliPayInfoVo {
                 '}';
     }
 
-    public String getOut_trade_no() {
-        return out_trade_no;
+    public String getOrder_sn() {
+        return order_sn;
     }
 
-    public void setOut_trade_no(String out_trade_no) {
-        this.out_trade_no = out_trade_no;
+    public void setOrder_sn(String order_sn) {
+        this.order_sn = order_sn;
     }
 
-    public String getTotal_amount() {
-        return total_amount;
+    public String getPay_amount() {
+        return pay_amount;
     }
 
-    public void setTotal_amount(String total_amount) {
-        this.total_amount = total_amount;
+    public void setPay_amount(String pay_amount) {
+        this.pay_amount = pay_amount;
     }
 
     public String getSubject() {
@@ -617,9 +616,9 @@ public class AliPayInfoVo {
         this.modifyTime = modifyTime;
     }
 
-    public AliPayInfoVo(String out_trade_no, String total_amount, String subject, String body, Long id, Long memberId, Date createTime, String memberUsername, BigDecimal freightAmount, BigDecimal promotionAmount, BigDecimal integrationAmount, BigDecimal couponAmount, BigDecimal discountAmount, Integer payType, Integer sourceType, Integer status, Integer orderType, String deliveryCompany, String deliverySn, Integer autoConfirmDay, Integer integration, Integer growth, String promotionInfo, Integer billType, String billHeader, String billContent, String billReceiverPhone, String billReceiverEmail, String receiverName, String receiverPhone, String receiverPostCode, String receiverProvince, String receiverCity, String receiverRegion, String receiverDetailAddress, String note, Integer confirmStatus, Integer deleteStatus, Integer useIntegration, Date paymentTime, Date deliveryTime, Date receiveTime, Date commentTime, Date modifyTime) {
-        this.out_trade_no = out_trade_no;
-        this.total_amount = total_amount;
+    public AliPayInfoVo(String order_sn, String pay_amount, String subject, String body, Long id, Long memberId, Date createTime, String memberUsername, BigDecimal freightAmount, BigDecimal promotionAmount, BigDecimal integrationAmount, BigDecimal couponAmount, BigDecimal discountAmount, Integer payType, Integer sourceType, Integer status, Integer orderType, String deliveryCompany, String deliverySn, Integer autoConfirmDay, Integer integration, Integer growth, String promotionInfo, Integer billType, String billHeader, String billContent, String billReceiverPhone, String billReceiverEmail, String receiverName, String receiverPhone, String receiverPostCode, String receiverProvince, String receiverCity, String receiverRegion, String receiverDetailAddress, String note, Integer confirmStatus, Integer deleteStatus, Integer useIntegration, Date paymentTime, Date deliveryTime, Date receiveTime, Date commentTime, Date modifyTime) {
+        this.order_sn = order_sn;
+        this.pay_amount = pay_amount;
         this.subject = subject;
         this.body = body;
         this.id = id;
