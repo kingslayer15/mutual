@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.MerchantOmsOrderMapper">
+
+
+    <!--商家的结果集映射-->
+    <resultMap id="merchantOmsOrderMap" type="com.thumb.entity.pojo.Merchant">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <collection property="omsOrderList" ofType="com.thumb.entity.pojo.OmsOrder">
+            <id column="order_id" jdbcType="BIGINT" property="id" />
+            <result column="member_id" jdbcType="BIGINT" property="memberId" />
+            <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+            <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+            <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+            <result column="member_username" jdbcType="VARCHAR" property="memberUsername" />
+            <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+            <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+            <result column="freight_amount" jdbcType="DECIMAL" property="freightAmount" />
+            <result column="promotion_amount" jdbcType="DECIMAL" property="promotionAmount" />
+            <result column="integration_amount" jdbcType="DECIMAL" property="integrationAmount" />
+            <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
+            <result column="discount_amount" jdbcType="DECIMAL" property="discountAmount" />
+            <result column="pay_type" jdbcType="INTEGER" property="payType" />
+            <result column="source_type" jdbcType="INTEGER" property="sourceType" />
+            <result column="status" jdbcType="INTEGER" property="status" />
+            <result column="order_type" jdbcType="INTEGER" property="orderType" />
+            <result column="delivery_company" jdbcType="VARCHAR" property="deliveryCompany" />
+            <result column="delivery_sn" jdbcType="VARCHAR" property="deliverySn" />
+            <result column="auto_confirm_day" jdbcType="INTEGER" property="autoConfirmDay" />
+            <result column="integration" jdbcType="INTEGER" property="integration" />
+            <result column="growth" jdbcType="INTEGER" property="growth" />
+            <result column="promotion_info" jdbcType="VARCHAR" property="promotionInfo" />
+            <result column="bill_type" jdbcType="INTEGER" property="billType" />
+            <result column="bill_header" jdbcType="VARCHAR" property="billHeader" />
+            <result column="bill_content" jdbcType="VARCHAR" property="billContent" />
+            <result column="bill_receiver_phone" jdbcType="VARCHAR" property="billReceiverPhone" />
+            <result column="bill_receiver_email" jdbcType="VARCHAR" property="billReceiverEmail" />
+            <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+            <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+            <result column="receiver_post_code" jdbcType="VARCHAR" property="receiverPostCode" />
+            <result column="receiver_province" jdbcType="VARCHAR" property="receiverProvince" />
+            <result column="receiver_city" jdbcType="VARCHAR" property="receiverCity" />
+            <result column="receiver_region" jdbcType="VARCHAR" property="receiverRegion" />
+            <result column="receiver_detail_address" jdbcType="VARCHAR" property="receiverDetailAddress" />
+            <result column="note" jdbcType="VARCHAR" property="note" />
+            <result column="confirm_status" jdbcType="INTEGER" property="confirmStatus" />
+            <result column="delete_status" jdbcType="INTEGER" property="deleteStatus" />
+            <result column="use_integration" jdbcType="INTEGER" property="useIntegration" />
+            <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+            <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+            <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
+            <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+            <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+        </collection>
+    </resultMap>
+
+    <!--商家的详细结果集映射（包含订单下的商品-->
+    <resultMap id="merchantOmesOrderInfoMap" type="com.thumb.entity.pojo.Merchant">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <collection property="omsOrderList" ofType="com.thumb.entity.pojo.OmsOrder">
+            <id column="order_id" jdbcType="BIGINT" property="id" />
+            <result column="member_id" jdbcType="BIGINT" property="memberId" />
+            <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+            <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+            <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+            <result column="member_username" jdbcType="VARCHAR" property="memberUsername" />
+            <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+            <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+            <result column="freight_amount" jdbcType="DECIMAL" property="freightAmount" />
+            <result column="promotion_amount" jdbcType="DECIMAL" property="promotionAmount" />
+            <result column="integration_amount" jdbcType="DECIMAL" property="integrationAmount" />
+            <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
+            <result column="discount_amount" jdbcType="DECIMAL" property="discountAmount" />
+            <result column="pay_type" jdbcType="INTEGER" property="payType" />
+            <result column="source_type" jdbcType="INTEGER" property="sourceType" />
+            <result column="status" jdbcType="INTEGER" property="status" />
+            <result column="order_type" jdbcType="INTEGER" property="orderType" />
+            <result column="delivery_company" jdbcType="VARCHAR" property="deliveryCompany" />
+            <result column="delivery_sn" jdbcType="VARCHAR" property="deliverySn" />
+            <result column="auto_confirm_day" jdbcType="INTEGER" property="autoConfirmDay" />
+            <result column="integration" jdbcType="INTEGER" property="integration" />
+            <result column="growth" jdbcType="INTEGER" property="growth" />
+            <result column="promotion_info" jdbcType="VARCHAR" property="promotionInfo" />
+            <result column="bill_type" jdbcType="INTEGER" property="billType" />
+            <result column="bill_header" jdbcType="VARCHAR" property="billHeader" />
+            <result column="bill_content" jdbcType="VARCHAR" property="billContent" />
+            <result column="bill_receiver_phone" jdbcType="VARCHAR" property="billReceiverPhone" />
+            <result column="bill_receiver_email" jdbcType="VARCHAR" property="billReceiverEmail" />
+            <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+            <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+            <result column="receiver_post_code" jdbcType="VARCHAR" property="receiverPostCode" />
+            <result column="receiver_province" jdbcType="VARCHAR" property="receiverProvince" />
+            <result column="receiver_city" jdbcType="VARCHAR" property="receiverCity" />
+            <result column="receiver_region" jdbcType="VARCHAR" property="receiverRegion" />
+            <result column="receiver_detail_address" jdbcType="VARCHAR" property="receiverDetailAddress" />
+            <result column="note" jdbcType="VARCHAR" property="note" />
+            <result column="confirm_status" jdbcType="INTEGER" property="confirmStatus" />
+            <result column="delete_status" jdbcType="INTEGER" property="deleteStatus" />
+            <result column="use_integration" jdbcType="INTEGER" property="useIntegration" />
+            <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+            <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+            <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
+            <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+            <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+            <collection property="omsOrderItemList" ofType="com.thumb.entity.pojo.OmsOrderItem">
+                <id column="item_id" jdbcType="BIGINT" property="id" />
+                <result column="order_id" jdbcType="BIGINT" property="orderId" />
+                <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+                <result column="product_id" jdbcType="BIGINT" property="productId" />
+                <result column="product_pic" jdbcType="VARCHAR" property="productPic" />
+                <result column="product_name" jdbcType="VARCHAR" property="productName" />
+                <result column="product_brand" jdbcType="VARCHAR" property="productBrand" />
+                <result column="product_sn" jdbcType="VARCHAR" property="productSn" />
+                <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
+                <result column="product_quantity" jdbcType="INTEGER" property="productQuantity" />
+                <result column="product_sku_id" jdbcType="BIGINT" property="productSkuId" />
+                <result column="product_sku_code" jdbcType="VARCHAR" property="productSkuCode" />
+                <result column="product_category_id" jdbcType="BIGINT" property="productCategoryId" />
+                <result column="sp1" jdbcType="VARCHAR" property="sp1" />
+                <result column="sp2" jdbcType="VARCHAR" property="sp2" />
+                <result column="sp3" jdbcType="VARCHAR" property="sp3" />
+                <result column="promotion_name" jdbcType="VARCHAR" property="promotionName" />
+                <result column="promotion_amount" jdbcType="DECIMAL" property="promotionAmount" />
+                <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
+                <result column="integration_amount" jdbcType="DECIMAL" property="integrationAmount" />
+                <result column="real_amount" jdbcType="DECIMAL" property="realAmount" />
+                <result column="gift_integration" jdbcType="INTEGER" property="giftIntegration" />
+                <result column="gift_growth" jdbcType="INTEGER" property="giftGrowth" />
+                <result column="product_attr" jdbcType="VARCHAR" property="productAttr" />
+            </collection>
+        </collection>
+    </resultMap>
+
+
+
+    <!--商家查询订单-->
+    <select id="listAllOmsOrderByMerchant" resultMap="merchantOmsOrderMap" parameterType="int">
+        SELECT
+            m.id,
+            m.name,
+
+            o.id order_id,
+            o.member_id,
+            o.coupon_id,
+            o.order_sn,
+            o.create_time,
+            o.member_username,
+            o.total_amount,
+            o.pay_amount,
+            o.freight_amount,
+            o.promotion_amount,
+            o.integration_amount,
+            o.coupon_amount,
+            o.discount_amount,
+            o.pay_type,
+            o.source_type,
+            o. STATUS,
+            o.order_type,
+            o.delivery_company,
+            o.delivery_sn,
+            o.auto_confirm_day,
+            o.integration,
+            o.growth,
+            o.promotion_info,
+            o.bill_type,
+            o.bill_header,
+            o.bill_content,
+            o.bill_receiver_phone,
+            o.bill_receiver_email,
+            o.receiver_name,
+            o.receiver_phone,
+            o.receiver_post_code,
+            o.receiver_province,
+            o.receiver_city,
+            o.receiver_region,
+            o.receiver_detail_address,
+            o.note,
+            o.confirm_status,
+            o.delete_status,
+            o.use_integration,
+            o.payment_time,
+            o.delivery_time,
+            o.receive_time,
+            o.comment_time,
+            o.modify_time
+        FROM
+            merchant m,
+            oms_order o,
+            merchant_order mo
+        WHERE
+            m.id = mo.merchant_id AND o.id = mo.order_id
+            AND m.id = #{id};
+    </select>
+
+    <!--商家通过条件查询订单-->
+    <select id="merchantSearchOmsOrder" resultMap="merchantOmsOrderMap" parameterType="com.thumb.entity.dto.SearchOmsOrder">
+        SELECT
+            m.id,
+            m.name,
+
+            oo.id order_id,
+            oo.member_id,
+            oo.coupon_id,
+            oo.order_sn,
+            oo.create_time,
+            oo.member_username,
+            oo.total_amount,
+            oo.pay_amount,
+            oo.freight_amount,
+            oo.promotion_amount,
+            oo.integration_amount,
+            oo.coupon_amount,
+            oo.discount_amount,
+            oo.pay_type,
+            oo.source_type,
+            oo. STATUS,
+            oo.order_type,
+            oo.delivery_company,
+            oo.delivery_sn,
+            oo.auto_confirm_day,
+            oo.integration,
+            oo.growth,
+            oo.promotion_info,
+            oo.bill_type,
+            oo.bill_header,
+            oo.bill_content,
+            oo.bill_receiver_phone,
+            oo.bill_receiver_email,
+            oo.receiver_name,
+            oo.receiver_phone,
+            oo.receiver_post_code,
+            oo.receiver_province,
+            oo.receiver_city,
+            oo.receiver_region,
+            oo.receiver_detail_address,
+            oo.note,
+            oo.confirm_status,
+            oo.delete_status,
+            oo.use_integration,
+            oo.payment_time,
+            oo.delivery_time,
+            oo.receive_time,
+            oo.comment_time,
+            oo.modify_time
+        FROM
+            merchant m,
+            merchant_order mo,
+            oms_order oo,
+            ums_member um
+        <where>
+            AND m.id = mo.merchant_id
+            AND oo.id = mo.order_id
+            AND m.id = #{merchant_id}
+            AND um.id = oo.member_id
+            <if test="order_sn != '' and order_sn != null">
+                and oo.order_sn like "%"#{order_sn}"%"
+            </if>
+            <if test="member != '' and member != null">
+                and (um.username like "%"#{member}"%"
+                or oo.receiver_phone like "%"#{member}"%")
+            </if>
+            <if test="create_time != '' and create_time != null">
+                and Date(oo.create_time) = #{create_time}
+            </if>
+        </where>
+    </select>
+
+    <!--商家根据id查询详细的订单信息-->
+    <select id="merchantOmsOrderItemByOrderId" resultMap="merchantOmesOrderInfoMap" parameterType="com.thumb.entity.dto.MerchantDto">
+        SELECT
+            m.id,
+            m. NAME,
+
+            oo.id order_id,
+            oo.member_id,
+            oo.coupon_id,
+            oo.order_sn,
+            oo.create_time,
+            oo.member_username,
+            oo.total_amount,
+            oo.pay_amount,
+            oo.freight_amount,
+            oo.promotion_amount,
+            oo.integration_amount,
+            oo.coupon_amount,
+            oo.discount_amount,
+            oo.pay_type,
+            oo.source_type,
+            oo. STATUS,
+            oo.order_type,
+            oo.delivery_company,
+            oo.delivery_sn,
+            oo.auto_confirm_day,
+            oo.integration,
+            oo.growth,
+            oo.promotion_info,
+            oo.bill_type,
+            oo.bill_header,
+            oo.bill_content,
+            oo.bill_receiver_phone,
+            oo.bill_receiver_email,
+            oo.receiver_name,
+            oo.receiver_phone,
+            oo.receiver_post_code,
+            oo.receiver_province,
+            oo.receiver_city,
+            oo.receiver_region,
+            oo.receiver_detail_address,
+            oo.note,
+            oo.confirm_status,
+            oo.delete_status,
+            oo.use_integration,
+            oo.payment_time,
+            oo.delivery_time,
+            oo.receive_time,
+            oo.comment_time,
+            oo.modify_time,
+
+            ooi.id item_id,
+            ooi.order_id,
+            ooi.order_sn,
+            ooi.product_id,
+            ooi.product_pic,
+            ooi.product_name,
+            ooi.product_brand,
+            ooi.product_sn,
+            ooi.product_price,
+            ooi.product_quantity,
+            ooi.product_sku_id,
+            ooi.product_sku_code,
+            ooi.product_category_id,
+            ooi.sp1,
+            ooi.sp2,
+            ooi.sp3,
+            ooi.promotion_name,
+            ooi.promotion_amount,
+            ooi.coupon_amount,
+            ooi.integration_amount,
+            ooi.real_amount,
+            ooi.gift_integration,
+            ooi.gift_growth,
+            ooi.product_attr
+        FROM
+            merchant m,
+            merchant_order mo,
+            oms_order oo,
+            oms_order_item ooi
+        WHERE
+            m.id = mo.merchant_id
+        AND oo.id = mo.order_id
+        AND oo.id = ooi.order_id
+        AND oo.id = #{orderId}
+        AND m.id = #{merchantId}
+    </select>
+
+
+    <!--退货处理映射-->
+    <resultMap id="OmsOrderReturnApplyResultMap" type="com.thumb.entity.pojo.OmsOrderReturnApply">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="order_id" jdbcType="BIGINT" property="orderId" />
+        <result column="company_address_id" jdbcType="BIGINT" property="companyAddressId" />
+        <result column="product_id" jdbcType="BIGINT" property="productId" />
+        <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+        <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+        <result column="member_username" jdbcType="VARCHAR" property="memberUsername" />
+        <result column="return_amount" jdbcType="DECIMAL" property="returnAmount" />
+        <result column="return_name" jdbcType="VARCHAR" property="returnName" />
+        <result column="return_phone" jdbcType="VARCHAR" property="returnPhone" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="handle_time" jdbcType="VARCHAR" property="handleTime" />
+        <result column="product_pic" jdbcType="VARCHAR" property="productPic" />
+        <result column="product_name" jdbcType="VARCHAR" property="productName" />
+        <result column="product_brand" jdbcType="VARCHAR" property="productBrand" />
+        <result column="product_attr" jdbcType="VARCHAR" property="productAttr" />
+        <result column="product_count" jdbcType="INTEGER" property="productCount" />
+        <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
+        <result column="product_real_price" jdbcType="DECIMAL" property="productRealPrice" />
+        <result column="reason" jdbcType="VARCHAR" property="reason" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="proof_pics" jdbcType="VARCHAR" property="proofPics" />
+        <result column="handle_note" jdbcType="VARCHAR" property="handleNote" />
+        <result column="handle_man" jdbcType="VARCHAR" property="handleMan" />
+        <result column="receive_man" jdbcType="VARCHAR" property="receiveMan" />
+        <result column="receive_time" jdbcType="VARCHAR" property="receiveTime" />
+        <result column="receive_note" jdbcType="VARCHAR" property="receiveNote" />
+    </resultMap>
+
+    <!--商家查询所有的退货信息-->
+    <select id="merchantOmsOrderReturnApply" resultMap="OmsOrderReturnApplyResultMap" parameterType="int">
+        SELECT DISTINCT
+            oora.*
+        FROM
+            merchant m,
+            oms_order oo,
+            merchant_order mo,
+            oms_order_item ooi,
+            oms_order_return_apply oora
+        WHERE
+            m.id = mo.merchant_id
+        AND oo.id = mo.order_id
+        AND oo.id = ooi.order_id
+        AND oora.order_id = oo.id
+        AND m.id = #{merchantId}
+    </select>
+
+    <!--商家根据服务单号查询详细退货信息-->
+    <select id="merchantOmsOrderReturnApplyById" resultMap="OmsOrderReturnApplyResultMap" parameterType="com.thumb.entity.dto.MerchantDto">
+        SELECT DISTINCT
+            oora.*
+        FROM
+            merchant m,
+            oms_order oo,
+            merchant_order mo,
+            oms_order_item ooi,
+            oms_order_return_apply oora
+        WHERE
+            m.id = mo.merchant_id
+        AND oo.id = mo.order_id
+        AND oo.id = ooi.order_id
+        AND oora.order_id = oo.id
+        AND m.id = #{merchantId}
+        and oora.id = #{returnApplyId}
+    </select>
+
+</mapper>
