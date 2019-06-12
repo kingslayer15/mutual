@@ -9,36 +9,17 @@
 	<body>
 	<!-- start header -->
 	<div id="header"></div>
-	<!--end header -->
 
-<!-- start banner_x -->
-
-<!-- end banner_x -->
-
-	<!-- start banner_y -->
-	<!-- end banner -->
 	<!-- start danpin -->
 		<div class="danpin center">
 			
 			<div class="biaoti center" id="title"></div>
 			<div class="main center" id="li1">
-				<!--<div class="mingxing fl mb20" style="border:2px solid #fff;width:230px;cursor:pointer;" onmouseout="this.style.border='2px solid #fff'" onmousemove="this.style.border='2px solid red'">-->
-					<!--<div class="sub_mingxing"><a href="xiangqing.html" target="_blank"><img src="../image/liebiao_xiaomi6.jpg" alt=""></a></div>-->
-					<!--<div class="pinpai"><a href="xiangqing.html" target="_blank">小米6</a></div>-->
-					<!--<div class="youhui">5.16早10点开售</div>-->
-					<!--<div class="jiage">2499.00元</div>-->
-				<!--</div>-->
 
 
 				<div class="clear"></div>
 			</div>
 			<div class="main center mb20" id="li2">
-				<!--<div class="mingxing fl mb20" style="border:2px solid #fff;width:230px;cursor:pointer;" onmouseout="this.style.border='2px solid #fff'" onmousemove="this.style.border='2px solid red'">-->
-					<!--<div class="sub_mingxing"><a href=""><img src="../image/liebiao_xiaomi5.jpg" alt=""></a></div>-->
-					<!--<div class="pinpai"><a href="">小米手机5</a></div>-->
-					<!--<div class="youhui">骁龙820处理器 / UFS 2.0 闪存</div>-->
-					<!--<div class="jiage">1799.00元</div>-->
-				<!--</div>-->
 
 				<div class="clear"></div>
 			</div>
@@ -54,34 +35,30 @@
 
 	<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
 	<!-- end danpin -->
-	<script>
 
+
+	<script>
 
 		$("#header").load("head.html");
 
-
 		function get(pageNow,pageSize) {
 
-
-
-			var  id = window.location.search.split("=")[1];
-			// alert(pageNow+":"+pageSize+":"+id)
+			var  name = window.location.search.split("=")[1];
+			var  searchText =decodeURI(name);
+			alert(pageNow+":"+pageSize+":"+searchText)
 			//加载此品牌下的所有商品
-
 			$.ajax({
-				url: '/getSubject',
+				url: '/getName',
 				type: 'POST', //GET
 				contentType: "application/json",
 				dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
 				data: JSON.stringify({
-					"id":id,
+					"name":searchText,
 					"pageNow": pageNow,
 					"pageSize": pageSize
 				}),
 				/*成功*/
 				success: function (data) {
-
-
 					var $li1 = $("#li1");
 					$li1.find("div").remove();
 					var $li2 = $("#li2");
@@ -103,7 +80,6 @@
 						if(index==0){
 							$("#title").html(val.brand_name)
 						}
-
 					})
 				},
 				/*发生错误时*/
@@ -111,13 +87,8 @@
 					alert("错误请求!!!")
 				}
 			});
-
 		}
-
 		get(1,10);
-
 	</script>
-
-
 	</body>
 </html>
