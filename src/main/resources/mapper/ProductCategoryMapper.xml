@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.ProductCategoryMapper">
+<select id="ListParentProductCategory" resultType="com.thumb.dto.ProductCategoryDto">
+    select * from pms_product_category where parent_id=0
+</select>
+
+<insert id="insertProductCategory" parameterType="com.thumb.dto.ProductCategoryDto">
+    insert into pms_product_category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="name!=null and name!=''">
+            name,
+        </if>
+        <if test="parent_id!=null and parent_id!=''">
+            parent_id,
+        </if>
+        <if test="product_unit!=null and product_unit!=''">
+            product_unit,
+        </if>
+        <if test="sort!=null and sort!=''">
+            sort,
+        </if>
+        <if test="keywords!=null and keywords!=''">
+            keywords,
+        </if>
+        <if test="description!=null and description!=''">
+            description,
+        </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="name!=null and name!=''">
+             #{name},
+        </if>
+        <if test="parent_id!=null and parent_id!=''">
+             #{parent_id},
+        </if>
+        <if test="product_unit!=null and product_unit!=''">
+             #{product_unit},
+        </if>
+        <if test="sort!=null and sort!=''">
+             #{sort},
+        </if>
+        <if test="keywords!=null and keywords!=''">
+            #{keywords},
+        </if>
+        <if test="description!=null and description!=''">
+            #{description},
+        </if>
+    </trim>
+</insert>
+
+    <select id="lookProductCategoryById" parameterType="int" resultType="com.thumb.dto.ProductCategoryDto">
+        select * from pms_product_category where id = #{value}
+    </select>
+
+    <update id="modifyProductCategoryById" parameterType="com.thumb.dto.ProductCategoryDto">
+        update pms_product_category
+        <set>
+            <if test="name !=null and name!=''">
+                name = #{name},
+            </if>
+            <if test="parent_id!=null and parent_id!=''">
+                parent_id = #{parent_id},
+            </if>
+            <if test="product_unit!=null and product_unit!=''">
+                product_unit = #{product_unit},
+            </if>
+            <if test="sort!=null and sort!=''">
+                sort = #{sort},
+            </if>
+            <if test="keywords!=null and keywords!=''">
+                keywords = #{keywords},
+            </if>
+            <if test="description!=null and description!=''">
+                description = #{description},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="removeProductCategoryById" parameterType="int">
+        delete from pms_product_category where id=#{value}
+    </delete>
+
+    <select id="findLowerById" parameterType="int" resultType="com.thumb.dto.ProductCategoryDto">
+        SELECT * FROM pms_product_category WHERE parent_id = #{value}
+    </select>
+
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.ProductBrandMapper">
+    <select id="listAllProduct" resultType="com.thumb.dto.ProductBrandDto">
+        select * from pms_brand
+    </select>
+
+    <select id="findByCondition" resultType="com.thumb.dto.ProductBrandDto" parameterType="String">
+        select * from pms_brand
+      <where>
+        <if test="_parameter !=null and _parameter!=''">
+            name like "%${_parameter}%" or first_letter like "%${_parameter}%";
+        </if>
+        <if test="_parameter ==null or _parameter==''">
+            1>1
+        </if>
+      </where>
+    </select>
+
+    <select id="findBrandById" parameterType="int" resultType="com.thumb.dto.ProductBrandDto">
+        select * from pms_brand where id = #{value}
+    </select>
+    
+    <update id="updateBrand" parameterType="com.thumb.dto.ProductBrandDto">
+        update pms_brand
+        <set>
+            <if test="name !=null and name!=''">
+                name = #{name},
+            </if>
+            <if test="first_letter!=null and first_letter!=''">
+                first_letter = #{first_letter},
+            </if>
+            <if test="logo !=null and logo!=''">
+                logo = #{logo},
+            </if>
+            <if test="brand_story!= null and brand_story!=''">
+                brand_story = #{brand_story},
+            </if>
+        </set>
+        where  id = #{id}
+    </update>
+</mapper>
