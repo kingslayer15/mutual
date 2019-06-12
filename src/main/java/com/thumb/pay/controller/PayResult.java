@@ -107,7 +107,7 @@ public class PayResult {
 
 
 
-        return "main/paysuccess";
+        return "main/index2";
 
     }
 }

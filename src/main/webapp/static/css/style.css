@@ -54,7 +54,7 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 .banner_y .nav{width: 234px;height: 460px;background: rgb(12,12,19);}
 .banner_y .nav ul{padding: 20px 0;position:relative;}
 .banner_y .nav ul li{display: block;width: 174px;height: 40px;line-height:40px;font-size: 14px;padding: 0 30px;}
-.banner_y .nav ul li .pop{width: 800px;height: 460px;background: #fff;position:absolute;left:234px;top:0px;display: none;}
+.banner_y .nav ul li .pop{width: 400px;height: 460px;background: #fff;position:absolute;left:234px;top:0px;display: none;}
 .banner_y .nav ul li:hover .pop{display: block;box-shadow: 2px 3px 5px #ccc; border-top: 1px solid #ccc;}
 .banner_y .nav ul li .pop .left{width: 265px;height: 460px;background: #fff;}
 .banner_y .nav ul li .pop .left div{margin-bottom: 3px;}

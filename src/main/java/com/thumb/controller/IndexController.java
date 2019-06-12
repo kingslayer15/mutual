@@ -5,7 +5,9 @@ package com.thumb.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.thumb.dto.PagaId;
+import com.thumb.dto.PageName;
 import com.thumb.pojo.Brand;
+import com.thumb.pojo.HomeProduct;
 import com.thumb.pojo.PmsProduct;
 import com.thumb.service.IndexService;
 import com.thumb.service.MarketingService;
@@ -124,6 +126,34 @@ public class IndexController {
 
         return newService.SubjectIndex();
     }
+    /**
+     * 条件搜索
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("getName")
+    public Object getName(@RequestBody PageName pageName) {
+
+        PageHelper.startPage(pageName.getPageNow(), pageName.getPageSize());
+
+        List<PmsProduct> name = indexService.getName(pageName.getName());
+        System.out.println(name);
+
+        return new PageInfo(name);
+
+    }
+    /**
+     * 商品种类查询
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("getType")
+    public Object getType() {
+
+        return indexService.getType();
+
+    }
+
 
 
 

@@ -12,6 +12,7 @@ import com.thumb.pojo.UmsMember;
 import com.thumb.pojo.UmsMemberReceiveAddress;
 import com.thumb.service.OmsOrderService;
 import com.thumb.service.UmsMemberReceiveAddressService;
+import com.thumb.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.OrderUtils;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,9 @@ public class OrderDetailsController {
 
     @Autowired
     OmsOrderService omsOrderService;
+
+    @Autowired
+    UmsMemberService umsMemberService;
 
     @ResponseBody
     @RequestMapping(value = "getItem",method = RequestMethod.GET)
@@ -59,7 +63,7 @@ public class OrderDetailsController {
 
         OrderNoUtils orderNoUtils = new OrderNoUtils();
 
-//        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
+        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
 
 
 
@@ -69,25 +73,29 @@ public class OrderDetailsController {
 
         String orderNo = orderNoUtils.creatOrderNo(lastDate);
 
-        aliPayInfoVo.setOut_trade_no(orderNo);
+        aliPayInfoVo.setOrder_sn(orderNo);
+
+
+        aliPayInfoVo.setMemberId(umsMember.getId());
+        aliPayInfoVo.setOrder_sn(orderNo);
+        aliPayInfoVo.setCreateTime(new Date());
+        aliPayInfoVo.setMemberUsername(umsMember.getUsername());
+        aliPayInfoVo.setTotalAmount(new BigDecimal(aliPayInfoVo.getPay_amount()));
+        aliPayInfoVo.setFreightAmount(new BigDecimal(0));
+        aliPayInfoVo.setPayType(1);
+        aliPayInfoVo.setSourceType(1);
+        aliPayInfoVo.setStatus(0);
+        aliPayInfoVo.setDeleteStatus(0);
+
+        int i = omsOrderService.insertVo(aliPayInfoVo);
 
         System.out.println(aliPayInfoVo);
 
-//        OmsOrder omsOrder = new OmsOrder();
-//        omsOrder.setOrderSn(orderNo);
-//        omsOrder.setCreateTime(new Date());
-//        omsOrder.setMemberUsername(umsMember.getUsername());
-//        omsOrder.setTotalAmount(new BigDecimal(total_amount));
-//        omsOrder.setPayAmount(new BigDecimal(total_amount));
-//        omsOrder.setFreightAmount(new BigDecimal(0));
-//        omsOrder.setPayType(1);
-//        omsOrder.setSourceType(1);
-//        omsOrder.setStatus(0);
 
 
 
 
-        String result = AliPayAction.sendAliPay("9999", aliPayInfoVo.getTotal_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
+        String result = AliPayAction.sendAliPay(orderNo, aliPayInfoVo.getPay_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
 
 
 

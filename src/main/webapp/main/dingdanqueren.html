@@ -157,10 +157,18 @@
 <!--body  ="1231";-->
 
 <div style="display: none">
-<form id="myform" action="/ttt" method="POST" >
-<input  name="total_amount">
+<form id="myform" name="aliPayInfoVo" action="/aliPayActionRequest" method="POST" >
+<input  name="pay_amount">
 <input  name="subject">
 <input  name="body">
+<input  name="receiverName">
+<input  name="receiverPhone">
+<input  name="receiverPostCode">
+<input  name="receiverProvince">
+<input  name="receiverCity">
+<input  name="receiverRegion">
+<input  name="receiverDetailAddress">
+
 </form>
 </div>
 
@@ -177,6 +185,15 @@
     var totalPrice = 0;
     var sumProductName ="";
     var realTotalPrice = 0;
+
+    var province = "";
+    var city = "";
+    var region = "";
+    var detail_address = "";
+
+    var receiverName = "";
+    var receiverPhone = "";
+    var receiverPostCode = "";
 
     $(function () {
         $.ajax({
@@ -227,33 +244,101 @@
                 $(data).each(function (index, item) {
 
                     if (index < 3){
-                        $("#J_addressList").append("<div class=\"address-item J_addressItem\">\n" +
-                            "                        <dl>\n" +
-                            "                            <dt>\n" +
-                            "                                <span class=\"tag\"></span>\n" +
-                            "                                <em class=\"uname\">"+item.name+"</em>\n" +
-                            "                            </dt>\n" +
-                            "                            <dd class=\"utel\">\n" +
-                            "                                "+ item.phoneNumber+"                            </dd>\n" +
-                            "                            <dd class=\"uaddress\">\n" +
-                            "                                "+ item.province+" "+ item.city+" "+item.region+" <br>\n" +
-                            "                                "+ item.detailAddress+"                            </dd>\n" +
-                            "                        </dl>\n" +
-                            "                        <div class=\"actions\">\n" +
-                            "\n" +
-                            "                        </div>\n" +
-                            "                    </div>");
+                        if (index == 0) {
+                            $("#J_addressList").append("<div id='" + index + "' class=\"address-item J_addressItem selected\">\n" +
+                                "                        <dl>\n" +
+                                "                            <dt>\n" +
+                                "                                <span class=\"tag\"></span>\n" +
+                                "                                <em class=\"uname\">" + item.name + "</em>\n" +
+                                "                            </dt>\n" +
+                                "                            <dd class=\"utel\">\n" +
+                                "                                " + item.phoneNumber + "                            </dd>\n" +
+                                "                            <dd class=\"uaddress\">\n" +
+                                "                                " + item.province + " " + item.city + " " + item.region + " <br>\n" +
+                                "                                " + item.detailAddress + "                            </dd>\n" +
+                                "                        </dl>\n" +
+                                "                        <div class=\"actions\">\n" +
+                                "\n" +
+                                "                        </div>\n" +
+                                "                    </div>");
+
+                            province = item.province;
+                            city = item.city;
+                            region = item.region;
+                            detail_address = item.detailAddress;
+                            receiverName = item.name;
+                            receiverPhone = item.phoneNumber;
+                            receiverPostCode = item.postCode;
+
+
+                        }else {
+                            $("#J_addressList").append("<div id='" + index + "' class=\"address-item J_addressItem \">\n" +
+                                "                        <dl>\n" +
+                                "                            <dt>\n" +
+                                "                                <span class=\"tag\"></span>\n" +
+                                "                                <em class=\"uname\">" + item.name + "</em>\n" +
+                                "                            </dt>\n" +
+                                "                            <dd class=\"utel\">\n" +
+                                "                                " + item.phoneNumber + "                            </dd>\n" +
+                                "                            <dd class=\"uaddress\">\n" +
+                                "                                " + item.province + " " + item.city + " " + item.region + " <br>\n" +
+                                "                                " + item.detailAddress + "                            </dd>\n" +
+                                "                        </dl>\n" +
+                                "                        <div class=\"actions\">\n" +
+                                "\n" +
+                                "                        </div>\n" +
+                                "                    </div>");
+                        }
+
+
+                        $("#" +index).click(function () {
+
+                            $(".J_addressItem").prop("class", "address-item J_addressItem");
+
+                            var self = event.currentTarget;
+
+                            self.className = "address-item J_addressItem selected";
+
+                            province = item.province;
+                            alert(province);
+                            city = item.city;
+                            alert(city);
+                            region = item.region;
+                            alert(region);
+                            detail_address = item.detailAddress;
+                            alert(detail_address);
+
+                        });
+
                     }
+
+
+
+
                 });
 
                 $("#J_addressList").append("<!-- addresslist end -->\n" +
                     "                    <div class=\"address-item address-item-new\" id=\"J_newAddress\">\n" +
                     "                        <i class=\"iconfont\"></i>\n" +
                     "                        添加新地址\n" +
-                    "                    </div>")
+                    "                    </div>");
+
+
+
+
             }
         });
 
+        $(".J_addressItem").click(function () {
+
+            $(".J_addressItem").prop("class","address-item J_addressItem");
+
+            var self = event.currentTarget;
+
+            self.className = "address-item J_addressItem selected";
+
+
+        });
     });
 
     <!--out_trade_no = "1231";-->
@@ -261,10 +346,21 @@
     <!--subject="1231";-->
     <!--body  ="1231";-->
 
+
+
+
     function pay() {
-        $("input[name='total_amount']").val(totalPrice);
+        $("input[name='pay_amount']").val(totalPrice);
         $("input[name='subject']").val(sumProductName);
         $("input[name='body']").val("222");
+        $("input[name='receiverProvince']").val(province);
+        $("input[name='receiverCity']").val(city);
+        $("input[name='receiverRegion']").val(region);
+        $("input[name='receiverDetailAddress']").val(detail_address);
+        $("input[name='receiverName']").val(receiverName);
+        $("input[name='receiverPhone']").val(receiverPhone);
+        $("input[name='receiverPostCode']").val(receiverPostCode);
+
 
 
         $('#myform').submit();
@@ -286,6 +382,11 @@
     //         }
     //     });
     // }
+
+
+
+
+
 
 </script>
 

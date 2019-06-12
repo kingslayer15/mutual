@@ -5,11 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>商品分类</title>
-    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <link href="mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8" async=""
-            src="../static/mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
+            src="mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="../static/mall-admin-web_files/32.f7c159f497c05c073d8b.js"></script>
+            src="mall-admin-web_files/32.f7c159f497c05c073d8b.js"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -539,7 +539,7 @@
                                                       style="margin-top: 5px;"></i> <span data-v-6806acc0=""
                                                                                           style="margin-top: 5px;">数据列表</span>
                             <button data-v-6806acc0="" type="button"
-                                    class="el-button btn-add el-button--default el-button--mini"><!----><!----><span>
+                                    class="el-button btn-add el-button--default el-button--mini" onclick="jumptoAddProductCate()"><!----><!----><span>
       添加
     </span></button>
                         </div>
@@ -560,12 +560,12 @@
                                 <div data-v-6806acc0=""></div>
                                 <div data-v-6806acc0=""></div>
                             </div>
-                            <div class="el-table__header-wrapper">
+                            <div class="el-table__header-wrapper" style="width: 1297px">
                                 <table cellspacing="0" cellpadding="0" border="0" class="el-table__header"
-                                       style="width: 1459px;">
+                                       style="width: 1297px;">
                                     <colgroup>
                                         <col name="el-table_1_column_1" width="100">
-                                        <col name="el-table_1_column_2" width="359">
+                                        <col name="el-table_1_column_2" width="197">
                                         <col name="el-table_1_column_3" width="100">
                                         <col name="el-table_1_column_4" width="100">
                                         <col name="el-table_1_column_5" width="100">
@@ -615,10 +615,10 @@
                             </div>
                             <div class="el-table__body-wrapper is-scrolling-none">
                                 <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
-                                       style="width: 1459px;">
+                                       style="width: 1297px;">
                                     <colgroup>
                                         <col name="el-table_1_column_1" width="100">
-                                        <col name="el-table_1_column_2" width="359">
+                                        <col name="el-table_1_column_2" width="197">
                                         <col name="el-table_1_column_3" width="100">
                                         <col name="el-table_1_column_4" width="100">
                                         <col name="el-table_1_column_5" width="100">
@@ -628,7 +628,7 @@
                                         <col name="el-table_1_column_9" width="200">
                                         <col name="el-table_1_column_10" width="200">
                                     </colgroup>
-                                    <tbody>
+                                    <tbody id="dataTr">
                                     <tr class="el-table__row">
                                         <td class="el-table_1_column_1 is-center ">
                                             <div class="cell">1</div>
@@ -693,262 +693,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_1_column_1 is-center ">
-                                            <div class="cell">2</div>
-                                        </td>
-                                        <td class="el-table_1_column_2 is-center ">
-                                            <div class="cell">手机数码</div>
-                                        </td>
-                                        <td class="el-table_1_column_3 is-center ">
-                                            <div class="cell">一级</div>
-                                        </td>
-                                        <td class="el-table_1_column_4 is-center ">
-                                            <div class="cell">100</div>
-                                        </td>
-                                        <td class="el-table_1_column_5 is-center ">
-                                            <div class="cell">件</div>
-                                        </td>
-                                        <td class="el-table_1_column_6 is-center ">
-                                            <div class="cell">
-                                                <div data-v-6806acc0="" role="switch" aria-checked="true"
-                                                     class="el-switch is-checked"><input type="checkbox" name=""
-                                                                                         true-value="1" false-value="0"
-                                                                                         class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_7 is-center ">
-                                            <div class="cell">
-                                                <div data-v-6806acc0="" role="switch" aria-checked="true"
-                                                     class="el-switch is-checked"><input type="checkbox" name=""
-                                                                                         true-value="1" false-value="0"
-                                                                                         class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_8 is-center ">
-                                            <div class="cell">1</div>
-                                        </td>
-                                        <td class="el-table_1_column_9 is-center ">
-                                            <div class="cell">
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看下级
-          </span></button>
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>转移商品
-          </span></button>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_10 is-center ">
-                                            <div class="cell">
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>编辑
-          </span></button>
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"><!---->
-                                                    <!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_1_column_1 is-center ">
-                                            <div class="cell">3</div>
-                                        </td>
-                                        <td class="el-table_1_column_2 is-center ">
-                                            <div class="cell">家用电器</div>
-                                        </td>
-                                        <td class="el-table_1_column_3 is-center ">
-                                            <div class="cell">一级</div>
-                                        </td>
-                                        <td class="el-table_1_column_4 is-center ">
-                                            <div class="cell">100</div>
-                                        </td>
-                                        <td class="el-table_1_column_5 is-center ">
-                                            <div class="cell">件</div>
-                                        </td>
-                                        <td class="el-table_1_column_6 is-center ">
-                                            <div class="cell">
-                                                <div data-v-6806acc0="" role="switch" aria-checked="true"
-                                                     class="el-switch is-checked"><input type="checkbox" name=""
-                                                                                         true-value="1" false-value="0"
-                                                                                         class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_7 is-center ">
-                                            <div class="cell">
-                                                <div data-v-6806acc0="" role="switch" aria-checked="true"
-                                                     class="el-switch is-checked"><input type="checkbox" name=""
-                                                                                         true-value="1" false-value="0"
-                                                                                         class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_8 is-center ">
-                                            <div class="cell">1</div>
-                                        </td>
-                                        <td class="el-table_1_column_9 is-center ">
-                                            <div class="cell">
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看下级
-          </span></button>
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>转移商品
-          </span></button>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_10 is-center ">
-                                            <div class="cell">
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>编辑
-          </span></button>
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"><!---->
-                                                    <!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_1_column_1 is-center ">
-                                            <div class="cell">4</div>
-                                        </td>
-                                        <td class="el-table_1_column_2 is-center ">
-                                            <div class="cell">家具家装</div>
-                                        </td>
-                                        <td class="el-table_1_column_3 is-center ">
-                                            <div class="cell">一级</div>
-                                        </td>
-                                        <td class="el-table_1_column_4 is-center ">
-                                            <div class="cell">100</div>
-                                        </td>
-                                        <td class="el-table_1_column_5 is-center ">
-                                            <div class="cell">件</div>
-                                        </td>
-                                        <td class="el-table_1_column_6 is-center ">
-                                            <div class="cell">
-                                                <div data-v-6806acc0="" role="switch" aria-checked="true"
-                                                     class="el-switch is-checked"><input type="checkbox" name=""
-                                                                                         true-value="1" false-value="0"
-                                                                                         class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_7 is-center ">
-                                            <div class="cell">
-                                                <div data-v-6806acc0="" role="switch" aria-checked="true"
-                                                     class="el-switch is-checked"><input type="checkbox" name=""
-                                                                                         true-value="1" false-value="0"
-                                                                                         class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_8 is-center ">
-                                            <div class="cell">1</div>
-                                        </td>
-                                        <td class="el-table_1_column_9 is-center ">
-                                            <div class="cell">
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看下级
-          </span></button>
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>转移商品
-          </span></button>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_10 is-center ">
-                                            <div class="cell">
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>编辑
-          </span></button>
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"><!---->
-                                                    <!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_1_column_1 is-center ">
-                                            <div class="cell">5</div>
-                                        </td>
-                                        <td class="el-table_1_column_2 is-center ">
-                                            <div class="cell">汽车用品</div>
-                                        </td>
-                                        <td class="el-table_1_column_3 is-center ">
-                                            <div class="cell">一级</div>
-                                        </td>
-                                        <td class="el-table_1_column_4 is-center ">
-                                            <div class="cell">100</div>
-                                        </td>
-                                        <td class="el-table_1_column_5 is-center ">
-                                            <div class="cell">件</div>
-                                        </td>
-                                        <td class="el-table_1_column_6 is-center ">
-                                            <div class="cell">
-                                                <div data-v-6806acc0="" role="switch" aria-checked="true"
-                                                     class="el-switch is-checked"><input type="checkbox" name=""
-                                                                                         true-value="1" false-value="0"
-                                                                                         class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_7 is-center ">
-                                            <div class="cell">
-                                                <div data-v-6806acc0="" role="switch" aria-checked="true"
-                                                     class="el-switch is-checked"><input type="checkbox" name=""
-                                                                                         true-value="1" false-value="0"
-                                                                                         class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_8 is-center ">
-                                            <div class="cell">1</div>
-                                        </td>
-                                        <td class="el-table_1_column_9 is-center ">
-                                            <div class="cell">
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看下级
-          </span></button>
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>转移商品
-          </span></button>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_1_column_10 is-center ">
-                                            <div class="cell">
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>编辑
-          </span></button>
-                                                <button data-v-6806acc0="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"><!---->
-                                                    <!----><span>删除
-          </span></button>
-                                            </div>
-                                        </td>
-                                    </tr><!----></tbody>
+                                 </tbody>
                                 </table><!----><!----></div><!----><!----><!----><!---->
                             <div class="el-table__column-resize-proxy" style="display: none;"></div>
                             <div class="el-loading-mask" style="display: none;">
@@ -959,7 +704,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-v-6806acc0="" class="pagination-container">
+                    <div data-v-6806acc0="" class="pagination-container" id="pagination">
                         <div data-v-6806acc0="" class="el-pagination is-background"><span class="el-pagination__total">共 5 条</span><span
                                 class="el-pagination__sizes"><div class="el-select"><!----><div
                                 class="el-input el-input--suffix"><!----><input type="text" autocomplete="off"
@@ -1002,5 +747,206 @@
 <!--<script type="text/javascript" src="./mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
+
+<script src="/jquery/jquery-2.1.1.min.js"></script>
+<script>
+
+    //跳转到添加页面
+    function jumptoAddProductCate() {
+        var url = "addProductCate.html"
+        window.location.href= url;
+    }
+
+    //跳转到编辑页面
+    function jumptoUpdateProductCate(id) {
+        var url = "updateProductCate?id="+id;
+        window.location.href= url;
+    }
+
+
+    //分页查询
+    var currentPage = 1;
+    var totalPage;
+
+    function findAllByPage(currentPage) {
+        $.ajax(
+            {
+                type: "get",
+                url: "ListParentProductCategory?pageNo=" + currentPage,
+                contentType: "application/json",
+                success: function (data) {
+                    $("#dataTr").empty();
+                    $("#pagination").empty();
+                    //用户信息
+                    var table = $("#dataTr");
+                    console.log("--");
+                    console.log(data.pageNum);
+                    console.log(data.list)
+                    $(data.list).each(function (index, element) {
+                        var trHTML = "                                  <tr class=\"el-table__row\">\n" +
+                            "                                        <td class=\"el-table_1_column_1 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.id+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_2 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.name+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_3 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+(element.level==0?"一级":0)+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_4 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.product_count+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_5 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.product_unit+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_6 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <div data-v-6806acc0=\"\" role=\"switch\" aria-checked=\"true\"\n" +
+                            "                                                     class=\"el-switch is-checked\"><input type=\"checkbox\" name=\"\"\n" +
+                            "                                                                                         true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                                                         class=\"el-switch__input\">\n" +
+                            "                                                    <!----><span class=\"el-switch__core\" style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_7 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <div data-v-6806acc0=\"\" role=\"switch\" aria-checked=\"true\"\n" +
+                            "                                                     class=\"el-switch is-checked\"><input type=\"checkbox\" name=\"\"\n" +
+                            "                                                                                         true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                                                         class=\"el-switch__input\">\n" +
+                            "                                                    <!----><span class=\"el-switch__core\" style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_8 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.sort+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_9 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
+                            "                                                        class=\"el-button el-button--default el-button--mini\"><!---->\n" +
+                            "                                                    <!----><span>查看下级\n" +
+                            "          </span></button>\n" +
+                            "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
+                            "                                                        class=\"el-button el-button--default el-button--mini\"><!---->\n" +
+                            "                                                    <!----><span>转移商品\n" +
+                            "          </span></button>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_10 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
+                            "                                                        class=\"el-button el-button--default el-button--mini\" onclick="jumptoUpdateProductCate()"><!---->\n" +
+                            "                                                    <!----><span>编辑\n" +
+                            "          </span></button>\n" +
+                            "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
+                            "                                                        class=\"el-button el-button--danger el-button--mini\"><!---->\n" +
+                            "                                                    <!----><span>删除\n" +
+                            "          </span></button>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                    </tr>\n" +
+                            "                                 ";
+
+
+                        //将字符窜拼接到table中
+                        table.append(trHTML);
+                    });
+
+                    //获取后台传过来的当前页 和 总页数
+                    currentPage = data.pageNum;
+                    totalPage = data.pages;
+
+                    var str1 = "<div class=\"el-pagination is-background\"><span class=\"el-pagination__total\">共 " + data.total + " 条</span><span\n" +
+                        "                                class=\"el-pagination__sizes\"><div class=\"el-select\"><!---->" +
+                        "                                  <div\n" +
+                        "                                class=\"el-input el-input--suffix\"><!----><input type=\"text\" autocomplete=\"off\"\n" +
+                        "                                         placeholder=\"请选择\" readonly=\"readonly\"\n" +
+                        "                                        class=\"el-input__inner\" id='' onclick=\"showSplitPage('splitPage')\"><!----><span\n" +
+                        "                                class=\"el-input__suffix\"><span class=\"el-input__suffix-inner\"><i\n" +
+                        "                                class=\"el-select__caret el-input__icon el-icon-arrow-up\"></i><!----></span>\n" +
+                        "                            <!----></span><!----></div>" +
+
+
+                        /*
+                                                "                               <div class=\"el-select-dropdown el-popper\"\n" +
+                                                "                                                            style=\"display: none; min-width: 110px;\" id='splitPage'><div\n" +
+                                                "                                class=\"el-scrollbar\" style=\"\"><div class=\"el-select-dropdown__wrap el-scrollbar__wrap\"\n" +
+                                                "                                                                   style=\"margin-bottom: -15px; margin-right: -15px;\"><ul\n" +
+                                                "                                class=\"el-scrollbar__view el-select-dropdown__list\"><!----></ul></div>" +
+                                                "                                       <div\n" +
+                                                "                                class=\"el-scrollbar__bar is-horizontal\"><div class=\"el-scrollbar__thumb\"\n" +
+                                                "                                                                             style=\"transform: translateX(0%);\"></div></div><div\n" +
+                                                "                                class=\"el-scrollbar__bar is-vertical\"><div class=\"el-scrollbar__thumb\"\n" +
+                                                "                                                                           style=\"transform: translateY(0%);\"></div></div></div>\n" +
+                                                "                            <!----></div>" +*/
+                        "</div></span>\n" +
+                        "                            <button type=\"button\"  class=\"btn-prev\" onclick='subcurrentPage()'><i\n" +
+                        "                                    class=\"el-icon el-icon-arrow-left\"></i></button>\n" +
+                        "                            <ul class=\"el-pager\" id='pageNumber'>\n";
+
+                    var str2 = "";
+                    for (var i = 1; i <= totalPage; i++) {
+                        if (i == totalPage) {
+                            str2 += "<li onclick='jumpPage(" + i + ")'>" + i + "</li></ul>"
+                        } else {
+                            str2 += "<li onclick='jumpPage(" + i + ")'>" + i + "</li>"
+                        }
+                    }
+
+
+                    var str3 = "                            <button type=\"button\" class=\"btn-next\" onclick='addcurrentPage()'><i class=\"el-icon el-icon-arrow-right\"></i></button>\n" +
+                        "                            <span class=\"el-pagination__jump\">前往<div\n" +
+                        "                                    class=\"el-input el-pagination__editor is-in-pagination\"><!----><input type=\"number\"\n" +
+                        "onblur='jumpEveryPage()' " + "id='inputValNum'" +
+                        "                                                                                                          autocomplete=\"on\"\n" +
+                        "min='1'" +
+                        "                                                                                                          class=\"el-input__inner\"\n" +
+                        "max='" + totalPage + "'" +
+                        "                                <!----><!----><!----></div>页</span></div>";
+                    var str = str1 + str2 + str3
+                    $("#pagination").html(str);
+
+
+                },
+
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            }
+        );
+    };
+    findAllByPage(currentPage);
+
+
+    //前进一页
+    function addcurrentPage() {
+        currentPage = currentPage + 1 > totalPage ? totalPage : currentPage + 1;
+        findAllByPage(currentPage);
+    }
+
+    //后退一页
+    function subcurrentPage() {
+        currentPage = currentPage - 1 < 1 ? 1 : currentPage - 1;
+        findAllByPage(currentPage);
+    }
+
+    //跳转到指定页
+    function jumpPage(i) {
+        currentPage = i;
+        findAllByPage(currentPage);
+    }
+
+    //跳转到指定页2
+    function jumpEveryPage() {
+        var jpage = $("#inputValNum").val();
+        alert(jpage)
+        findAllByPage(jpage)
+    }
+
+
+</script>
 </body>
 </html>

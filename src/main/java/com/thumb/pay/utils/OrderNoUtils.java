@@ -11,6 +11,8 @@ import static java.lang.Thread.sleep;
 
 public class OrderNoUtils {
 
+
+
     @Autowired
     OmsOrderMapper omsOrderMapper;
 
@@ -29,7 +31,7 @@ public class OrderNoUtils {
         //当前时间毫秒值得后8位
         String substring = s.substring(5);
 
-        NumberUtils numberUtils = new NumberUtils();
+//        NumberUtils numberUtils = new NumberUtils();
 
 
         //判断是否是新的一天
@@ -37,10 +39,16 @@ public class OrderNoUtils {
             //新的一天
             NumberUtils.getAtomicNum().set(0);
         }
+        NumberUtils numberUtils = NumberUtils.getNumberUtils();
 
         //时间信息6位+6位自增流水号+下单时间的毫秒值后八位
 
+
+
         String orderNo = format + numberUtils.getNewAutoNum() +substring;
+
+
+
 
         return orderNo;
     }
