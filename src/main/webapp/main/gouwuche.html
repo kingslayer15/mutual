@@ -105,10 +105,46 @@
 
 
 		$("#all").click(function(){
+			var totalPrice = 0;
 			if(this.checked){
 				$(".quanxuan").prop("checked", true);
+				$(iData).each(function (index, item) {
+					totalPrice += item.price;
+				});
+
+				$("#total").empty();
+				$("#total").append("<div class=\"tishi fl ml20\">\n" +
+						"\t\t\t\t\t<ul>\n" +
+						"\t\t\t\t\t\t<li><a href=\"liebiao.html\">继续购物</a></li>\n" +
+						"\t\t\t\t\t\t<li>|</li>\n" +
+						"\t\t\t\t\t\t<li>共<span>"+totalNum+"</span>件商品，已选择<span>"+$(".quanxuan:checked").length+"</span>件</li>\n" +
+						"\t\t\t\t\t\t<div class=\"clear\"></div>\n" +
+						"\t\t\t\t\t</ul>\n" +
+						"\t\t\t\t</div>\n" +
+						"\t\t\t\t<div class=\"jiesuan fr\">\n" +
+						"\t\t\t\t\t<div class=\"jiesuanjiage fl\">合计（不含运费）：<span>"+totalPrice+"元</span></div>\n" +
+						"\t\t\t\t\t<div class=\"jsanniu fr\"><input class=\"jsan\" type=\"submit\" onclick=\"dataMethod()\" name=\"jiesuan\"  value=\"去结算\"/></div>\n" +
+						"\t\t\t\t\t<div class=\"clear\"></div>\n" +
+						"\t\t\t\t</div>\n" +
+						"\t\t\t\t<div class=\"clear\"></div>");
 			}else{
+				totalPrice = 0;
 				$(".quanxuan").prop("checked", false);
+				$("#total").empty();
+				$("#total").append("<div class=\"tishi fl ml20\">\n" +
+						"\t\t\t\t\t<ul>\n" +
+						"\t\t\t\t\t\t<li><a href=\"liebiao.html\">继续购物</a></li>\n" +
+						"\t\t\t\t\t\t<li>|</li>\n" +
+						"\t\t\t\t\t\t<li>共<span>"+totalNum+"</span>件商品，已选择<span>"+$(".quanxuan:checked").length+"</span>件</li>\n" +
+						"\t\t\t\t\t\t<div class=\"clear\"></div>\n" +
+						"\t\t\t\t\t</ul>\n" +
+						"\t\t\t\t</div>\n" +
+						"\t\t\t\t<div class=\"jiesuan fr\">\n" +
+						"\t\t\t\t\t<div class=\"jiesuanjiage fl\">合计（不含运费）：<span>"+totalPrice+"元</span></div>\n" +
+						"\t\t\t\t\t<div class=\"jsanniu fr\"><input class=\"jsan\" type=\"submit\" onclick=\"dataMethod()\" name=\"jiesuan\"  value=\"去结算\"/></div>\n" +
+						"\t\t\t\t\t<div class=\"clear\"></div>\n" +
+						"\t\t\t\t</div>\n" +
+						"\t\t\t\t<div class=\"clear\"></div>");
 			}
 		});
 
