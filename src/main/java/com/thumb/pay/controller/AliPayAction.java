@@ -5,6 +5,7 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.api.request.AlipayTradePayRequest;
 import com.thumb.pay.utils.AlipayConfig;
 import com.thumb.pay.utils.OrderNoUtils;
 import com.thumb.pay.vo.AliPayInfoVo;
@@ -83,7 +84,6 @@ public class AliPayAction {
             e.printStackTrace();
         }
 
-        System.out.println(result);
         return result;
     }
 
