@@ -34,5 +34,9 @@
         select * from pms_product_category
     </select>
 
+    <select id="getAdvertise" resultType="com.thumb.pojo.HomeAdvertise">
+        select * from sms_home_advertise
+    </select>
+
 
 </mapper>

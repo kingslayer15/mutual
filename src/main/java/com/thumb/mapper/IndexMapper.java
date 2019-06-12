@@ -18,4 +18,6 @@ public interface IndexMapper {
 
     List<PmsProductCategory> getType();
 
+    List<HomeAdvertise> getAdvertise();
+
 }

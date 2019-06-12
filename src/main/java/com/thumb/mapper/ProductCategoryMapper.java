@@ -9,11 +9,12 @@ public interface ProductCategoryMapper {
 
     int insertProductCategory(ProductCategoryDto productCategoryDto);
 
-    public ProductCategoryDto lookProductCategoryById(int id);
+    ProductCategoryDto lookProductCategoryById(int id);
 
-    public int modifyProductCategoryById(ProductCategoryDto productCategoryDto);
+    int modifyProductCategoryById(ProductCategoryDto productCategoryDto);
 
-    public int removeProductCategoryById(int id);
+    int removeProductCategoryById(int id);
 
-    public List<ProductCategoryDto> findLowerById(int id);
+    List<ProductCategoryDto> findLowerById(int id);
+
 }

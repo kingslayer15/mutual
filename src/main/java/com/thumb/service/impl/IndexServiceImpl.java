@@ -38,4 +38,9 @@ public class IndexServiceImpl implements IndexService {
     public List<PmsProductCategory> getType() {
         return indexMapper.getType();
     }
+
+    @Override
+    public List<HomeAdvertise> getAdvertise() {
+        return indexMapper.getAdvertise();
+    }
 }

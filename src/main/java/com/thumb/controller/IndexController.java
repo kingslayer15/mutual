@@ -153,6 +153,17 @@ public class IndexController {
         return indexService.getType();
 
     }
+    /**
+     * 商品种类查询
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("getAdvertise")
+    public Object getAdvertise() {
+
+        return indexService.getAdvertise();
+
+    }
 
 
 

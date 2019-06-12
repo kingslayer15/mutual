@@ -21,7 +21,6 @@
 					<!--<div class="jiage">2499.00元</div>-->
 				<!--</div>-->
 
-
 				<div class="clear"></div>
 			</div>
 			<div class="main center mb20" id="li2">
@@ -41,7 +40,7 @@
 	<script>
 
 
-		$("#header").load("head.html");
+		$("#header").load("header.html");
 
 
 
@@ -98,6 +97,40 @@
 		}
 
 		get(1,10);
+
+
+		$(function () {
+
+			$(function () {
+				$.ajax({
+					url:'/getType',
+					type:'GET', //GET
+					contentType:"application/json",
+					dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+					/*成功*/
+					success:function(data){
+
+						var inebiao = $("#inebiao");
+
+						inebiao.find("li").remove();
+
+						$(data).each(function (ind,val) {
+							if(val.parentId==0&&ind<10){
+								var li2 = " <li><a href=\"http://localhost:8080/main/liebiao3.html?name="+val.name+"\">"+val.name+"</a></li>";
+								inebiao.append(li2);
+							}
+						})
+
+					},
+					/*发生错误时*/
+					error:function(xhr,textStatus){
+						alert("请求出错!!!")
+					}
+				})
+			})
+
+		})
+
 
 	</script>
 
