@@ -62,7 +62,7 @@ public class OmsCartItemController {
 
 
     @ResponseBody
-    @RequestMapping(value = "getMenberId",method = RequestMethod.GET)
+    @RequestMapping(value = "getMemberId",method = RequestMethod.GET)
     public Object getMenberId(HttpSession httpSession){
 
         UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");

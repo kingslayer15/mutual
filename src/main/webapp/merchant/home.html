@@ -330,14 +330,14 @@
                             <span>首页</span></li>
                     </a>
                         <li role="menuitem" aria-haspopup="true" class="el-submenu">
-                            <div class="el-submenu__title"
+                            <div onclick="a1()" class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-product"></use>
                                 </svg>
                                 <span slot="title">商品</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline"
+                            <ul id="a" role="menu" class="el-menu el-menu--inline"
                                 style="background-color: rgb(48, 65, 86);"><a
                                     href="http://39.98.190.128/index.html#/pms/product" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
@@ -378,14 +378,14 @@
                             </a><!----><!----></ul>
                         </li>
                         <li role="menuitem" aria-haspopup="true" class="el-submenu">
-                            <div class="el-submenu__title"
+                            <div onclick="b1()" class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-order"></use>
                                 </svg>
                                 <span slot="title">订单</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline"
+                            <ul id="b" role="menu" class="el-menu el-menu--inline"
                                 style="background-color: rgb(48, 65, 86); display: none;"><a
                                     href="http://39.98.190.128/index.html#/oms/order" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
@@ -418,23 +418,17 @@
                             </a><!----></ul>
                         </li>
                         <li role="menuitem" aria-haspopup="true" class="el-submenu">
-                            <div class="el-submenu__title"
+                            <div onclick="c1()" class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-sms"></use>
                                 </svg>
                                 <span slot="title">营销</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline"
+                            <ul id="c" role="menu" class="el-menu el-menu--inline"
                                 style="background-color: rgb(48, 65, 86); display: none;"><a
                                     href="http://39.98.190.128/index.html#/sms/flash" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-flash"></use>
-                                    </svg>
-                                    <span>秒杀活动列表</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/coupon" class="">
+
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -633,160 +627,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-v-13e9f1ae="" class="overview-layout">
-                        <div data-v-13e9f1ae="" class="el-row" style="margin-left: -10px; margin-right: -10px;">
-                            <div data-v-13e9f1ae="" class="el-col el-col-12"
-                                 style="padding-left: 10px; padding-right: 10px;">
-                                <div data-v-13e9f1ae="" class="out-border">
-                                    <div data-v-13e9f1ae="" class="layout-title">商品总览</div>
-                                    <div data-v-13e9f1ae="" style="padding: 40px;">
-                                        <div data-v-13e9f1ae="" class="el-row">
-                                            <div id="TotalByPublishStatus0" data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">
-                                            </div>
-                                            <div id="TotalByPublishStatus1" data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">
-                                            </div>
-                                            <div id="lackStock2" data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">
-                                            </div>
-                                            <div id="allProduct" data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">
-                                            </div>
-                                        </div>
-                                        <div data-v-13e9f1ae="" class="font-medium el-row">
-                                            <div data-v-13e9f1ae="" class="overview-item-title el-col el-col-6">已下架
-                                            </div>
-                                            <div data-v-13e9f1ae="" class="overview-item-title el-col el-col-6">已上架
-                                            </div>
-                                            <div data-v-13e9f1ae="" class="overview-item-title el-col el-col-6">库存紧张
-                                            </div>
-                                            <div data-v-13e9f1ae="" class="overview-item-title el-col el-col-6">全部商品
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-v-13e9f1ae="" class="el-col el-col-12"
-                                 style="padding-left: 10px; padding-right: 10px;">
-                                <div data-v-13e9f1ae="" class="out-border">
-                                    <div data-v-13e9f1ae="" class="layout-title">用户总览</div>
-                                    <div data-v-13e9f1ae="" style="padding: 40px;">
-                                        <div data-v-13e9f1ae="" class="el-row">
-                                            <div id="todayNewMember" data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">
-                                            </div>
-                                            <div id="yesterdayNewMember" data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">
-                                            </div>
-                                            <div id="monthNewMember" data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">
-                                            </div>
-                                            <div id="totalMember" data-v-13e9f1ae=""
-                                                 class="color-danger overview-item-value el-col el-col-6">
-                                            </div>
-                                        </div>
-                                        <div data-v-13e9f1ae="" class="font-medium el-row">
-                                            <div data-v-13e9f1ae="" class="overview-item-title el-col el-col-6">今日新增
-                                            </div>
-                                            <div data-v-13e9f1ae="" class="overview-item-title el-col el-col-6">昨日新增
-                                            </div>
-                                            <div data-v-13e9f1ae="" class="overview-item-title el-col el-col-6">本月新增
-                                            </div>
-                                            <div data-v-13e9f1ae="" class="overview-item-title el-col el-col-6">会员总数
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-13e9f1ae="" class="statistics-layout">
-                        <div data-v-13e9f1ae="" class="layout-title">订单统计</div>
-                        <div data-v-13e9f1ae="" style="height: 420px" class="el-row">
-                            <div data-v-13e9f1ae="" class="el-col el-col-4">
-                                <div data-v-13e9f1ae="" style="padding: 20px;">
-                                    <div data-v-13e9f1ae="">
-                                        <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
-                                            本月订单总数
-                                        </div>
-                                        <div id="thisMonthOrder" data-v-13e9f1ae=""
-                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
-                                        </div>
-                                        <div data-v-13e9f1ae=""><span id="lastMonthOrder" data-v-13e9f1ae="" class="color-success"
-                                                                      style="font-size: 14px;"></span> <span
-                                                data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上月</span>
-                                        </div>
-                                    </div>
-                                    <div data-v-13e9f1ae="" style="margin-top: 20px;">
-                                        <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
-                                            本周订单总数
-                                        </div>
-                                        <div id="thisWeekOrder" data-v-13e9f1ae=""
-                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
-                                        </div>
-                                        <div data-v-13e9f1ae=""><span id="lastWeekOrder" data-v-13e9f1ae="" class="color-danger"
-                                                                      style="font-size: 14px;"></span> <span
-                                                data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上周</span>
-                                        </div>
-                                    </div>
-                                    <div data-v-13e9f1ae="" style="margin-top: 20px;">
-                                        <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
-                                            本月销售总额
-                                        </div>
-                                        <div id="thisMonthAmount" data-v-13e9f1ae=""
-                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
-                                        </div>
-                                        <div data-v-13e9f1ae=""><span id="lastMonthAmount" data-v-13e9f1ae="" class="color-success"
-                                                                      style="font-size: 14px;"></span> <span
-                                                data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上月</span>
-                                        </div>
-                                    </div>
-                                    <div data-v-13e9f1ae="" style="margin-top: 20px;">
-                                        <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
-                                            本周销售总额
-                                        </div>
-                                        <div id="thisWeekAmount" data-v-13e9f1ae=""
-                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
-                                        </div>
-                                        <div data-v-13e9f1ae=""><span id="lastWeekAmount" data-v-13e9f1ae="" class="color-danger"
-                                                                      style="font-size: 14px;"></span> <span
-                                                data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上周</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-v-13e9f1ae="" class="el-col el-col-20">
-                                <div data-v-13e9f1ae=""
-                                     style="padding: 10px; border-left: 1px solid rgb(220, 223, 230);">
 
-                                    <div data-v-13e9f1ae="">
-                                        <div data-v-13e9f1ae="" class="ve-line"
-                                             style="width: auto; height: 400px; position: relative;">
-                                            <div class="" _echarts_instance_="ec_1559273991873"
-                                                 style="width: auto; height: 400px; position: relative; -webkit-tap-highlight-color: transparent; user-select: none;">
-                                                <div style="position: relative; overflow: hidden; width: 981px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;">
-                                                    <div id="main" width="1962" height="800" style="position: absolute; left: 0px; top: 0px; width: 981px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></div>
-                                                </div>
-                                                <div></div>
-                                            </div>
-                                            <div class="v-charts-data-empty" style="display: none;"> 暂无数据</div>
-                                            <div class="v-charts-component-loading" style="display: none;">
-                                                <div class="loader">
-                                                    <div class="loading-spinner">
-                                                        <svg viewBox="25 25 50 50" class="circular">
-                                                            <circle cx="50" cy="50" r="20" fill="none"
-                                                                    class="path"></circle>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
         </div>
@@ -801,64 +642,41 @@
 
 <script src="../static/back-main-home/main-home-ajax.js"></script>
 
-<script >
-    var myChart = echarts.init(document.getElementById('main'));
+<script>
+    var a = 0;
+    var b = 0;
+    var c = 0;
 
-    option = {
-        title: {
-            text: ''
-        },
-        tooltip : {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'cross',
-                label: {
-                    backgroundColor: '#6a7985'
-                }
-            }
-        },
-        legend: {
-            data:['邮件营销','联盟广告']
-        },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap : false,
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            name:"OrderCount",
-            data: [820, 932, 901, 934, 11, 111, 111],
-            type: 'line',
-            smooth: true
-        },
-            {
-                name:"OrderAmount",
-                data: [841, 912, 111, 111, 321, 111, 111],
-                type: 'line',
+    function a1() {
 
-                smooth: true
-            }
-        ]
-    };
+        if(a==0){
+            $("#a").attr('style', 'background-color: rgb(48, 65, 86); ');
+            a=1;
+        } else if(a==1){
+            $("#a").attr('style', 'display:none; ');
+            a=0;
+        }
+    }
+    function b1() {
 
+        if(b==0){
+            $("#b").attr('style', 'background-color: rgb(48, 65, 86); ');
+            b=1;
+        } else if(b==1){
+            $("#b").attr('style', 'display:none; ');
+            b=0;
+        }
+    }
+    function c1() {
 
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-
+        if(c==0){
+            $("#c").attr('style', 'background-color: rgb(48, 65, 86); ');
+            c=1;
+        } else if(c==1){
+            $("#c").attr('style', 'display:none; ');
+            c=0;
+        }
+    }
 </script>
 </body>
 </html>
