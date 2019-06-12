@@ -13,6 +13,12 @@
             src="../static/mall-admin-web_files/5.ab752a1a96f36ec723b1.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
             src="../static/mall-admin-web_files/1.204fcd3d0675d157f1ac.js"></script>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+
+
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -314,88 +320,90 @@
               p-id="7987"></path>
     </symbol>
 </svg>
-<script src="./mall-admin-web_files/tinymce.min.js"></script>
+
+<!--<script src="./mall-admin-web_files/tinymce.min.js"></script>-->
 <div id="app">
     <div data-v-0ef526f4="" class="app-wrapper">
         <div data-v-69d4f5dd="" data-v-0ef526f4="" class="scroll-container sidebar-container">
             <div data-v-69d4f5dd="" class="scroll-wrapper" style="top: 0px;">
                 <ul role="menubar" class="el-menu" show-timeout="200" data-v-69d4f5dd=""
                     style="background-color: rgb(48, 65, 86);">
-                    <div class="menu-wrapper">
-                        <a href="http://39.98.190.128/index.html#/home" class="">
-                            <li role="menuitem" tabindex="-1" class="el-menu-item submenu-title-noDropdown"
-                                style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                    <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
-                                </svg>
-                                <span>首页</span>
-                            </li>
-                        </a>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
-                            <div class="el-submenu__title" style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);" onclick="a1()">
+                    <div class="menu-wrapper"><!----><!----><a href="http://39.98.190.128/index.html#/home" class="">
+                        <li role="menuitem" tabindex="-1" class="el-menu-item submenu-title-noDropdown"
+                            style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                            <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
+                            </svg>
+                            <span>首页</span></li>
+                    </a>
+                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-active is-opened"
+                            aria-expanded="true">
+                            <div class="el-submenu__title"
+                                 style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-product"></use>
                                 </svg>
                                 <span slot="title">商品</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style=" display: none; "
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow="" id="a">
-                                <a href="http://39.98.190.128/index.html#/pms/product" class="">
-                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                            <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
-                                        </svg>
-                                        <span>商品列表</span>
-                                    </li>
-                                </a><a href="http://39.98.190.128/index.html#/pms/addProduct" class="">
+                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
+                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
+                                    href="http://39.98.190.128/index.html#/pms/product"
+                                    class="router-link-exact-active router-link-active">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
+                                    style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
+                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                        <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
+                                    </svg>
+                                    <span>商品列表</span></li>
+                            </a><a href="http://39.98.190.128/index.html#/pms/addProduct" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-add"></use>
                                     </svg>
                                     <span>添加商品</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/pms/productCate"
-                                   class="">
+                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/pms/productCate"
+                                                        class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-cate"></use>
                                     </svg>
                                     <span>商品分类</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/pms/productAttr" class="">
+                            </a><!----><!----><a href="http://39.98.190.128/index.html#/pms/productAttr" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-attr"></use>
                                     </svg>
                                     <span>商品类型</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/pms/brand" class="">
+                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/pms/brand" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
                                     </svg>
                                     <span>品牌管理</span></li>
-                            </a>
-                            </ul>
+                            </a><!----><!----></ul>
                         </li>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-active is-opened" aria-expanded="true">
-                            <div class="el-submenu__title" style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);" onclick="b1()">
+                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
+                            <div class="el-submenu__title"
+                                 style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-order"></use>
                                 </svg>
                                 <span slot="title">订单</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""
-                                style="display: none;" id="b">
-                                <a href="http://39.98.190.128/index.html#/oms/order" class="">
-                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                            <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
-                                        </svg>
-                                        <span>订单列表</span></li>
-                                </a><!----><!----><a href="http://39.98.190.128/index.html#/oms/orderSetting" class="">
+                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
+                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
+                                    href="http://39.98.190.128/index.html#/oms/order" class="">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                        <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
+                                    </svg>
+                                    <span>订单列表</span></li>
+                            </a><!----><!----><a href="http://39.98.190.128/index.html#/oms/orderSetting" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -409,10 +417,9 @@
                                         <use data-v-81d70f2a="" xlink:href="#icon-order-return"></use>
                                     </svg>
                                     <span>退货申请处理</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnReason"
-                                   class="router-link-exact-active router-link-active">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
-                                    style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
+                            </a><a href="http://39.98.190.128/index.html#/oms/returnReason" class="">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-order-return-reason"></use>
                                     </svg>
@@ -420,46 +427,66 @@
                             </a><!----></ul>
                         </li>
                         <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
-                            <div class="el-submenu__title" style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);"  onclick="c1()">
+                            <div class="el-submenu__title"
+                                 style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-sms"></use>
                                 </svg>
                                 <span slot="title">营销</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="display: none;background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow="" id="c">
-                                <a href="/background/brands.html" class="">
-                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                            <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
-                                        </svg>
-                                        <span>品牌推荐</span></li>
-                                </a><a href="/background/new.html" class="">
+                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
+                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
+                                    href="http://39.98.190.128/index.html#/sms/flash" class="">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-flash"></use>
+                                    </svg>
+                                    <span>秒杀活动列表</span></li>
+                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/coupon" class="">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-coupon"></use>
+                                    </svg>
+                                    <span>优惠券列表</span></li>
+                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/brand" class="">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                        <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
+                                    </svg>
+                                    <span>品牌推荐</span></li>
+                            </a><a href="http://39.98.190.128/index.html#/sms/new" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-new"></use>
                                     </svg>
                                     <span>新品推荐</span></li>
-                            </a><a href="/background/subject.html" class="">
+                            </a><a href="http://39.98.190.128/index.html#/sms/hot" class="">
+                                <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-hot"></use>
+                                    </svg>
+                                    <span>人气推荐</span></li>
+                            </a><a href="http://39.98.190.128/index.html#/sms/subject" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-subject"></use>
                                     </svg>
                                     <span>专题推荐</span></li>
-                            </a><a href="/background/advertise.html" class="">
+                            </a><a href="http://39.98.190.128/index.html#/sms/advertise" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-ad"></use>
                                     </svg>
                                     <span>广告列表</span></li>
-                            </a>
-                            </ul>
-                        </li>
-                    </div>
+                            </a><!----><!----></ul>
+                        </li><!----></div>
                 </ul>
             </div>
         </div>
@@ -500,7 +527,7 @@
                 <div data-v-453b378a="" class="avatar-container el-dropdown" tabindex="0">
                     <div data-v-453b378a="" class="avatar-wrapper el-dropdown-selfdefine" aria-haspopup="list"
                          aria-controls="dropdown-menu-5061" role="button" tabindex="0"><img data-v-453b378a=""
-                                                                                            src="./mall-admin-web_files/timg.jpg"
+                                                                                            src="\mall-admin-web_files\5a9d248cN071f4959.jpg"
                                                                                             class="user-avatar"> <i
                             data-v-453b378a="" class="el-icon-caret-bottom"></i></div>
                     <ul data-v-453b378a="" class="el-dropdown-menu el-popper user-dropdown" id="dropdown-menu-5061"
@@ -523,160 +550,83 @@
                         <div class="el-card__body">
                             <div><i class="el-icon-search"></i> <span>筛选搜索</span>
                                 <button type="button" class="el-button el-button--primary el-button--small"
-                                        style="float: right;"><!----><!----><span>
-        查询结果
-      </span></button>
+                                        style="float: right;" onclick="submitForm()">
+                                    <span>查询结果</span>
+                                </button>
                                 <button type="button" class="el-button el-button--default el-button--small"
-                                        style="float: right; margin-right: 15px;"><!----><!----><span>
+                                        style="float: right; margin-right: 15px;" onclick="resetCondition()"><!---->
+                                    <!----><span>
         重置
       </span></button>
                             </div>
                             <div style="margin-top: 15px;">
-                                <form class="el-form el-form--inline">
+                                <form class="el-form el-form--inline" id="findByCondition">
                                     <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
                                                                                          style="width: 140px;">输入搜索：</label>
                                         <div class="el-form-item__content">
-                                            <div class="el-input el-input--small" style="width: 203px;"><!----><input
-                                                    type="text" autocomplete="off" placeholder="商品名称"
-                                                    class="el-input__inner"><!----><!----><!----></div><!----></div>
+                                            <div class="el-input el-input--small" style="width: 203px;"><!---->
+                                                <input type="text" autocomplete="off" placeholder="商品名称"
+                                                       class="el-input__inner" id="productName">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
                                                                                          style="width: 140px;">商品货号：</label>
                                         <div class="el-form-item__content">
-                                            <div class="el-input el-input--small" style="width: 203px;"><!----><input
-                                                    type="text" autocomplete="off" placeholder="商品货号"
-                                                    class="el-input__inner"><!----><!----><!----></div><!----></div>
+                                            <div class="el-input el-input--small" style="width: 203px;">
+                                                <input type="text" autocomplete="off" placeholder="商品货号"
+                                                       class="el-input__inner" id="productSn"><!----><!----><!---->
+                                            </div><!----></div>
                                     </div>
-                                    <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
-                                                                                         style="width: 140px;">商品分类：</label>
-                                        <div class="el-form-item__content"><span class="el-cascader el-cascader--small"><div
-                                                class="el-input el-input--small el-input--suffix"><!----><input
-                                                type="text" autocomplete="off" readonly="readonly" placeholder="请选择"
-                                                class="el-input__inner" value=""><!----><span
+                                    <div class="el-form-item el-form-item--small">
+                                        <label class="el-form-item__label" style="width: 140px;">商品分类：</label>
+
+                                        <div class="el-form-item__content">
+                                            <!--<span class="el-cascader el-cascader&#45;&#45;small">
+                                            <div class="el-input el-input&#45;&#45;small el-input&#45;&#45;suffix">
+                                                <input type="text" autocomplete="off" readonly="readonly" placeholder="请选择"
+                                                class="el-input__inner" value=""><span
                                                 class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                class="el-input__icon el-icon-arrow-down"></i><!----></span>
-                                            <!----></span><!----></div><span class="el-cascader__label"></span></span>
-                                            <!----></div>
+                                                class="el-input__icon el-icon-arrow-down"></i></span>
+                                           </span></div><span class="el-cascader__label"></span></span>
+                                            -->
+                                            <select id="productCategory">
+                                                <option value="">请选择..</option>
+                                                <!--<option value="volvo">Volvo</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="opel">Opel</option>
+                                                <option value="audi">Audi</option>-->
+
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
                                                                                          style="width: 140px;">商品品牌：</label>
                                         <div class="el-form-item__content">
-                                            <div class="el-select el-select--small"><!---->
-                                                <div class="el-input el-input--small el-input--suffix"><!----><input
-                                                        type="text" autocomplete="off" placeholder="请选择品牌"
-                                                        readonly="readonly" class="el-input__inner"><!----><span
-                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 192px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li class="el-select-dropdown__item"><span>小米</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>七匹狼</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>海澜之家</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>苹果</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>三星</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>华为</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>格力</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>方太</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>万和</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>OPPO</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>NIKE</span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
+                                            <select id="productBrand">
+                                                <option value="">请选择..</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
-                                                                                         style="width: 140px;">上架状态：</label>
+                                    <div class="el-form-item el-form-item--small">
+                                        <label class="el-form-item__label" style="width: 140px;">上架状态：</label>
                                         <div class="el-form-item__content">
-                                            <div class="el-select el-select--small"><!---->
-                                                <div class="el-input el-input--small el-input--suffix"><!----><input
-                                                        type="text" autocomplete="off" placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner"><!----><span
-                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 192px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li class="el-select-dropdown__item"><span>上架</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>下架</span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
+                                            <select id="publishStatus">
+                                                <option value="-1">请选择..</option>
+                                                <option value="1">上架</option>
+                                                <option value="0">下架</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="el-form-item el-form-item--small"><label class="el-form-item__label"
-                                                                                         style="width: 140px;">审核状态：</label>
+                                    <div class="el-form-item el-form-item--small">
+                                        <label class="el-form-item__label" style="width: 140px;">审核状态：</label>
                                         <div class="el-form-item__content">
-                                            <div class="el-select el-select--small"><!---->
-                                                <div class="el-input el-input--small el-input--suffix"><!----><input
-                                                        type="text" autocomplete="off" placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner"><!----><span
-                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 192px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li class="el-select-dropdown__item"><span>审核通过</span>
-                                                                </li>
-                                                                <li class="el-select-dropdown__item"><span>未审核</span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
+                                            <select id="verify_status">
+                                                <option value="-1">请选择..</option>
+                                                <option value="1">已审核</option>
+                                                <option value="0">未审核</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -684,10 +634,9 @@
                     </div>
                     <div class="el-card operate-container is-never-shadow"><!---->
                         <div class="el-card__body"><i class="el-icon-tickets"></i> <span>数据列表</span>
-                            <button type="button" class="el-button btn-add el-button--default el-button--mini"><!---->
-                                <!----><span>
-      添加
-    </span></button>
+                            <button type="button" class="el-button btn-add el-button--default el-button--mini"
+                                    onclick="jumptoAddProduct()"><!---->
+                                <!----><span>添加</span></button>
                         </div>
                     </div>
                     <div class="table-container">
@@ -708,17 +657,17 @@
                             </div>
                             <div class="el-table__header-wrapper">
                                 <table cellspacing="0" cellpadding="0" border="0" class="el-table__header"
-                                       style="width: 1444px;">
+                                       style="width: 1294px;">
                                     <colgroup>
                                         <col name="el-table_2_column_12" width="60">
                                         <col name="el-table_2_column_13" width="100">
                                         <col name="el-table_2_column_14" width="120">
-                                        <col name="el-table_2_column_15" width="344">
+                                        <col name="el-table_2_column_15" width="244">
                                         <col name="el-table_2_column_16" width="120">
                                         <col name="el-table_2_column_17" width="140">
                                         <col name="el-table_2_column_18" width="100">
-                                        <col name="el-table_2_column_19" width="100">
-                                        <col name="el-table_2_column_20" width="100">
+                                        <col name="el-table_2_column_19" width="75">
+                                        <col name="el-table_2_column_20" width="75">
                                         <col name="el-table_2_column_21" width="100">
                                         <col name="el-table_2_column_22" width="160">
                                         <col name="gutter" width="0">
@@ -772,21 +721,22 @@
                             </div>
                             <div class="el-table__body-wrapper is-scrolling-none">
                                 <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
-                                       style="width: 1444px;">
+                                       style="width: 1294px;">
                                     <colgroup>
                                         <col name="el-table_2_column_12" width="60">
                                         <col name="el-table_2_column_13" width="100">
                                         <col name="el-table_2_column_14" width="120">
-                                        <col name="el-table_2_column_15" width="344">
+                                        <col name="el-table_2_column_15" width="244">
                                         <col name="el-table_2_column_16" width="120">
                                         <col name="el-table_2_column_17" width="140">
                                         <col name="el-table_2_column_18" width="100">
-                                        <col name="el-table_2_column_19" width="100">
-                                        <col name="el-table_2_column_20" width="100">
+                                        <col name="el-table_2_column_19" width="75">
+                                        <col name="el-table_2_column_20" width="75">
                                         <col name="el-table_2_column_21" width="100">
                                         <col name="el-table_2_column_22" width="160">
                                     </colgroup>
-                                    <tbody>
+
+                                    <tbody id="dataTr">
                                     <tr class="el-table__row">
                                         <td class="el-table_2_column_12 is-center el-table-column--selection">
                                             <div class="cell"><label role="checkbox" class="el-checkbox"><span
@@ -801,7 +751,7 @@
                                             <div class="cell">26</div>
                                         </td>
                                         <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell"><img src="./mall-admin-web_files/5ac1bf58Ndefaac16.jpg"
+                                            <div class="cell"><img src="/mall-admin-web_files/5ac1bf58Ndefaac16.jpg"
                                                                    style="height: 80px;"></div>
                                         </td>
                                         <td class="el-table_2_column_15 is-center ">
@@ -813,7 +763,9 @@
                                                 <p>货号：6946605</p></div>
                                         </td>
                                         <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell"><p>上架：
+                                            <div class="cell">
+                                                <p>
+                                                    上架：
                                                 <div role="switch" aria-checked="true" class="el-switch is-checked">
                                                     <input type="checkbox" name="" true-value="1" false-value="0"
                                                            class="el-switch__input"><!----><span class="el-switch__core"
@@ -849,8 +801,7 @@
                                             <div class="cell"><p>未审核</p>
                                                 <p>
                                                     <button type="button" class="el-button el-button--text"><!---->
-                                                        <!----><span>审核详情
-            </span></button>
+                                                        <!----><span>审核详情</span></button>
                                                 </p>
                                             </div>
                                         </td>
@@ -862,9 +813,9 @@
                                                         <!----><span>查看
             </span></button>
                                                     <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>编辑
-            </span></button>
+                                                            class="el-button el-button--default el-button--mini"
+                                                            onclick="jumptoUpdateProduct()"><!---->
+                                                        <span>编辑</span></button>
                                                 </p>
                                                 <p>
                                                     <button type="button"
@@ -879,376 +830,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_12 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">27</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell"><img src="./mall-admin-web_files/xiaomi.jpg"
-                                                                   style="height: 80px;"></div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell"><p>小米8 全面屏游戏智能手机 6GB+64GB 黑色 全网通4G 双卡双待</p>
-                                                <p>品牌：小米</p></div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell"><p>价格：￥2699</p>
-                                                <p>货号：7437788</p></div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell"><p>上架：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p> <p>新品：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p> <p>推荐：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p></div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--primary is-circle">
-                                                    <!----><i class="el-icon-edit"></i><!----></button>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_2_column_20 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_2_column_21 is-center ">
-                                            <div class="cell"><p>未审核</p>
-                                                <p>
-                                                    <button type="button" class="el-button el-button--text"><!---->
-                                                        <!----><span>审核详情
-            </span></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_2_column_22 is-center ">
-                                            <div class="cell">
-                                                <p>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>查看
-            </span></button>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>编辑
-            </span></button>
-                                                </p>
-                                                <p>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>日志
-            </span></button>
-                                                    <button type="button"
-                                                            class="el-button el-button--danger el-button--mini"><!---->
-                                                        <!----><span>删除
-            </span></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_12 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">28</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell"><img src="./mall-admin-web_files/5a9d248cN071f4959.jpg"
-                                                                   style="height: 80px;"></div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell"><p>小米 红米5A 全网通版 3GB+32GB 香槟金 移动联通电信4G手机 双卡双待</p>
-                                                <p>品牌：小米</p></div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell"><p>价格：￥649</p>
-                                                <p>货号：7437789</p></div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell"><p>上架：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p> <p>新品：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p> <p>推荐：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p></div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--primary is-circle">
-                                                    <!----><i class="el-icon-edit"></i><!----></button>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_2_column_20 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_2_column_21 is-center ">
-                                            <div class="cell"><p>未审核</p>
-                                                <p>
-                                                    <button type="button" class="el-button el-button--text"><!---->
-                                                        <!----><span>审核详情
-            </span></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_2_column_22 is-center ">
-                                            <div class="cell">
-                                                <p>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>查看
-            </span></button>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>编辑
-            </span></button>
-                                                </p>
-                                                <p>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>日志
-            </span></button>
-                                                    <button type="button"
-                                                            class="el-button el-button--danger el-button--mini"><!---->
-                                                        <!----><span>删除
-            </span></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_12 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">29</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell"><img src="./mall-admin-web_files/5acc5248N6a5f81cd.jpg"
-                                                                   style="height: 80px;"></div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell"><p>Apple iPhone 8 Plus 64GB 红色特别版 移动联通电信4G手机</p>
-                                                <p>品牌：苹果</p></div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell"><p>价格：￥5499</p>
-                                                <p>货号：7437799</p></div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell"><p>上架：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p> <p>新品：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p> <p>推荐：
-                                                <div role="switch" class="el-switch"><input type="checkbox" name=""
-                                                                                            true-value="1"
-                                                                                            false-value="0"
-                                                                                            class="el-switch__input">
-                                                    <!----><span class="el-switch__core" style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p></div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--primary is-circle">
-                                                    <!----><i class="el-icon-edit"></i><!----></button>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_2_column_20 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_2_column_21 is-center ">
-                                            <div class="cell"><p>未审核</p>
-                                                <p>
-                                                    <button type="button" class="el-button el-button--text"><!---->
-                                                        <!----><span>审核详情
-            </span></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_2_column_22 is-center ">
-                                            <div class="cell">
-                                                <p>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>查看
-            </span></button>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>编辑
-            </span></button>
-                                                </p>
-                                                <p>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>日志
-            </span></button>
-                                                    <button type="button"
-                                                            class="el-button el-button--danger el-button--mini"><!---->
-                                                        <!----><span>删除
-            </span></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_12 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">30</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell"><img
-                                                    src="./mall-admin-web_files/5ad83a4fN6ff67ecd.jpg!cc_350x449.jpg"
-                                                    style="height: 80px;"></div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell"><p>HLA海澜之家简约动物印花短袖T恤</p>
-                                                <p>品牌：海澜之家</p></div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell"><p>价格：￥98</p>
-                                                <p>货号：HNTBJ2E042A</p></div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell"><p>上架：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p> <p>新品：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p> <p>推荐：
-                                                <div role="switch" aria-checked="true" class="el-switch is-checked">
-                                                    <input type="checkbox" name="" true-value="1" false-value="0"
-                                                           class="el-switch__input"><!----><span class="el-switch__core"
-                                                                                                 style="width: 40px;"></span>
-                                                    <!----></div>
-                                                </p></div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button type="button" class="el-button el-button--primary is-circle">
-                                                    <!----><i class="el-icon-edit"></i><!----></button>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_2_column_20 is-center ">
-                                            <div class="cell">0</div>
-                                        </td>
-                                        <td class="el-table_2_column_21 is-center ">
-                                            <div class="cell"><p>未审核</p>
-                                                <p>
-                                                    <button type="button" class="el-button el-button--text"><!---->
-                                                        <!----><span>审核详情
-            </span></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                        <td class="el-table_2_column_22 is-center ">
-                                            <div class="cell">
-                                                <p>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>查看
-            </span></button>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>编辑
-            </span></button>
-                                                </p>
-                                                <p>
-                                                    <button type="button"
-                                                            class="el-button el-button--default el-button--mini"><!---->
-                                                        <!----><span>日志
-            </span></button>
-                                                    <button type="button"
-                                                            class="el-button el-button--danger el-button--mini"><!---->
-                                                        <!----><span>删除
-            </span></button>
-                                                </p>
-                                            </div>
-                                        </td>
-                                    </tr><!----></tbody>
+                                    </tbody>
                                 </table><!----><!----></div><!----><!----><!----><!---->
                             <div class="el-table__column-resize-proxy" style="display: none;"></div>
                             <div class="el-loading-mask" style="display: none;">
@@ -1297,7 +879,32 @@
       确定
     </span></button>
                     </div>
-                    <div class="pagination-container">
+
+
+                    <!--<div class="el-select-dropdown el-popper"
+                         style="min-width: 110px; position: absolute; top: 1050px; left: 1062px; transform-origin: center bottom; z-index: 2001;"
+                         x-placement="top-start">
+                        <div class="el-scrollbar" style="">
+                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                 style="margin-bottom: -17px; margin-right: -17px;">
+                                <ul class="el-scrollbar__view el-select-dropdown__list">&lt;!&ndash;&ndash;&gt;
+                                    <li class="el-select-dropdown__item selected hover"><span>5条/页</span></li>
+                                    <li class="el-select-dropdown__item"><span>10条/页</span></li>
+                                    <li class="el-select-dropdown__item"><span>15条/页</span></li>
+                                </ul>
+                            </div>
+                            <div class="el-scrollbar__bar is-horizontal">
+                                <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                            </div>
+                            <div class="el-scrollbar__bar is-vertical">
+                                <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                            </div>
+                        </div>&lt;!&ndash;&ndash;&gt;
+                        <div x-arrow="" class="popper__arrow" style="left: 35px;"></div>
+                    </div>-->
+
+
+                    <div class="pagination-container" id="pagination">
                         <div class="el-pagination is-background"><span class="el-pagination__total">共 11 条</span><span
                                 class="el-pagination__sizes"><div class="el-select"><!----><div
                                 class="el-input el-input--suffix"><!----><input type="text" autocomplete="off"
@@ -1305,19 +912,29 @@
                                                                                 class="el-input__inner"><!----><span
                                 class="el-input__suffix"><span class="el-input__suffix-inner"><i
                                 class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
-                            <!----></span><!----></div><div class="el-select-dropdown el-popper"
-                                                            style="display: none; min-width: 110px;"><div
-                                class="el-scrollbar" style=""><div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                                   style="margin-bottom: -15px; margin-right: -15px;"><ul
-                                class="el-scrollbar__view el-select-dropdown__list"><!----><li
-                                class="el-select-dropdown__item selected"><span>5条/页</span></li><li
-                                class="el-select-dropdown__item"><span>10条/页</span></li><li
-                                class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
-                                class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb"
-                                                                             style="transform: translateX(0%);"></div></div><div
-                                class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb"
-                                                                           style="transform: translateY(0%);"></div></div></div>
-                            <!----></div></div></span>
+                            <!----></span><!----></div>
+                           <div class="el-select-dropdown el-popper"
+                                style="min-width: 110px; position: absolute; top: 1050px; left: 1062px; transform-origin: center bottom; z-index: 2001;"
+                                x-placement="top-start">
+                        <div class="el-scrollbar" style="">
+                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                 style="margin-bottom: -17px; margin-right: -17px;">
+                                <ul class="el-scrollbar__view el-select-dropdown__list">&lt;!&ndash;&ndash;&gt;
+                                    <li class="el-select-dropdown__item selected hover"><span>5条/页</span></li>
+                                    <li class="el-select-dropdown__item"><span>10条/页</span></li>
+                                    <li class="el-select-dropdown__item"><span>15条/页</span></li>
+                                </ul>
+                            </div>
+                            <div class="el-scrollbar__bar is-horizontal">
+                                <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                            </div>
+                            <div class="el-scrollbar__bar is-vertical">
+                                <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                            </div>
+                        </div>&lt;!&ndash;&ndash;&gt;
+                        <div x-arrow="" class="popper__arrow" style="left: 35px;"></div>
+                    </div>
+                        </div></span>
                             <button type="button" disabled="disabled" class="btn-prev"><i
                                     class="el-icon el-icon-arrow-left"></i></button>
                             <ul class="el-pager">
@@ -1352,45 +969,535 @@
         </div>
     </div>
 </div>
-<script>
-    var a = 0;
-    var b = 0;
-    var c = 0;
 
-    function a1() {
-
-        if(a==0){
-            $("#a").attr('style', 'background-color: rgb(48, 65, 86); ');
-            a=1;
-        } else if(a==1){
-            $("#a").attr('style', 'display:none; ');
-            a=0;
-        }
-    }
-    function b1() {
-
-        if(b==0){
-            $("#b").attr('style', 'background-color: rgb(48, 65, 86); ');
-            b=1;
-        } else if(b==1){
-            $("#b").attr('style', 'display:none; ');
-            b=0;
-        }
-    }
-    function c1() {
-
-        if(c==0){
-            $("#c").attr('style', 'background-color: rgb(48, 65, 86); ');
-            c=1;
-        } else if(c==1){
-            $("#c").attr('style', 'display:none; ');
-            c=0;
-        }
-    }
-</script>
-
+<div class="el-select-dropdown el-popper"
+     style="min-width: 110px; position: absolute; top: 1050px; left: 1062px; transform-origin: center bottom; z-index: 2001; display: none"
+     x-placement="top-start" id="splitPage">
+    <div class="el-scrollbar" style="">
+        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+             style="margin-bottom: -17px; margin-right: -17px;">
+            <ul class="el-scrollbar__view el-select-dropdown__list">&lt;!&ndash;&ndash;&gt;
+                <li class="el-select-dropdown__item selected hover"><span>5条/页</span></li>
+                <li class="el-select-dropdown__item"><span>10条/页</span></li>
+                <li class="el-select-dropdown__item"><span>15条/页</span></li>
+            </ul>
+        </div>
+        <div class="el-scrollbar__bar is-horizontal">
+            <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+        </div>
+        <div class="el-scrollbar__bar is-vertical">
+            <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+        </div>
+    </div>&lt;!&ndash;&ndash;&gt;
+    <div x-arrow="" class="popper__arrow" style="left: 35px;"></div>
+</div>
 <!--<script type="text/javascript" src="./mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
+
+<!--删除提示框-->
+<!--<div tabindex="-1" role="dialog" aria-modal="true" aria-label="提示" class="el-message-box__wrapper"
+     style="z-index: 2028; display: none;" id="deleteTip">
+    <div class="el-message-box">
+        <div class="el-message-box__header">
+            <div class="el-message-box__title">&lt;!&ndash;&ndash;&gt;<span>提示</span></div>
+            <button type="button" aria-label="Close" class="el-message-box__headerbtn" onclick="showTip('deleteTip')"><i
+                    class="el-message-box__close el-icon-close"></i></button>
+        </div>
+        <div class="el-message-box__content">
+            <div class="el-message-box__status el-icon-warning"></div>
+            <div class="el-message-box__message"><p>是否要进行删除操作?</p></div>
+            <div class="el-message-box__input" style="display: none;">
+                <div class="el-input">&lt;!&ndash;&ndash;&gt;<input type="text" autocomplete="off" placeholder=""
+                                                    class="el-input__inner">&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;</div>
+                <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+            </div>
+        </div>
+        <div class="el-message-box__btns">
+            <button type="button" class="el-button el-button&#45;&#45;default el-button&#45;&#45;small" onclick="showTip('deleteTip')">&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;<span>
+          取消
+        </span></button>
+            <button type="button" class="el-button el-button&#45;&#45;default el-button&#45;&#45;small el-button&#45;&#45;primary " onclick="deleteProduct()">&lt;!&ndash;&ndash;&gt;
+                &lt;!&ndash;&ndash;&gt;<span>
+          确定
+        </span></button>
+        </div>
+    </div>
+</div>-->
+
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+
+
+    //跳到updateProduct.html页面
+    function jumptoUpdateProduct(id) {
+        var url = "updateProduct.html?id=" + id;
+        window.location.href = url;
+    }
+
+    //删除商品
+    function deleteByid(id) {
+        var r = confirm("您确定要删除?")
+        if (r == true) {
+            $.ajax(
+                {
+                    type: "get",
+                    url: "deleteProductById?id=" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        window.location.reload();
+                    },
+                    error: function (data) {
+
+                    }
+                }
+            )
+        } else {
+            return;
+        }
+    }
+
+
+    //显示删除提示框
+    /*function showTip(item) {
+        if ( document.getElementById(item).style.display=="none") {
+            document.getElementById(item).style.display="block"
+        }else{
+            document.getElementById(item).style.display="none"
+        }
+    }*/
+
+    //重置表单
+    function resetCondition() {
+        $("#findByCondition").each(function (index, element) {
+            element.reset();
+        })
+    }
+
+    //提交表单 根据条件查询
+    function submitForm() {
+        var productName = $("#productName").val();
+        var productSn = $("#productSn").val();
+        var productCategory = $("#productCategory").val();
+        var productBrand = $("#productBrand").val();
+        var publishStatus = $("#publishStatus").val();
+        var verifyStatus = $("#verify_status").val();
+
+        $.ajax(
+            {
+                type: "post",
+                url: "findByCondition",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify({
+                    "name": productName,
+                    "product_sn": productSn,
+                    "product_category_name": productCategory,
+                    "brand_name": productBrand,
+                    "publish_status": publishStatus,
+                    "verify_status": verifyStatus
+                }),
+                success: function (data) {
+                    $("#dataTr").empty();
+                    //用户信息
+                    var table = $("#dataTr");
+                    console.log(data)
+                    $(data).each(function (index, element) {
+                        var trHTML = "<tr class=\"el-table__row\">" + "<td class=\"el-table_2_column_12 is-center el-table-column--selection\">\n" +
+                            "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\"><span\n" +
+                            "                                                    aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
+                            "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
+                            "                                                                                             aria-hidden=\"true\"\n" +
+                            "                                                                                             class=\"el-checkbox__original\"\n" +
+                            "                                                                                             value=\"\"></span><!---->\n" +
+                            "                                            </label></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_13 is-center \">\n" +
+                            "                                            <div class=\"cell\">" + element.id + "</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_14 is-center \">\n" +
+                            "                                            <div class=\"cell\"><img src=" + element.pic +
+                            "                                                                   style=\"height: 80px;\"></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_15 is-center \">\n" +
+                            "                                            <div class=\"cell\"><p>" + element.name + "</p>\n" +
+                            "                                                <p>" + element.brand_name + "</p></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_16 is-center \">\n" +
+                            "                                            <div class=\"cell\"><p>价格：" + element.price + "</p>\n" +
+                            "                                                <p>货号：" + element.product_sn + "</p></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_17 is-center \">\n" +
+                            "                                            <div class=\"cell\"><p>上架：\n" +
+                            "                                                <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">\n" +
+                            "                                                    <input type=\"checkbox\" name=\"\" true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                           class=\"el-switch__input\" value='" + element.publish_status + "'><!----><span class=\"el-switch__core\"\n" +
+                            "                                                                                                 style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                                </p> <p>新品：\n" +
+                            "                                                <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">\n" +
+                            "                                                    <input type=\"checkbox\" name=\"\" true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                           class=\"el-switch__input\" value='" + element.new_status + "'><!----><span class=\"el-switch__core\"\n" +
+                            "                                                                                                 style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                                </p> <p>推荐：\n" +
+                            "                                                <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">\n" +
+                            "                                                    <input type=\"checkbox\" name=\"\" true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                           class=\"el-switch__input\" value='" + element.recommand_status + "'><!----><span class=\"el-switch__core\"\n" +
+                            "                                                                                                 style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                                </p></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_18 is-center \">\n" +
+                            "                                            <div class=\"cell\">" + element.sort + "</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_19 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <button type=\"button\" class=\"el-button el-button--primary is-circle\">\n" +
+                            "                                                    <!----><i class=\"el-icon-edit\"></i><!----></button>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_20 is-center \">\n" +
+                            "                                            <div class=\"cell\">" + element.sale + "</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_21 is-center \">\n" +
+                            "                                            <div class=\"cell\"><p>" + (element.verify_status == 1 ? "已审核" : "未审核") + "</p>\n" +
+                            "                                                <p>\n" +
+                            "                                                    <button type=\"button\" class=\"el-button el-button--text\"><!---->\n" +
+                            "                                                           <!----><span>审核详情</span></button>\n" +
+                            "                                                </p>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_22 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <p>\n" +
+                            "                                                    <button type=\"button\"\n" +
+                            "                                                            class=\"el-button el-button--default el-button--mini\"><!---->\n" +
+                            "                                                        <!----><span>查看\n" +
+                            "            </span></button>\n" +
+                            "                                                    <button type=\"button\"\n" +
+                            "                                                            class=\"el-button el-button--default el-button--mini\" onclick='jumptoUpdateProduct(" + element.id + ")'><!---->\n" +
+                            "                                                        <!----><span>编辑\n" +
+                            "            </span></button>\n" +
+                            "                                                </p>\n" +
+                            "                                                <p>\n" +
+                            "                                                    <button type=\"button\"\n" +
+                            "                                                            class=\"el-button el-button--default el-button--mini\"><!---->\n" +
+                            "                                                        <!----><span>日志\n" +
+                            "            </span></button>\n" +
+                            "                                                    <button type=\"button\"\n" +
+                            "                                                            class=\"el-button el-button--danger el-button--mini\"><!---->\n" +
+                            "                                                        <!----><span>删除\n" +
+                            "            </span></button>\n" +
+                            "                                                </p>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td></tr>";
+                        //将字符窜拼接到table中
+                        table.append(trHTML);
+                    });
+
+
+                }
+            }
+        )
+    }
+
+    //商品品牌
+    $(function () {
+        $.ajax(
+            {
+                type: "get",
+                url: "findAllBrand",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    var productBrand = $("#productBrand");
+                    var str = '';
+                    $(data).each(function (index, element) {
+                        str += "<option value='" + element.name + "'>" + element.name + "</option>"
+                    })
+                    productBrand.append(str)
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            }
+        )
+    });
+
+
+    //商品分类
+    $(function () {
+        $.ajax(
+            {
+                type: "get",
+                url: "findAllCategory",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    var productCategory = $("#productCategory");
+                    var str = '';
+                    $(data).each(function (index, element) {
+                        str += "<option value='" + element.name + "'>" + element.name + "</option>"
+                    })
+                    productCategory.append(str)
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            }
+        )
+    });
+
+
+    //分页查询
+    var currentPage = 1;
+    var totalPage;
+
+    function findAllByPage(currentPage) {
+        $.ajax(
+            {
+                type: "get",
+                url: "listAllProduct?pageNo=" + currentPage,
+                contentType: "application/json",
+                success: function (data) {
+                    $("#dataTr").empty();
+                    $("#pagination").empty();
+                    //用户信息
+                    var table = $("#dataTr");
+                    console.log("--");
+                    console.log(data.pageNum);
+                    console.log(data.list)
+                    $(data.list).each(function (index, element) {
+                        var innertext = "";
+                        if (element.verify_status == 1) {
+                            innertext = "已审核"
+                        } else {
+                            innertext = "未审核"
+                        }
+                        var trHTML = "<tr class=\"el-table__row\">" + "<td class=\"el-table_2_column_12 is-center el-table-column--selection\">\n" +
+                            "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\"><span\n" +
+                            "                                                    aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
+                            "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
+                            "                                                                                             aria-hidden=\"true\"\n" +
+                            "                                                                                             class=\"el-checkbox__original\"\n" +
+                            "                                                                                             value=\"\"></span><!---->\n" +
+                            "                                            </label></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_13 is-center \">\n" +
+                            "                                            <div class=\"cell\">" + element.id + "</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_14 is-center \">\n" +
+                            "                                            <div class=\"cell\"><img src=" + element.pic +
+                            "                                                                   style=\"height: 80px;\"></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_15 is-center \">\n" +
+                            "                                            <div class=\"cell\"><p>" + element.name + "</p>\n" +
+                            "                                                <p>" + element.brand_name + "</p></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_16 is-center \">\n" +
+                            "                                            <div class=\"cell\"><p>价格：" + element.price + "</p>\n" +
+                            "                                                <p>货号：" + element.product_sn + "</p></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_17 is-center \">\n" +
+                            "                                            <div class=\"cell\"><p>上架：\n" +
+                            "                                                <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">\n" +
+                            "                                                    <input type=\"checkbox\" name=\"\" true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                           class=\"el-switch__input\" value='" + element.publish_status + "'><!----><span class=\"el-switch__core\"\n" +
+                            "                                                                                                 style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                                </p> <p>新品：\n" +
+                            "                                                <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">\n" +
+                            "                                                    <input type=\"checkbox\" name=\"\" true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                           class=\"el-switch__input\" value='" + element.new_status + "'><!----><span class=\"el-switch__core\"\n" +
+                            "                                                                                                 style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                                </p> <p>推荐：\n" +
+                            "                                                <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">\n" +
+                            "                                                    <input type=\"checkbox\" name=\"\" true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                           class=\"el-switch__input\" value='" + element.recommand_status + "'><!----><span class=\"el-switch__core\"\n" +
+                            "                                                                                                 style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                                </p></div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_18 is-center \">\n" +
+                            "                                            <div class=\"cell\">" + element.sort + "</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_19 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <button type=\"button\" class=\"el-button el-button--primary is-circle\">\n" +
+                            "                                                    <!----><i class=\"el-icon-edit\"></i><!----></button>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_20 is-center \">\n" +
+                            "                                            <div class=\"cell\">" + element.sale + "</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_21 is-center \">\n" +
+                            "                                            <div class=\"cell\"><p id='audit'>" + innertext + "</p>\n" +
+                            "                                                <p>\n" +
+                            "                                                    <button type=\"button\" class=\"el-button el-button--text\"><!---->\n" +
+                            "                                                           <!----><span>审核详情</span></button>\n" +
+                            "                                                </p>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_2_column_22 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <p>\n" +
+                            "                                                    <button type=\"button\"\n" +
+                            "                                                            class=\"el-button el-button--default el-button--mini\"><!---->\n" +
+                            "                                                        <!----><span>查看\n" +
+                            "            </span></button>\n" +
+                            "                                                    <button type=\"button\"\n" +
+                            "                                                            class=\"el-button el-button--default el-button--mini\" " +
+                            "onclick='jumptoUpdateProduct(" + element.id + ")'>\n" +
+                            "                                                        <!----><span>编辑\n" +
+                            "            </span></button>\n" +
+                            "                                                </p>\n" +
+                            "                                                <p>\n" +
+                            "                                                    <button type=\"button\"\n" +
+                            "                                                            class=\"el-button el-button--default el-button--mini\"><!---->\n" +
+                            "                                                        <!----><span>日志\n" +
+                            "            </span></button>\n" +
+                            "                                                    <button type=\"button\"\n" +
+                            "                                                            class=\"el-button el-button--danger el-button--mini\" onclick=\"deleteByid(" + element.id + ")\"><!---->\n" +
+                            "                                                        <!----><span>删除\n" +
+                            "            </span></button>\n" +
+                            "                                                </p>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td></tr>";
+
+
+                        //将字符窜拼接到table中
+                        table.append(trHTML);
+                    });
+
+                    //获取后台传过来的当前页 和 总页数
+                    currentPage = data.pageNum;
+                    totalPage = data.pages;
+
+                    var str1 = "<div class=\"el-pagination is-background\"><span class=\"el-pagination__total\">共 " + data.total + " 条</span><span\n" +
+                        "                                class=\"el-pagination__sizes\"><div class=\"el-select\"><!---->" +
+                        "                                  <div\n" +
+                        "                                class=\"el-input el-input--suffix\"><!----><input type=\"text\" autocomplete=\"off\"\n" +
+                        "                                         placeholder=\"请选择\" readonly=\"readonly\"\n" +
+                        "                                        class=\"el-input__inner\" id='' onclick=\"showSplitPage('splitPage')\"><!----><span\n" +
+                        "                                class=\"el-input__suffix\"><span class=\"el-input__suffix-inner\"><i\n" +
+                        "                                class=\"el-select__caret el-input__icon el-icon-arrow-up\"></i><!----></span>\n" +
+                        "                            <!----></span><!----></div>" +
+
+
+/*
+                        "                               <div class=\"el-select-dropdown el-popper\"\n" +
+                        "                                                            style=\"display: none; min-width: 110px;\" id='splitPage'><div\n" +
+                        "                                class=\"el-scrollbar\" style=\"\"><div class=\"el-select-dropdown__wrap el-scrollbar__wrap\"\n" +
+                        "                                                                   style=\"margin-bottom: -15px; margin-right: -15px;\"><ul\n" +
+                        "                                class=\"el-scrollbar__view el-select-dropdown__list\"><!----></ul></div>" +
+                        "                                       <div\n" +
+                        "                                class=\"el-scrollbar__bar is-horizontal\"><div class=\"el-scrollbar__thumb\"\n" +
+                        "                                                                             style=\"transform: translateX(0%);\"></div></div><div\n" +
+                        "                                class=\"el-scrollbar__bar is-vertical\"><div class=\"el-scrollbar__thumb\"\n" +
+                        "                                                                           style=\"transform: translateY(0%);\"></div></div></div>\n" +
+                        "                            <!----></div>" +*/
+                        "</div></span>\n" +
+                        "                            <button type=\"button\"  class=\"btn-prev\" onclick='subcurrentPage()'><i\n" +
+                        "                                    class=\"el-icon el-icon-arrow-left\"></i></button>\n" +
+                        "                            <ul class=\"el-pager\" id='pageNumber'>\n";
+
+                    var str2 = "";
+                    for (var i = 1; i <= totalPage; i++) {
+                        if (i == totalPage) {
+                            str2 += "<li onclick='jumpPage(" + i + ")'>" + i + "</li></ul>"
+                        } else {
+                            str2 += "<li onclick='jumpPage(" + i + ")'>" + i + "</li>"
+                        }
+                    }
+
+
+                    var str3 = "                            <button type=\"button\" class=\"btn-next\" onclick='addcurrentPage()'><i class=\"el-icon el-icon-arrow-right\"></i></button>\n" +
+                        "                            <span class=\"el-pagination__jump\">前往<div\n" +
+                        "                                    class=\"el-input el-pagination__editor is-in-pagination\"><!----><input type=\"number\"\n" +
+                        "onblur='jumpEveryPage()' " + "id='inputValNum'" +
+                        "                                                                                                          autocomplete=\"on\"\n" +
+                        "min='1'" +
+                        "                                                                                                          class=\"el-input__inner\"\n" +
+                        "max='" + totalPage + "'" +
+                        "                                <!----><!----><!----></div>页</span></div>";
+                    var str = str1 + str2 + str3
+                    $("#pagination").html(str);
+
+
+                },
+
+                error: function (data) {
+                    console.log(data);
+                },
+                dataType: "json"
+            }
+        );
+    };
+    findAllByPage(currentPage);
+
+    //前进一页
+    function addcurrentPage() {
+        currentPage = currentPage + 1 > totalPage ? totalPage : currentPage + 1;
+        findAllByPage(currentPage);
+    }
+
+    //后退一页
+    function subcurrentPage() {
+        currentPage = currentPage - 1 < 1 ? 1 : currentPage - 1;
+        findAllByPage(currentPage);
+    }
+
+    //跳转到指定页
+    function jumpPage(i) {
+        currentPage = i;
+        findAllByPage(currentPage);
+    }
+
+    //跳转到指定页2
+    function jumpEveryPage() {
+        var jpage = $("#inputValNum").val();
+        alert(jpage)
+        findAllByPage(jpage)
+    }
+
+    //ajax 获取商品分类 select
+    $.ajax(
+        {
+            type: "get",
+            url: "listAllProduct?pageNo=" + currentPage,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+
+            },
+            error: function (data) {
+
+            }
+        }
+    )
+
+    //显示最大显示行数
+    function showSplitPage(item) {
+        // alert($("#splitPage"))
+        alert(document.getElementById(item))
+        if ( document.getElementById(item).style.display=="none") {
+            document.getElementById(item).style.display="block"
+        }else{
+            document.getElementById(item).style.display="none"
+        }
+    }
+
+    //跳转到添加页面
+    function jumptoAddProduct() {
+        window.location.href="addProduct.html"
+    }
+
+
+
+
+</script>
 </body>
 </html>
