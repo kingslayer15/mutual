@@ -86,7 +86,7 @@ public class OrderDetailsController {
 
 
 
-        String result = AliPayAction.sendAliPay(orderNo, aliPayInfoVo.getTotal_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
+        String result = AliPayAction.sendAliPay("9999", aliPayInfoVo.getTotal_amount(), aliPayInfoVo.getSubject(), aliPayInfoVo.getBody());
 
 
 
@@ -105,10 +105,10 @@ public class OrderDetailsController {
 
 
     @ResponseBody
-    @RequestMapping("aliPayRefundRequest")
-    public Object aliPayRefundRequest(HttpSession httpSession,AliPayInfoVo aliPayInfoVo) {
+    @RequestMapping("/aliPayRefundRequest")
+    public Object aliPayRefundRequest() {
 
-        String result = AliPayRefund.sendAliPay("", "", "");
+        String result = AliPayRefund.sendAliPay("9999", "9546", "第一次退款");
 
         return result;
     }

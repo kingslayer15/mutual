@@ -53,8 +53,7 @@ public class AliPayRefund {
             e.printStackTrace();
         }
 
-        //输出
-        System.out.println(result);
+
 
 //为确保安全通信，需自行验证响应示例中的sign值是否为蚂蚁金服所提供。
         return result;
