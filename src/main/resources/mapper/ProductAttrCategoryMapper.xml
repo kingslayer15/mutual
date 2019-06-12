@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.ProductAttrCategoryMapper">
+    <select id="findAllProductCategory" resultType="com.thumb.dto.ProductAttrCategoryDto">
+        select * from pms_product_attribute_category
+    </select>
+
+    <insert id="addProductCategory" parameterType="com.thumb.dto.ProductAttrCategoryDto">
+        insert into pms_product_attribute_category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name !=null and name!=''">
+                name,
+            </if>
+            <if test="attribute_count!=null and attribute_count!=''">
+                attribute_count,
+            </if>
+            <if test="param_count!=null and param_count!=''">
+                param_count,
+            </if>
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name !=null and name!=''">
+                #{name},
+            </if>
+            <if test="attribute_count!=null and attribute_count!=''">
+                #{attribute_count},
+            </if>
+            <if test="param_count!=null and param_count!=''">
+                #{param_count},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteCategoryById" parameterType="int">
+        delete from pms_product_attribute_category where id = #{value}
+    </delete>
+
+    <select id="findCategoryById" parameterType="int" resultType="com.thumb.dto.ProductAttrCategoryDto">
+        select * from pms_product_attribute_category where id = #{value}
+    </select>
+
+    <update id="editCategoryById" parameterType="com.thumb.dto.ProductAttrCategoryDto">
+        update pms_product_attribute_category
+        <set>
+            <if test="name !=null and name!=''">
+                name = #{name},
+            </if>
+            <if test="attribute_count!=null and attribute_count!=''">
+                attribute_count = #{attribute_count},
+            </if>
+            <if test="param_count!=null and param_count!=''">
+                param_count = #{param_count},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+
+</mapper>
