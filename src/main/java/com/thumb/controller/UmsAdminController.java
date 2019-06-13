@@ -24,7 +24,6 @@ public class UmsAdminController {
     @RequestMapping("backLoginController")
     @ResponseBody
     public Object backLoginController(@RequestBody UmsAdmin umsAdmin, HttpSession httpSession) {
-        System.out.println(1);
         System.out.println(umsAdmin);
         UmsAdmin admin = umsAdminService.selectOnebyall(umsAdmin);
         System.out.println(admin);
