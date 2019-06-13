@@ -3,14 +3,86 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.thumb.mapper.PersonalOrderMapper">
-    <select id="orderByUid" parameterType="int" resultMap="order">
-      SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`create_time`,o.`pay_amount`,o.`pay_type`,
-      i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
-      FROM oms_order o
-      LEFT JOIN oms_order_item i
-      ON o.`id`=i.`order_id`
-      AND o.`member_id`=#{uid}
-      ORDER BY o.`create_time` DESC
+    <select id="orderByUid" parameterType="com.thumb.dto.OrderPageDto" resultMap="order">
+      SELECT tbl.order_id,tbl.`member_id`,tbl.`order_sn`,tbl.`status`,tbl.`payment_time`,tbl.`pay_amount`,tbl.`pay_type`,tbl.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
+        FROM
+        (SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`
+        FROM oms_order o  LIMIT #{begin},#{infoPerPage}) tbl
+        LEFT JOIN oms_order_item i
+        ON tbl.order_id=i.`order_id`
+        WHERE tbl.`member_id`=#{uid}
+        ORDER BY tbl.`create_time` DESC
+    </select>
+
+    <!--某个用户一共有多少订单-->
+    <select id="count" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM oms_order WHERE member_id=#{uid}
+    </select>
+
+    <select id="count0" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM oms_order WHERE member_id=#{uid} AND status=0
+    </select>
+
+    <select id="count1" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM oms_order WHERE member_id=#{uid} AND status=1
+    </select>
+
+    <select id="count2" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM oms_order WHERE member_id=#{uid} AND status=2
+    </select>
+
+    <select id="count3" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM oms_order WHERE member_id=#{uid} AND status=3
+    </select>
+
+
+    <select id="orderByUid0" parameterType="com.thumb.dto.OrderPageDto" resultMap="order">
+      SELECT tbl.order_id,tbl.`member_id`,tbl.`order_sn`,tbl.`status`,tbl.`payment_time`,tbl.`pay_amount`,tbl.`pay_type`,tbl.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
+        FROM
+        (SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`
+        FROM oms_order o WHERE o.status=0 LIMIT #{begin},#{infoPerPage}) tbl
+        LEFT JOIN oms_order_item i
+        ON tbl.order_id=i.`order_id`
+        WHERE tbl.`member_id`=#{uid}
+        ORDER BY tbl.`create_time` DESC
+    </select>
+
+    <select id="orderByUid1" parameterType="com.thumb.dto.OrderPageDto" resultMap="order">
+      SELECT tbl.order_id,tbl.`member_id`,tbl.`order_sn`,tbl.`status`,tbl.`payment_time`,tbl.`pay_amount`,tbl.`pay_type`,tbl.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
+        FROM
+        (SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`
+        FROM oms_order o WHERE o.status=1 LIMIT #{begin},#{infoPerPage}) tbl
+        LEFT JOIN oms_order_item i
+        ON tbl.order_id=i.`order_id`
+        WHERE tbl.`member_id`=#{uid}
+        ORDER BY tbl.`create_time` DESC
+    </select>
+
+    <select id="orderByUid2" parameterType="com.thumb.dto.OrderPageDto" resultMap="order">
+      SELECT tbl.order_id,tbl.`member_id`,tbl.`order_sn`,tbl.`status`,tbl.`payment_time`,tbl.`pay_amount`,tbl.`pay_type`,tbl.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
+        FROM
+        (SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`
+        FROM oms_order o WHERE o.status=2 LIMIT #{begin},#{infoPerPage}) tbl
+        LEFT JOIN oms_order_item i
+        ON tbl.order_id=i.`order_id`
+        WHERE tbl.`member_id`=#{uid}
+        ORDER BY tbl.`create_time` DESC
+    </select>
+
+    <select id="orderByUid3" parameterType="com.thumb.dto.OrderPageDto" resultMap="order">
+      SELECT tbl.order_id,tbl.`member_id`,tbl.`order_sn`,tbl.`status`,tbl.`payment_time`,tbl.`pay_amount`,tbl.`pay_type`,tbl.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
+        FROM
+        (SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`
+        FROM oms_order o WHERE o.status=3 LIMIT #{begin},#{infoPerPage}) tbl
+        LEFT JOIN oms_order_item i
+        ON tbl.order_id=i.`order_id`
+        WHERE tbl.`member_id`=#{uid}
+        ORDER BY tbl.`create_time` DESC
     </select>
 
     <resultMap id="order" type="com.thumb.dto.ClientOrderDto">
@@ -112,6 +184,28 @@
             #{proof_pics},
         </if>
         #{product_real_price}
+        )
+    </insert>
+
+    <insert id="addRate" parameterType="com.thumb.dto.RateDto">
+        insert into pms_comment (
+        product_id,
+        member_nick_name,
+        product_name,
+        star,
+        create_time,
+        product_attribute,
+        content,
+        pics
+        ) values (
+        #{product_id},
+        #{member_nick_name},
+        #{product_name},
+        #{star},
+        NOW(),
+        #{product_attribute},
+        #{content},
+        #{pics}
         )
     </insert>
 </mapper>

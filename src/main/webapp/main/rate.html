@@ -19,7 +19,7 @@
 
 
 <style>
-    .gzxx {font-size: 12px;font-weight: bold;color:rgb(117,117,117);width: 100px;display: inline-block}
+    .gzxx {font-size: 12px;font-weight: bold;color:rgb(117,117,117);width: 200px;display: inline-block}
 
     .content{
         width: 100%;
@@ -106,7 +106,7 @@
 <!-- self_info -->
 <div class="grzxbj">
     <div class="selfinfo center">
-        <div class="lfnav fl" style="height: 700px">
+        <div class="lfnav fl" style="height: 800px">
             <div class="ddzx" style="height: 20px">个人中心</div>
             <div class="subddzx">
                 <ul>
@@ -129,7 +129,7 @@
             </div>
         </div>
         <!--//===============================================================================-->
-        <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
+        <div class="rtcont fr" style="width: 978px;height: 800px;background: #fff">
             <div class="grzlbt ml40">商品评价</div>
 
 
@@ -146,7 +146,7 @@
                                 <!--图片显示不出来的时候显示商品名称-->
                             </div>
                             <div class="lg-info" style="width: 280px">
-                                <p id="name">商品名</p>
+                                <p id="product_name">商品名</p>
                                 <p id="attr">商品属性</p>
                             </div>
                             <div class="lg-info" style="width: 120px">
@@ -160,19 +160,21 @@
                     </ul>
 
                 </div>
-                <br/><br/><br/>
+                <br/>
 
 
-                <div class="s-content" style="height: 650px">
+                <div class="s-content" style="height: 570px">
 
                     <ul class="lg-list">
                         <li class="lg-item">
                             <form>
                                 <div hidden><input id="uid" hidden ></div>
                                 <div hidden><input id="pid" hidden></div>
+                                <div hidden><input id="member_nick_name" hidden></div>
 
-                                <div class=" gzxx ml40" style="width: 550px" >
-                                    <!--<div class="pingfen">-->
+                                <div class=" gzxx ml40" style="width: 650px" >
+                                    <span class="gzxx" style="padding-right: 30px;font-size: medium" >评个星吧！</span><br/>
+                                    <div class=" gzxx ml40" style="width: 500px" >
                                         <div class="content" >
                                             <div class="stars" >
                                                 <span></span>
@@ -181,41 +183,32 @@
                                                 <span></span>
                                                 <span></span>
                                             </div>
-                                            <div class="info" id="info">优秀</div>
-                                            <span class="info" hidden></span>
+                                            <div class="info" id="info"></div>
                                         </div>
-                                        <!--<div class="tips">小提示：点击星星就能打分-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-
-
-
+                                    </div>
                                 </div>
 
 
                                 <div class=" gzxx ml40" style="width: 550px" >
-                                    <span class="gzxx" style="padding-right: 30px" >描述：</span><br/>
-                                    <textarea id="description" style="resize: none" rows="4" cols="100" placeholder="详细评价"></textarea>
+                                    <span class="gzxx" style="padding-right: 30px;font-size: medium" >描述：</span><br/><br/>
+                                    <textarea id="description" style="resize: none" rows="5" cols="60" placeholder="这次的购物体验怎么样呢？描述一下吧！"></textarea>
                                 </div>
-                                <br/><br/>
+                                <br/><br/><br/>
 
                                 <div class=" gzxx ml40" style="width: 550px" >
-                                    <span class="gzxx" style="padding-right: 30px">上传美照：</span><br/>
-                                    <div id="dropzoneDiv" class="dropzone" style="height: 200px;width: 250px" ></div>
+                                    <span class="gzxx" style="padding-right: 30px;font-size: medium">上传美照：</span><br/>
+                                    <div id="dropzoneDiv" class="dropzone" style="height: 200px;width: 380px" ></div>
 
 
                                     <!--<div id="dropzoneDiv" class="dropzone" style="height: 200px;width: 850px" ></div>-->
 
                                 </div>
                                 <br/><br/>
-
-
-                                <div lass=" gzxx ml40">
-                                    <span style="padding-right: 40px"></span>
-                                    <button href="self_info_edit.html" onclick="submitInfo()" id="submit">确认评价</button>
-                                </div>
-
                             </form>
+                            <div lass=" gzxx ml40">
+                                <span style="padding-right: 40px"></span>
+                                <button onclick="submitInfo()">确认评价</button>
+                            </div>
                         </li>
                     </ul>
 
@@ -224,11 +217,6 @@
                 </div>
 
             </div>
-
-
-
-
-
 
 
             <!--//=======================================================-->
@@ -245,7 +233,7 @@
 
 <script>
 
-
+//评星
     var stars=document.querySelectorAll('.stars span');
     var info=document.querySelector('.info');
     var grades = ["极差","差","一般","良好","优秀"];
@@ -259,8 +247,7 @@
     }
 
     function setStar(nub){
-        var name='';
-        name= nub<2?'show':'show2';
+        var name='show2';
         for(var i=0;i<stars.length;i++){
             stars[i].className= i<=nub?name:'';
         }
@@ -270,8 +257,6 @@
 
     function setClick(){
         active=this.index;
-        alert($("#info").innerHTML)
-
     }
 
 
@@ -286,7 +271,7 @@
     var product;
     function getProductId() {
         product=window.location.search.split("=")[1]
-        alert("评价商品id"+product)
+        alert("评价商品id "+product)
         $("#pid").val(product)
     }
     getProductId();
@@ -301,6 +286,7 @@
             dataType:'json',
             success:function(data){
                 $("#uid").val(data.id);
+                $("#member_nick_name").val(data.username)
             },
             error:function(data){
                 console.error(data);
@@ -309,29 +295,7 @@
     }
     getUserInfoById();
 
-    //获取退货原因列表
-    function getreasons() {
-        $.ajax({
-            url:'/getreasons',
-            type:'GET', //GET
-            contentType:"application/json",
-            dataType:'json',
-            success:function(data){
-                var reasons = $("#reason");
-                $(data).each(function (index,item) {
-                    var o="<option>"+item.name+"</option>"
-                    reasons.append(o)
-                })
-            },
-            error:function(data){
-                console.error(data);
-            }
-        })
-    }
-    getreasons();
-
-    var max;
-    //获取需要退货的商品信息
+    //获取商品信息
     function getProduct() {
         $.ajax({
             url:"/getRefundProduct?id="+product,
@@ -341,7 +305,7 @@
             success:function(data){
                 console.log(data)
                 $("#pic").attr("src",data.product_pic)
-                $("#name").html(data.product_name)
+                $("#product_name").html(data.product_name)
                 $("#attr").html(data.product_attr)
                 $("#price").html("单价：￥"+data.real_amount)
                 $("#amount").html("数量："+data.product_quantity)
@@ -355,12 +319,11 @@
         })
 
     }
-
     getProduct();
 
 
     Dropzone.options.dropzoneDiv = {
-        url: "/upload", // 文件提交地址
+        url: "/rate", // 文件提交地址
         method: "post",  // 也可用put
         paramName: "dropzFile", // 默认为file
         maxFiles: 1,// 一次性上传的文件数量上限
@@ -396,26 +359,49 @@
 
 
     function submitInfo() {
-        alert("申请退货")
         console.log($("#pid").val())
-        console.log($("#reason option:selected").val())
-        console.log($("#value").val())
+        console.log($("#member_nick_name").val())
+        console.log($("#name").html())
+        console.log($("#attr").html())
         console.log($("#description").val())
-        console.log($("#uid").val())
+        console.log($("#info").html())
+        var star;
+        if ($("#info").html()=="优秀"){
+            star=5
+        }
+        if ($("#info").html()=="良好"){
+            star=4
+        }
+        if ($("#info").html()=="一般"){
+            star=3
+        }
+        if ($("#info").html()=="差"){
+            star=2
+        }
+        if ($("#info").html()=="极差"){
+            star=1
+        }
+        if ($("#info").html()==""){
+            star=0
+        }
+        alert("提交评价")
 
         $.ajax({
-            url:'/refundText',
+            url:'/addRate',
             type:'POST',
             contentType:"application/json",
             data:JSON.stringify({
-                id: $("#pid").val(),
-                reason:$("#reason option:selected").val(),
-                product_count:$("#value").val(),
-                description:$("#description").val(),
+                product_id: $("#pid").val(),
+                product_name:$("#product_name").html(),
+                product_attribute:$("#attr").html(),
+                star:star,
+                content:$("#description").val(),
+                member_nick_name:$("#member_nick_name").val()
+
             }),
             dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
             success:function(data){
-                alert("申请成功")
+                alert("评价成功")
                 console.log(data)
                 if (data) {
                     var url= "orders.html"
@@ -423,9 +409,8 @@
                 }
             },
             error:function(data){
-                alert("申请失败")
-                var url= "refund.html?id="+product
-                window.location.href = url
+                alert("评价失败")
+                window.history.back();
 
             }
         })

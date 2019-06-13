@@ -55,7 +55,15 @@ public class OmsCartItemServiceImpl implements OmsCartItemService{
 
     @Override
     public int insertCart(OmsCartItemDto omsCartItemDto) {
+        System.out.println("insertCart"+omsCartItemDto);
         return omsCartItemMapper.insertCart(omsCartItemDto);
     }
+
+
+	@Override
+	public OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto){
+		 return omsCartItemMapper.selectOneByAll(omsCartItemDto);
+	}
+
 
 }

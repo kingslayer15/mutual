@@ -338,6 +338,14 @@
         </if>
     </update>
 
+    <!--删除订单-->
+    <delete id="deleteOmsOrderById" parameterType="int">
+            delete from oms_order where id = #{id}
+    </delete>
+    <!--删除订单下的产品项-->
+    <delete id="deleteOmsOrderItemByOrderId" parameterType="int">
+        delete from oms_order_item where order_id = #{id}
+    </delete>
 
     <!--订单设置映射-->
     <resultMap id="omsOrderSettingResultMap" type="com.thumb.entity.pojo.OmsOrderSetting">
@@ -447,6 +455,11 @@
         </if>
     </update>
 
+    <!--根据服务id删除退货信息-->
+    <delete id="deleteOrderReturnApplyById" parameterType="int">
+        delete from oms_order_return_apply where id = #{id}
+    </delete>
+
     <!--退货原因映射-->
     <resultMap id="ReturnReasonResultMap" type="com.thumb.entity.pojo.OmsOrderReturnReason">
         <id column="id" jdbcType="BIGINT" property="id" />
@@ -476,10 +489,18 @@
         where id = #{id}
     </update>
 
+    <!--修改退货原因的可用状态-->
+    <update id="updateReturnReasonStatus" parameterType="com.thumb.entity.dto.UpdateStatus">
+        update oms_order_return_reason
+          set status = #{status}
+          where id = #{id}
+    </update>
+
     <!--删除一个退货原因-->
     <delete id="deleteReturnReason" parameterType="int">
         delete from oms_order_return_reason where id = #{id}
     </delete>
+
 
 
 </mapper>

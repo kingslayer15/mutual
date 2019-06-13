@@ -4,52 +4,16 @@
     <meta charset="UTF-8">
     <meta name="author" content="order by dede58.com"/>
     <title>Mutual商城-个人中心</title>
+
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/js/bootstrap.min.js">
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
-    <script src="../static/js/js/jquery-3.2.1.js"></script>
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
-
 </head>
-
-<style>
-    .gzxx {font-size: 15px;font-weight: bold;color:rgb(117,117,117);width: 70px;display: inline-block}
-
-</style>
 <body>
+<div id="header"></div>
 
-<!-- start header -->
-<header id="header">
-
-
-</header>
-<!--end header -->
-<!-- start banner_x -->
-<div class="banner_x center">
-    <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
-    <a href=""><div class="ad_top fl"></div></a>
-    <div class="nav fl">
-        <ul>
-            <li><a href="">商城首页 </a></li>
-
-        </ul>
-    </div>
-    <div class="search fr">
-        <form action="" method="post">
-            <div class="text fl">
-                <input type="text" class="shuru"  placeholder="输入关键字查询宝贝">
-            </div>
-            <div class="submit fl">
-                <input type="submit" class="sousuo" value="搜索"/>
-            </div>
-            <div class="clear"></div>
-        </form>
-        <div class="clear"></div>
-    </div>
-</div>
-<!-- end banner_x -->
-<!-- self_info -->
 <div class="grzxbj">
     <div class="selfinfo center">
         <div class="lfnav fl" style="height: 700px">
@@ -74,7 +38,7 @@
                 </ul>
             </div>
         </div>
-        <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
+        <div class="rtcont fr" style="width: 978px;height: 1200px;background: #fff">
             <div class="grzlbt ml40" id="address">我的收藏夹
                 <div class="danpin center">
                     <div class="main center" style="width: 758px;height: 500px;background: #fff" id="appenddiv">
@@ -100,9 +64,11 @@
 
 <script src="../static/jquery/jquery-2.1.1.min.js"></script>
     <script>
+
+        $("#header").load("header.html");
+
     var memberId;
     $(function () {
-        $("#header").load("header.html");
         $.ajax({
             async: false,
             type: "get",

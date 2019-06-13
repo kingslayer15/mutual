@@ -13,7 +13,9 @@ public interface AdminOmsOrderMapper {
 
     OmsOrder getOmsOrderById(int omsOrderId);
 
-    int deleteOmsOrderById(int omsOrderId);
+    int deleteOmsOrderById(int id);
+
+    int deleteOmsOrderItemByOrderId(int id);
 
     OmsOrderSetting getOmsOrderSetting();
 
@@ -36,4 +38,8 @@ public interface AdminOmsOrderMapper {
     int updateOmsOrderStatusByOrderId(UpdateStatus updateStatus);
 
     int updateReturnApplyStatusById(UpdateStatus updateStatus);
+
+    int updateReturnReasonStatus(UpdateStatus updateStatus);
+
+    int deleteOrderReturnApplyById(int id);
 }

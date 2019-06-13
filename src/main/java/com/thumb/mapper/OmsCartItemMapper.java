@@ -1,4 +1,6 @@
 package com.thumb.mapper;
+import java.math.BigDecimal;
+import java.util.Date;
 import com.thumb.dto.OmsCartItemDto;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
@@ -23,6 +25,18 @@ public interface OmsCartItemMapper {
 
 
     int insertCart(OmsCartItemDto omsCartItemDto);
+
+
+
+
+    OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto);
+
+
+
+
+
+
+
 
 
 }

@@ -68,10 +68,13 @@ public class SubjectController {
     @ResponseBody
     @RequestMapping("getSelectSubject")
     public Object getSelectSubject(@RequestParam String name) {
+        System.out.println(name);
 
-        PageHelper.startPage(1, 4);
+        PageHelper.startPage(1, 5);
 
         List<CmsSubject> cmsSubjects = subjectService.getSelectSubject(name);
+
+        System.out.println(cmsSubjects);
 
         return new PageInfo(cmsSubjects);
 
@@ -85,6 +88,7 @@ public class SubjectController {
     @ResponseBody
     @RequestMapping("updateSubjectById")
     public Object updateSubjectById( @RequestBody PageName pageName) {
+
 
         return subjectService.updateSubjectById(pageName) != 0;
 
@@ -118,6 +122,50 @@ public class SubjectController {
 
         return new PageInfo(cmsSubjects);
     }
+
+
+    /**
+     * 修改是否推送
+     * @param pageName
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("selectSubjecShow")
+    public Object selectSubjecShow(@RequestBody PageName pageName) {
+
+        return subjectService.selectSubjecShow(pageName);
+    }
+
+
+    /**
+     * 修改是否推送
+     * @param pageName
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("selectBandsShow")
+    public Object selectBandsShow(@RequestBody PageName pageName) {
+
+        return subjectService.selectBandsShow(pageName);
+    }
+
+
+    /**
+     * 修改是否推送
+     * @param pageName
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("selectNewShow")
+    public Object selectNewShow(@RequestBody PageName pageName) {
+
+        System.out.println(pageName);
+
+        return subjectService.selectNewShow(pageName);
+    }
+
+
+
 
 
 }

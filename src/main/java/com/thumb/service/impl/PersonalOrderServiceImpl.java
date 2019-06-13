@@ -1,9 +1,6 @@
 package com.thumb.service.impl;
 
-import com.thumb.dto.ClientOrderDto;
-import com.thumb.dto.ClientRefundDto;
-import com.thumb.dto.Client_order_itemDto;
-import com.thumb.dto.RefundReasonsDto;
+import com.thumb.dto.*;
 import com.thumb.mapper.PersonalOrderMapper;
 import com.thumb.service.PersonalOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +18,10 @@ public class PersonalOrderServiceImpl implements PersonalOrderService {
 
 
     @Override
-    public List<ClientOrderDto> orderByUid(int uid) {
-        return personalOrderMapper.orderByUid(uid);
+    public List<ClientOrderDto> orderByUid(OrderPageDto orderPageDto) {
+        int count = personalOrderMapper.count(orderPageDto.getUid());
+        orderPageDto.setTotal(count);
+        return personalOrderMapper.orderByUid(orderPageDto);
     }
 
     @Override
@@ -55,5 +54,64 @@ public class PersonalOrderServiceImpl implements PersonalOrderService {
     @Override
     public List<RefundReasonsDto> getreasons() {
         return personalOrderMapper.getreasons();
+    }
+
+    @Override
+    public int addRate(RateDto rateDto) {
+        return personalOrderMapper.addRate(rateDto);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid0(OrderPageDto orderPageDto) {
+        int i = personalOrderMapper.count0(orderPageDto.getUid());
+        orderPageDto.setTotal(i);
+        return personalOrderMapper.orderByUid0(orderPageDto);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid1(OrderPageDto orderPageDto) {
+        int i = personalOrderMapper.count1(orderPageDto.getUid());
+        orderPageDto.setTotal(i);
+        return personalOrderMapper.orderByUid1(orderPageDto);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid2(OrderPageDto orderPageDto) {
+        int i = personalOrderMapper.count2(orderPageDto.getUid());
+        orderPageDto.setTotal(i);
+        return personalOrderMapper.orderByUid2(orderPageDto);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid3(OrderPageDto orderPageDto) {
+        int i = personalOrderMapper.count3(orderPageDto.getUid());
+        orderPageDto.setTotal(i);
+        return personalOrderMapper.orderByUid3(orderPageDto);
+    }
+
+
+    @Override
+    public int count(int uId) {
+        return personalOrderMapper.count(uId);
+    }
+
+    @Override
+    public int count0(int uId) {
+        return personalOrderMapper.count0(uId);
+    }
+
+    @Override
+    public int count1(int uId) {
+        return personalOrderMapper.count1(uId);
+    }
+
+    @Override
+    public int count2(int uId) {
+        return personalOrderMapper.count2(uId);
+    }
+
+    @Override
+    public int count3(int uId) {
+        return personalOrderMapper.count3(uId);
     }
 }

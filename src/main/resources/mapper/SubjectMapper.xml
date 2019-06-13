@@ -7,6 +7,12 @@
         select * from cms_subject where recommend_status=1  order by sort desc
     </select>
 
+    <!--获取正在推荐的品牌-->
+    <select id="selectSubjectAllShow" resultType="com.thumb.pojo.CmsSubject">
+        select * from cms_subject where recommend_status=1 and show_status = 1 order by sort desc
+    </select>
+
+
     <!--修改品牌推荐排序值-->
     <update id="updateSubjectBySort" parameterType="com.thumb.pojo.CmsSubject">
         UPDATE cms_subject SET `sort` = #{sort} WHERE `id` = #{id};
@@ -25,7 +31,7 @@
 
     <!--条件查询name-->
     <select id="getSelectSubject" resultType="com.thumb.pojo.CmsSubject" parameterType="String">
-        select id,title,sort,recommend_status from cms_subject where  name like "%"#{name}"%"
+        select * from cms_subject where  `title` like "%"#{name}"%"
     </select>
 
     <!--批量修改品牌库数据  -->
@@ -37,5 +43,20 @@
             #{item}
         </foreach>
     </update>
+      <update id="selectSubjecShow" parameterType="com.thumb.dto.PageName">
+        update cms_subject   set
+        show_status = #{show} where id = #{id}
+    </update>
+
+    <update id="selectBandsShow" parameterType="com.thumb.dto.PageName">
+        update pms_brand   set
+        factory_status = #{show} where id = #{id}
+    </update>
+    <update id="selectNewShow" parameterType="com.thumb.dto.PageName">
+        update pms_product   set
+        recommand_status = #{show} where id = #{id}
+    </update>
+
+
 
 </mapper>

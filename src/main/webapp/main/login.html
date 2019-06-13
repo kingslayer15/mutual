@@ -61,6 +61,18 @@
 <script src="../static/jquery/jquery.cookie.js"></script>
 <script src="../static/jquery/jquery.validate.js"></script>
 <script src="../static/jquery/jquery.validate.min.js"></script>
+<!--进入先刷新一次-->
+<Script>
+    function reurl(){
+        url = location.href;
+        var times = url.split("?t=");
+        if(times[1] != 1){
+            url += "?t=1";
+            self.location.replace(url);
+        }
+    }
+    onload=reurl
+</script>
 <script>
     $(function () {
         //进页面,获取cookie的值
@@ -69,6 +81,7 @@
         //将获取的值填充入输入框中
         $('#userName').val(username);
         $('#password').val(password);
+        // alert(username+":"+password)
         $.ajax({
             type: "post",
             url: "/userLogin",

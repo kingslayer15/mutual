@@ -1,7 +1,10 @@
 package com.thumb.controller;
 
 
+import com.thumb.dto.DateDto;
+import com.thumb.dto.EchartsDto;
 import com.thumb.dto.OrderStatusDto;
+import com.thumb.mapper.OmsOrderMapper;
 import com.thumb.service.OmsOrderService;
 import com.thumb.service.PmsProductService;
 import com.thumb.service.UmsMemberService;
@@ -35,6 +38,8 @@ public class AdminMainController {
     @Autowired
     UmsMemberService umsMemberService;
 
+    @Autowired
+    OmsOrderMapper omsOrderMapper;
 
 
     /**
@@ -357,12 +362,17 @@ public class AdminMainController {
         if (thisMonthAmount == null){
             return 0;
         }
+        if (bigDecimal == null){
+            return 0;
+        }
 
         if (bigDecimal.compareTo(new BigDecimal(0)) == 0){
             return 0;
         }else {
             lastMonth = thisMonthAmount.subtract(bigDecimal).divide(bigDecimal);
         }
+
+
 
 
         return lastMonth;
@@ -414,6 +424,10 @@ public class AdminMainController {
             return 0;
         }
 
+        if (bigDecimal == null){
+            return 0;
+        }
+
         if (bigDecimal.compareTo(new BigDecimal(0)) == 0){
             return 0;
         }else {
@@ -423,5 +437,49 @@ public class AdminMainController {
 
         return lastWeek;
     }
+
+
+    @ResponseBody
+    @RequestMapping("/getEchartsData")
+    public Object echartsData(){
+
+        List<DateDto> dateDtos = omsOrderMapper.selectByDate("2019","06");
+        EchartsDto echartsDto = new EchartsDto();
+
+        ArrayList<String> dates = new ArrayList<>();
+
+        ArrayList<String> counts = new ArrayList<>();
+
+        Calendar instance = Calendar.getInstance();
+        //获取当前是本月的几号
+        int end = instance.get(Calendar.DAY_OF_MONTH);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        for (int j = 1; j <= end; j++){
+            instance.set(Calendar.DAY_OF_MONTH,j);
+            String format = simpleDateFormat.format(instance.getTime());
+            dates.add(format);
+
+            counts.add("0");
+
+        }
+
+        for (DateDto dateDto : dateDtos) {
+            int i = Integer.parseInt(dateDto.getDate().substring(8, 10));
+            counts.set(i - 1,dateDto.getOrderCount());
+        }
+
+
+
+
+        echartsDto.setDate(dates);
+        echartsDto.setCount(counts);
+
+        return echartsDto;
+    }
+
+
+
 
 }

@@ -203,7 +203,7 @@
                                         <th colspan="1" rowspan="1"
                                             class="el-table_16_column_122  is-center el-table-column--selection  is-leaf" style="width: 10%;">
                                             <div class="cell">
-                                                <input type="checkbox">
+                                                <input id="allCheck" onclick="swapCheck()" type="checkbox">
                                             </div>
                                         </th>
                                         <th colspan="1" rowspan="1" class="el-table_16_column_123  is-center   is-leaf" style="width: 15%;">
@@ -230,7 +230,13 @@
                             </div>
                             <div class="el-table__body-wrapper is-scrolling-none" style="width: 100%;">
                                 <table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width: 100%;">
-                                    <tbody id="brand"></tbody>
+                                    <tbody id="brand" >
+
+
+                                    </tbody>
+
+
+
                                 </table>
                             </div>
                             <div class="el-table__column-resize-proxy" style="display: none;"></div>
@@ -261,7 +267,7 @@
                                          style="margin-bottom: -15px; margin-right: -15px;">
                                         <ul class="el-scrollbar__view el-select-dropdown__list">
                                             <!--<li class="el-select-dropdown__item"><span>设为推荐</span></li>-->
-                                            <li class="el-select-dropdown__item"><span>取消推荐</span></li>
+                                            <li class="el-select-dropdown__item"><span onclick="all()">取消推荐</span></li>
                                             <li class="el-select-dropdown__item"><span>删除</span></li>
                                         </ul>
                                     </div>
@@ -312,18 +318,9 @@
                                         </div>
                                      </div>
 
-                                        <!--<div class="el-scrollbar__bar is-horizontal">-->
-                                            <!--<div class="el-scrollbar__thumb" style="transform: translateX(0%);">-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div class="el-scrollbar__bar is-vertical">-->
-                                            <!--<div class="el-scrollbar__thumb" style="transform: translateY(0%);">-->
-                                            <!--</div>-->
-                                        <!--</div>-->
                                 </div>
                             </span>
-                            <!--<button type="button" disabled="disabled" class="btn-prev">-->
-                            <!--<i class="el-icon el-icon-arrow-left"></i></button>-->
+
                             <ul class="el-pager" id="ul_li">
                                 <!--页面快捷键-->
                             </ul>
@@ -334,22 +331,6 @@
                                        onblur="pageBlur()" id="pageBlur">
                             </div>页</span></div>
                     </div>
-                    <!--<div class="el-dialog__wrapper" style="display: none;">-->
-                        <!--<div class="el-dialog" style="width: 40%; margin-top: 15vh;">-->
-                            <!--<div class="el-dialog__header"><span class="el-dialog__title">选择品牌</span>-->
-                                <!--<button type="button" aria-label="Close" class="el-dialog__headerbtn"><i-->
-                                        <!--class="el-dialog__close el-icon el-icon-close"></i></button>-->
-                            <!--</div>-->
-                            <!--<div class="el-dialog__footer">-->
-                                <!--<div>-->
-                                    <!--<button type="button" class="el-button el-button&#45;&#45;default el-button&#45;&#45;small">-->
-                                        <!--<span>取 消</span></button>-->
-                                    <!--<button type="button" class="el-button el-button&#45;&#45;primary el-button&#45;&#45;small">-->
-                                        <!--<span>确 定</span></button>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
 
                     <!--选择品牌虚拟窗口-->
                     <div id="folioModa1" class="modal fade" tabindex="11" role="dialog" style="top: 90px;">
@@ -376,21 +357,9 @@
                                                 </colgroup>
                                                 <thead class="has-gutter">
                                                 <tr class="">
-                                                    <!--<th colspan="1" rowspan="1" class="el-table_2_column_8  is-center el-table-column&#45;&#45;selection  is-leaf">-->
-                                                        <!--<div class="cell">-->
-                                                            <!--<label role="checkbox" class="el-checkbox">-->
-                                                                <!--<span aria-checked="mixed" class="el-checkbox__input">-->
-                                                                    <!--<span class="el-checkbox__inner">-->
-
-                                                                    <!--</span>-->
-                                                                    <!--<input type="checkbox" aria-hidden="true"  class="el-checkbox__original" value="">-->
-                                                                <!--</span>-->
-                                                            <!--</label>-->
-                                                        <!--</div>-->
-                                                    <!--</th> -->
                                                     <th colspan="1" rowspan="1" class="el-table_2_column_8  is-center el-table-column--selection  is-leaf">
                                                         <div class="cell">
-                                                            <input type="checkbox">
+                                                            <input id="allCheck2" onclick="swapCheck2()" type="checkbox">
                                                         </div>
                                                     </th>
                                                     <th colspan="1" rowspan="1" class="el-table_2_column_9  is-center is-leaf">
@@ -500,79 +469,14 @@
                     </div>
                 </div>
             </section>
-
+</div>
 
 <script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="../static/js/js/bootstrap.js"></script>
 <script type="text/javascript">
 
-    function showBrand(pageNow, pageSize) {
-        //模态框初始化就显示了
-        $("#folioModa1").modal("show");
-        var $trTd = $("#tr_td");
-        $trTd.find("tr").remove();
-        //获取品牌库所有的品牌
-        $.ajax({
-            url: '/selectPmsBrandsAll',
-            type: 'POST', //GET
-            contentType: "application/json",
-            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
-            data: JSON.stringify({
-                "pageNow": pageNow,
-                "pageSize": pageSize
-            }),
-            /*成功*/
-            success: function (data) {
-                var list = data.list;
-                $(list).each(function (index, value) {
-                    var tableTd = "<tr class=\"el-table__row\">\n" +
-                        "<td class=\"el-table_2_column_8 is-center el-table-column--selection\">\n" +
-                        "<div class=\"cell\">\n" +
-                        "<input type=\"checkbox\" name=\"checkbox\" class=\"brand123\" value="+value.id+">" +
-                        "</div>\n" +
-                        "</td>\n" +
-                        "<td class=\"el-table_2_column_9 is-center \">\n" +
-                        "<div class=\"cell\">"+value.name+"</div>\n" +
-                        "</td>\n" +
-                        "<td class=\"el-table_2_column_10 is-center \">\n" +
-                        "<div class=\"cell\">\商" +
-                        "品：<span class=\"color-main\">"+value.product_count+"</span>\评" +
-                        "价：<span class=\"color-main\">"+value.product_comment_count+"</span></div>\n" +
-                        "</td>\n" +
-                        "</tr>";
-                    $trTd.append(tableTd);
-                })
 
-
-                var $ulLi = $("#rl_li2");
-                $ulLi.find("li").remove();
-                var now = data.pageNum;
-                var now1 = now -1;
-
-                var button =  "<li class=\"number \" onclick=\"showBrand(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>"  + "</li>";
-                $ulLi.append(button);
-
-                for (var i = 1; i <= data.pages; i++) {
-                    var li = "";
-                    if (i == now) {
-                        li = "<li class=\"number active\" onclick=\"showBrand(" + i + "," + pageSize + ")\">" + i + "</li>";
-                    } else {
-                        li = "<li class=\"number \" onclick=\"showBrand(" + i + "," + pageSize + ")\">" + i + "</li>";
-                    }
-                    $ulLi.append(li);
-                }
-                var now2 = now +1;
-                var button2 =  "<li class=\"number \" onclick=\"showBrand(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>"  + "</li>";
-                $ulLi.append(button2);
-
-            },
-            /*发生错误时*/
-            error: function (xhr, textStatus) {
-            }
-        });
-
-    };
 
     function f(pageNow, pageSize) {
 
@@ -598,23 +502,42 @@
 
                 var list = data.list;
                 $(list).each(function (index, val) {
+
+                    if(val.factory_status==1){
+                        var showshowNow = "推荐中";
+                        var factory_status = 0;
+                        var table =  "<div role=\"switch\" class=\"el-switch is-checked\"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
+                            "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
+                            "<input type='hidden' value='"+factory_status+"' id='"+index+"'>"+
+                            "     </span>\n" +
+                            "    </div>\n" ;
+                    }else {
+                        var showshowNow = "等待推荐";
+                        var factory_status = 1;
+                        var table =  "<div role=\"switch\" class=\"el-switch \"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
+                            "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
+                            "<input type='hidden' value='"+factory_status+"' id='"+index+"'>"+
+                            "     </span>\n" +
+                            "    </div>\n" ;
+                    }
+
                     var tableUser = "<tr class=\"el-table__row\">" + " " +
                         "<td class=\"el-table_16_column_122 is-center el-table-column--selection\" style=\"width: 10%;\">" +
-                        "<input type=\"checkbox\" class=\"check\" >" + "</td>" + "<td class=\"el-table_16_column_123 is-center \" style=\"width: 15%;\">" +
+                        "<input type=\"checkbox\" class=\"check\" vocab='"+val.id+"'>" + "</td>" + "<td class=\"el-table_16_column_123 is-center \" style=\"width: 15%;\">" +
+
                         "<div class=\"cell\">" + val.id + "</div>" + " </td>" + "<td class=\"el-table_16_column_124 is-center \" style=\"width: 15%;\">" +
                         " <div class=\"cell\">" + val.name + "</div>" + "</td>" + "<td class=\"el-table_16_column_125 is-center \" style=\"width: 20%;\">" +
-                        "<div class=\"cell\">" + " <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">" +
-                        "<input type=\"checkbox\" name=\"checkbox\" true-value=\"1\" false-value=\"0\"\n" +
-                        "  class=\"el-switch__input\"><span class=\"el-switch__core\"\n" +
-                        "  style=\"width: 40px;\"></span>\n" +
-                        "             </div>\n" +
+                        "<div class=\"cell\">"
+
+                        +table+
+
                         "      </div>\n" +
                         "  </td>\n" +
                         "  <td class=\"el-table_16_column_126 is-center \" style=\"width: 15%;\">\n" +
                         "      <div class=\"cell\">" + val.sort + "</div>\n" +
                         "  </td>\n" +
                         "  <td class=\"el-table_16_column_127 is-center \" style=\"width: 15%;\">\n" +
-                        "      <div class=\"cell\">推荐中</div>\n" +
+                        "         <div class=\"cell\" id = 'b"+index+"'>"+showshowNow+"</div>\n" +
                         "  </td>\n" +
                         "  <td class=\"el-table_16_column_128 is-center \" style=\"width: 20%;\">\n" +
                         "      <div class=\"cell\">\n" +
@@ -630,6 +553,8 @@
                     $brand.append(tableUser);
 
                 })
+
+                //分页按钮
                 var $ulLi = $("#ul_li");
                 $ulLi.find("li").remove();
                 var now = data.pageNum;
@@ -657,6 +582,55 @@
     }
 
     f(1, 5);
+
+
+    //是否推送
+    function open_switch(index,id) {
+        var i= 100;
+        var $1 = $("#"+index);
+        var val = $1.val();
+        var show = 0;
+        var one = 1;
+        var two = 0;
+        if(val==0){
+            $("#a"+index).attr("class","el-switch");
+            show = 0;
+            $1.val(one);
+        }else {
+            $("#a"+index).attr("class","el-switch is-checked");
+            show = 1;
+            $1.val(two);
+        }
+
+
+        $.ajax({
+            url: '/selectBandsShow',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            data: JSON.stringify({
+                "id": id,
+                "show":show
+            }),
+            /*成功*/
+            success: function (data) {
+
+                if(show==1){
+                    $("#b"+index).html("推送中")
+                }else {
+                    $("#b"+index).html("等待推送")
+                }
+
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+                alert("请求错误!!!")
+            }
+        });
+
+    }
+
+
 
     function pageLi(pages, pageNum) {
         var $ulLi = $("#ul_li");
@@ -780,22 +754,38 @@
                 $("#pageCondition").val(data.pageSize + "条/页");
                 var list = data.list;
                 $(list).each(function (index, val) {
+
+                    if(val.factory_status==1){
+                        var showshowNow = "推荐中";
+                        var factory_status = 0;
+                        var table =  "<div role=\"switch\" class=\"el-switch is-checked\"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
+                            "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
+                            "<input type='hidden' value='"+factory_status+"' id='"+index+"'>"+
+                            "     </span>\n" +
+                            "    </div>\n" ;
+                    }else {
+                        var showshowNow = "等待推荐";
+                        var factory_status = 1;
+                        var table =  "<div role=\"switch\" class=\"el-switch \"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
+                            "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
+                            "<input type='hidden' value='"+factory_status+"' id='"+index+"'>"+
+                            "     </span>\n" +
+                            "    </div>\n" ;
+                    }
                     var tableUser = "<tr class=\"el-table__row\">" + " <td class=\"el-table_16_column_122 is-center el-table-column--selection\">" +
-                        "<input type=\"checkbox\" class=\"check\" >" + "</td>" + "<td class=\"el-table_16_column_123 is-center \">" +
+                        "<input type=\"checkbox\" class=\"check\" value=\" " +val.id+ " \">" + "</td>" + "<td class=\"el-table_16_column_123 is-center \">" +
+
                         "<div class=\"cell\">" + val.id + "</div>" + " </td>" + "<td class=\"el-table_16_column_124 is-center \">" +
                         " <div class=\"cell\">" + val.name + "</div>" + "</td>" + "<td class=\"el-table_16_column_125 is-center \">" +
-                        "<div class=\"cell\">" + " <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\">" +
-                        "<input type=\"checkbox\" name=\"\" true-value=\"1\" false-value=\"0\"\n" +
-                        "  class=\"el-switch__input\"><!----><span class=\"el-switch__core\"\n" +
-                        "  style=\"width: 40px;\"></span>\n" +
-                        "             </div>\n" +
+                        "<div class=\"cell\">"
+                        +table+
                         "      </div>\n" +
                         "  </td>\n" +
                         "  <td class=\"el-table_16_column_126 is-center \">\n" +
                         "      <div class=\"cell\">" + val.sort + "</div>\n" +
                         "  </td>\n" +
                         "  <td class=\"el-table_16_column_127 is-center \">\n" +
-                        "      <div class=\"cell\">推荐中</div>\n" +
+                        "         <div class=\"cell\" id = 'b"+index+"'>"+showshowNow+"</div>\n" +
                         "  </td>\n" +
                         "  <td class=\"el-table_16_column_128 is-center \">\n" +
                         "      <div class=\"cell\">\n" +
@@ -864,6 +854,169 @@
             }
         });
     }
+    /*添加品牌*/
+    function all() {
+        var checkID = [];
+        var i = 0;
+        $("input[name='check']:checked").each(function(){//把所有被选中的复选框的值存入数组
+            checkID[i] =$(this).val();
+            i++;
+            all($(this).val())
+        });
+
+    }
+
+
+    function f1() {
+        $("#folioModa1").modal("show");
+    }
+
+
+    function showBrand(pageNow, pageSize) {
+        //模态框初始化就显示了
+        f1();
+
+
+
+        var $trTd = $("#tr_td");
+        $trTd.find("tr").remove();
+        //获取品牌库所有的品牌
+        $.ajax({
+            url: '/selectPmsBrandsAll',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            data: JSON.stringify({
+                "pageNow": pageNow,
+                "pageSize": pageSize
+            }),
+            /*成功*/
+            success: function (data) {
+                var list = data.list;
+                $(list).each(function (index, value) {
+                    var tableTd = "<tr class=\"el-table__row\" >\n" +
+                        "<td class=\"el-table_2_column_8 is-center el-table-column--selection\">\n" +
+                        "<div class=\"cell\">\n" +
+                        "<input type=\"checkbox\" name=\"checkbox\" class=\"brand123\" value="+value.id+">" +
+                        "</div>\n" +
+                        "</td>\n" +
+                        "<td class=\"el-table_2_column_9 is-center \">\n" +
+                        "<div class=\"cell\">"+value.name+"</div>\n" +
+                        "</td>\n" +
+                        "<td class=\"el-table_2_column_10 is-center \">\n" +
+                        "<div class=\"cell\">\商" +
+                        "品：<span class=\"color-main\">"+value.product_count+"</span>\评" +
+                        "价：<span class=\"color-main\">"+value.product_comment_count+"</span></div>\n" +
+                        "</td>\n" +
+                        "</tr>";
+                    $trTd.append(tableTd);
+                })
+
+                var $ulLi = $("#rl_li2");
+                $ulLi.find("li").remove();
+                var now = data.pageNum;
+                var now1 = now -1;
+
+                var button =  "<li class=\"number \" onclick=\"showBrand(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>"  + "</li>";
+                $ulLi.append(button);
+
+                for (var i = 1; i <= data.pages; i++) {
+                    var li = "";
+                    if (i == now) {
+                        li = "<li class=\"number active\" onclick=\"showBrand(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    } else {
+                        li = "<li class=\"number \" onclick=\"showBrand(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    }
+                    $ulLi.append(li);
+                }
+                var now2 = now +1;
+                var button2 =  "<li class=\"number \" onclick=\"showBrand(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>"  + "</li>";
+                $ulLi.append(button2);
+
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+            }
+        });
+
+    };
+
+
+
+
+    /**
+     * 复选框的全选和取消全选功能
+     */
+    var isCheckAll = false;
+    function swapCheck() {
+        if (isCheckAll) {
+            $("#brand input").each(function () {
+                this.checked = false;
+            });
+            isCheckAll = false;
+        } else {
+            $("#brand input").each(function () {
+                this.checked = true;
+            });
+            isCheckAll = true;
+        }
+    }
+    function itemCheck() {
+        var flag = true;
+        $("#brand input").each(function () {
+            if (!this.checked) {
+                flag = false;
+                return false;
+            }
+        });
+        isCheckAll = flag;
+        $("#allCheck").prop("checked", flag);
+    }
+
+    function plczselectInput() {
+        $("#plczselect").show();
+    }
+
+
+
+
+
+    /**
+     * 复选框的全选和取消全选功能
+     */
+    var isCheckAll2 = false;
+    function swapCheck2() {
+        if (isCheckAll2) {
+            $("#tr_td input").each(function () {
+                this.checked = false;
+            });
+            isCheckAll2 = false;
+        } else {
+            $("#tr_td input").each(function () {
+                this.checked = true;
+            });
+            isCheckAll2 = true;
+        }
+    }
+    function itemCheck() {
+        var flag = true;
+        $("#tr_td input").each(function () {
+            if (!this.checked) {
+                flag = false;
+                return false;
+            }
+        });
+        isCheckAll2 = flag;
+        $("#allCheck2").prop("checked", flag);
+    }
+
+    function plczselectInput() {
+        $("#plczselect").show();
+    }
+
+
+
+
 </script>
 </body>
 </html>

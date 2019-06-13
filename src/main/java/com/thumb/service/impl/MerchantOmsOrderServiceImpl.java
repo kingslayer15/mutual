@@ -22,7 +22,7 @@ public class MerchantOmsOrderServiceImpl implements MerchantOmsOrderService {
     MerchantOmsOrderMapper merchantOmsOrderMapper;
 
     @Override
-    public List<Merchant> listAllOmsOrderByMerchant(int merchantId) {
+    public Merchant listAllOmsOrderByMerchant(int merchantId) {
         return merchantOmsOrderMapper.listAllOmsOrderByMerchant(merchantId);
     }
 

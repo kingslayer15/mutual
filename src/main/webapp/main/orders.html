@@ -11,6 +11,8 @@
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
     <link href="../static/css/p.css" rel="stylesheet" type="text/css">
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+
 
 </head>
 <!--<style>-->
@@ -80,6 +82,7 @@
 
             <div class="m-userinfo" data-spm="972272805">
 
+
                 <div class="s-my-counts s-content">
                     <ul>
                         <li>
@@ -129,6 +132,15 @@
                     </ul>
                 </div>
             </div>
+            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
+            <div class="s-bar" data-spm-anchor-id="a1z02.1.1998049142.i0.66bc782dbSIL5O">
+                <a id="pre" onclick="prePage()">上一页</a><input id="pageNow" hidden>
+                <a id="next" onclick="nextPage()">下一页</a> <input id="number" hidden>
+                <input id="count" hidden>
+            </div>
+            </div>
+
+
 
 
 
@@ -226,6 +238,7 @@
 
 <!--//=======================================================-->
         </div>
+
         <div class="clear"></div>
     </div>
 </div>
@@ -242,19 +255,52 @@
 <script>
 
 
-    $(function () {
-        $("#header").load("header.html");
-    })
+    // $(function () {
+    //     $("#header").load("header.html");
+    // })
+
+    //获取总订单条数
+    var max;
+    function getCount() {
+        $.ajax({
+            url:"/count",
+            type:'GET', //GET
+            // data:JSON.stringify({id:id}),
+            contentType:"application/json",
+            dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
+            success:function(data){
+                // alert(data)
+                max=data
+            },
+            error:function(data){
+                console.log(data)
+            }
+        })
+    }
+    getCount();
 
     //根据id获取用户订单信息
-    function getUserOrderById() {
-        // var myDate = new Date();
-        // alert(myDate)
+
+    var start;
+    var numbers;
+    var page=1;
+
+    function getUserOrderById(begin,number) {
+        // alert("从第几条"+begin)
+        // alert("查几条"+number)
+        // $("#pageNow").val(parseInt(begin));
+        $("#number").val(parseInt(number));
+        start=begin;
+        numbers=number;
         $.ajax({
             url:'/orderByUid',
-            type:'GET', //GET
+            type:'POST', //GET
             contentType:"application/json",
             dataType:'json',
+            data: JSON.stringify({
+                begin: begin,
+                infoPerPage: number
+            }),
             success:function(data){
                 var orderList = $("#orderList");
                 orderList.find("div").remove();
@@ -315,79 +361,290 @@
                             "                            </div>\n" +
                             "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
                             "                                <p>"+status+"</p>\n"
-                                if (item.status=="3" || item.status=="2"){
-                                    html+="<a"+" onclick=\"logistics("+product.id+")\""+">查看物流</a>\n"
-                                }
-                                html+="</div>\n" ;
-                                                        if (item.status=="2") {
-                                                            if (item.duration==1){
-                                                                html+="                            <div class=\"lg-confirm\">\n" +
-                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
-                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+">申请退货</a>\n" +
+                        if (item.status=="3" || item.status=="2"){
+                            html+="<a"+" onclick=\"logistics("+product.id+")\""+">查看物流</a>\n"
+                        }
+                        html+="</div>\n" ;
+                        if (item.status=="2") {
+                            if (item.duration==1){
+                                html+="                            <div class=\"lg-confirm\">\n" +
+                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
+                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+">申请退货</a>\n" +
 
-                                                                    "                            </div>\n" +
-                                                                    "                        </li>\n" +
-                                                                    "\n" +
-                                                                    "                    </ul>\n" +
-                                                                    "\n" +
-                                                                    "                </div>"
-                                                            }else {
-                                                                html+="                            <div class=\"lg-confirm\">\n" +
-                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
-                                                                    "                            </div>\n" +
-                                                                    "                        </li>\n" +
-                                                                    "\n" +
-                                                                    "                    </ul>\n" +
-                                                                    "\n" +
-                                                                    "                </div>"
-                                                            }
+                                    "                            </div>\n" +
+                                    "                        </li>\n" +
+                                    "\n" +
+                                    "                    </ul>\n" +
+                                    "\n" +
+                                    "                </div>"
+                            }else {
+                                html+="                            <div class=\"lg-confirm\">\n" +
+                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
+                                    "                            </div>\n" +
+                                    "                        </li>\n" +
+                                    "\n" +
+                                    "                    </ul>\n" +
+                                    "\n" +
+                                    "                </div>"
+                            }
 
-                                                        } else if (item.status=="3"){
-                                                            if (item.duration==1) {
-                                                                html+="<div class=\"lg-confirm\">\n" +
-                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
-                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+"> 申请退货</a>\n" +
+                        } else if (item.status=="3"){
+                            if (item.duration==1) {
+                                html+="<div class=\"lg-confirm\">\n" +
+                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
+                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+"> 申请退货</a>\n" +
 
-                                                                    "                            </div>\n" +
-                                                                    "                        </li>\n" +
-                                                                    "\n" +
-                                                                    "                    </ul>\n" +
-                                                                    "\n" +
-                                                                    "                </div>"
-                                                            }else {
-                                                                html+="<div class=\"lg-confirm\">\n" +
-                                                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
-                                                                    "                            </div>\n" +
-                                                                    "                        </li>\n" +
-                                                                    "\n" +
-                                                                    "                    </ul>\n" +
-                                                                    "\n" +
-                                                                    "                </div>"
-                                                            }
+                                    "                            </div>\n" +
+                                    "                        </li>\n" +
+                                    "\n" +
+                                    "                    </ul>\n" +
+                                    "\n" +
+                                    "                </div>"
+                            }else {
+                                html+="<div class=\"lg-confirm\">\n" +
+                                    "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
+                                    "                            </div>\n" +
+                                    "                        </li>\n" +
+                                    "\n" +
+                                    "                    </ul>\n" +
+                                    "\n" +
+                                    "                </div>"
+                            }
 
-                                                        } else {
-                                                            html+="                        </li>\n" +
-                                                                "\n" +
-                                                                "                    </ul>\n" +
-                                                                "\n" +
-                                                                "                </div>"
-                                                        }
-
-
-
+                        } else {
+                            html+="                        </li>\n" +
+                                "\n" +
+                                "                    </ul>\n" +
+                                "\n" +
+                                "                </div>"
+                        }
                     })
 
                     orderList.append(html)
-
-
                 })
+
             },
             error:function(data){
-                console.error(data);
+                console.log(data);
             }
         })
     }
-    getUserOrderById();
+    getUserOrderById(0,2);
+
+    function prePage() {
+        // alert("现在 "+page)
+        if (parseInt(page)-1<1){
+            // $("#pageNow").val(0)
+        }else {
+            // alert("去 "+(parseInt(page) - 2) * parseInt($("#number").val()))
+            // alert("查几条"+parseInt($("#number").val()))
+            page=(parseInt(page)-1)
+            // $("#pageNow").val(parseInt($("#pageNow").val())-1)
+            getUserOrderById((parseInt(page) - 1) * parseInt($("#number").val()), parseInt($("#number").val()))
+            // $("#pageNow").val(parseInt($("#pageNow"))-1)
+        }
+    }
+
+    function nextPage() {
+        // alert("现在 "+parseInt(page))
+
+
+        // alert("页数"+parseInt(max)/parseInt($("#number").val()))
+        if (parseInt(page)+1>parseInt(max)/parseInt($("#number").val())){
+            // window.history.back(-1)
+            // $("#pageNow").val(max/$("#number").val())
+        }else {
+            var begin=(parseInt(page)) * parseInt($("#number").val())
+            var nextPage=(parseInt(page)+1)
+            // alert("下次页数是"+nextPage)
+            // alert("从第几条查"+begin)
+            // alert("从第几条查"+(parseInt($("#pageNow").val())+1) * parseInt($("#number").val()))
+            // alert("显示条数"+parseInt($("#number").val()))
+            page=nextPage
+            getUserOrderById(begin, parseInt($("#number").val()))
+            // $("#pageNow").val(parseInt($("#pageNow"))+1)
+
+        }
+    }
+
+
+
+    //
+    // <a id="pre" onclick="prePage()">上一页</a>
+    //     <a id="next" onclick="nextPage()">下一页</a>
+
+
+
+
+
+
+
+
+
+    // function getUserOrderById(pageNow, pageSize) {
+    //     // var myDate = new Date();
+    //     // alert(myDate)
+    //     alert(1)
+    //     $.ajax({
+    //         url:'/orderByUid',
+    //         type:'POST', //GET
+    //         contentType:"application/json",
+    //         dataType:'json',
+    //         data: JSON.stringify({
+    //             pageNow: pageNow,
+    //             pageSize: pageSize
+    //         }),
+    //         success:function(data){
+    //             var orderList = $("#orderList");
+    //             orderList.find("div").remove();
+    //             var list = data.list;
+    //
+    //             console.log(data)
+    //             $(data).each(function (index,item) {
+    //                 var html="<div class=\"s-bar\" data-spm-anchor-id=\"a1z02.1.1998049142.i0.66bc782dbSIL5O\">" +
+    //                     "<i id=\"orderTime\">创建时间："+item.create_time+"</i><i id=\"orderNumber\" style=\"padding-left: 50px\">"+
+    //                     " 订单编号："+item.order_sn+"</i>" +
+    //                     "<i style=\"padding-left: 230px\">订单总额：￥ "+item.pay_amount+"</i>"+
+    //                     "                </div>"
+    //
+    //                 $(item.order_items).each(function (index,product) {
+    //                     var pay_type;
+    //                     if (item.pay_type==0){
+    //                         pay_type="未支付"
+    //                     } else if (item.pay_type==1) {
+    //                         pay_type="支付宝"
+    //                     } else {
+    //                         pay_type="微信"
+    //                     }
+    //
+    //                     var status;
+    //                     if (item.status=="0"){
+    //                         status="待付款"
+    //                     } else if (item.status=="1") {
+    //                         status="待发货"
+    //                     } else if(item.status=="2"){
+    //                         status="已发货"
+    //                     } else if (item.status=="3") {
+    //                         status="已完成"
+    //                     } else if (item.status=="4") {
+    //                         status="已关闭"
+    //                     } else {
+    //                         status="无效订单"
+    //                     }
+    //
+    //                     html+=" <div class=\"s-content\">\n" +
+    //                         "                    <ul class=\"lg-list\">\n" +
+    //                         "\n" +
+    //                         "                        <li class=\"lg-item\">\n" +
+    //                         "                            <div class=\"item-info\">\n" +
+    //                         "                                <img src="+product.product_pic+" height=\"120\" width=\"120\">\n" +
+    //                         "                                <!--图片显示不出来的时候显示商品名称-->\n" +
+    //                         "                            </div>\n" +
+    //                         "                            <div class=\"lg-info\" style=\"width: 280px\">\n" +
+    //                         "                                <p>"+product.product_name+"</p>\n" +
+    //                         "                                <time>"+product.product_attr+"</time>\n" +
+    //                         "                            </div>\n" +
+    //                         "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+    //                         "                                <p>"+product.real_amount+"</p>\n" +
+    //                         "                            </div>\n" +
+    //                         "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+    //                         "                                <p>"+product.product_quantity+"</p>\n" +
+    //                         "                            </div>\n" +
+    //                         "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+    //                         "                                <p>"+pay_type+"</p>\n" +
+    //                         "                            </div>\n" +
+    //                         "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+    //                         "                                <p>"+status+"</p>\n"
+    //                             if (item.status=="3" || item.status=="2"){
+    //                                 html+="<a"+" onclick=\"logistics("+product.id+")\""+">查看物流</a>\n"
+    //                             }
+    //                             html+="</div>\n" ;
+    //                                                     if (item.status=="2") {
+    //                                                         if (item.duration==1){
+    //                                                             html+="                            <div class=\"lg-confirm\">\n" +
+    //                                                                 "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
+    //                                                                 "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+">申请退货</a>\n" +
+    //
+    //                                                                 "                            </div>\n" +
+    //                                                                 "                        </li>\n" +
+    //                                                                 "\n" +
+    //                                                                 "                    </ul>\n" +
+    //                                                                 "\n" +
+    //                                                                 "                </div>"
+    //                                                         }else {
+    //                                                             html+="                            <div class=\"lg-confirm\">\n" +
+    //                                                                 "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"confirmOrder("+item.order_id+")\""+">确认收货</a>\n" +
+    //                                                                 "                            </div>\n" +
+    //                                                                 "                        </li>\n" +
+    //                                                                 "\n" +
+    //                                                                 "                    </ul>\n" +
+    //                                                                 "\n" +
+    //                                                                 "                </div>"
+    //                                                         }
+    //
+    //                                                     } else if (item.status=="3"){
+    //                                                         if (item.duration==1) {
+    //                                                             html+="<div class=\"lg-confirm\">\n" +
+    //                                                                 "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
+    //                                                                 "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+"> 申请退货</a>\n" +
+    //
+    //                                                                 "                            </div>\n" +
+    //                                                                 "                        </li>\n" +
+    //                                                                 "\n" +
+    //                                                                 "                    </ul>\n" +
+    //                                                                 "\n" +
+    //                                                                 "                </div>"
+    //                                                         }else {
+    //                                                             html+="<div class=\"lg-confirm\">\n" +
+    //                                                                 "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
+    //                                                                 "                            </div>\n" +
+    //                                                                 "                        </li>\n" +
+    //                                                                 "\n" +
+    //                                                                 "                    </ul>\n" +
+    //                                                                 "\n" +
+    //                                                                 "                </div>"
+    //                                                         }
+    //
+    //                                                     } else {
+    //                                                         html+="                        </li>\n" +
+    //                                                             "\n" +
+    //                                                             "                    </ul>\n" +
+    //                                                             "\n" +
+    //                                                             "                </div>"
+    //                                                     }
+    //                 })
+    //
+    //                     orderList.append(html)
+    //                 })
+    //
+    //             //分页按钮
+    //             var $ulLi = $("#ul_li");
+    //             $ulLi.find("li").remove();
+    //             var now = data.pageNum;
+    //             var now1 = now - 1;
+    //             var button = "<li class=\"number \" onclick=\"getUserOrderById(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>" + "</li>";
+    //             $ulLi.append(button);
+    //
+    //             for (var i = 1; i <= data.pages; i++) {
+    //                 var li = "";
+    //                 if (i == now) {
+    //                     li = "<li class=\"number active\" onclick=\"getUserOrderById(" + i + "," + pageSize + ")\">" + i + "</li>";
+    //                 } else {
+    //                     li = "<li class=\"number \" onclick=\"getUserOrderById(" + i + "," + pageSize + ")\">" + i + "</li>";
+    //                 }
+    //                 $ulLi.append(li);
+    //             }
+    //             var now2 = now + 1;
+    //             var button2 = "<li class=\"number \" onclick=\"getUserOrderById(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>" + "</li>";
+    //             $ulLi.append(button2);
+    //
+    //         },
+    //         error:function(data){
+    //             console.log(data);
+    //         }
+    //     })
+    // }
+    // getUserOrderById(1,3);
 
     //确认收货
 

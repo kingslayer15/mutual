@@ -12,7 +12,7 @@ import java.util.List;
  * @date 2019/6/11 22:22
  */
 public interface MerchantOmsOrderMapper {
-    List<Merchant> listAllOmsOrderByMerchant(int merchantId);
+    Merchant listAllOmsOrderByMerchant(int merchantId);
 
     Merchant merchantSearchOmsOrder(SearchOmsOrder searchOmsOrder);
 

@@ -1,6 +1,7 @@
 package com.thumb.controller;
 
 import com.thumb.dto.UserInfoDto;
+import com.thumb.entity.pojo.UmsMember;
 import com.thumb.service.PersonalInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,9 +29,11 @@ public class PersonalInfoController {
     @RequestMapping("userInfoById")
     public Object userInfoById( HttpServletRequest httpServletRequest){
         //此处自己设置了用户id，合并时需调整
-        httpServletRequest.getSession().setAttribute("userId",1);
-        Object userId1 = httpServletRequest.getSession().getAttribute("userId");
-        int uid=Integer.parseInt(userId1.toString());
+//        httpServletRequest.getSession().setAttribute("userId",1);
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uid = umsMember.getId().intValue();
+        System.out.println("用户id"+uid);
+//        int uid=Integer.parseInt(userId1.toString());
         System.out.println(uid);
         System.out.println(personalInfoService.userInfoById(uid));
         return personalInfoService.userInfoById(uid);
@@ -40,10 +43,12 @@ public class PersonalInfoController {
     @ResponseBody
     @RequestMapping("userInfoById_")
     public Object userInfoById_(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        System.out.println(uId);
-        System.out.println(personalInfoService.userInfoById(uId));
-        return personalInfoService.userInfoById(uId);
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uid = umsMember.getId().intValue();
+        System.out.println(uid);
+        System.out.println(personalInfoService.userInfoById(uid));
+        return personalInfoService.userInfoById(uid);
     }
 
 
@@ -61,7 +66,10 @@ public class PersonalInfoController {
         System.out.println(destFile.getAbsolutePath());
         file.transferTo(destFile);
 
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
         UserInfoDto userInfoDto = new UserInfoDto();
         userInfoDto.setIcon(fileName);
         userInfoDto.setId(BigInteger.valueOf(uId));
@@ -92,7 +100,10 @@ public class PersonalInfoController {
     @ResponseBody
     @RequestMapping("pwdCheck")
     public boolean pwdCheck(@RequestBody UserInfoDto userInfoDto,HttpServletRequest httpServletRequest){
-        BigInteger uId =BigInteger.valueOf( Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString()));
+//        BigInteger uId =BigInteger.valueOf( Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString()));
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uid = umsMember.getId().intValue();
+        BigInteger uId=BigInteger.valueOf(uid);
         userInfoDto.setId(uId);
         UserInfoDto check = personalInfoService.check(userInfoDto);
         if (check!=null){

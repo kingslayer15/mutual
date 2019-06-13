@@ -1,5 +1,6 @@
 package com.thumb.service;
 
+import com.thumb.dto.DateDto;
 import com.thumb.dto.OrderStatusDto;
 import com.thumb.pay.vo.AliPayInfoVo;
 import com.thumb.pojo.OmsOrder;
@@ -8,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface OmsOrderService {
 
@@ -42,6 +44,8 @@ public interface OmsOrderService {
     int insertVo(AliPayInfoVo aliPayInfoVo);
 
     Long selectOneIdByOrderSn(String orderSn);
+
+//    List<Object> selectByDate(String year, String month);
 
 
 }

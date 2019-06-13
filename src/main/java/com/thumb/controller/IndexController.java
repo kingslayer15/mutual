@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class IndexController {
     @RequestMapping("BrandIndex")
     public Object BrandIndex() {
 
-        return marketingService.selectBrandAll();
+        return marketingService.selectBrandAllFactory();
     }
     /**
      * 获取正在推荐的专题
@@ -59,7 +60,7 @@ public class IndexController {
     @RequestMapping("SubjectIndex")
     public Object SubjectIndex() {
 
-        return subjectService.selectSubjectAll();
+        return subjectService.selectSubjectAllShow();
     }
     /**
      * 获取正在推荐的新品
@@ -174,8 +175,36 @@ public class IndexController {
         UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
 
         return umsMember;
+    }
 
 
+//
+//    /**
+//     * 跳转进subject.html
+//     * @return
+//     */
+//    @RequestMapping("login")
+//    public String toBrands() {
+//        return "main/login";
+//    }
+
+
+
+
+    @ResponseBody
+    @RequestMapping("deleteCookic")
+    public Object deleteCookic(HttpSession httpSession){
+
+        httpSession.setAttribute("umsMember",null);
+
+        Cookie cookie = new Cookie("username", "00");
+        Cookie cookie2 = new Cookie("password", "00");
+
+        cookie.setMaxAge(0);
+        cookie2.setMaxAge(0);
+        System.out.println(123);
+
+        return true;
     }
 
 
