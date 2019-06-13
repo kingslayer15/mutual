@@ -6,12 +6,12 @@
     <title>Mutual商城-个人中心</title>
     <!--<link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">-->
 
-    <!--<script src="../static/bootstrap/js/bootstrap.min.js"></script>-->
-    <!--<script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>-->
-    <!--<link href="../static/css/p.css" rel="stylesheet" type="text/css">-->
-    <!--<link rel="stylesheet" href="../static/plugins/basic.min.css" />-->
-    <!--<link rel="stylesheet" href="../static/plugins/dropzone.min.css" />-->
-    <!--<script src="../static/plugins/dropzone.min.js"></script>-->
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
+    <link href="../static/css/p.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../static/plugins/basic.min.css" />
+    <link rel="stylesheet" href="../static/plugins/dropzone.min.css" />
+    <script src="../static/plugins/dropzone.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/bootstrap/js/bootstrap.min.js">
@@ -403,7 +403,7 @@
     var product;
     function getProductId() {
         product=window.location.search.split("=")[1]
-        alert("评价商品id"+product)
+        // alert("评价商品id"+product)
         $("#pid").val(product)
     }
     getProductId();
