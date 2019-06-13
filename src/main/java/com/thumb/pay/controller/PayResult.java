@@ -111,7 +111,7 @@ public class PayResult {
 
 
 
-        return "main/index2";
+        return "/main/index";
 
     }
 }
