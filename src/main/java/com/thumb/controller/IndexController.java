@@ -9,6 +9,7 @@ import com.thumb.dto.PageName;
 import com.thumb.pojo.Brand;
 import com.thumb.pojo.HomeProduct;
 import com.thumb.pojo.PmsProduct;
+import com.thumb.pojo.UmsMember;
 import com.thumb.service.IndexService;
 import com.thumb.service.MarketingService;
 import com.thumb.service.NewService;
@@ -17,8 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -165,7 +168,15 @@ public class IndexController {
 
     }
 
+    @ResponseBody
+    @RequestMapping(value = "getMember",method = RequestMethod.GET)
+    public Object getMenberId(HttpSession httpSession){
+        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
 
+        return umsMember;
+
+
+    }
 
 
 
