@@ -677,6 +677,8 @@
                                                 <!----></div>
                                             <!----></div>
                                     </div>
+                                    
+                                    <div style="display: none;">
                                     <div data-v-ebcc336a=""
                                          class="el-form-item el-form-item--small"><label
                                             class="el-form-item__label"
@@ -818,6 +820,8 @@
                                                     </div><!----></div>
                                             </div><!----></div>
                                     </div>
+                                    </div>
+                                    
                                 </form>
                                 <!--form表单 end-->
 
@@ -870,15 +874,9 @@
                                     <tr class="">
                                         <th colspan="1" rowspan="1"
                                             class="el-table_2_column_10  is-center el-table-column--selection  is-leaf">
-                                            <div class="cell"><label role="checkbox"
-                                                                     class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input
-                                                    type="checkbox"
-                                                    aria-hidden="true"
-                                                    class="el-checkbox__original"
-                                                    value=""></span><!---->
-                                            </label></div>
+                                            <div class="cell">
+                                                <input id="allCheck" onclick="swapCheck()" type="checkbox">
+                                            </div>
                                         </th>
                                         <th colspan="1" rowspan="1"
                                             class="el-table_2_column_11  is-center   is-leaf">
@@ -959,7 +957,7 @@
                     </div>
                     <div data-v-ebcc336a="" class="batch-operate-container">
                         <div data-v-ebcc336a="" class="el-select el-select--small"><!---->
-                            <div class="el-input el-input--small el-input--suffix"><!----><input
+                            <div class="el-input el-input--small el-input--suffix"><!----><input onclick="plczselectInput()"
                                     type="text"
                                     autocomplete="off"
                                     placeholder="批量操作"
@@ -970,7 +968,9 @@
                                         class="el-select__caret el-input__icon el-icon-arrow-up"></i>
                                     <!----></span>
                                     <!----></span><!----></div>
-                            <div class="el-select-dropdown el-popper"
+
+                            <!--批量操作选项 begin-->
+                            <div id="plczselect" class="el-select-dropdown el-popper"
                                  style="display: none; min-width: 192px;">
                                 <div class="el-scrollbar" style="">
                                     <div class="el-select-dropdown__wrap el-scrollbar__wrap"
@@ -997,6 +997,8 @@
                                              style="transform: translateY(0%);"></div>
                                     </div>
                                 </div><!----></div>
+                            <!--批量操作选项 end-->
+
                         </div>
                         <button data-v-ebcc336a="" type="button"
                                 class="el-button search-button el-button--primary el-button--small"
@@ -1013,20 +1015,20 @@
                             </span>
                             <span class="el-pagination__sizes"><div class="el-select">
                                 <div class="el-input el-input--suffix">
-                                    <input type="text" autocomplete="off" placeholder="请选择" readonly="readonly"
+                                    <input id="selectInput" type="text" autocomplete="off" placeholder="请选择" readonly="readonly"
                                                                                 class="el-input__inner">
                             <!----><span
                                     class="el-input__suffix"><span class="el-input__suffix-inner"><i
                                     class="el-select__caret el-input__icon el-icon-arrow-up"></i>
                                 <!----></span>
-                                <!----></span><!----></div><div class="el-select-dropdown el-popper"
+                                <!----></span><!----></div><div id="selectSizeDiv" class="el-select-dropdown el-popper"
                                                                 style="display: none; min-width: 110px;"><div
                                 class="el-scrollbar" style=""><div
                                 class="el-select-dropdown__wrap el-scrollbar__wrap"
                                 style="margin-bottom: -15px; margin-right: -15px;"><ul
-                                class="el-scrollbar__view el-select-dropdown__list"><!----><li
-                                class="el-select-dropdown__item"><span>5条/页</span></li><li
-                                class="el-select-dropdown__item selected"><span>10条/页</span></li><li
+                                class="el-scrollbar__view el-select-dropdown__list"><!----><li onclick="setPageSize(5)"
+                                class="el-select-dropdown__item"><span>5条/页</span></li><li onclick="setPageSize(10)"
+                                class="el-select-dropdown__item selected"><span>10条/页</span></li><li onclick="setPageSize(15)"
                                 class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
                                 class="el-scrollbar__bar is-horizontal"><div
                                 class="el-scrollbar__thumb"
@@ -1034,7 +1036,7 @@
                                 class="el-scrollbar__bar is-vertical"><div
                                 class="el-scrollbar__thumb"
                                 style="transform: translateY(0%);"></div></div></div>
-                            <!----></div></div></span>
+                            </div></div></span>
                             <button id="btnPrev" type="button" disabled="disabled" class="btn-prev">
                                 <i class="el-icon el-icon-arrow-left"></i></button>
                             <ul id="pagesUl" class="el-pager">
@@ -1044,13 +1046,13 @@
                             <button id="btnNext" type="button" class="btn-next"><i
                                     class="el-icon el-icon-arrow-right"></i></button>
                             <span class="el-pagination__jump">前往<div
-                                    class="el-input el-pagination__editor is-in-pagination"><!----><input id="numberInput"
+                                    class="el-input el-pagination__editor is-in-pagination"><input id="numberInput"
                                     type="number"
                                     autocomplete="off"
                                     min="1"
                                     class="el-input__inner"
                                     max="2">
-                                <!----><!----><!----></div>页</span></div>
+                                </div>页</span></div>
                     </div>
                     <!--分页 end-->
 
@@ -1096,6 +1098,7 @@
 
     var pageNum = 1;    //当前页面
     var pages;          //总页数
+    var pageSize = 5;       //每页数量
 
     var left_status = 0;    //左边导航栏的设置状态
     //网页动态脚本
@@ -1132,7 +1135,9 @@
         $("#trackingDiv").hide();
     }
     function showTrackingDiv() {
+        // $("#trackingDiv").css("display", "");
         $("#trackingDiv").show();
+        $("#trackingDiv").modal("show");
     }
 
 
@@ -1154,7 +1159,7 @@
             dataType: "json",
             data: JSON.stringify({
                 "pageNum" : pageNum,
-                "pageSize" : 5
+                "pageSize" : pageSize
             }),
             success: function (data) {
                 console.log(data);
@@ -1220,12 +1225,7 @@
             str = "<tr id=\"omsOrderBodyTr_" + item.id + "\" class=\"el-table__row\">\n" +
                 "    <td class=\"el-table_2_column_10 is-center el-table-column--selection\">\n" +
                 "        <div class=\"cell\">\n" +
-                "            <label role=\"checkbox\" class=\"el-checkbox\">\n" +
-                "                <span aria-checked=\"mixed\" class=\"el-checkbox__input\">\n" +
-                "                    <span class=\"el-checkbox__inner\"></span>\n" +
-                "                    <input type=\"checkbox\" aria-hidden=\"true\" class=\"el-checkbox__original\">\n" +
-                "                </span>\n" +
-                "            </label>\n" +
+                "            <input onclick='itemCheck()' type=\"checkbox\" aria-hidden=\"true\"" +
                 "        </div>\n" +
                 "    </td>\n" +
                 "    <td class=\"el-table_2_column_11 is-center \">\n" +
@@ -1328,7 +1328,7 @@
     function removeOmsOrderById(omsOrderId) {
         $.ajax({
             type: 'POST',
-            url: "/deleteOmsOrderById?osmOrderId=" + omsOrderId,
+            url: "/deleteOmsOrderById?omsOrderId=" + omsOrderId,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
@@ -1340,6 +1340,42 @@
             }
         });
     }
+
+
+    /**
+     * 复选框的全选和取消全选功能
+     */
+    var isCheckAll = false;
+    function swapCheck() {
+        if (isCheckAll) {
+            $("#omsOrderBody input").each(function () {
+                this.checked = false;
+            });
+            isCheckAll = false;
+        } else {
+            $("#omsOrderBody input").each(function () {
+                this.checked = true;
+            });
+            isCheckAll = true;
+        }
+    }
+    function itemCheck() {
+        var flag = true;
+        $("#omsOrderBody input").each(function () {
+            if (!this.checked) {
+                flag = false;
+                return false;
+            }
+        });
+        isCheckAll = flag;
+        $("#allCheck").prop("checked", flag);
+    }
+
+    function plczselectInput() {
+        $("#plczselect").show();
+    }
+
+
 
 
     /**
@@ -1378,7 +1414,17 @@
         pageNum = parseInt(pageNum);
         listAllOmsOrder();
     });
-
+    $("#selectInput").click(function () {
+        $("#selectSizeDiv").show();
+        // css("display", "");
+    });
+    function setPageSize(size) {
+        pageSize = size;
+        $("#selectSizeDiv").hide();
+        $("#selectInput").val(size+"条/页");
+        listAllOmsOrder();
+        // $("#selectSizeDiv").css("display", "none");
+    }
 
 </script>
 </body>
