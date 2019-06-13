@@ -773,7 +773,7 @@
             $.ajax(
                 {
                     type: "get",
-                    url: "removeProductCategoryById?id=" + id,
+                    url: "/removeProductCategoryById?id=" + id,
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {
@@ -794,7 +794,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findLowerById?id=" + id,
+                url: "/findLowerById?id=" + id,
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -889,7 +889,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "ListParentProductCategory?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
+                url: "/ListParentProductCategory?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();

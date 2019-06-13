@@ -836,7 +836,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findCategoryById?id="+id,
+                url: "/findCategoryById?id="+id,
                 contentType: "application/json",
                 dataType: "json",
                 success:function (data) {
@@ -863,7 +863,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "editCategoryById",
+                url: "/editCategoryById",
                 contentType: "application/json",
                 dataType: "json",
                 data: JSON.stringify({
@@ -893,7 +893,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "addProductCategory",
+                url: "/addProductCategory",
                 contentType: "application/json",
                 dataType: "json",
                 data: JSON.stringify({
@@ -921,7 +921,7 @@
             $.ajax(
                 {
                     type: "get",
-                    url: "deleteCategoryById?id=" + id,
+                    url: "/deleteCategoryById?id=" + id,
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {
@@ -959,7 +959,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findAllProductCategory?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
+                url: "/findAllProductCategory?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();
