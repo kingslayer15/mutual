@@ -11,6 +11,40 @@
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
 
+<header>
+    <div class="top center">
+        <div class="left fl">
+            <ul>
+                <li><a href="http://localhost:8080/main/index.html" target="_blank">共勉商城</a></li>
+                <li>|</li>
+                <li><a href="">MIUI</a></li>
+                <li>|</li>
+                <li><a href="">米聊</a></li>
+                <li>|</li>
+                <li><a href="">游戏</a></li>
+                <li>|</li>
+                <li><a href="">多看阅读</a></li>
+                <li>|</li>
+                <li><a href="">云服务</a></li>
+                <li>|</li>
+                <li><a href="">金融</a></li>
+                <li>|</li>
+                <li><a href="">问题反馈</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="right fr">
+            <div class="gouwuche fr"><a href="">购物车</a></div>
+            <div class="fr">
+                <ul id="ulId">
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</header>
 </head>
 
 <style>
@@ -20,10 +54,8 @@
 <body>
 
 <!-- start header -->
-<header id="header">
 
 
-</header>
 <!--end header -->
 <!-- start banner_x -->
 <div class="banner_x center">
@@ -74,7 +106,7 @@
                 </ul>
             </div>
         </div>
-        <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
+        <div class="rtcont fr" style="width: 978px;height: 1200px;background: #fff">
             <div class="grzlbt ml40" id="address">我的收藏夹
                 <div class="danpin center">
                     <div class="main center" style="width: 758px;height: 500px;background: #fff" id="appenddiv">
@@ -102,7 +134,6 @@
     <script>
     var memberId;
     $(function () {
-        $("#header").load("header.html");
         $.ajax({
             async: false,
             type: "get",
