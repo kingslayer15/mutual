@@ -24,4 +24,14 @@ public interface OmsCartItemService{
     List<OmsCartItem> findByMemberId(@Param("memberId")Long memberId);
     int insertCart(OmsCartItemDto omsCartItemDto);
 
+
+
+	OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto);
+
+
+
+
+
+
+
 }
