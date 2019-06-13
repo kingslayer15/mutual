@@ -170,7 +170,7 @@
                                             class="el-table_16_column_122  is-center el-table-column--selection  is-leaf"
                                             style="width: 6%;">
                                             <div class="cell">
-                                                <input type="checkbox" name='checkbox' value="val">
+                                                <input id="allCheck2" onclick="swapCheck2()" type="checkbox">
                                             </div>
                                         </th>
                                         <th colspan="1" rowspan="1" class="el-table_16_column_123  is-center   is-leaf"
@@ -252,7 +252,7 @@
                         </div>
                         <button type="button" class="el-button search-button el-button--primary el-button--small"
                                 style="margin-left: 20px;">
-                            <span>确定</span>
+                            <span onclick="addDelete()">确定</span>
                         </button>
                     </div>
 
@@ -340,7 +340,7 @@
                                                         class="el-table_5_column_25  is-center el-table-column--selection  is-leaf"
                                                         style="width: 15%;">
                                                         <div class="cell">
-                                                            <input type="checkbox" value="">
+                                                            <input id="allCheck" onclick="swapCheck()" type="checkbox">
                                                         </div>
                                                     </th>
                                                     <th colspan="1" rowspan="1"
@@ -490,7 +490,7 @@
                 var list = data.list;
                 $(list).each(function (index, val) {
 
-                    if(val.show_status==1){
+                    if(val.recommand_status==1){
                         var showshowNow = "推荐中";
                         var show_status = 0;
                         var table =  "<div role=\"switch\" class=\"el-switch is-checked\"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
@@ -517,7 +517,7 @@
                         "         <div class=\"cell\">" + val.id + "</div>\n" +
                         "     </td>\n" +
                         "     <td class=\"el-table_16_column_124 is-center \" style=\"width: 38%;\">\n" +
-                        "         <div class=\"cell\">" + val.product_name + "</div>\n" +
+                        "         <div class=\"cell\">" + val.name + "</div>\n" +
                         "     </td>\n" +
                         "     <td class=\"el-table_16_column_125 is-center \" style=\"width: 10%;\">\n" +
                         "         <div class=\"cell\">\n"
@@ -765,7 +765,7 @@
                     var list = data.list;
                     $(list).each(function (index, val) {
 
-                        if(val.show_status==1){
+                        if(val.recommand_status==1){
                             var showshowNow = "推荐中";
                             var show_status = 0;
                             var table =  "<div role=\"switch\" class=\"el-switch is-checked\"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
@@ -786,14 +786,14 @@
                         var tableSubject = "<tr class=\"el-table__row\">\n" +
                             "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
                             "         style=\"width: 6%;\">\n" +
-                            "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
+                            "      <input type=\"checkbox\" name='tot' class='tots' value=" + val.id + ">" +
                             "         </div>\n" +
                             "     </td>\n" +
                             "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
                             "         <div class=\"cell\">" + val.id + "</div>\n" +
                             "     </td>\n" +
                             "     <td class=\"el-table_16_column_124 is-center \" style=\"width: 38%;\">\n" +
-                            "         <div class=\"cell\">" + val.product_name + "</div>\n" +
+                            "         <div class=\"cell\">" + val.name + "</div>\n" +
                             "     </td>\n" +
                             "     <td class=\"el-table_16_column_125 is-center \" style=\"width: 10%;\">\n" +
                             "         <div class=\"cell\">\n"
@@ -907,13 +907,10 @@
 
     /*添加新品*/
     function addBrands() {
-        alert(123)
         var checkID = [];
         var i = 0;
         $("input[name='checkbox']:checked").each(function () {//把所有被选中的复选框的值存入数组
-
             checkID[i] = $(this).val();
-            alert(checkID[i])
             i++;
         });
         /*批量添加*/
@@ -1015,6 +1012,91 @@
             alert("请输入查询条件!!!")
         }
     }
+
+
+
+    /**
+     * 复选框的全选和取消全选功能
+     */
+    var isCheckAll = false;
+    function swapCheck() {
+        if (isCheckAll) {
+            $("#tbody input").each(function () {
+                this.checked = false;
+            });
+            isCheckAll = false;
+        } else {
+            $("#tbody input").each(function () {
+                this.checked = true;
+            });
+            isCheckAll = true;
+        }
+    }
+    function itemCheck() {
+        var flag = true;
+        $("#tbody input").each(function () {
+            if (!this.checked) {
+                flag = false;
+                return false;
+            }
+        });
+        isCheckAll = flag;
+        $("#allCheck").prop("checked", flag);
+    }
+
+    function plczselectInput() {
+        $("#plczselect").show();
+    }
+
+
+    /**
+     * 复选框的全选和取消全选功能
+     */
+    var isCheckAll2 = false;
+    function swapCheck2() {
+        if (isCheckAll2) {
+            $("#subject input").each(function () {
+                this.checked = false;
+            });
+            isCheckAll2 = false;
+        } else {
+            $("#subject input").each(function () {
+                this.checked = true;
+            });
+            isCheckAll2 = true;
+        }
+    }
+    function itemCheck() {
+        var flag = true;
+        $("#subject input").each(function () {
+            if (!this.checked) {
+                flag = false;
+                return false;
+            }
+        });
+        isCheckAll2 = flag;
+        $("#allCheck2").prop("checked", flag);
+    }
+
+    function plczselectInput() {
+        $("#plczselect").show();
+    }
+
+
+    /*添加新品*/
+    function addDelete() {
+        alert(23)
+        var checkID = [];
+        var i = 0;
+        $(".tots[name='tot']:checked").each(function () {//把所有被选中的复选框的值存入数组
+            checkID[i] = $(this).val();
+            alert($(this).val());
+            i++;
+        });
+        // window.location.reload();
+    }
+
+
 
 </script>
 </body>

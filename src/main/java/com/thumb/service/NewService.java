@@ -59,7 +59,7 @@ public interface NewService {
 
     void updateNewById_Newproduct(int id);
 
-    void updateNewById_product(PmsProduct pmsProduct);
+    int updateNewById_product(PageName pageName);
 
     List<PmsProduct> updateNewById(PageName pageName);
 

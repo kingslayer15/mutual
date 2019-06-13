@@ -54,7 +54,7 @@ public interface NewMapper {
 
     void updateNewById_Newproduct(int id);
 
-    void updateNewById_product(PmsProduct pmsProduct);
+    int updateNewById_product(PageName pageName);
 
     /**
      * 条件查询新品库的所有没有推荐的新品
