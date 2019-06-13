@@ -9,8 +9,52 @@
       FROM oms_order o
       LEFT JOIN oms_order_item i
       ON o.`id`=i.`order_id`
-      AND o.`member_id`=#{uid}
+      WHERE o.`member_id`=#{uid}
       ORDER BY o.`create_time` DESC
+    </select>
+
+    <select id="orderByUid0" parameterType="int" resultMap="order">
+        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+        FROM oms_order o
+        LEFT JOIN oms_order_item i
+        ON o.`id`=i.`order_id`
+        WHERE o.`member_id`=#{uid}
+        and o.`status`=0
+        ORDER BY o.`create_time` DESC
+    </select>
+
+    <select id="orderByUid1" parameterType="int" resultMap="order">
+        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+        FROM oms_order o
+        LEFT JOIN oms_order_item i
+        ON o.`id`=i.`order_id`
+        WHERE o.`member_id`=#{uid}
+        and o.`status`=1
+        ORDER BY o.`create_time` DESC
+    </select>
+
+    <select id="orderByUid2" parameterType="int" resultMap="order">
+        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+        FROM oms_order o
+        LEFT JOIN oms_order_item i
+        ON o.`id`=i.`order_id`
+        WHERE o.`member_id`=#{uid}
+        and o.`status`=2
+        ORDER BY o.`create_time` DESC
+    </select>
+
+    <select id="orderByUid3" parameterType="int" resultMap="order">
+        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+        FROM oms_order o
+        LEFT JOIN oms_order_item i
+        ON o.`id`=i.`order_id`
+        WHERE o.`member_id`=#{uid}
+        and o.`status`=3
+        ORDER BY o.`create_time` DESC
     </select>
 
     <resultMap id="order" type="com.thumb.dto.ClientOrderDto">

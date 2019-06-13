@@ -58,4 +58,24 @@ public class PersonalOrderServiceImpl implements PersonalOrderService {
     public int addRate(RateDto rateDto) {
         return personalOrderMapper.addRate(rateDto);
     }
+
+    @Override
+    public List<ClientOrderDto> orderByUid0(int uId) {
+        return personalOrderMapper.orderByUid0(uId);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid1(int uId) {
+        return personalOrderMapper.orderByUid1(uId);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid2(int uId) {
+        return personalOrderMapper.orderByUid2(uId);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid3(int uId) {
+        return personalOrderMapper.orderByUid3(uId);
+    }
 }

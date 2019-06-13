@@ -19,4 +19,12 @@ public interface PersonalOrderMapper {
     int addReturnAapply(ClientRefundDto returnInfo);
 
     int addRate(RateDto rateDto);
+
+    List<ClientOrderDto> orderByUid0(int uId);
+    List<ClientOrderDto> orderByUid1(int uId);
+    List<ClientOrderDto> orderByUid2(int uId);
+    List<ClientOrderDto> orderByUid3(int uId);
+
+
+
 }
