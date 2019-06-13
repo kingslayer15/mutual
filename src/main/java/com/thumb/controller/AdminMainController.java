@@ -424,6 +424,10 @@ public class AdminMainController {
             return 0;
         }
 
+        if (bigDecimal == null){
+            return 0;
+        }
+
         if (bigDecimal.compareTo(new BigDecimal(0)) == 0){
             return 0;
         }else {

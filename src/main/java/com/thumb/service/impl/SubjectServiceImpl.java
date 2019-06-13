@@ -73,4 +73,25 @@ public class SubjectServiceImpl implements SubjectService {
     public List<CmsSubject> selectSubjectsAll() {
         return subjectMapper.selectSubjectsAll();
     }
+
+    @Override
+    public int selectSubjecShow(PageName pageName) {
+
+        return subjectMapper.selectSubjecShow(pageName);
+    }
+
+    @Override
+    public List<CmsSubject> selectSubjectAllShow() {
+        return subjectMapper.selectSubjectAllShow();
+    }
+
+    @Override
+    public int selectBandsShow(PageName pageName) {
+        return subjectMapper.selectBandsShow(pageName);
+    }
+
+    @Override
+    public int selectNewShow(PageName pageName) {
+        return subjectMapper.selectNewShow(pageName);
+    }
 }

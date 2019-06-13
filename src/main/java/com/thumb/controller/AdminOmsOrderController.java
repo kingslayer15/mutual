@@ -35,7 +35,7 @@ public class AdminOmsOrderController {
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
         List<OmsOrder> omsOrders = adminOmsOrderService.listAllOmsOrderByAdmin();
         PageInfo<OmsOrder> pageInfo = new PageInfo<>(omsOrders);
-        for (OmsOrder omsOrder : omsOrders) System.out.println(omsOrder);
+//        for (OmsOrder omsOrder : omsOrders) System.out.println(omsOrder);
         return pageInfo;
     }
 
@@ -48,8 +48,8 @@ public class AdminOmsOrderController {
     @RequestMapping("searchOmsOrder")
     public List<OmsOrder> searchOmsOrder(@RequestBody SearchOmsOrder searchOmsOrder) {
         List<OmsOrder> omsOrderLists = adminOmsOrderService.searchOmsOrder(searchOmsOrder);
-        System.err.println(searchOmsOrder);
-        System.err.println(omsOrderLists);
+//        System.err.println(searchOmsOrder);
+//        System.err.println(omsOrderLists);
         return omsOrderLists;
     }
 
@@ -63,7 +63,7 @@ public class AdminOmsOrderController {
     public OmsOrder showOmsOrderById(@RequestParam int omsOrderId) {
         System.err.println("showOmsOrderById = " + omsOrderId);
         OmsOrder omsOrder = adminOmsOrderService.getOmsOrderById(omsOrderId);
-        System.out.println(omsOrder);
+//        System.out.println(omsOrder);
         return omsOrder;
     }
 
@@ -88,6 +88,7 @@ public class AdminOmsOrderController {
     @ResponseBody
     @RequestMapping("deleteOmsOrderById")
     public Object deleteOmsOrderById(@RequestParam int omsOrderId) {
+//        System.out.println(omsOrderId);
         int i = adminOmsOrderService.deleteOmsOrderById(omsOrderId);
         return i;
     }
@@ -100,7 +101,7 @@ public class AdminOmsOrderController {
     @RequestMapping("getOmsOrderSetting")
     public Object getOmsOrderSetting() {
         OmsOrderSetting omsOrderSetting = adminOmsOrderService.getOmsOrderSetting();
-        System.out.println(omsOrderSetting);
+//        System.out.println(omsOrderSetting);
         return omsOrderSetting;
     }
 
@@ -112,7 +113,7 @@ public class AdminOmsOrderController {
     @ResponseBody
     @RequestMapping("updateOmsOrderSetting")
     public Object updateOmsOrderSetting(@RequestBody UpdateOmsOrderSetting updateOmsOrderSetting) {
-        System.out.println(updateOmsOrderSetting);
+//        System.out.println(updateOmsOrderSetting);
         int i = adminOmsOrderService.updateOmsOrderSetting(updateOmsOrderSetting);
         return i;
     }
@@ -127,7 +128,7 @@ public class AdminOmsOrderController {
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
         List<OmsOrderReturnApply> omsOrderReturnApplies = adminOmsOrderService.listAllOmsOrderReturnApply();
         PageInfo<OmsOrderReturnApply> pageInfo = new PageInfo<>(omsOrderReturnApplies);
-        for (OmsOrderReturnApply oora : omsOrderReturnApplies) System.out.println(oora);
+//        for (OmsOrderReturnApply oora : omsOrderReturnApplies) System.out.println(oora);
         return pageInfo;
     }
 
@@ -164,7 +165,7 @@ public class AdminOmsOrderController {
     @ResponseBody
     @RequestMapping("updateReturnApplyStatusById")
     public Object updateReturnApplyStatusById(@RequestBody UpdateStatus updateStatus) {
-        System.out.println(updateStatus);
+//        System.out.println(updateStatus);
         int i = adminOmsOrderService.updateReturnApplyStatusById(updateStatus);
         return i;
     }
@@ -207,6 +208,18 @@ public class AdminOmsOrderController {
     public Object updateReturnReason(@RequestBody UpdateReturnReason updateReturnReason) {
         System.out.println(updateReturnReason);
         int i = adminOmsOrderService.updateReturnReason(updateReturnReason);
+        return i;
+    }
+
+    /**
+     * 修改退货原因的可用状态
+     * @param updateStatus
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("updateReturnReasonStatus")
+    public Object updateReturnReasonStatus(@RequestBody UpdateStatus updateStatus) {
+        int i = adminOmsOrderService.updateReturnReasonStatus(updateStatus);
         return i;
     }
 

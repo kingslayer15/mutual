@@ -7,6 +7,7 @@ import com.thumb.pojo.PmsProductCollection;
 import com.thumb.pojo.UmsMember;
 import com.thumb.service.OmsCartItemService;
 import com.thumb.service.PmsProductCollectionService;
+import com.thumb.service.PmsProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,14 +23,18 @@ public class OmsCartItemController {
     @Autowired
     PmsProductCollectionService pmsProductCollectionService;
 
+    @Autowired
+    PmsProductService pmsProductService;
+
 
     @RequestMapping(value = "findByMemberId",method = RequestMethod.GET)
     @ResponseBody
     public Object findByMemberId(@RequestParam Long id){
 
-
-
         List<OmsCartItem> cartItem = omsCartItemService.findByMemberId(id);
+        for (OmsCartItem omsCartItem : cartItem) {
+            omsCartItem.setProductPic(pmsProductService.selectByPrimaryKey(omsCartItem.getProductId()).getPic());
+        }
         return cartItem;
     }
 
