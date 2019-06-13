@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="author" content="order by dede58.com"/>
     <title>Mutual商城-个人中心</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
-    <script src="../static/js/js/jquery-3.2.1.js"></script>
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
     <link href="../static/css/p.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/bootstrap/js/bootstrap.min.js">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
 
 </head>
 <!--<style>-->
@@ -20,34 +21,11 @@
 <body>
 
 <!-- start header -->
-<header id="header">
+<div id="header">
 
 
-</header>
-<!--end header -->
-<!-- start banner_x -->
-<div class="banner_x center">
-    <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
-    <a href=""><div class="ad_top fl"></div></a>
-    <div class="nav fl">
-        <ul>
-            <li><a href="">商城首页 </a></li>
-
-        </ul>
-    </div>
-    <div class="search fr">
-        <form action="" method="post">
-            <div class="text fl">
-                <input type="text" class="shuru"  placeholder="输入关键字查询宝贝">
-            </div>
-            <div class="submit fl">
-                <input type="submit" class="sousuo" value="搜索"/>
-            </div>
-            <div class="clear"></div>
-        </form>
-        <div class="clear"></div>
-    </div>
 </div>
+
 <!-- end banner_x -->
 <!-- self_info -->
 <div class="grzxbj">
@@ -56,7 +34,7 @@
             <div class="ddzx" style="height: 20px">个人中心</div>
             <div class="subddzx">
                 <ul>
-                    <li><a href="./self_info.html" >我的信息</a></li>
+                    <li><a href="./self_info.html">我的信息</a></li>
                     <li><a href="./self_info_edit.html">修改信息</a></li>
                     <li><a href="./self_info_pwd_edit.html">修改密码</a></li>
                     <li><a href="./coupon.html">优惠券</a></li>
@@ -74,7 +52,8 @@
                 </ul>
             </div>
         </div>
-        <!--//===============================================================================-->
+
+
         <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
             <div class="grzlbt ml40">我的订单</div>
 
@@ -89,16 +68,19 @@
                             <a data-spm="d4919660" target="_self" href="waitPay.html"><span id="wait_pay">待付款</span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919661" target="_self" href="waitSend.html"><span id="wait_send">待发货</span></a>
+                            <a data-spm="d4919661" target="_self" href="waitSend.html"><span
+                                    id="wait_send">待发货</span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919662" target="_self" href="waitConfirm.html"><span>待收货<em id="wait_confirm"></em></span></a>
+                            <a data-spm="d4919662" target="_self" href="waitConfirm.html"><span>待收货<em
+                                    id="wait_confirm"></em></span></a>
                         </li>
                         <li>
                             <a data-spm="d4919663" target="_self" href="waitRate.html"><span>待评价<em id="wait_rate"></em></span></a>
                         </li>
                         <li>
-                            <a data-spm="d4919664" target="_self" href="refund_list.html"><span id="refund">退款</span></a>
+                            <a data-spm="d4919664" target="_self" href="refund_list.html"><span
+                                    id="refund">退款</span></a>
                         </li>
                     </ul>
                 </div>
@@ -129,7 +111,7 @@
                     </ul>
                 </div>
             </div>
-            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
+            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set">
                 <div class="s-bar" data-spm-anchor-id="a1z02.1.1998049142.i0.66bc782dbSIL5O">
                     <a id="pre" onclick="prePage()">上一页</a><input id="pageNow" hidden>
                     <a id="next" onclick="nextPage()">下一页</a> <input id="number" hidden>
@@ -138,21 +120,9 @@
             </div>
 
 
-
-
-
             <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" id="orderList">
 
-
             </div>
-
-
-
-
-
-
-
-            <!--//=======================================================-->
         </div>
         <div class="clear"></div>
     </div>
@@ -166,9 +136,8 @@
     <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 </footer>
 
-
+<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
 <script>
-
 
 
     $(function () {
@@ -177,135 +146,137 @@
 
     //获取总订单条数
     var max;
+
     function getCount() {
         $.ajax({
-            url:"/count0",
-            type:'GET', //GET
+            url: "/count0",
+            type: 'GET', //GET
             // data:JSON.stringify({id:id}),
-            contentType:"application/json",
-            dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
-            success:function(data){
+            contentType: "application/json",
+            dataType: 'json',   //返回的数据格式：json/xml/html/script/jsonp/text
+            success: function (data) {
                 // alert(data)
-                max=data
+                max = data
             },
-            error:function(data){
+            error: function (data) {
                 console.log(data)
             }
         })
     }
+
     getCount();
-
-
 
 
     //根据id获取用户订单信息
     var start;
     var numbers;
-    var page=1;
-    function getUserOrderById(begin,number) {
+    var page = 1;
+
+    function getUserOrderById(begin, number) {
         $("#number").val(parseInt(number));
-        start=begin;
-        numbers=number;
+        start = begin;
+        numbers = number;
         $.ajax({
-            url:'/orderByUid0',
-            type:'POST', //GET
-            contentType:"application/json",
-            dataType:'json',
+            url: '/orderByUid0',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',
             data: JSON.stringify({
                 begin: begin,
                 infoPerPage: number
             }),
-            success:function(data){
+            success: function (data) {
                 var orderList = $("#orderList");
                 orderList.find("div").remove();
 
                 console.log(data)
 
-                $(data).each(function (index,item) {
+                $(data).each(function (index, item) {
                     if (item.status == "0") {
                         var html = "<div class=\"s-bar\" data-spm-anchor-id=\"a1z02.1.1998049142.i0.66bc782dbSIL5O\">" +
                             "                    <i id=\"orderTime\">创建时间：" + item.create_time + "</i><i id=\"orderNumber\" style=\"padding-left: 50px\">" +
                             " 订单编号：" + item.order_sn + "</i>" +
-                            "<i style=\"padding-left: 230px\">订单总额：￥ "+item.pay_amount+"</i>"+
+                            "<i style=\"padding-left: 230px\">订单总额：￥ " + item.pay_amount + "</i>" +
 
                             "                </div>"
 
-                    $(item.order_items).each(function (index, product) {
-                        var pay_type;
-                        if (item.pay_type == 0) {
-                            pay_type = "未支付"
-                        } else if (item.pay_type == 1) {
-                            pay_type = "支付宝"
-                        } else {
-                            pay_type = "微信"
-                        }
+                        $(item.order_items).each(function (index, product) {
+                            var pay_type;
+                            if (item.pay_type == 0) {
+                                pay_type = "未支付"
+                            } else if (item.pay_type == 1) {
+                                pay_type = "支付宝"
+                            } else {
+                                pay_type = "微信"
+                            }
 
-                        var status;
-                        if (item.status == "0") {
-                            status = "待付款"
-                        } else if (item.status == "1") {
-                            status = "待发货"
-                        } else if (item.status == "2") {
-                            status = "已发货"
-                        } else if (item.status == "3") {
-                            status = "已完成"
-                        } else if (item.status == "4") {
-                            status = "已关闭"
-                        } else {
-                            status = "无效订单"
-                        }
+                            var status;
+                            if (item.status == "0") {
+                                status = "待付款"
+                            } else if (item.status == "1") {
+                                status = "待发货"
+                            } else if (item.status == "2") {
+                                status = "已发货"
+                            } else if (item.status == "3") {
+                                status = "已完成"
+                            } else if (item.status == "4") {
+                                status = "已关闭"
+                            } else {
+                                status = "无效订单"
+                            }
 
-                        html += " <div class=\"s-content\">\n" +
-                            "                    <ul class=\"lg-list\">\n" +
-                            "\n" +
-                            "                        <li class=\"lg-item\">\n" +
-                            "                            <div class=\"item-info\">\n" +
-                            "                                <img src="+product.product_pic+" height=\"120\" width=\"120\">\n" +
-                            "                                <!--图片显示不出来的时候显示商品名称-->\n" +
-                            "                            </div>\n" +
-                            "                            <div class=\"lg-info\" style=\"width: 280px\">\n" +
-                            "                                <p>" + product.product_name + "</p>\n" +
-                            "                                <time>" + product.product_attr + "</time>\n" +
-                            "                            </div>\n" +
-                            "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
-                            "                                <p>" + product.real_amount + "</p>\n" +
-                            "                            </div>\n" +
-                            "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
-                            "                                <p>" + product.product_quantity + "</p>\n" +
-                            "                            </div>\n" +
-                            "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
-                            "                                <p>" + pay_type + "</p>\n" +
-                            "                            </div>\n" +
-                            "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
-                            "                                <p>" + status + "</p>\n" +
-                            "                            </div>\n"+
-                            "                        </li>\n" +
-                            "\n" +
-                            "                    </ul>\n" +
-                            "\n" +
-                            "                </div>"
-                    })
+                            html += " <div class=\"s-content\">\n" +
+                                "                    <ul class=\"lg-list\">\n" +
+                                "\n" +
+                                "                        <li class=\"lg-item\">\n" +
+                                "                            <div class=\"item-info\">\n" +
+                                "                                <img src=" + product.product_pic + " height=\"120\" width=\"120\">\n" +
+                                "                                <!--图片显示不出来的时候显示商品名称-->\n" +
+                                "                            </div>\n" +
+                                "                            <div class=\"lg-info\" style=\"width: 280px\">\n" +
+                                "                                <p>" + product.product_name + "</p>\n" +
+                                "                                <time>" + product.product_attr + "</time>\n" +
+                                "                            </div>\n" +
+                                "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+                                "                                <p>" + product.real_amount + "</p>\n" +
+                                "                            </div>\n" +
+                                "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+                                "                                <p>" + product.product_quantity + "</p>\n" +
+                                "                            </div>\n" +
+                                "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+                                "                                <p>" + pay_type + "</p>\n" +
+                                "                            </div>\n" +
+                                "                            <div class=\"lg-info\" style=\"width: 120px\">\n" +
+                                "                                <p>" + status + "</p>\n" +
+                                "                            </div>\n" +
+                                "                        </li>\n" +
+                                "\n" +
+                                "                    </ul>\n" +
+                                "\n" +
+                                "                </div>"
+                        })
 
-                    orderList.append(html)
+                        orderList.append(html)
 
-                }
+                    }
                 })
             },
-            error:function(data){
+            error: function (data) {
                 console.error(data);
             }
         })
     }
-    getUserOrderById(0,2);
+
+    getUserOrderById(0, 2);
 
     function prePage() {
         // alert("现在 "+page)
-        if (parseInt(page)-1<1){
+        if (parseInt(page) - 1 < 1) {
             // $("#pageNow").val(0)
-        }else {
+        } else {
             // alert("去 "+(parseInt(page) - 2) * parseInt($("#number").val()))
             // alert("查几条"+parseInt($("#number").val()))
-            page=(parseInt(page)-1)
+            page = (parseInt(page) - 1)
             // $("#pageNow").val(parseInt($("#pageNow").val())-1)
             getUserOrderById((parseInt(page) - 1) * parseInt($("#number").val()), parseInt($("#number").val()))
             // $("#pageNow").val(parseInt($("#pageNow"))-1)
@@ -317,23 +288,22 @@
 
 
         // alert("页数"+parseInt(max)/parseInt($("#number").val()))
-        if (parseInt(page)+1>parseInt(max)/parseInt($("#number").val())){
+        if (parseInt(page) + 1 > parseInt(max) / parseInt($("#number").val())) {
             // window.history.back(-1)
             // $("#pageNow").val(max/$("#number").val())
-        }else {
-            var begin=(parseInt(page)) * parseInt($("#number").val())
-            var nextPage=(parseInt(page)+1)
+        } else {
+            var begin = (parseInt(page)) * parseInt($("#number").val())
+            var nextPage = (parseInt(page) + 1)
             // alert("下次页数是"+nextPage)
             // alert("从第几条查"+begin)
             // alert("从第几条查"+(parseInt($("#pageNow").val())+1) * parseInt($("#number").val()))
             // alert("显示条数"+parseInt($("#number").val()))
-            page=nextPage
+            page = nextPage
             getUserOrderById(begin, parseInt($("#number").val()))
             // $("#pageNow").val(parseInt($("#pageNow"))+1)
 
         }
     }
-
 
 
 </script>
