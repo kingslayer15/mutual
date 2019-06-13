@@ -57,6 +57,11 @@ public class OmsCartItemController {
     }
 
 
+    /**
+     * 加入购物车,判断是否有,有+1
+     * @param omsCartItemDto
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "insertCart",method = RequestMethod.POST)
     public String insertCart(@RequestBody OmsCartItemDto omsCartItemDto){
@@ -94,6 +99,11 @@ public class OmsCartItemController {
 
     }
 
+    /**
+     * 加入收藏夹
+     * @param omsCartItemDto
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "insertCollection", method = RequestMethod.POST)
     public Object insertCollection(@RequestBody OmsCartItemDto omsCartItemDto) {

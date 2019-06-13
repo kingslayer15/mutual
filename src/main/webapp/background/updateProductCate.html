@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>mall-admin-web</title>
-    <link href="mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <!--<script type="text/javascript" charset="utf-8" async=""
             src="./updateProductCate_files/0.c3b42f8bcbc75e89d5c5.js.下载"></script>
     <script type="text/javascript" charset="utf-8" async=""
@@ -542,13 +542,14 @@
                 <div data-v-6a32fc9b="" class="el-card form-container is-never-shadow"><!---->
                     <div class="el-card__body">
                         <form data-v-6a32fc9b="" class="el-form">
+                            <input hidden id="CategoryId">
                             <div data-v-6a32fc9b="" class="el-form-item is-required"><label for="name"
                                                                                             class="el-form-item__label"
                                                                                             style="width: 150px;">分类名称：</label>
                                 <div class="el-form-item__content" style="margin-left: 150px;">
                                     <div data-v-6a32fc9b="" class="el-input"><!----><input type="text"
                                                                                            autocomplete="off"
-                                                                                           class="el-input__inner">
+                                                                                           class="el-input__inner" id="name">
                                         <!----><!----><!----></div><!----></div>
                             </div>
                             <div data-v-6a32fc9b="" class="el-form-item"><label class="el-form-item__label"
@@ -559,21 +560,22 @@
                                                                                              autocomplete="off"
                                                                                              placeholder="请选择分类"
                                                                                              readonly="readonly"
-                                                                                             class="el-input__inner">
+                                                                                             class="el-input__inner"
+                                                                                             onclick="showParentType('parentType')" id="parent_id">
                                             <!----><span class="el-input__suffix"><span
                                                     class="el-input__suffix-inner"><i
                                                     class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
                                                 <!----></span><!----></div>
                                         <div class="el-select-dropdown el-popper"
-                                             style="display: none; min-width: 221.4px;">
+                                             style="display: none; min-width: 221.4px;" id="parentType">
                                             <div class="el-scrollbar" style="">
                                                 <div class="el-select-dropdown__wrap el-scrollbar__wrap"
                                                      style="margin-bottom: -17px; margin-right: -17px;">
-                                                    <ul class="el-scrollbar__view el-select-dropdown__list"><!---->
+                                                    <ul class="el-scrollbar__view el-select-dropdown__list" id="typeLevel"><!---->
                                                         <li data-v-6a32fc9b=""
                                                             class="el-select-dropdown__item selected"><span>无上级分类</span>
                                                         </li>
-                                                        <li data-v-6a32fc9b="" class="el-select-dropdown__item">
+                                                        <!--<li data-v-6a32fc9b="" class="el-select-dropdown__item">
                                                             <span>服装</span></li>
                                                         <li data-v-6a32fc9b="" class="el-select-dropdown__item"><span>手机数码</span>
                                                         </li>
@@ -582,7 +584,7 @@
                                                         <li data-v-6a32fc9b="" class="el-select-dropdown__item"><span>家具家装</span>
                                                         </li>
                                                         <li data-v-6a32fc9b="" class="el-select-dropdown__item"><span>汽车用品</span>
-                                                        </li>
+                                                        </li>-->
                                                     </ul>
                                                 </div>
                                                 <div class="el-scrollbar__bar is-horizontal">
@@ -601,7 +603,7 @@
                                 <div class="el-form-item__content" style="margin-left: 150px;">
                                     <div data-v-6a32fc9b="" class="el-input"><!----><input type="text"
                                                                                            autocomplete="off"
-                                                                                           class="el-input__inner">
+                                                                                           class="el-input__inner" id="product_unit">
                                         <!----><!----><!----></div><!----></div>
                             </div>
                             <div data-v-6a32fc9b="" class="el-form-item"><label class="el-form-item__label"
@@ -609,7 +611,7 @@
                                 <div class="el-form-item__content" style="margin-left: 150px;">
                                     <div data-v-6a32fc9b="" class="el-input"><!----><input type="text"
                                                                                            autocomplete="off"
-                                                                                           class="el-input__inner">
+                                                                                           class="el-input__inner" id="sort">
                                         <!----><!----><!----></div><!----></div>
                             </div>
                             <div data-v-6a32fc9b="" class="el-form-item"><label class="el-form-item__label"
@@ -697,19 +699,19 @@
                                 <div class="el-form-item__content" style="margin-left: 150px;">
                                     <div data-v-6a32fc9b="" class="el-input"><!----><input type="text"
                                                                                            autocomplete="off"
-                                                                                           class="el-input__inner">
+                                                                                           class="el-input__inner" id="keywords">
                                         <!----><!----><!----></div><!----></div>
                             </div>
                             <div data-v-6a32fc9b="" class="el-form-item"><label class="el-form-item__label"
                                                                                 style="width: 150px;">分类描述：</label>
                                 <div class="el-form-item__content" style="margin-left: 150px;">
                                     <div data-v-6a32fc9b="" class="el-textarea"><textarea class="el-textarea__inner"
-                                                                                          style="min-height: 33px; height: 33px;"></textarea>
+                                                                                          style="min-height: 33px; height: 33px;" id="description"></textarea>
                                     </div><!----></div>
                             </div>
                             <div data-v-6a32fc9b="" class="el-form-item"><!---->
                                 <div class="el-form-item__content" style="margin-left: 150px;">
-                                    <button data-v-6a32fc9b="" type="button" class="el-button el-button--primary">
+                                    <button data-v-6a32fc9b="" type="button" class="el-button el-button--primary" onclick="subModifyForm()">
                                         <!----><!----><span>提交</span></button> <!----><!----></div>
                             </div>
                         </form>
@@ -722,6 +724,125 @@
 <!--<script type="text/javascript" src="./updateProductCate_files/manifest.6ed17977cd281dde32f6.js.下载"></script>
 <script type="text/javascript" src="./updateProductCate_files/vendor.48a1ef0705a71cc87472.js.下载"></script>
 <script type="text/javascript" src="./updateProductCate_files/app.85ae43be5ac0839f3d77.js.下载"></script>-->
+
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<script>
+    //根据要修改的分类id 获取其所有属性
+    var Categoryid;
+    //获取传过来的分类id
+    (function getId() {
+        Categoryid =window.location.search.split("=")[1];
+        // alert(brandid)
+    })();
+
+    //根据id获取分类信息
+    (function getById(){
+        $.ajax(
+            {
+                type: "post",
+                url: "/lookProductCategoryById?id="+Categoryid,
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    $("#name").val(data.name);
+                    $("#parent_id").val(data.parent_id);
+                    $("#product_unit").val(data.product_unit);
+                    $("#sort").val(data.sort);
+                    $("#keywords").val(data.keywords);
+                    $("#description").val(data.description);
+                    $("#CategoryId").val(data.id)
+
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            }
+        )
+
+    })();
+
+    //获取父级类型
+    (function showProductBrand() {
+        var typeLevel = $("#typeLevel");
+        $.ajax(
+            {
+                type: "get",
+                url: "/listParentProductCategory",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    var str = '';
+                    $(data).each(function (index, item) {
+                        str += "<li data-v-6a32fc9b=\"\" class=\"el-select-dropdown__item\" onclick='setParentId("+item.id+")'><span>" + item.name + "</span></li>"
+                    })
+                    typeLevel.append(str);
+
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+
+            })
+    })();
+
+    //展示父级类型
+    function showParentType(item) {
+        if (document.getElementById(item).style.display == "none") {
+            document.getElementById(item).style.display = "block"
+        } else {
+            document.getElementById(item).style.display = "none"
+        }
+    }
+
+    //点击设置父级类型
+    function setParentId(id) {
+        $("#parent_id").val(id);
+        showParentType("parentType");
+
+    }
+
+    //提交添加类型表单
+    function subModifyForm() {
+        var id = $("#CategoryId").val();
+        var name = $("#name").val();
+        var parent_id = $("#parent_id").val();
+        var product_unit = $("#product_unit").val();
+        var sort = $("#sort").val();
+        var keywords = $("#keywords").val();
+        var description = $("#description").val();
+
+        $.ajax(
+            {
+                type: "post",
+                url: "/modifyProductCategoryById",
+                contentType: "application/json",
+                dataType: "json",
+                data:JSON.stringify({
+                    "id":id,
+                    "name":name,
+                    "parent_id":parent_id,
+                    "product_unit":product_unit,
+                    "sort":sort,
+                    "keywords":keywords,
+                    "description":description
+                }),
+                success:function (data) {
+                    console.log(data);
+                    window.location.url ="productCate.html";
+                },
+                error:function (data) {
+                    console.log(data);
+                }
+            }
+        )
+
+    }
+
+
+
+
+</script>
 
 </body>
 </html>

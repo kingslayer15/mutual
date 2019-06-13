@@ -1,17 +1,18 @@
 package com.thumb.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.thumb.dto.*;
+import com.thumb.entity.pojo.UmsMember;
 import com.thumb.service.PersonalOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.*;
 
 @Controller
@@ -20,51 +21,121 @@ public class PersonalOrderController {
     PersonalOrderService personalOrderService;
     List<String> list;
 
-
+//总订单数查询分页
     @ResponseBody
     @RequestMapping("orderByUid")
-    public Object orderByUid(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid(uId);
+    public Object orderByUid(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        orderPageDto.setUid(uId);
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid(orderPageDto);
         System.out.println(clientOrderDtos);
         return clientOrderDtos;
+    }
+//总订单个数
+    @ResponseBody
+    @RequestMapping("count")
+    public Object count(HttpServletRequest httpServletRequest){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        int count = personalOrderService.count(uId);
+        System.out.println(count);
+        return count;
     }
 
     @ResponseBody
     @RequestMapping("orderByUid0")
-    public Object orderByUid0(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid0(uId);
+    public Object orderByUid0(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        orderPageDto.setUid(uId);
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid0(orderPageDto);
         System.out.println(clientOrderDtos);
         return clientOrderDtos;
+    }
+
+    @ResponseBody
+    @RequestMapping("count0")
+    public Object count0(HttpServletRequest httpServletRequest){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        int count = personalOrderService.count0(uId);
+        System.out.println(count);
+        return count;
     }
 
     @ResponseBody
     @RequestMapping("orderByUid1")
-    public Object orderByUid1(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid1(uId);
+    public Object orderByUid1(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        orderPageDto.setUid(uId);
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid1(orderPageDto);
         System.out.println(clientOrderDtos);
         return clientOrderDtos;
+    }
+
+
+    @ResponseBody
+    @RequestMapping("count1")
+    public Object count1(HttpServletRequest httpServletRequest){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        int count = personalOrderService.count1(uId);
+        System.out.println(count);
+        return count;
     }
 
     @ResponseBody
     @RequestMapping("orderByUid2")
-    public Object orderByUid2(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid2(uId);
+    public Object orderByUid2(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        orderPageDto.setUid(uId);
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid2(orderPageDto);
         System.out.println(clientOrderDtos);
         return clientOrderDtos;
     }
 
     @ResponseBody
+    @RequestMapping("count2")
+    public Object count2(HttpServletRequest httpServletRequest){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        int count = personalOrderService.count2(uId);
+        System.out.println(count);
+        return count;
+    }
+
+    @ResponseBody
     @RequestMapping("orderByUid3")
-    public Object orderByUid3(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        System.out.println(uId);
-        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid3(uId);
+    public Object orderByUid3(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+        orderPageDto.setUid(uId);
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid3(orderPageDto);
         System.out.println(clientOrderDtos);
         return clientOrderDtos;
+    }
+
+    @ResponseBody
+    @RequestMapping("count3")
+    public Object count3(HttpServletRequest httpServletRequest){
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        int uId = umsMember.getId().intValue();
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        int count = personalOrderService.count3(uId);
+        System.out.println(count);
+        return count;
     }
 
 

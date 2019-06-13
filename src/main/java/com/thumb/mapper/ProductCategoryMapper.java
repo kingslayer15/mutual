@@ -16,5 +16,4 @@ public interface ProductCategoryMapper {
     int removeProductCategoryById(int id);
 
     List<ProductCategoryDto> findLowerById(int id);
-
 }

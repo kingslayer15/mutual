@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,6 +15,8 @@
 </head>
 
 <body>
+
+<!--图标 begin-->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      style="position: absolute; width: 0; height: 0" id="__SVG_SPRITE_NODE__">
     <symbol class="icon" viewBox="0 0 1024 1024" id="icon-example">
@@ -314,18 +316,19 @@
               p-id="7987"></path>
     </symbol>
 </svg>
+<!--图标 end-->
 
 <script src="../static/mall-admin-web_files/tinymce.min.js"></script>
 <div id="app">
     <div id="allContext" data-v-0ef526f4="" class="app-wrapper">
-
         <!--左侧导航栏 begin-->
         <div data-v-69d4f5dd="" data-v-0ef526f4="" class="scroll-container sidebar-container">
             <div data-v-69d4f5dd="" class="scroll-wrapper" style="top: 0px;">
                 <ul role="menubar" class="el-menu" show-timeout="200" data-v-69d4f5dd=""
                     style="background-color: rgb(48, 65, 86);">
                     <div class="menu-wrapper">
-                        <a href="############" class="">
+                        <!--首页 begin-->
+                        <a href="home.html" class="">
                             <li role="menuitem" tabindex="-1"
                                 class="el-menu-item submenu-title-noDropdown"
                                 style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
@@ -335,9 +338,10 @@
                                 <span>首页</span>
                             </li>
                         </a>
+                        <!--首页 end-->
 
                         <!--商品-->
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu">
+                        <li id="product_li" role="menuitem" aria-haspopup="true" class="el-submenu">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -346,10 +350,10 @@
                                 <span slot="title">商品</span><i
                                     class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" data-old-padding-top=""
+                            <ul id="pruduct_ul" role="menu" class="el-menu el-menu--inline" data-old-padding-top=""
                                 data-old-padding-bottom="" data-old-overflow=""
                                 style="background-color: rgb(48, 65, 86); display: none;">
-                                <a href="###############" class="">
+                                <a href="product.html" class="">
                                     <li role="menuitem" tabindex="-1" class="el-menu-item"
                                         style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                         <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -413,7 +417,7 @@
                                 <span slot="title">订单</span>
                                 <i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline"
+                            <ul id="order_ul" role="menu" class="el-menu el-menu--inline"
                                 style="background-color: rgb(48, 65, 86);"
                                 data-old-padding-top="" data-old-padding-bottom=""
                                 data-old-overflow="">
@@ -438,27 +442,27 @@
                                         <span>订单设置</span></li>
                                 </a>
                                 <a href="returnApply.html" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a=""
-                                             xlink:href="#icon-order-return"></use>
-                                    </svg>
-                                    <span>退货申请处理</span></li>
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-order-return"></use>
+                                        </svg>
+                                        <span>退货申请处理</span></li>
                                 </a>
                                 <a href="returnReason.html" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a=""
-                                             xlink:href="#icon-order-return-reason"></use>
-                                    </svg>
-                                    <span>退货原因设置</span>
-                                </li>
-                            </a>
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-order-return-reason"></use>
+                                        </svg>
+                                        <span>退货原因设置</span>
+                                    </li>
+                                </a>
                             </ul>
                         </li>
 
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu"
+                        <li id="sms_li" role="menuitem" aria-haspopup="true" class="el-submenu"
                             aria-expanded="true">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
@@ -468,7 +472,7 @@
                                 <span slot="title">营销</span><i
                                     class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline"
+                            <ul id="sms_ul" role="menu" class="el-menu el-menu--inline"
                                 style="background-color: rgb(48, 65, 86); display: none"
                                 data-old-padding-top="" data-old-padding-bottom=""
                                 data-old-overflow="">
@@ -636,14 +640,14 @@
                                     <div data-v-ebcc336a=""
                                          class="el-form-item el-form-item--small">
                                         <label class="el-form-item__label"
-                                            style="width: 140px;">输入搜索：</label>
+                                               style="width: 140px;">输入搜索：</label>
                                         <div class="el-form-item__content">
                                             <div data-v-ebcc336a=""
                                                  class="input-width el-input el-input--small">
                                                 <!----><input id="order_sn"
-                                                    type="text" autocomplete="off"
-                                                    placeholder="订单编号"
-                                                    class="el-input__inner"><!----><!----><!---->
+                                                              type="text" autocomplete="off"
+                                                              placeholder="订单编号"
+                                                              class="el-input__inner"><!----><!----><!---->
                                             </div><!----></div>
                                     </div>
                                     <div data-v-ebcc336a=""
@@ -654,9 +658,9 @@
                                             <div data-v-ebcc336a=""
                                                  class="input-width el-input el-input--small">
                                                 <!----><input id="member"
-                                                    type="text" autocomplete="off"
-                                                    placeholder="收货人姓名/手机号码"
-                                                    class="el-input__inner"><!----><!----><!---->
+                                                              type="text" autocomplete="off"
+                                                              placeholder="收货人姓名/手机号码"
+                                                              class="el-input__inner"><!----><!----><!---->
                                             </div><!----></div>
                                     </div>
                                     <div data-v-ebcc336a=""
@@ -677,151 +681,151 @@
                                                 <!----></div>
                                             <!----></div>
                                     </div>
-                                    
+
                                     <div style="display: none;">
-                                    <div data-v-ebcc336a=""
-                                         class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label"
-                                            style="width: 140px;">订单状态：</label>
-                                        <div class="el-form-item__content">
-                                            <div data-v-ebcc336a=""
-                                                 class="el-select input-width el-select--small">
-                                                <!---->
-                                                <div class="el-input el-input--small el-input--suffix">
-                                                    <!----><input id="status"
-                                                        type="text" autocomplete="off"
-                                                        placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner">
-                                                    <!----><span
-                                                        class="el-input__suffix"><span
-                                                        class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 203px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>待付款</span></li>
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>待发货</span></li>
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>已发货</span></li>
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>已完成</span></li>
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>已关闭</span></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
+                                        <div data-v-ebcc336a=""
+                                             class="el-form-item el-form-item--small"><label
+                                                class="el-form-item__label"
+                                                style="width: 140px;">订单状态：</label>
+                                            <div class="el-form-item__content">
+                                                <div data-v-ebcc336a=""
+                                                     class="el-select input-width el-select--small">
+                                                    <!---->
+                                                    <div class="el-input el-input--small el-input--suffix">
+                                                        <!----><input id="status"
+                                                                      type="text" autocomplete="off"
+                                                                      placeholder="全部"
+                                                                      readonly="readonly" class="el-input__inner">
+                                                        <!----><span
+                                                            class="el-input__suffix"><span
+                                                            class="el-input__suffix-inner"><i
+                                                            class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                        <!----></span><!----></span><!----></div>
+                                                    <div class="el-select-dropdown el-popper"
+                                                         style="display: none; min-width: 203px;">
+                                                        <div class="el-scrollbar" style="">
+                                                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                 style="margin-bottom: -15px; margin-right: -15px;">
+                                                                <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                    <!---->
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>待付款</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>待发货</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>已发货</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>已完成</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>已关闭</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-horizontal">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateX(0%);"></div>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-vertical">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateY(0%);"></div>
+                                                            </div>
+                                                        </div><!----></div>
+                                                </div><!----></div>
+                                        </div>
+                                        <div data-v-ebcc336a=""
+                                             class="el-form-item el-form-item--small"><label
+                                                class="el-form-item__label"
+                                                style="width: 140px;">订单分类：</label>
+                                            <div class="el-form-item__content">
+                                                <div data-v-ebcc336a=""
+                                                     class="el-select input-width el-select--small">
+                                                    <!---->
+                                                    <div class="el-input el-input--small el-input--suffix">
+                                                        <!----><input id="order_type"
+                                                                      type="text" autocomplete="off"
+                                                                      placeholder="全部"
+                                                                      readonly="readonly" class="el-input__inner">
+                                                        <!----><span
+                                                            class="el-input__suffix"><span
+                                                            class="el-input__suffix-inner"><i
+                                                            class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                        <!----></span><!----></span><!----></div>
+                                                    <div class="el-select-dropdown el-popper"
+                                                         style="display: none; min-width: 203px;">
+                                                        <div class="el-scrollbar" style="">
+                                                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                 style="margin-bottom: -15px; margin-right: -15px;">
+                                                                <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                    <!---->
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>正常订单</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>秒杀订单</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-horizontal">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateX(0%);"></div>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-vertical">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateY(0%);"></div>
+                                                            </div>
+                                                        </div><!----></div>
+                                                </div><!----></div>
+                                        </div>
+                                        <div data-v-ebcc336a=""
+                                             class="el-form-item el-form-item--small"><label
+                                                class="el-form-item__label"
+                                                style="width: 140px;">订单来源：</label>
+                                            <div class="el-form-item__content">
+                                                <div data-v-ebcc336a=""
+                                                     class="el-select input-width el-select--small">
+                                                    <!---->
+                                                    <div class="el-input el-input--small el-input--suffix">
+                                                        <!----><input id="source_type"
+                                                                      type="text" autocomplete="off"
+                                                                      placeholder="全部"
+                                                                      readonly="readonly" class="el-input__inner">
+                                                        <!----><span
+                                                            class="el-input__suffix"><span
+                                                            class="el-input__suffix-inner"><i
+                                                            class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                        <!----></span><!----></span><!----></div>
+                                                    <div class="el-select-dropdown el-popper"
+                                                         style="display: none; min-width: 203px;">
+                                                        <div class="el-scrollbar" style="">
+                                                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                 style="margin-bottom: -15px; margin-right: -15px;">
+                                                                <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                    <!---->
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>PC订单</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>APP订单</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-horizontal">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateX(0%);"></div>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-vertical">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateY(0%);"></div>
+                                                            </div>
+                                                        </div><!----></div>
+                                                </div><!----></div>
+                                        </div>
                                     </div>
-                                    <div data-v-ebcc336a=""
-                                         class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label"
-                                            style="width: 140px;">订单分类：</label>
-                                        <div class="el-form-item__content">
-                                            <div data-v-ebcc336a=""
-                                                 class="el-select input-width el-select--small">
-                                                <!---->
-                                                <div class="el-input el-input--small el-input--suffix">
-                                                    <!----><input id="order_type"
-                                                        type="text" autocomplete="off"
-                                                        placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner">
-                                                    <!----><span
-                                                        class="el-input__suffix"><span
-                                                        class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 203px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>正常订单</span></li>
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>秒杀订单</span></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
-                                    </div>
-                                    <div data-v-ebcc336a=""
-                                         class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label"
-                                            style="width: 140px;">订单来源：</label>
-                                        <div class="el-form-item__content">
-                                            <div data-v-ebcc336a=""
-                                                 class="el-select input-width el-select--small">
-                                                <!---->
-                                                <div class="el-input el-input--small el-input--suffix">
-                                                    <!----><input id="source_type"
-                                                        type="text" autocomplete="off"
-                                                        placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner">
-                                                    <!----><span
-                                                        class="el-input__suffix"><span
-                                                        class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 203px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>PC订单</span></li>
-                                                                <li data-v-ebcc336a=""
-                                                                    class="el-select-dropdown__item">
-                                                                    <span>APP订单</span></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
-                                    </div>
-                                    </div>
-                                    
+
                                 </form>
                                 <!--form表单 end-->
 
@@ -856,8 +860,8 @@
                             <div class="el-table__header-wrapper">
                                 <table cellspacing="0" cellpadding="0" border="0"
                                        class="el-table__header"
-                                       style="width: 1444px;">
-                                    <colgroup>
+                                       style="width: 100%;">
+                                    <!--<colgroup>
                                         <col name="el-table_2_column_10" width="60">
                                         <col name="el-table_2_column_11" width="60">
                                         <col name="el-table_2_column_12" width="180">
@@ -869,48 +873,48 @@
                                         <col name="el-table_2_column_18" width="100">
                                         <col name="el-table_2_column_19" width="180">
                                         <col name="gutter" width="0">
-                                    </colgroup>
+                                    </colgroup>-->
                                     <thead class="has-gutter">
                                     <tr class="">
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 4%;"
                                             class="el-table_2_column_10  is-center el-table-column--selection  is-leaf">
                                             <div class="cell">
                                                 <input id="allCheck" onclick="swapCheck()" type="checkbox">
                                             </div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_11  is-center   is-leaf">
                                             <div class="cell">编号</div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_12  is-center   is-leaf">
                                             <div class="cell">订单编号</div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_13  is-center   is-leaf">
                                             <div class="cell">提交时间</div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_14  is-center   is-leaf">
                                             <div class="cell">用户账号</div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_15  is-center   is-leaf">
                                             <div class="cell">订单金额</div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_16  is-center   is-leaf">
                                             <div class="cell">支付方式</div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_17  is-center   is-leaf">
                                             <div class="cell">订单来源</div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_18  is-center   is-leaf">
                                             <div class="cell">订单状态</div>
                                         </th>
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
                                             class="el-table_2_column_19  is-center   is-leaf">
                                             <div class="cell">操作</div>
                                         </th>
@@ -925,8 +929,8 @@
                             <div class="el-table__body-wrapper is-scrolling-none">
                                 <table cellspacing="0" cellpadding="0" border="0"
                                        class="el-table__body"
-                                       style="width: 1444px; height: 30px;">
-                                    <colgroup>
+                                       style="width: 100%;">
+                                    <!--<colgroup>
                                         <col name="el-table_2_column_10" width="60">
                                         <col name="el-table_2_column_11" width="60">
                                         <col name="el-table_2_column_12" width="180">
@@ -938,7 +942,7 @@
                                         <col name="el-table_2_column_18" width="100">
                                         <col name="el-table_2_column_19" width="180">
                                         <col name="gutter" width="0">
-                                    </colgroup>
+                                    </colgroup>-->
                                     <!--此节点下存放订单项-->
                                     <tbody id="omsOrderBody">
 
@@ -961,11 +965,11 @@
                     <div data-v-ebcc336a="" class="batch-operate-container">
                         <div data-v-ebcc336a="" class="el-select el-select--small"><!---->
                             <div class="el-input el-input--small el-input--suffix"><!----><input onclick="plczselectInput()"
-                                    type="text"
-                                    autocomplete="off"
-                                    placeholder="批量操作"
-                                    readonly="readonly"
-                                    class="el-input__inner">
+                                                                                                 type="text"
+                                                                                                 autocomplete="off"
+                                                                                                 placeholder="批量操作"
+                                                                                                 readonly="readonly"
+                                                                                                 class="el-input__inner">
                                 <!----><span class="el-input__suffix"><span
                                         class="el-input__suffix-inner"><i
                                         class="el-select__caret el-input__icon el-icon-arrow-up"></i>
@@ -980,13 +984,13 @@
                                          style="margin-bottom: -15px; margin-right: -15px;">
                                         <ul class="el-scrollbar__view el-select-dropdown__list">
                                             <!---->
-                                            <li data-v-ebcc336a="" class="el-select-dropdown__item">
+                                            <li onclick="updateOrderStatusByCheck(2)" data-v-ebcc336a="" class="el-select-dropdown__item">
                                                 <span>批量发货</span>
                                             </li>
-                                            <li data-v-ebcc336a="" class="el-select-dropdown__item">
+                                            <li onclick="updateOrderStatusByCheck(4)" data-v-ebcc336a="" class="el-select-dropdown__item">
                                                 <span>关闭订单</span>
                                             </li>
-                                            <li data-v-ebcc336a="" class="el-select-dropdown__item">
+                                            <li onclick="removeOmsOrderByCheck()" data-v-ebcc336a="" class="el-select-dropdown__item">
                                                 <span>删除订单</span>
                                             </li>
                                         </ul>
@@ -1019,26 +1023,26 @@
                             <span class="el-pagination__sizes"><div class="el-select">
                                 <div class="el-input el-input--suffix">
                                     <input id="selectInput" type="text" autocomplete="off" placeholder="请选择" readonly="readonly"
-                                                                                class="el-input__inner">
-                            <!----><span
-                                    class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                    class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                <!----></span>
-                                <!----></span><!----></div><div id="selectSizeDiv" class="el-select-dropdown el-popper"
-                                                                style="display: none; min-width: 110px;"><div
-                                class="el-scrollbar" style=""><div
-                                class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                style="margin-bottom: -15px; margin-right: -15px;"><ul
-                                class="el-scrollbar__view el-select-dropdown__list"><!----><li onclick="setPageSize(5)"
-                                class="el-select-dropdown__item"><span>5条/页</span></li><li onclick="setPageSize(10)"
-                                class="el-select-dropdown__item selected"><span>10条/页</span></li><li onclick="setPageSize(15)"
-                                class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
-                                class="el-scrollbar__bar is-horizontal"><div
-                                class="el-scrollbar__thumb"
-                                style="transform: translateX(0%);"></div></div><div
-                                class="el-scrollbar__bar is-vertical"><div
-                                class="el-scrollbar__thumb"
-                                style="transform: translateY(0%);"></div></div></div>
+                                           class="el-input__inner">
+                                    <!----><span
+                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
+                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                    <!----></span>
+                                    <!----></span><!----></div><div id="selectSizeDiv" class="el-select-dropdown el-popper"
+                                                                    style="display: none; min-width: 110px;"><div
+                                    class="el-scrollbar" style=""><div
+                                    class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                    style="margin-bottom: -15px; margin-right: -15px;"><ul
+                                    class="el-scrollbar__view el-select-dropdown__list"><!----><li onclick="setPageSize(5)"
+                                                                                                   class="el-select-dropdown__item"><span>5条/页</span></li><li onclick="setPageSize(10)"
+                                                                                                                                                              class="el-select-dropdown__item selected"><span>10条/页</span></li><li onclick="setPageSize(15)"
+                                                                                                                                                                                                                                   class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
+                                    class="el-scrollbar__bar is-horizontal"><div
+                                    class="el-scrollbar__thumb"
+                                    style="transform: translateX(0%);"></div></div><div
+                                    class="el-scrollbar__bar is-vertical"><div
+                                    class="el-scrollbar__thumb"
+                                    style="transform: translateY(0%);"></div></div></div>
                             </div></div></span>
                             <button id="btnPrev" type="button" disabled="disabled" class="btn-prev">
                                 <i class="el-icon el-icon-arrow-left"></i></button>
@@ -1050,11 +1054,11 @@
                                     class="el-icon el-icon-arrow-right"></i></button>
                             <span class="el-pagination__jump">前往<div
                                     class="el-input el-pagination__editor is-in-pagination"><input id="numberInput"
-                                    type="number"
-                                    autocomplete="off"
-                                    min="1"
-                                    class="el-input__inner"
-                                    max="2">
+                                                                                                   type="number"
+                                                                                                   autocomplete="off"
+                                                                                                   min="1"
+                                                                                                   class="el-input__inner"
+                                                                                                   max="2">
                                 </div>页</span></div>
                     </div>
                     <!--分页 end-->
@@ -1099,28 +1103,58 @@
 <script type="text/javascript" src="../static/js/js/bootstrap.js"></script>
 <script>
 
-    var pageNum = 1;    //当前页面
-    var pages;          //总页数
-    var pageSize = 5;       //每页数量
 
-    var left_status = 0;    //左边导航栏的设置状态
+    var left_status = 1;    //左边导航栏的当前状态
     //网页动态脚本
     $("#topPic").click(function () {
         //设置隐藏
-        if (left_status == 0) {
+        if (left_status) {
             $("#topPic svg").attr("class", "hamburger is-active");
             $("#allContext").attr("class", "app-wrapper hideSidebar withoutAnimation");
-            $("#order_li ul").css("display", "none");
+            $("#pruduct_ul").hide();
+            $("#order_ul").hide();
+            $("#sms_ul").hide();
 
-            left_status = 1;
+            left_status = 0;
         }
         //设置显示
         else {
             $("#topPic svg").attr("class", "hamburger is-active");
             $("#allContext").attr("class", "app-wrapper withoutAnimation");
-            $("#order_li ul").css("display", "");
+            $("#order_ul").show();
 
-            left_status = 0;
+            left_status = 1;
+        }
+    });
+
+    var u_1 = 0;    //当前状态
+    $("#product_li").click(function () {
+        if (u_1) {
+            $("#pruduct_ul").hide();
+            u_1 = 0;
+        } else {
+            $("#pruduct_ul").show();
+            u_1 = 1;
+        }
+    });
+    var u_2 = 1;    //当前状态
+    $("#order_li").click(function () {
+        if (u_2) {
+            $("#order_ul").hide();
+            u_2 = 0;
+        } else {
+            $("#order_ul").show();
+            u_2 = 1;
+        }
+    });
+    var u_3 = 0;    //当前状态
+    $("#sms_li").click(function () {
+        if (u_3) {
+            $("#sms_ul").hide();
+            u_3 = 0;
+        } else {
+            $("#sms_ul").show();
+            u_3 = 1;
         }
     });
 
@@ -1148,16 +1182,20 @@
      * 加载网页是调用
      */
     $(function () {
-       listAllOmsOrder();
+        listAllOmsOrder();
     });
 
+    var pageNum = 1;    //当前页面
+    var pages;          //总页数
+    var pageSize = 5;       //每页数量
+
     /**
-     * 管理员获取所有订单信息
+     * 商家获取所有订单信息
      */
     function listAllOmsOrder() {
         $.ajax({
             type: 'POST',
-            url: "/listAllOmsOrderByAdmin",
+            url: "/listAllOmsOrderByMerchant",
             contentType: "application/json",
             dataType: "json",
             data: JSON.stringify({
@@ -1225,37 +1263,37 @@
                 }
             }
 
-            str = "<tr id=\"omsOrderBodyTr_" + item.id + "\" class=\"el-table__row\">\n" +
-                "    <td class=\"el-table_2_column_10 is-center el-table-column--selection\">\n" +
+            str = "<tr id=\"omsOrderBodyTr_" + item.id + "\" class=\"el-table__row\" >\n" +
+                "    <td class=\"el-table_2_column_10 is-center el-table-column--selection\" style='width: 4%'>\n" +
                 "        <div class=\"cell\">\n" +
-                "            <input onclick='itemCheck()' type=\"checkbox\" aria-hidden=\"true\"" +
+                "            <input id=\"itemInput_"+item.id+"\" onclick='itemCheck()' type=\"checkbox\" aria-hidden=\"true\"" +
                 "        </div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_11 is-center \">\n" +
+                "    <td class=\"el-table_2_column_11 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">" + item.id + "</div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_12 is-center \">\n" +
+                "    <td class=\"el-table_2_column_12 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">" + item.orderSn + "</div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_13 is-center \">\n" +
+                "    <td class=\"el-table_2_column_13 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">" + item.createTime + "</div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_14 is-center \">\n" +
+                "    <td class=\"el-table_2_column_14 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">" + item.memberUsername + "</div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_15 is-center \">\n" +
+                "    <td class=\"el-table_2_column_15 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">￥" + item.totalAmount + "</div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_16 is-center \">\n" +
+                "    <td class=\"el-table_2_column_16 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">" + payTypeText + "</div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_17 is-center \">\n" +
+                "    <td class=\"el-table_2_column_17 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">" + sourceTypeText + "</div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_18 is-center \">\n" +
+                "    <td class=\"el-table_2_column_18 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">" + statusText + "</div>\n" +
                 "    </td>\n" +
-                "    <td class=\"el-table_2_column_19 is-center \">\n" +
+                "    <td class=\"el-table_2_column_19 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">\n" +
                 "            <a href='OrderDetail.html?id="+ item.id +"'><button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[0]+";\">\n" +
                 "                <span>查看订单</span>\n" +
@@ -1344,11 +1382,31 @@
         });
     }
 
+    //修改订单的状态（已发货->2, 已关闭->4）
+    function updateOrderStatusByIds(orderId, status) {
+        $.ajax({
+            type: 'POST',
+            url: "/updateOmsOrderStatusByOrderId",
+            contentType:"application/json",
+            dataType: "json",
+            data: JSON.stringify({
+                "id" : orderId,
+                "status" : status
+            }),
+            success: function(data){
+                console.log(data);
+            },
+            error:function (data) {
+                console.error(data);
+            }
+        });
+    }
+
 
     /**
      * 复选框的全选和取消全选功能
      */
-    var isCheckAll = false;
+    var isCheckAll = false;     //变量随全选框一起改变
     function swapCheck() {
         if (isCheckAll) {
             $("#omsOrderBody input").each(function () {
@@ -1374,8 +1432,37 @@
         $("#allCheck").prop("checked", flag);
     }
 
+    /**
+     * 打开批量选项窗口
+     */
     function plczselectInput() {
         $("#plczselect").show();
+    }
+
+    /**
+     * 订单的批量操作：修改订单状态，并隐藏批量窗口
+     */
+    function updateOrderStatusByCheck(status) {
+        // console.log(status);
+        $("#omsOrderBody input:checked").each(function () {
+            var id = this.id.split("_")[1];
+            // console.log(id + " " + status);
+            updateOrderStatusByIds(id, status);
+        });
+        $("#plczselect").hide();
+    }
+    /**
+     * 订单的批量操作：删除订单
+     */
+    function removeOmsOrderByCheck() {
+        $("#omsOrderBody input:checked").each(function () {
+            var id = this.id.split("_")[1];
+            removeOmsOrderById(id);
+        });
+        listAllOmsOrder();
+        $("#plczselect").hide();
+        isCheckAll = false;
+        $("#allCheck").prop("checked", false);
     }
 
 

@@ -9,20 +9,20 @@
 
     <select id="findByCondition" resultType="com.thumb.dto.ProductBrandDto" parameterType="String">
         select * from pms_brand
-      <where>
-        <if test="_parameter !=null and _parameter!=''">
-            name like "%${_parameter}%" or first_letter like "%${_parameter}%";
-        </if>
-        <if test="_parameter ==null or _parameter==''">
-            1>1
-        </if>
-      </where>
+        <where>
+            <if test="_parameter !=null and _parameter!=''">
+                name like "%${_parameter}%" or first_letter like "%${_parameter}%";
+            </if>
+            <if test="_parameter ==null or _parameter==''">
+                1>1
+            </if>
+        </where>
     </select>
 
     <select id="findBrandById" parameterType="int" resultType="com.thumb.dto.ProductBrandDto">
         select * from pms_brand where id = #{value}
     </select>
-    
+
     <update id="updateBrand" parameterType="com.thumb.dto.ProductBrandDto">
         update pms_brand
         <set>
@@ -39,6 +39,48 @@
                 brand_story = #{brand_story},
             </if>
         </set>
-        where  id = #{id}
+        where id = #{id}
     </update>
+
+    <insert id="addBrand" parameterType="com.thumb.dto.ProductBrandDto">
+        insert into pms_brand
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name!=null and name !=''">
+                name,
+            </if>
+            <if test="first_letter!=null and first_letter !=''">
+                first_letter,
+            </if>
+            <if test="brand_story!=null and brand_story !=''">
+                brand_story,
+            </if>
+            <if test="sort!=null and sort !=''">
+                sort,
+            </if>
+            <if test="logo!=null and logo!=''">
+                logo,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name!=null and name !=''">
+                #{name},
+            </if>
+            <if test="first_letter!=null and first_letter !=''">
+                #{first_letter},
+            </if>
+            <if test="brand_story!=null and brand_story !=''">
+                #{brand_story},
+            </if>
+            <if test="sort!=null and sort !=''">
+                #{sort},
+            </if>
+            <if test="logo!=null and logo!=''">
+                #{logo},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteBrandById" parameterType="int">
+        delete from pms_brand where id = #{value}
+    </delete>
 </mapper>

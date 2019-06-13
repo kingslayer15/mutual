@@ -5,12 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>添加商品分类</title>
-    <link href="mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <!--<script type="text/javascript" charset="utf-8" async=""
             src="./addProductCate_files/0.c3b42f8bcbc75e89d5c5.js.下载"></script>
     <script type="text/javascript" charset="utf-8" async=""
             src="./addProductCate_files/2.b9550218f656cc27fc2f.js.下载"></script>-->
-    <link rel="stylesheet" type="text/css" id="u0" href="mall-admin-web_files/skin.min.css">
+    <link rel="stylesheet" type="text/css" id="u0" href="../static/mall-admin-web_files/skin.min.css">
     <!--<script type="text/javascript" charset="utf-8" async=""
             src="./addProductCate_files/28.5ad58d0e4fc06e3fe7d8.js.下载"></script>
     <script type="text/javascript" charset="utf-8" async=""
@@ -766,7 +766,7 @@
 </div>
 
 
-<script src="jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script>
     //获取父级类型
     (function showProductBrand() {
@@ -774,7 +774,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "listParentProductCategory",
+                url: "/listParentProductCategory",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -820,7 +820,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "insertProductCategory",
+                url: "/insertProductCategory",
                 contentType: "application/json",
                 dataType: "json",
                 data:JSON.stringify({

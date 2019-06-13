@@ -5,28 +5,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>商品类型</title>
-    <link href="mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
+            src="../static/mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/3.bdde2483074687b995c5.js"></script>
-    <link rel="stylesheet" type="text/css" id="u0" href="mall-admin-web_files/skin.min.css">
+            src="../static/mall-admin-web_files/3.bdde2483074687b995c5.js"></script>
+    <link rel="stylesheet" type="text/css" id="u0" href="../static/mall-admin-web_files/skin.min.css">
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/27.e9a18826d6abec9c7d88.js"></script>
+            src="../static/mall-admin-web_files/27.e9a18826d6abec9c7d88.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/37.34334103094deedf5f3b.js"></script>
+            src="../static/mall-admin-web_files/37.34334103094deedf5f3b.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/36.58aa28f55fef55e6cd38.js"></script>
+            src="../static/mall-admin-web_files/36.58aa28f55fef55e6cd38.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/26.cd35f4ae53acbd2d56dc.js"></script>
+            src="../static/mall-admin-web_files/26.cd35f4ae53acbd2d56dc.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/35.fc57b44d57ceef960a5b.js"></script>
+            src="../static/mall-admin-web_files/35.fc57b44d57ceef960a5b.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/24.cb077e50406decc335c8.js"></script>
+            src="../static/mall-admin-web_files/24.cb077e50406decc335c8.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/38.c9575599d682b62a1187.js"></script>
+            src="../static/mall-admin-web_files/38.c9575599d682b62a1187.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/28.5ad58d0e4fc06e3fe7d8.js"></script>
+            src="../static/mall-admin-web_files/28.5ad58d0e4fc06e3fe7d8.js"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -822,11 +822,13 @@
         </div>
     </div>
 </div>
+
+<input hidden id="maxShowPage" value="5"></input>
 <!--<script type="text/javascript" src="../../mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="../../mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="../../mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
 
-<script src="/jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script>
 
     //编辑根据id回显类型数据
@@ -834,7 +836,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findCategoryById?id="+id,
+                url: "/findCategoryById?id="+id,
                 contentType: "application/json",
                 dataType: "json",
                 success:function (data) {
@@ -861,7 +863,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "editCategoryById",
+                url: "/editCategoryById",
                 contentType: "application/json",
                 dataType: "json",
                 data: JSON.stringify({
@@ -891,7 +893,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "addProductCategory",
+                url: "/addProductCategory",
                 contentType: "application/json",
                 dataType: "json",
                 data: JSON.stringify({
@@ -919,7 +921,7 @@
             $.ajax(
                 {
                     type: "get",
-                    url: "deleteCategoryById?id=" + id,
+                    url: "/deleteCategoryById?id=" + id,
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {
@@ -953,10 +955,11 @@
     var totalPage;
 
     function findAllByPage(currentPage) {
+        var maxShowPage = $("#maxShowPage").val();
         $.ajax(
             {
                 type: "get",
-                url: "findAllProductCategory?pageNo=" + currentPage,
+                url: "/findAllProductCategory?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();
@@ -1020,7 +1023,7 @@
                         "                                  <div\n" +
                         "                                class=\"el-input el-input--suffix\"><!----><input type=\"text\" autocomplete=\"off\"\n" +
                         "                                         placeholder=\"请选择\" readonly=\"readonly\"\n" +
-                        "                                        class=\"el-input__inner\" id='' onclick=\"showSplitPage('splitPage')\"><!----><span\n" +
+                        "                                        class=\"el-input__inner\" id='' onclick=\"cancelAdd('splitPage')\"><!----><span\n" +
                         "                                class=\"el-input__suffix\"><span class=\"el-input__suffix-inner\"><i\n" +
                         "                                class=\"el-select__caret el-input__icon el-icon-arrow-up\"></i><!----></span>\n" +
                         "                            <!----></span><!----></div>" +
@@ -1038,6 +1041,27 @@
                                                 "                                class=\"el-scrollbar__bar is-vertical\"><div class=\"el-scrollbar__thumb\"\n" +
                                                 "                                                                           style=\"transform: translateY(0%);\"></div></div></div>\n" +
                                                 "                            <!----></div>" +*/
+                        "<div class=\"el-select-dropdown el-popper\" style=\"display: none; min-width: 110px;\"\n" +
+                        "                                     id=\"splitPage\" >\n" +
+                        "                                    <div class=\"el-scrollbar\">\n" +
+                        "                                        <div class=\"el-select-dropdown__wrap el-scrollbar__wrap\"\n" +
+                        "                                             style=\"margin-bottom: -15px; margin-right: -15px;\">\n" +
+                        "                                            <ul class=\"el-scrollbar__view el-select-dropdown__list\">\n" +
+                        "                                                <li class=\"el-select-dropdown__item selected\" onclick=\"setMaxPage(5,currentPage)\">\n" +
+                        "                                                    <span>5条/页</span>\n" +
+                        "                                                </li>\n" +
+                        "                                                <li class=\"el-select-dropdown__item\" onclick=\"setMaxPage(10,currentPage)\">\n" +
+                        "                                                    <span>10条/页</span>\n" +
+                        "                                                </li>\n" +
+                        "                                                <li class=\"el-select-dropdown__item\" onclick=\"setMaxPage(15,currentPage)\">\n" +
+                        "                                                    <span>15条/页</span>\n" +
+                        "                                                </li>\n" +
+                        "                                            </ul>\n" +
+                        "                                        </div>\n" +
+                        "                                        </div>\n" +
+                        "                                     </div>"+
+
+
                         "</div></span>\n" +
                         "                            <button type=\"button\"  class=\"btn-prev\" onclick='subcurrentPage()'><i\n" +
                         "                                    class=\"el-icon el-icon-arrow-left\"></i></button>\n" +
@@ -1101,6 +1125,13 @@
         var jpage = $("#inputValNum").val();
         alert(jpage)
         findAllByPage(jpage)
+    }
+
+    //设置最大显示页数
+    function setMaxPage(i,currentPage){
+        $("#maxShowPage").val(i);
+        // alert("okokokoko"+$("#maxShowPage").val())
+        findAllByPage(currentPage)
     }
 </script>
 </body>

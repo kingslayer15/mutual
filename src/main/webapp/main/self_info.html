@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="order by dede58.com"/>
-    <title>Mutual商城-个人中心</title>
+    <title>Mutual商城-我的资料</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/bootstrap/js/bootstrap.min.js">
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
@@ -25,14 +25,8 @@
 </style>
 <body>
 
-<!-- start header -->
-<header id="header">
+<div id="header"></div>
 
-
-</header>
-<!--end header -->
-<!-- start banner_x -->
-<div class="banner_x center"></div>
 <!-- end banner_x -->
 <!-- self_info -->
 <div class="grzxbj">
@@ -112,17 +106,28 @@
 <script>
 
 
-    $(function () {
-        $("#header").load("head.html");
-    })
+        $("#header").load("header.html");
 
     //获取用户id
-    var userId;
+    var userId=0;
 
     function getUserId() {
-        userId = window.location.search.split("=")[1]
-        // alert(userId)
-    }
+        $(function () {
+            $.ajax({
+                url: '/getMember',
+                type: 'GET', //GET
+                /*成功*/
+                success: function (data) {
+                    userId=$(data).id
+                    alert(data.id)
+
+                },
+                /*发生错误时*/
+                error: function (xhr, textStatus) {
+
+                }
+            });
+        })}
 
     getUserId();
 

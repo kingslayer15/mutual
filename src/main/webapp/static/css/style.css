@@ -48,7 +48,7 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 .banner_x .search .text .shuru{border: none;width: 250px;height: 50px;}
 .banner_x .search .submit{width: 50px;height:50px;line-height: 50px;text-align:center;font-size: 12px;margin-top: 25px;border:1px solid #ccc;}
 .banner_x .search .submit .sousuo{letter-spacing:3px;text-align:center;width: 50px;height:50px;border: none;background: none;cursor:pointer;}
-.banner_x .search .submit:hover{border-color: #ff6700;color:#ff6700;} 
+.banner_x .search .submit:hover{border-color: #ff6700;color:#ff6700;}
 /*banner_y*/
 /*.banner_y{width:1226px;height:460px;background: url('../image/banner2.jpg') no-repeat;}*/
 .banner_y{width:1226px;height:460px;background: url('https://i1.mifile.cn/a4/xmad_15602558984819_nIZyN.jpg'); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;}
@@ -103,8 +103,8 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 .sub_banner .datu a img{width: 316px;height: 170px;opacity:0.8;}
 .sub_banner .datu a img:hover{opacity:1;}
 /*danpin*/
-.biaoti{width: 1226px;height: 58px;line-height: 58px;font-size: 
-22px;font-weight: bold;margin-top: 20px;}
+.biaoti{width: 1226px;height: 58px;line-height: 58px;font-size:
+		22px;font-weight: bold;margin-top: 20px;}
 .danpin .main{width: 1226px;height: 340px;}
 .danpin .main .mingxing{width: 234px;height: 339px;background: rgb(250,250,250);}
 .danpin .main .mingxing:nth-of-type(1){border-top: 1px solid orange;margin-right:14px;}
@@ -145,8 +145,8 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 /*xiangqing*/
 .xiangqing{width: 100%;height: 58px;background: rgb(240,240,240);}
 .xiangqing .neirong{height: 58px;width: 1226px;}
-.xiangqing .neirong .xiaomi6{width:300px;height: 58px;line-height: 58px;font-size: 
-22px;font-weight: bold;}
+.xiangqing .neirong .xiaomi6{width:300px;height: 58px;line-height: 58px;font-size:
+		22px;font-weight: bold;}
 .xiangqing .neirong nav{display:inline-block;width: 410px;height: 58px;line-height: 58px;}
 .xiangqing .neirong nav li{font-size:14px;float: left;display: block;margin:0px 5px;}
 .xiangqing .neirong nav li a{color: #333;font-size: 14px;}
@@ -192,7 +192,7 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 .gwcxqbj .gwcxd .content2 .sub_content{width:50px;height: 120px;line-height:120px;margin-right: 0px;}
 .gwcxqbj .gwcxd .sub_content .quanxuan{width:18px;height:18px;border:1px solid #ccc;background: none;}
 .gwcxqbj .gwcxd .content2 .sub_content img{vertical-align: middle;}
-.gwcxqbj .gwcxd .content2 .sub_content:nth-of-type(1){margin-left: 30px;} 
+.gwcxqbj .gwcxd .content2 .sub_content:nth-of-type(1){margin-left: 30px;}
 .gwcxqbj .gwcxd .content2 .sub_content:nth-of-type(2){margin-left: 35px;}
 .gwcxqbj .gwcxd .content2 .sub_content:nth-of-type(3){margin-left: 55px;width: 330px;}
 .gwcxqbj .gwcxd .content2 .sub_content:nth-of-type(4){margin-left: 55px;}
@@ -214,7 +214,7 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 .jiesuandan .jiesuan .jsanniu .jsan{width: 200px;height: 50px;color:#fff;background:rgb(255,103,0); font-size: 20px;border:none;cursor:pointer;}
 .jiesuandan .jiesuan .jsanniu .jsan:hover{background: rgb(242,88,7);}
 /*个人中心*/
-.grzxbj{width: 100%;height:auto;background: rgb(245,245,245);padding-bottom: 20px;padding-top: 20px;}
+.grzxbj{width: 100%;height:auto;background: #ffffff;padding-bottom: 20px;padding-top: 50px;}
 .grzxbj .selfinfo{width: 1226px;}
 .grzxbj .selfinfo .lfnav{width: 234px;height: 500px;background: #fff;}
 .grzxbj .selfinfo .lfnav .ddzx{width: 234px;height: 40px;line-height: 40px;font-size: 19px; margin:30px 20px 10px 40px;color:rgb(51,51,51);}
@@ -233,7 +233,7 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 .grzxbj .selfinfo .rtcont .subgrzl span a:hover{color:#ff6700; }
 
 /*订单中心*/
-.grzxbj .selfinfo .rtcont .ddxq{width: 938px;height: 120px;line-height: 120px;font-size: 17px;color:rgb(117,117,117); 
+.grzxbj .selfinfo .rtcont .ddxq{width: 938px;height: 120px;line-height: 120px;font-size: 17px;color:rgb(117,117,117);
 	border-bottom: 1px solid #ccc;padding-left: 40px;}
 .grzxbj .selfinfo .rtcont .ddxq .ddspt{width: 80px;height: 80px;margin: 19px 25px 0 0;border:1px solid #aaa;}
 .grzxbj .selfinfo .rtcont .ddxq .ztxx ul li{display: inline-block;width: 130px;height: 60px;line-height:60px;float: left;border-left:1px solid #aaa; margin-top: 30px;text-align: center;}

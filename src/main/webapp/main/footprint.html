@@ -5,51 +5,24 @@
     <meta name="author" content="order by dede58.com"/>
     <title>Mutual商城-我的足迹</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/js/bootstrap.min.js">
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
-    <script src="../static/js/js/jquery-3.2.1.js"></script>
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
 
 </head>
 
-<style>
-    .gzxx {font-size: 15px;font-weight: bold;color:rgb(117,117,117);width: 70px;display: inline-block}
 
-</style>
 <body>
 
-<!-- start header -->
-<header id="header">
+<style>
+    #username {
+        color: #d81e06;
+    }
+</style>
 
+<div id="header"></div>
 
-</header>
-<!--end header -->
-<!-- start banner_x -->
-<div class="banner_x center">
-    <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
-    <a href=""><div class="ad_top fl"></div></a>
-    <div class="nav fl">
-        <ul>
-            <li><a href="">商城首页 </a></li>
-
-        </ul>
-    </div>
-    <div class="search fr">
-        <form action="" method="post">
-            <div class="text fl">
-                <input type="text" class="shuru"  placeholder="输入关键字查询宝贝">
-            </div>
-            <div class="submit fl">
-                <input type="submit" class="sousuo" value="搜索"/>
-            </div>
-            <div class="clear"></div>
-        </form>
-        <div class="clear"></div>
-    </div>
-</div>
-<!-- end banner_x -->
-<!-- self_info -->
 <div class="grzxbj">
     <div class="selfinfo center">
         <div class="lfnav fl" style="height: 700px">
@@ -74,18 +47,17 @@
                 </ul>
             </div>
         </div>
+
+
+
         <div class="rtcont fr" style="width: 988px;height: 1700px;background: #fff">
             <div class="grzlbt ml40" id="address">我的足迹 最近浏览历史的九个商品
             <div class="danpin center">
                 <div class="main center" style="width: 758px;height: 500px;background: #fff" id="appenddiv">
                     <div class="clear"></div>
                 </div>
-
             </div>
             </div>
-
-
-
         </div>
         <div class="clear"></div>
 </div>
@@ -102,9 +74,10 @@
 <script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script>
 
+    $("#header").load("header.html");
+
 
     $(function () {
-        $("#header").load("header.html");
         $.ajax({
             url: '/pmsProductOfHistoryList',
             type:'get', //GET
@@ -117,8 +90,8 @@
                     divHtml+="<div class=\"mingxing fl\">\n" +
                         "<div class=\"sub_mingxing\"><a href=\"/main/xiangqing.html?id="+item.id+"\"><img src=\""+item.pic+"\" alt=\"\"></a></div>\n" +
                         "<div class=\"pinpai\"><a href=\"\">"+item.name+"</a></div>\n" +
-                        "<div class=\"youhui\">"+item.subTitle+"</div>\n" +
-                        "<div class=\"jiage\">"+item.price+"</div>\n" +
+                        // "<div class=\"youhui\">"+item.subTitle+"</div>\n" +
+                        "<div class=\"jiage\">"+item.price+"元</div>\n" +
                         "</div>\n"
                 })
                 appenddiv.empty();
