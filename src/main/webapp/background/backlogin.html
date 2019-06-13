@@ -404,15 +404,19 @@
             success: function(data){
                 console.log(data); //  2pm
                 // 登录成功往哪里跳
-                if(data){
+                if (data) {
                     window.location.href = "home.html";
+                } else {
+                    alert("你不是管理员");
+                    window.location.href = "backlogin.html";
                 }
+
+
             },
             // error:function (data) {
-            //     console.log(data);
-            //     alert("error")
-            //     // 登录失败往哪跳
-            //     // window.location.href = "login.html";
+                // console.log(data);
+                // alert("error")
+                // // 登录失败往哪跳
             // },
             dataType: "json"
         });
