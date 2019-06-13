@@ -45,7 +45,7 @@ public class NewController {
         //分页显示
         PageHelper.startPage(page.getPageNow(), page.getPageSize());
 
-        List<HomeProduct> homeProducts = newService.selectNewAll();
+        List<PmsProduct> homeProducts = newService.SubjectIndex();
 
         return new PageInfo(homeProducts);
     }
@@ -75,7 +75,7 @@ public class NewController {
         PageHelper.startPage(1, 5);
 
         List<HomeProduct> homeProducts = newService.getSelectNew(name);
-        System.out.println(homeProducts);
+
 
         return new PageInfo(homeProducts);
 
@@ -90,15 +90,9 @@ public class NewController {
     @RequestMapping("updateNewById")
     public Object updateNewById( @RequestBody PageName pageName) {
 
-        List<PmsProduct> homeProducts = newService.updateNewById(pageName);
 
-        int i1 = 0;
-        for (int i = 0; i <= homeProducts.size()-1 ; i++) {
-            i1 = newService.updateNewById_home(homeProducts.get(i));
-            newService.updateNewById_product(homeProducts.get(i));
-        }
+        return newService.updateNewById_product(pageName);
 
-        return i1;
     }
 
     /**

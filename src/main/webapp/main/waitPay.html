@@ -129,6 +129,13 @@
                     </ul>
                 </div>
             </div>
+            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
+                <div class="s-bar" data-spm-anchor-id="a1z02.1.1998049142.i0.66bc782dbSIL5O">
+                    <a id="pre" onclick="prePage()">上一页</a><input id="pageNow" hidden>
+                    <a id="next" onclick="nextPage()">下一页</a> <input id="number" hidden>
+                    <input id="count" hidden>
+                </div>
+            </div>
 
 
 
@@ -160,21 +167,54 @@
 </footer>
 
 
-<script src="jquery/jquery-2.1.1.min.js"></script>
 <script>
+
 
 
     $(function () {
         $("#header").load("header.html");
     })
 
+    //获取总订单条数
+    var max;
+    function getCount() {
+        $.ajax({
+            url:"/count0",
+            type:'GET', //GET
+            // data:JSON.stringify({id:id}),
+            contentType:"application/json",
+            dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
+            success:function(data){
+                // alert(data)
+                max=data
+            },
+            error:function(data){
+                console.log(data)
+            }
+        })
+    }
+    getCount();
+
+
+
+
     //根据id获取用户订单信息
-    function getUserOrderById() {
+    var start;
+    var numbers;
+    var page=1;
+    function getUserOrderById(begin,number) {
+        $("#number").val(parseInt(number));
+        start=begin;
+        numbers=number;
         $.ajax({
             url:'/orderByUid0',
-            type:'GET', //GET
+            type:'POST', //GET
             contentType:"application/json",
             dataType:'json',
+            data: JSON.stringify({
+                begin: begin,
+                infoPerPage: number
+            }),
             success:function(data){
                 var orderList = $("#orderList");
                 orderList.find("div").remove();
@@ -256,7 +296,43 @@
             }
         })
     }
-    getUserOrderById();
+    getUserOrderById(0,2);
+
+    function prePage() {
+        // alert("现在 "+page)
+        if (parseInt(page)-1<1){
+            // $("#pageNow").val(0)
+        }else {
+            // alert("去 "+(parseInt(page) - 2) * parseInt($("#number").val()))
+            // alert("查几条"+parseInt($("#number").val()))
+            page=(parseInt(page)-1)
+            // $("#pageNow").val(parseInt($("#pageNow").val())-1)
+            getUserOrderById((parseInt(page) - 1) * parseInt($("#number").val()), parseInt($("#number").val()))
+            // $("#pageNow").val(parseInt($("#pageNow"))-1)
+        }
+    }
+
+    function nextPage() {
+        // alert("现在 "+parseInt(page))
+
+
+        // alert("页数"+parseInt(max)/parseInt($("#number").val()))
+        if (parseInt(page)+1>parseInt(max)/parseInt($("#number").val())){
+            // window.history.back(-1)
+            // $("#pageNow").val(max/$("#number").val())
+        }else {
+            var begin=(parseInt(page)) * parseInt($("#number").val())
+            var nextPage=(parseInt(page)+1)
+            // alert("下次页数是"+nextPage)
+            // alert("从第几条查"+begin)
+            // alert("从第几条查"+(parseInt($("#pageNow").val())+1) * parseInt($("#number").val()))
+            // alert("显示条数"+parseInt($("#number").val()))
+            page=nextPage
+            getUserOrderById(begin, parseInt($("#number").val()))
+            // $("#pageNow").val(parseInt($("#pageNow"))+1)
+
+        }
+    }
 
 
 

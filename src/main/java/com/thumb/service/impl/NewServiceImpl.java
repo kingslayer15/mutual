@@ -108,7 +108,7 @@ public class NewServiceImpl implements NewService {
     }
 
     @Override
-    public void updateNewById_product(PmsProduct pmsProduct) {
-         newMapper.updateNewById_product(pmsProduct);
+    public int updateNewById_product(PageName pageName ) {
+         return newMapper.updateNewById_product(pageName);
     }
 }

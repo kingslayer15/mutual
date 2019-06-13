@@ -53,8 +53,8 @@
         factory_status = #{show} where id = #{id}
     </update>
     <update id="selectNewShow" parameterType="com.thumb.dto.PageName">
-        update sms_home_new_product   set
-        show_status = #{show} where product_id = #{id}
+        update pms_product   set
+        recommand_status = #{show} where id = #{id}
     </update>
 
 

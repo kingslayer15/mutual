@@ -58,13 +58,33 @@ public class OmsCartItemController {
     }
 
 
+    /**
+     * 加入购物车,判断是否有,有+1
+     * @param omsCartItemDto
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "insertCart",method = RequestMethod.POST)
-    public Object insertCart(@RequestBody OmsCartItemDto omsCartItemDto){
-        System.out.println(omsCartItemDto+"------------------------------------------------------------");
-        int insert = omsCartItemService.insertCart(omsCartItemDto);
-        System.out.println(insert);
-        return true;
+    public String insertCart(@RequestBody OmsCartItemDto omsCartItemDto){
+        System.out.println(omsCartItemDto);
+
+        OmsCartItem omsCartItem = omsCartItemService.selectOneByAll(omsCartItemDto);
+        if (omsCartItem != null) {
+            Integer quantity = omsCartItem.getQuantity();
+            System.out.println(quantity+"已有的商品数量");
+            quantity++;
+            omsCartItem.setQuantity(quantity);
+            int i = omsCartItemService.updateByPrimaryKey(omsCartItem);
+            System.out.println("商品有了,quantity++");
+            return "true";
+        }
+        //空商品插入
+        else {
+            System.out.println(omsCartItem+"else");
+            int insert = omsCartItemService.insertCart(omsCartItemDto);
+            System.out.println(insert+"空,商品新加入");
+            return "true";
+        }
 
 
     }
@@ -80,6 +100,11 @@ public class OmsCartItemController {
 
     }
 
+    /**
+     * 加入收藏夹
+     * @param omsCartItemDto
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "insertCollection", method = RequestMethod.POST)
     public Object insertCollection(@RequestBody OmsCartItemDto omsCartItemDto) {

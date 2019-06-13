@@ -159,6 +159,8 @@ public class SubjectController {
     @RequestMapping("selectNewShow")
     public Object selectNewShow(@RequestBody PageName pageName) {
 
+        System.out.println(pageName);
+
         return subjectService.selectNewShow(pageName);
     }
 

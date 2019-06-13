@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 public interface PersonalOrderMapper {
-    List<ClientOrderDto> orderByUid(int uid);
+    List<ClientOrderDto> orderByUid(OrderPageDto orderPageDto);
 
     int changeStatus(int product_id);
 
@@ -20,10 +20,20 @@ public interface PersonalOrderMapper {
 
     int addRate(RateDto rateDto);
 
-    List<ClientOrderDto> orderByUid0(int uId);
-    List<ClientOrderDto> orderByUid1(int uId);
-    List<ClientOrderDto> orderByUid2(int uId);
-    List<ClientOrderDto> orderByUid3(int uId);
+    List<ClientOrderDto> orderByUid0(OrderPageDto orderPageDto);
+    List<ClientOrderDto> orderByUid1(OrderPageDto orderPageDto);
+    List<ClientOrderDto> orderByUid2(OrderPageDto orderPageDto);
+    List<ClientOrderDto> orderByUid3(OrderPageDto orderPageDto);
+
+    int count(int uid);
+
+    int count0(int uid);
+
+    int count1(int uid);
+
+    int count2(int uid);
+
+    int count3(int uid);
 
 
 
