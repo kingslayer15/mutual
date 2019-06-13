@@ -30,8 +30,9 @@ public class PersonalInfoController {
     public Object userInfoById( HttpServletRequest httpServletRequest){
         //此处自己设置了用户id，合并时需调整
 //        httpServletRequest.getSession().setAttribute("userId",1);
-        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
         int uid = umsMember.getId().intValue();
+        System.out.println("用户id"+uid);
 //        int uid=Integer.parseInt(userId1.toString());
         System.out.println(uid);
         System.out.println(personalInfoService.userInfoById(uid));
@@ -43,7 +44,7 @@ public class PersonalInfoController {
     @RequestMapping("userInfoById_")
     public Object userInfoById_(HttpServletRequest httpServletRequest){
 //        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
         int uid = umsMember.getId().intValue();
         System.out.println(uid);
         System.out.println(personalInfoService.userInfoById(uid));
@@ -65,7 +66,7 @@ public class PersonalInfoController {
         System.out.println(destFile.getAbsolutePath());
         file.transferTo(destFile);
 
-        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
         int uId = umsMember.getId().intValue();
 
 //        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
@@ -100,7 +101,7 @@ public class PersonalInfoController {
     @RequestMapping("pwdCheck")
     public boolean pwdCheck(@RequestBody UserInfoDto userInfoDto,HttpServletRequest httpServletRequest){
 //        BigInteger uId =BigInteger.valueOf( Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString()));
-        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
         int uid = umsMember.getId().intValue();
         BigInteger uId=BigInteger.valueOf(uid);
         userInfoDto.setId(uId);

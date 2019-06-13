@@ -37,7 +37,7 @@ public class PersonalAddressController {
     @RequestMapping("addressById")
     public Object addressById(HttpServletRequest httpServletRequest){
         System.out.println("查找地址"+1);
-        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
         int uId = umsMember.getId().intValue();
 //        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
         List<ClientAddressDto> clientAddressDto=personalAddressService.getAaddressById(uId);
@@ -52,7 +52,7 @@ public class PersonalAddressController {
     public Object getOneAddress(HttpServletRequest httpServletRequest, @RequestParam("addressId") int id){
         System.out.println("查找单个地址");
 //        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
         int uId = umsMember.getId().intValue();
         ClientAddressDto address = new ClientAddressDto();
         address.setId(BigInteger.valueOf(id));
@@ -90,7 +90,7 @@ public class PersonalAddressController {
     public boolean setDefault(@RequestParam("id") int id,HttpServletRequest httpServletRequest){
         System.out.println("设置默认");
 //        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
-        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
         int uId = umsMember.getId().intValue();
         System.out.println("用户id"+uId+"地址id"+id);
         int i=personalAddressService.setDefault(id,uId);
