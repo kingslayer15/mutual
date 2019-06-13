@@ -260,7 +260,7 @@
             });
         }
         a()
-        var index1;
+        var versionindexsum;
         function b() {
             $.ajax({
                 type: "get",
@@ -270,10 +270,10 @@
                     var appenddiv = $("#version");
                     var innerHtml ="";
                     $(data).each(function (index, item) {
-
+                        versionindexsum=index;
                         innerHtml +="\n" +
                             "\t\t\t\t<div  class=\"banben fl\">\n" +
-                            "\t\t\t\t\t<a id='"+index+"' onclick=\"c('"+item.sp2+"','"+item.price+"')\">\n" +
+                            "\t\t\t\t\t<a id='"+index+"' onclick=\"c('"+item.sp2+"','"+item.price+"','"+index+"')\">\n" +
                             "\t\t\t\t\t\t<span>"+item.sp2+"</span>\n" +
                             "\t\t\t\t\t\t<span>"+item.price+"元</span>\n" +
                             "\t\t\t\t\t</a>\n" +
@@ -282,11 +282,6 @@
                     innerHtml+="\t\t\t\t<div id='color' class=\"clear\"></div>\n" ;
                     appenddiv.empty();
                     appenddiv.append(innerHtml);
-                    if (index == 0) {
-                        $("#"+index).click(function () {
-                            $(this).css("border","1px solid red");
-                        })
-                    }
                     console.log(data); //  2pm
                     console.log(innerHtml); //  2pm
 
@@ -299,11 +294,18 @@
         }
 
         b();
+        var colorindexsum;
+        function c(sp2,price,index) {
+            for (var i = 0; i <= versionindexsum; i++) {
+                if (index == i) {
 
-        function c(sp2,price) {
-            if ($("#selectversion").prop("checked"),true) {
-                $(this).css("border","1px solid red");
+                    $("#"+i).attr("style","background:gray");
+                } else {
+
+                    $("#"+i).attr("style","background:rgb(248,248,248)");
+                }
             }
+
 
             $.ajax({
                 type: "post",
@@ -319,9 +321,11 @@
                         "\t\t\t<div class=\"jiage ml20 mt10\">选择颜色</div>\n" +
                         "\t\t\t<div class=\"xzbb ml20 mt10\">\n";
                     $(data).each(function (index, item) {
+                        colorindexsum = index;
+
                         innerHtml +="\n" +
                             "\t\t\t\t<div class=\"banben fl\">\n" +
-                            "\t\t\t\t\t<a onclick=\"d('"+item.id+"')\">\n" +
+                            "\t\t\t\t\t<a id='color"+index+"' onclick=\"d('"+item.id+"','"+index+"')\">\n" +
                             "\t\t\t\t\t\t<span class=\"yuandian\" ></span>\n" +
                             "\t\t\t\t\t\t<span class=\"yanse\">"+item.sp1+"</span>\n" +
                             "\t\t\t\t\t</a>\n" +
@@ -349,7 +353,17 @@
         var price;
         var sp1;
         var sp2;
-        function d(id) {
+        function d(id,index) {
+
+            // $('#color'+index).attr("style","background:gray")
+            for (var i = 0; i <= colorindexsum; i++) {
+                if (index == i) {
+                    $("#color"+i).attr("style","background:gray")
+                } else {
+                    $("#color"+i).attr("style","background:rgb(248,248,248)");
+                }
+            }
+
             $.ajax({
                 type: "get",
                 url: "/getSumById?id=" + id,
