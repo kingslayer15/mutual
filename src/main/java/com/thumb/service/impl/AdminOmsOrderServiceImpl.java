@@ -165,4 +165,9 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     public int updateReturnReasonStatus(UpdateStatus updateStatus) {
         return adminOmsOrderMapper.updateReturnReasonStatus(updateStatus);
     }
+
+    @Override
+    public int deleteOrderReturnApplyById(int id) {
+        return adminOmsOrderMapper.deleteOrderReturnApplyById(id);
+    }
 }

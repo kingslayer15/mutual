@@ -455,6 +455,11 @@
         </if>
     </update>
 
+    <!--根据服务id删除退货信息-->
+    <delete id="deleteOrderReturnApplyById" parameterType="int">
+        delete from oms_order_return_apply where id = #{id}
+    </delete>
+
     <!--退货原因映射-->
     <resultMap id="ReturnReasonResultMap" type="com.thumb.entity.pojo.OmsOrderReturnReason">
         <id column="id" jdbcType="BIGINT" property="id" />
