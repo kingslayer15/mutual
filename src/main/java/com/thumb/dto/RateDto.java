@@ -4,20 +4,21 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Getter
 @Setter
 @ToString
-
-public class Client_order_item {
-    BigInteger id;
+public class RateDto {
     BigInteger product_id;
-    String product_pic;
+    String member_nick_name;
     String product_name;
-    String product_attr;
-    BigDecimal product_price;
-    int product_quantity;
+    int star;
+    String create_time;
+    String product_attribute;
+    String content;
+    String pics;
+
+
 
 }

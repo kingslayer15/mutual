@@ -20,6 +20,7 @@ public class PersonalOrderController {
     PersonalOrderService personalOrderService;
     List<String> list;
 
+
     @ResponseBody
     @RequestMapping("orderByUid")
     public Object orderByUid(HttpServletRequest httpServletRequest){
@@ -28,6 +29,44 @@ public class PersonalOrderController {
         System.out.println(clientOrderDtos);
         return clientOrderDtos;
     }
+
+    @ResponseBody
+    @RequestMapping("orderByUid0")
+    public Object orderByUid0(HttpServletRequest httpServletRequest){
+        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid0(uId);
+        System.out.println(clientOrderDtos);
+        return clientOrderDtos;
+    }
+
+    @ResponseBody
+    @RequestMapping("orderByUid1")
+    public Object orderByUid1(HttpServletRequest httpServletRequest){
+        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid1(uId);
+        System.out.println(clientOrderDtos);
+        return clientOrderDtos;
+    }
+
+    @ResponseBody
+    @RequestMapping("orderByUid2")
+    public Object orderByUid2(HttpServletRequest httpServletRequest){
+        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid2(uId);
+        System.out.println(clientOrderDtos);
+        return clientOrderDtos;
+    }
+
+    @ResponseBody
+    @RequestMapping("orderByUid3")
+    public Object orderByUid3(HttpServletRequest httpServletRequest){
+        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid3(uId);
+        System.out.println(clientOrderDtos);
+        return clientOrderDtos;
+    }
+
+
 
     @ResponseBody
     @RequestMapping("changeStatus")
