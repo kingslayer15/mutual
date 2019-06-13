@@ -185,7 +185,7 @@
             contentType:"application/json",
             dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
             success:function(data){
-                // alert(data)
+                alert(data)
                 max=data
             },
             error:function(data){
@@ -205,7 +205,7 @@
         numbers=number;
         $.ajax({
             url:'/orderByUid1',
-            type:'GET', //GET
+            type:'POST', //GET
             contentType:"application/json",
             dataType:'json',
             data: JSON.stringify({
