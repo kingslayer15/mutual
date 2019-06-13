@@ -851,7 +851,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "listAllBrand?pageNo="+currentPage,
+                url: "/listAllBrand?pageNo="+currentPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();
@@ -1035,7 +1035,7 @@
             $.ajax(
                 {
                     type: "get",
-                    url: "deleteBrandById?id=" + id,
+                    url: "/deleteBrandById?id=" + id,
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {

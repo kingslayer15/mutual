@@ -685,7 +685,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "addBrand",
+                url: "/addBrand",
                 contentType: "application/json",
                 dataType:"json",
                 data:JSON.stringify({
@@ -708,7 +708,7 @@
 
 
     Dropzone.options.dropz= {
-        url: "upload", // 文件提交地址
+        url: "/upload", // 文件提交地址
         method: "POST",  // 也可用put
         paramName: "dropzFile", // 默认为file
         maxFiles: 1,// 一次性上传的文件数量上限

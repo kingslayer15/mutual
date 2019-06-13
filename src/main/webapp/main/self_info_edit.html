@@ -1,200 +1,235 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-        <meta name="author" content="order by dede58.com"/>
-		<title>Mutual商城-信息修改</title>
-		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
-		<script src="../static/js/js/jquery-3.2.1.js"></script>
-        <<script src="../static/bootstrap/js/bootstrap.min.js"></script>
-		<script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="order by dede58.com"/>
+    <title>Mutual商城-信息修改</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/bootstrap/js/bootstrap.min.js">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
 
-	</head>
-	<style>
-		.gzxx {font-size: 15px;font-weight: bold;color:rgb(117,117,117);width: 100px;display: inline-block}
-
-
-	</style>
-	<body>
-	<!-- start header -->
-	<header id="header">
-	</header>
-	<div class="banner_x center"></div>
+</head>
+<style>
+    .gzxx {
+        font-size: 15px;
+        font-weight: bold;
+        color: rgb(117, 117, 117);
+        width: 100px;
+        display: inline-block
+    }
 
 
-	<div class="grzxbj">
-		<div class="selfinfo center">
-			<div class="lfnav fl" style="height: 700px">
-				<div class="ddzx" style="height: 20px">个人中心</div>
-				<div class="subddzx">
-					<ul>
-						<li><a href="/main/self_info.html" >我的信息</a></li>
-						<li><a href="/main/self_info_edit.html">修改信息</a></li>
-						<li><a href="/main/self_info_pwd_edit.html">修改密码</a></li>
-						<li><a href="/main/coupon.html">优惠券</a></li>
-						<li><a href="/main/address.html">收货地址</a></li>
-						<li><a href="/main/point.html">我的积分</a></li>
-					</ul>
-				</div>
-				<div class="ddzx" style="height: 20px">订单中心</div>
-				<div class="subddzx">
-					<ul>
-						<li><a href="./orders.html">我的订单</a></li>
-						<li><a href="./basket.html">我的购物车</a></li>
-						<li><a href="./favourite.html">我的收藏</a></li>
-						<li><a href="./footprint.html">我的足迹</a></li>
-					</ul>
-				</div>
-			</div>
+</style>
+<body>
+<!-- start header -->
+<div id="header">
+</div>
+<!--<div class="banner_x center"></div>-->
 
-			<div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
-				<div class="grzlbt ml40">修改资料</div>
-                <div hidden><input id="uid" hidden ></div>
-                <!--头像修改-->
-				<form id="image" name="formUpLoad"  method="post" action="/iconUpload" enctype="multipart/form-data">
-                    <div class=" gzxx ml40"  style="height: 120px;width: 550px">
-                        <div class="form-group">
-                            <div class="col-md-8">
-                                <div class="fileinput fileinput-new" data-provides="fileinput" id="uploadImageDiv">
-                                    <span style="padding-right: 30px" class="gzxx">当前头像</span>
-                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                        <img  alt="" id="icon"/>
-                                    </div>
-                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-                                    <div>
-                                        <span style="padding-right: 30px" class="gzxx"></span>
-                                        <span class="btn default btn-file"> <button><span class="fileinput-new">更改图片</span> </button>
-                                        <span class="fileinput-exists"><button>更改</button></span> <input type="file" name="file" id="uploadImage" /></span>
-                                        <a href="#" class="btn default fileinput-exists" data-dismiss="fileinput"><button>移除</button></a><button id="upload" type="submit" ">确认更改</button>
-                                        <!--<button onclick="iconUplaod()" class="btn default fileinput-exists" data-dismiss="fileinput"><span class="fileinput-new">确认更改</span></button>-->
-                                        <br/>
-                                        <!--<span style="padding-right: 30px" class="gzxx"></span>-->
-                                        <!--<span>请选择1M以内的图片</span>-->
-                                    </div>
+
+<div class="grzxbj">
+    <div class="selfinfo center">
+        <div class="lfnav fl" style="height: 700px">
+            <div class="ddzx" style="height: 20px">个人中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="/main/self_info.html">我的信息</a></li>
+                    <li><a href="/main/self_info_edit.html">修改信息</a></li>
+                    <li><a href="/main/self_info_pwd_edit.html">修改密码</a></li>
+                    <li><a href="/main/address.html">收货地址</a></li>
+                    <li><a href="/main/point.html">我的积分</a></li>
+                </ul>
+            </div>
+            <div class="ddzx" style="height: 20px">订单中心</div>
+            <div class="subddzx">
+                <ul>
+                    <li><a href="./orders.html">我的订单</a></li>
+                    <li><a href="./basket.html">我的购物车</a></li>
+                    <li><a href="./favourite.html">我的收藏</a></li>
+                    <li><a href="./footprint.html">我的足迹</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
+            <div class="grzlbt ml40">修改资料</div>
+            <div hidden><input id="uid" hidden></div>
+            <!--头像修改-->
+            <form id="image" name="formUpLoad" method="post" action="/iconUpload" enctype="multipart/form-data">
+                <div class=" gzxx ml40" style="height: 120px;width: 550px">
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <div class="fileinput fileinput-new" data-provides="fileinput" id="uploadImageDiv">
+                                <span style="padding-right: 30px" class="gzxx">当前头像</span>
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                    <img alt="" id="icon"/>
                                 </div>
-                                <div id="titleImageError" style="color: #a94442"></div>
+                                <div class="fileinput-preview fileinput-exists thumbnail"
+                                     style="max-width: 200px; max-height: 150px;"></div>
+                                <div>
+                                    <span style="padding-right: 30px" class="gzxx"></span>
+                                    <span class="btn default btn-file"> <button><span class="fileinput-new">更改图片</span> </button>
+                                        <span class="fileinput-exists"><button>更改</button></span> <input type="file"
+                                                                                                         name="file"
+                                                                                                         id="uploadImage"/></span>
+                                    <a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+                                        <button>移除</button>
+                                    </a>
+                                    <button id="upload" type="submit">确认更改</button>
+                                    <!--<button onclick="iconUplaod()" class="btn default fileinput-exists" data-dismiss="fileinput"><span class="fileinput-new">确认更改</span></button>-->
+                                    <br/>
+                                    <!--<span style="padding-right: 30px" class="gzxx"></span>-->
+                                    <!--<span>请选择1M以内的图片</span>-->
+                                </div>
                             </div>
+                            <div id="titleImageError" style="color: #a94442"></div>
                         </div>
+                    </div>
 
-                    </div><br/><br/><br/><br/><br/><br/>
-                </form>
-                <!--其它信息修改-->
-                <form id="newInfo" >
+                </div>
+                <br/><br/><br/><br/><br/><br/>
+            </form>
+            <!--其它信息修改-->
+            <form id="newInfo">
 
-				<div class=" gzxx ml40" style="width: 550px" ><span class="gzxx" style="padding-right: 30px">昵称</span><input type="text" id="nickname" style="height: 30px" placeholder="nickname"></div><br/><br/>
-				<div class=" gzxx ml40" id="gender" style="width: 550px"><span class="gzxx" style="padding-right: 30px">性别</span><span>请选择您的性别:&nbsp;&nbsp;&nbsp; <input type="radio" id="male" name="g" value="1" > &nbsp;男 <input type="radio" name="g" value="2" id="female"> &nbsp;女 </span></div><br/><br/>
-				<div class=" gzxx ml40"  style="width: 550px"><span class="gzxx" style="padding-right: 30px">手机号</span><input type="text" id="phone" style="height: 30px" placeholder="nickname"></div><br/><br/>
-				<!--<div class=" gzxx ml40"  style="width: 550px"><span class="gzxx" style="padding-right: 30px">密码</span><button>修改</button></div><br/><br/>-->
-				<div class=" gzxx ml40"  style="width: 550px" style="padding-right: 30px"><span class="gzxx" style="padding-right: 30px">个性签名</span><input type="textarea" rows="2" cols="30" id="personalized_signature" style="height: 30px" placeholder="个性签名"></div><br/><br/>
-				<div class=" gzxx ml40"  style="width: 550px"><span class="gzxx" style="padding-right: 30px">职业</span><input type="text" id="job" style="height: 30px" placeholder="nickname"></div><br/><br/>
-				<div class=" gzxx ml40"  style="width: 550px"><span class="gzxx" style="padding-right: 30px">所在城市</span><input type="text" id="city" style="height: 30px" placeholder="nickname"></div><br/><br/>
-				<div lass=" gzxx ml40"><span style="padding-right: 40px"></span><button href="self_info_edit.html" onclick="updateInfo()">保存修改</button></div>
-				</form>
-			</div>
-		<div class="clear"></div>
-		</div>
-	</div>
+                <div class=" gzxx ml40" style="width: 550px"><span class="gzxx"
+                                                                   style="padding-right: 30px">昵称</span><input
+                        type="text" id="nickname" style="height: 30px" placeholder="nickname"></div>
+                <br/><br/>
+                <div class=" gzxx ml40" id="gender" style="width: 550px"><span class="gzxx" style="padding-right: 30px">性别</span><span>请选择您的性别:&nbsp;&nbsp;&nbsp; <input
+                        type="radio" id="male" name="g" value="1"> &nbsp;男 <input type="radio" name="g" value="2"
+                                                                                  id="female"> &nbsp;女 </span></div>
+                <br/><br/>
+                <div class=" gzxx ml40" style="width: 550px"><span class="gzxx"
+                                                                   style="padding-right: 30px">手机号</span><input
+                        type="text" id="phone" style="height: 30px" placeholder="nickname"></div>
+                <br/><br/>
+                <!--<div class=" gzxx ml40"  style="width: 550px"><span class="gzxx" style="padding-right: 30px">密码</span><button>修改</button></div><br/><br/>-->
+                <div class=" gzxx ml40" style="width: 550px" style="padding-right: 30px"><span class="gzxx"
+                                                                                               style="padding-right: 30px">个性签名</span><input
+                        type="textarea" rows="2" cols="30" id="personalized_signature" style="height: 30px"
+                        placeholder="个性签名"></div>
+                <br/><br/>
+                <div class=" gzxx ml40" style="width: 550px"><span class="gzxx"
+                                                                   style="padding-right: 30px">职业</span><input
+                        type="text" id="job" style="height: 30px" placeholder="nickname"></div>
+                <br/><br/>
+                <div class=" gzxx ml40" style="width: 550px"><span class="gzxx"
+                                                                   style="padding-right: 30px">所在城市</span><input
+                        type="text" id="city" style="height: 30px" placeholder="nickname"></div>
+                <br/><br/>
+                <div lass=" gzxx ml40"><span style="padding-right: 40px"></span>
+                    <button href="self_info_edit.html" onclick="updateInfo()">保存修改</button>
+                </div>
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
 
 <!-- self_info -->
-		
-		<footer class="mt20 center">			
-		</footer>
+
+<footer class="mt20 center">
+</footer>
+
+<script src="../static/js/js/jquery-3.2.1.js"></script>
+<script>
 
 
-	<script>
+    $(function () {
+        $("#header").load("header.html");
+    })
+
+    var userId;
+
+    function getUserId() {
+        userId = window.location.search.split("=")[1]
+    }
+
+    getUserId();
 
 
-        $(function () {
-            $("#header").load("head.html");
-        })
-
-        var userId;
-        function getUserId() {
-            userId=window.location.search.split("=")[1]
-        }
-        getUserId();
+    //根据id获取用户信息
+    function getUserInfoById() {
 
 
-
-        //根据id获取用户信息
-        function getUserInfoById() {
-
-
-            $.ajax({
-                url:'/userInfoById_',
-                type:'GET', //GET
-                contentType:"application/json",
-                dataType:'json',
-                success:function(data){
-                    $("#icon").attr("src","../userIcon/"+data.icon);
-                    $("#nickname").val(data.nickname);
-                    if (data.gender==1){
-                        $("#male").attr("checked","checked");
-                    }
-                    if (data.gender==2){
-                        $("#female").attr("checked","checked");
-                    }
-                    $("#phone").val(data.phone);
-                    $("#password").val(data.password);
-                    $("#personalized_signature").val(data.personalized_signature);
-                    $("#job").val(data.job);
-                    $("#city").val(data.city);
-                    $("#uid").val(data.id);
-                },
-                error:function(data){
-                    console.error(data);
+        $.ajax({
+            url: '/userInfoById_',
+            type: 'GET', //GET
+            contentType: "application/json",
+            dataType: 'json',
+            success: function (data) {
+                $("#icon").attr("src", "../userIcon/" + data.icon);
+                $("#nickname").val(data.nickname);
+                if (data.gender == 1) {
+                    $("#male").attr("checked", "checked");
                 }
-            })
-        }
-        getUserInfoById();
-
-
-
-        // 提交表中信息
-
-        function updateInfo() {
-            // alert("id= "+$("#uid").val())
-            var g;
-            if ($("#gender input[name='g']:checked").val()=='1'){
-                g=1
-            } else if ($("#gender input[name='g']:checked").val()=='2'){
-                g=2
-            } else {
-                g=0
+                if (data.gender == 2) {
+                    $("#female").attr("checked", "checked");
+                }
+                $("#phone").val(data.phone);
+                $("#password").val(data.password);
+                $("#personalized_signature").val(data.personalized_signature);
+                $("#job").val(data.job);
+                $("#city").val(data.city);
+                $("#uid").val(data.id);
+            },
+            error: function (data) {
+                console.error(data);
             }
-            // alert("choose:  "+$("#gender input[name='g']:checked").val())
-            // alert($("#uid").val())
-            $.ajax({
-                url:'/updateInfo',
-                type:'POST',
-                contentType:"application/json",
-                data:JSON.stringify({
-                    nickname: $("#nickname").val(),
-                    gender: g,
-                    phone:$("#phone").val(),
-                    password:$("#password").val(),
-                    id:$("#uid").val(),
-                    personalized_signature:$("#personalized_signature").val(),
-                    job:$("#job").val(),
-                    city:$("#city").val()
-                }),
-                dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
-                success:function(data){
-                    // alert(data)
-                    console.log(data)
-                    if (data) {
-                        var url= "self_info.html"
-                        window.location.href = url
-                    }
-                },
-                error:function(data){
-                    if (!data) {
-                        var url= "self_info.html"
-                        window.location.href = url                }}
-            })
+        })
+    }
+
+    getUserInfoById();
+
+
+    // 提交表中信息
+
+    function updateInfo() {
+        // alert("id= "+$("#uid").val())
+        var g;
+        if ($("#gender input[name='g']:checked").val() == '1') {
+            g = 1
+        } else if ($("#gender input[name='g']:checked").val() == '2') {
+            g = 2
+        } else {
+            g = 0
         }
-	</script>
-	</body>
+        // alert("choose:  "+$("#gender input[name='g']:checked").val())
+        // alert($("#uid").val())
+        $.ajax({
+            url: '/updateInfo',
+            type: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify({
+                nickname: $("#nickname").val(),
+                gender: g,
+                phone: $("#phone").val(),
+                password: $("#password").val(),
+                id: $("#uid").val(),
+                personalized_signature: $("#personalized_signature").val(),
+                job: $("#job").val(),
+                city: $("#city").val()
+            }),
+            dataType: 'json',   //返回的数据格式：json/xml/html/script/jsonp/text
+            success: function (data) {
+                // alert(data)
+                console.log(data)
+                if (data) {
+                    var url = "self_info.html"
+                    window.location.href = url
+                }
+            },
+            error: function (data) {
+                if (!data) {
+                    var url = "self_info.html"
+                    window.location.href = url
+                }
+            }
+        })
+    }
+</script>
+</body>
 </html>

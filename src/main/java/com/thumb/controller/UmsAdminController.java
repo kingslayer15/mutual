@@ -39,8 +39,14 @@ public class UmsAdminController {
             System.out.println("管理员登录失败");
             return false;
         }
-
     }
+
+    /**
+     * 商家的登入
+     * @param merchant
+     * @param httpSession
+     * @return
+     */
     @RequestMapping("merchantLogin")
     @ResponseBody
     public Object merchantLogin(@RequestBody Merchant merchant, HttpSession httpSession) {
@@ -48,6 +54,8 @@ public class UmsAdminController {
         System.out.println(merchant);
         Merchant merchant1 = merchantService.selectOnebyall(merchant);
         System.out.println(merchant1);
+        merchant1.setPassword("");
+
         if (merchant1 != null) {
             System.out.println("商家登录成功");
             httpSession.setAttribute("merchant", merchant1);

@@ -2655,7 +2655,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "get",
-                url: "listProductParent",
+                url: "/listProductParent",
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -2683,7 +2683,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "post",
-                url: "listProductChild?parentid="+parentid,
+                url: "/listProductChild?parentid="+parentid,
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -2711,7 +2711,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "get",
-                url: "findAllBrand",
+                url: "/findAllBrand",
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -2749,7 +2749,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "post",
-                url: "addProductMsg",
+                url: "/addProductMsg",
                 contentType: "application/json",
                 dataType:"json",
                 data:JSON.stringify({
@@ -2774,7 +2774,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
 
 
     Dropzone.options.dropz= {
-        url: "upload", // 文件提交地址
+        url: "/upload", // 文件提交地址
         method: "POST",  // 也可用put
         paramName: "dropzFile", // 默认为file
         maxFiles: 1,// 一次性上传的文件数量上限
