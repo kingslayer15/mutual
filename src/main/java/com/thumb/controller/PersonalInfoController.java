@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -27,10 +28,14 @@ public class PersonalInfoController {
 
     @ResponseBody
     @RequestMapping("userInfoById")
-    public Object userInfoById( HttpServletRequest httpServletRequest){
+    public Object userInfoById(HttpServletRequest httpServletRequest, HttpSession httpSession){
         //此处自己设置了用户id，合并时需调整
 //        httpServletRequest.getSession().setAttribute("userId",1);
-        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        UmsMember umsMember = (UmsMember) httpSession.getAttribute("umsMember");
+//        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
+        httpServletRequest.getSession().setAttribute("uid",umsMember.getId().intValue());
+        int uid1 = (int) httpServletRequest.getSession().getAttribute("uid");
+        System.out.println(uid1+"存入后");
         int uid = umsMember.getId().intValue();
         System.out.println("用户id"+uid);
 //        int uid=Integer.parseInt(userId1.toString());

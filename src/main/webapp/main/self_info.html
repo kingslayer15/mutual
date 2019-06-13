@@ -112,9 +112,22 @@
     var userId=0;
 
     function getUserId() {
-        userId = window.location.search.split("=")[1]
-        // alert(userId)
-    }
+        $(function () {
+            $.ajax({
+                url: '/getMember',
+                type: 'GET', //GET
+                /*成功*/
+                success: function (data) {
+                    userId=$(data).id
+                    alert(data.id)
+
+                },
+                /*发生错误时*/
+                error: function (xhr, textStatus) {
+
+                }
+            });
+        })}
 
     getUserId();
 
