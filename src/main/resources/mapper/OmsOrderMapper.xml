@@ -655,4 +655,9 @@
     where order_sn=#{orderSn,jdbcType=VARCHAR}
   </select>
 
+
+  <select id="selectByDate" resultType="com.thumb.dto.DateDto">
+    SELECT count(*) as orderCount ,substr(t.create_time,1,10) as date FROM oms_order t where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <![CDATA[<=]]> date(t.create_time) AND date_format(t.create_time,'%Y-%m-%d') like concat(#{year,jdbcType=VARCHAR} ,'-',#{month,jdbcType=VARCHAR}  ,'%') group by substr(t.create_time,1,10) ORDER BY substr(t.create_time,1,10) asc
+  </select>
+
 </mapper>
