@@ -56,8 +56,6 @@ public class UmsAdminController {
         System.out.println(merchant1);
         merchant1.setPassword("");
 
-        httpSession.setAttribute("merchant", merchant1);
-
         if (merchant1 != null) {
             System.out.println("商家登录成功");
             httpSession.setAttribute("merchant", merchant1);
