@@ -11,21 +11,24 @@
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <script src="../static/bootstrap/js/bootstrap-fileinput.js"></script>
     <link href="../static/css/p.css" rel="stylesheet" type="text/css">
+    <!--<link rel="stylesheet" href="../static/css/style2.css">-->
+    <!--<script src="../static/js/js/jquery-3.2.1.js"></script>-->
+    <!--<script src="../static/js/js/city.js"></script>-->
+    <!--<script src="../static/js/js/method.js"></script>-->
 
 
 </head>
 
 <style>
     .gzxx {font-size: 12px;font-weight: bold;color:rgb(117,117,117);width: 100px;display: inline-block}
+
 </style>
 <body>
 
-<!-- start header -->
 <header id="header">
 
+
 </header>
-<!--end header -->
-<!-- start banner_x -->
 <div class="banner_x center">
     <a href="./index.html" target="_blank"><div class="logo fl"></div></a>
     <a href=""><div class="ad_top fl"></div></a>
@@ -40,16 +43,21 @@
             <div class="text fl">
                 <input type="text" class="shuru"  placeholder="输入关键字查询宝贝">
             </div>
-            <div class="submit fl">
-                <input type="submit" class="sousuo" value="搜索"/>
-            </div>
+            <!--<div class="submit fl">-->
+            <!--<input type="submit" class="sousuo" value="搜索"/>-->
+            <!--</div>-->
             <div class="clear"></div>
         </form>
         <div class="clear"></div>
     </div>
 </div>
-<!-- end banner_x -->
-<!-- self_info -->
+
+
+
+
+<div style="height: 50px"></div>
+
+
 <div class="grzxbj">
     <div class="selfinfo center">
         <div class="lfnav fl" style="height: 1300px">
@@ -75,7 +83,7 @@
             </div>
         </div>
         <div class="rtcont fr"  style="width: 978px;height: 1300px;background: #fff">
-            <div class="grzlbt ml40" id="address">修改收货地址</div>
+            <div class="grzlbt ml40" id="address">我的收货地址</div>
             <!--新增地址-->
 
             <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set" >
@@ -87,26 +95,69 @@
                         <li class="lg-item">
                             <form>
                                 <div hidden><input id="uid" hidden ></div>
+                                <span style="color: red;margin-left: 50px">修改地址需要重新选择省市区哦</span>
+
+                                <div>
+                                    <!--<fieldset>-->
+                                    <form action="#">
+                                        <label for="addr-show" hidden>您选择的是：
+                                            <input type="text" value="" id="addr-show" hidden>
+                                        </label>
+                                        <br/>
+                                        <br/>
+                                        <br/>
+
+                                        <div class=" gzxx ml40" style="width: 550px" >
+                                            <span class="gzxx" style="padding-right: 30px">省市区：</span>
+
+                                            <!--省份选择-->
+                                            <select id="prov" onchange="showCity(this)">
+                                                <option>=请选择省份=</option>
+
+                                            </select>
+
+                                            <!--城市选择-->
+                                            <select id="city" onchange="showCountry(this)">
+                                                <option>=请选择城市=</option>
+                                            </select>
+
+                                            <!--县区选择-->
+                                            <select id="country" onchange="selecCountry(this)">
+                                                <option>=请选择县区=</option>
+                                            </select>
+                                            <div hidden>
+                                                <button type="button" class="btn met1" onClick="showAddr()" id="button-show" >确定</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!--</fieldset>-->
+                                </div>
+                                <br/><br/>
+
+                                <script src="../static/js/js/city.js"></script>
+                                <script src="../static/js/js/method.js"></script>
+
+
                                 <!--<div class=" gzxx ml40" style="width: 550px" >-->
-                                    <!--<span class="gzxx" style="padding-right: 30px">国家：</span>-->
-                                    <!--<input type="text" id="country" style="height: 30px;width: 260px" placeholder="country">-->
+                                <!--<span class="gzxx" style="padding-right: 30px">国家：</span>-->
+                                <!--<input type="text" id="country" style="height: 30px;width: 260px" placeholder="country">-->
                                 <!--</div>-->
                                 <!--<br/><br/>-->
-                                <div class=" gzxx ml40" style="width: 550px" >
-                                    <span class="gzxx" style="padding-right: 30px">省：</span>
-                                    <input type="text" id="province" style="height: 30px;width: 260px" placeholder="province">
-                                </div>
-                                <br/><br/>
-                                <div class=" gzxx ml40" style="width: 550px" >
-                                    <span class="gzxx" style="padding-right: 30px">市：</span>
-                                    <input type="text" id="city" style="height: 30px;width: 260px" placeholder="city">
-                                </div>
-                                <br/><br/>
-                                <div class=" gzxx ml40" style="width: 550px" >
-                                    <span class="gzxx" style="padding-right: 30px">区：</span>
-                                    <input type="text" id="region" style="height: 30px;width: 260px" placeholder="region">
-                                </div>
-                                <br/><br/>
+                                <!--<div class=" gzxx ml40" style="width: 550px" >-->
+                                <!--<span class="gzxx" style="padding-right: 30px">省：</span>-->
+                                <!--<input type="text" id="province" style="height: 30px;width: 260px" placeholder="province">-->
+                                <!--</div>-->
+                                <!--<br/><br/>-->
+                                <!--<div class=" gzxx ml40" style="width: 550px" >-->
+                                <!--<span class="gzxx" style="padding-right: 30px">市：</span>-->
+                                <!--<input type="text" id="city" style="height: 30px;width: 260px" placeholder="city">-->
+                                <!--</div>-->
+                                <!--<br/><br/>-->
+                                <!--<div class=" gzxx ml40" style="width: 550px" >-->
+                                <!--<span class="gzxx" style="padding-right: 30px">区：</span>-->
+                                <!--<input type="text" id="region" style="height: 30px;width: 260px" placeholder="region">-->
+                                <!--</div>-->
+                                <!--<br/><br/>-->
                                 <div class=" gzxx ml40" style="width: 550px" >
                                     <span class="gzxx" style="padding-right: 30px" >详细地址：</span>
                                     <textarea id="detail_address" style="resize: none" rows="3" cols="40" placeholder="请输入详细地址信息，如道路、门牌号、小区、楼栋号、单元等信息"></textarea>
@@ -144,18 +195,19 @@
 
 <!-- self_info -->
 
-<footer class="mt20 center">
-    <!--<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>-->
-    <div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
-    <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
-</footer>
 
+
+<!--<a onclick="edit(id)"></a>-->
+
+<script src="../static/js/js/jquery-3.2.1.js"></script>
 <script>
 
 
     $(function () {
-        $("#header").load("header.html");
+        //引入导航栏
+        // $("#header").load("header.html");
     })
+
 
     // 获取地址id
     var id;
@@ -164,6 +216,9 @@
         alert(id)
     }
     getId();
+
+
+
     //根据id获取用户信息
     function getUserInfoById() {
         $.ajax({
@@ -181,7 +236,6 @@
     }
     getUserInfoById();
 
-
     var pass=false;
     //失去焦点判断手机号是否符合规则
     $("#phone_number").blur(function () {
@@ -194,13 +248,15 @@
         }
     });
 
-
     // 提交表中信息
 
     function addAddress() {
-        if ($("#province").val().trim() != '' &&
-            $("#city").val().trim() != '' &&
-            $("#region").val().trim() != '' &&
+        alert(provice[current.prov].name)
+        alert(provice[current.prov]["city"][current.city].name)
+        alert(provice[current.prov]["city"][current.city].districtAndCounty[current.country])
+        if (provice[current.prov].name != "=请选择省份=" &&
+            provice[current.prov]["city"][current.city].name != "=请选择城市=" &&
+            provice[current.prov]["city"][current.city].districtAndCounty[current.country] != "=请选择县区=" &&
             $("#detail_address").val().trim() != '' &&
             $("#name").val().trim() != '' &&
             $("#phone_number").val().trim() != ''
@@ -210,9 +266,9 @@
                 type:'POST',
                 contentType:"application/json",
                 data:JSON.stringify({
-                    province: $("#province").val(),
-                    city:$("#city").val(),
-                    region:$("#region").val(),
+                    province: provice[current.prov].name,
+                    city:provice[current.prov]["city"][current.city].name,
+                    region:provice[current.prov]["city"][current.city].districtAndCounty[current.country],
                     member_id:$("#uid").val(),
                     detail_address:$("#detail_address").val(),
                     post_code:$("#post_code").val(),
@@ -240,7 +296,7 @@
         }
     }
 
-//    显示编辑的地址信息
+    //    显示编辑的地址信息
 
     function get() {
         alert(id)
@@ -253,13 +309,27 @@
             success:function(data){
                 console.log(data)
                 $("#uid").val(data.member_id);
-                $("#province").val(data.province);
-                $("#city").val(data.city);
-                $("#region").val(data.region);
                 $("#detail_address").val(data.detail_address);
                 $("#post_code").val(data.post_code);
                 $("#name").val(data.name);
                 $("#phone_number").val(data.phone_number);
+                // $("#prov option").each(function () {
+                //     if($(this).text()==data.province){
+                //         $(this).attr("selected",true);
+                //     }
+                // })
+                // $("#prov option option").each(function () {
+                //     if($(this).text()==data.city){
+                //         $(this).attr("selected",true);
+                //     }
+                // })
+                // $("#country option").each(function () {
+                //     if($(this).text()==data.region){
+                //         $(this).attr("selected",true);
+                //     }
+                // })
+
+
             },
             error:function(data){
                 console.log(data);
@@ -267,6 +337,9 @@
         })
     }
     get();
+
+
+
 
 
 
