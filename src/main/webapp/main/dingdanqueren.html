@@ -195,6 +195,7 @@
     var receiverPhone = "";
     var receiverPostCode = "";
 
+
     $(function () {
         $.ajax({
             url:"/getItem",
@@ -327,7 +328,7 @@
                 });
 
                 $("#J_addressList").append("<!-- addresslist end -->\n" +
-                    "                    <div class=\"address-item address-item-new\" id=\"J_newAddress\">\n" +
+                    "                    <div onclick='toAdd()' class=\"address-item address-item-new\" id=\"J_newAddress\">\n" +
                     "                        <i class=\"iconfont\"></i>\n" +
                     "                        添加新地址\n" +
                     "                    </div>");
@@ -394,6 +395,13 @@
 
 
 
+
+
+    function toAdd() {
+
+        window.location.href="/main/address.html";
+
+    }
 
 
 
