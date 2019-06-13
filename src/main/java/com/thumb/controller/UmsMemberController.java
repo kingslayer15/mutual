@@ -113,6 +113,7 @@ public class UmsMemberController {
     @ResponseBody
     public boolean isExistUsername(@RequestParam String username) {
         System.out.println(username);
+        System.out.println("first");
         UmsMember umsMember = umsMemberService.selectOneByUsername(username);
         System.out.println(umsMember);
         if (umsMember != null) {

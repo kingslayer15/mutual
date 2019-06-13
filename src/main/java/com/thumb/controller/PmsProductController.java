@@ -1,5 +1,6 @@
 package com.thumb.controller;
 
+import com.github.pagehelper.PageHelper;
 import com.thumb.pojo.PmsProduct;
 import com.thumb.pojo.PmsProductCategory;
 import com.thumb.pojo.PmsProductCollection;
@@ -172,6 +173,7 @@ public class PmsProductController {
     @ResponseBody
     public Object getCollection(@RequestParam long id) {
         System.out.println(id);
+        PageHelper.startPage(0, 3);
         List<PmsProduct> pmsProducts = pmsProductCollectionService.selectAllBymemberId(id);
         if (pmsProducts != null) {
             System.out.println("pmsProducts = " + pmsProducts);
