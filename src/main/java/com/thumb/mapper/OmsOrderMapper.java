@@ -3,7 +3,9 @@ import java.util.List;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Map;
 
+import com.thumb.dto.DateDto;
 import com.thumb.dto.OrderStatusDto;
 import com.thumb.pay.vo.AliPayInfoVo;
 import org.apache.ibatis.annotations.Param;
@@ -47,6 +49,8 @@ public interface OmsOrderMapper {
 
 
     Long selectOneIdByOrderSn(@Param("orderSn")String orderSn);
+
+    List<DateDto> selectByDate(@Param("year") String year,@Param("month") String month);
 
 
 
