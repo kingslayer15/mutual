@@ -1084,7 +1084,7 @@
             $.ajax(
                 {
                     type: "get",
-                    url: "deleteProductById?id=" + id,
+                    url: "/deleteProductById?id=" + id,
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {
@@ -1131,7 +1131,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "findByCondition",
+                url: "/findByCondition",
                 contentType: "application/json",
                 dataType: "json",
                 data: JSON.stringify({
@@ -1345,7 +1345,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findAllBrand",
+                url: "/findAllBrand",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -1371,7 +1371,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findAllCategory",
+                url: "//findAllCategory",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -1438,7 +1438,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "listAllProduct?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
+                url: "/listAllProduct?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();
@@ -1699,7 +1699,7 @@
    /* $.ajax(
         {
             type: "get",
-            url: "listAllProduct?pageNo=" + currentPage,
+            url: "/listAllProduct?pageNo=" + currentPage,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {

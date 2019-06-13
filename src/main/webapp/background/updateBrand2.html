@@ -709,7 +709,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "findBrandById?id="+brandid,
+                url: "/findBrandById?id="+brandid,
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -773,7 +773,7 @@
     });
 
     Dropzone.options.dropz= {
-        url: "upload", // 文件提交地址
+        url: "/upload", // 文件提交地址
         method: "POST",  // 也可用put
         paramName: "dropzFile", // 默认为file
         maxFiles: 1,// 一次性上传的文件数量上限
@@ -834,7 +834,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "updateBrand",
+                url: "/updateBrand",
                 contentType: "application/json",
                 dataType: "json",
                 data:JSON.stringify({
