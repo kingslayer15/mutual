@@ -13,104 +13,96 @@
         color: #d81e06;
     }
 </style>
-<header>
-    <div class="top center">
-        <div class="left fl">
-            <ul>
-                <li><a href="http://localhost:8080/main/index.html" target="_blank">共勉商城</a></li>
-                <li>|</li>
-                <li><a href="">MIUI</a></li>
-                <li>|</li>
-                <li><a href="">米聊</a></li>
-                <li>|</li>
-                <li><a href="">游戏</a></li>
-                <li>|</li>
-                <li><a href="">多看阅读</a></li>
-                <li>|</li>
-                <li><a href="">云服务</a></li>
-                <li>|</li>
-                <li><a href="">金融</a></li>
-                <li>|</li>
-                <li><a href="">问题反馈</a></li>
-                <div class="clear"></div>
-            </ul>
-        </div>
-        <div class="right fr">
-            <div class="gouwuche fr"><a href="">购物车</a></div>
-            <div class="fr">
-                <ul id="ulId">
-
+<div style="background-color: #FAFAFA">
+    <header>
+        <div class="top center">
+            <div class="left fl">
+                <ul>
+                    <li><a href="http://localhost:8080/main/index.html" target="_blank">共勉商城</a></li>
+                    <li>|</li>
+                    <li><a href="">MIUI</a></li>
+                    <li>|</li>
+                    <li><a href="">米聊</a></li>
+                    <li>|</li>
+                    <li><a href="">游戏</a></li>
+                    <li>|</li>
+                    <li><a href="">多看阅读</a></li>
+                    <li>|</li>
+                    <li><a href="">云服务</a></li>
+                    <li>|</li>
+                    <li><a href="">金融</a></li>
+                    <li>|</li>
+                    <li><a href="">问题反馈</a></li>
+                    <div class="clear"></div>
                 </ul>
             </div>
+            <div class="right fr">
+                <div class="gouwuche fr" onclick="gowuche()"><a href="/#">购物车</a></div>
+                <div class="fr">
+                    <ul id="ulId">
+
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
             <div class="clear"></div>
         </div>
-        <div class="clear"></div>
-    </div>
-</header>
+    </header>
 
-
-<div class="banner_x center">
-    <a href="./index.html" target="_blank">
-        <div class="logo fl"></div>
-    </a>
-    <a href="">
-        <div class="ad_top fl"></div>
-    </a>
-    <div class="nav fl">
-        <ul id="inebiao">
-            <li><a href="../main/index.html" target="_blank">小米手机</a></li>
-            <li><a href="http://localhost:8080/main/xiangqing.html?id=28">红米</a></li>
-            <li><a href="">平板·笔记本</a></li>
-            <li><a href="">电视</a></li>
-            <li><a href="">盒子·影音</a></li>
-            <li><a href="">路由器</a></li>
-            <li><a href="">智能硬件</a></li>
-            <li><a href="#">服务</a></li>
-            <li><a href="#">社区</a></li>
-        </ul>
-    </div>
-    <div class="search fr">
-        <form action="" method="post">
-            <div class="text fl">
-                <input type="text" class="shuru" placeholder="Redim K20 Pro&nbsp;小米手环4现货" id="name">
-            </div>
-            <div class="submit fl">
-                <input type="submit" class="sousuo" value="搜索" onclick="getName()"/>
-            </div>
+    <div class="banner_x center">
+        <a href="./index.html" target="_blank">
+            <div class="logo fl"></div>
+        </a>
+        <a href="">
+            <div class="ad_top fl"></div>
+        </a>
+        <div class="nav fl">
+            <ul id="inebiao">
+                <li><a href="../main/index.html" target="_blank">小米手机</a></li>
+                <li><a href="http://localhost:8080/main/xiangqing.html?id=28">红米</a></li>
+                <li><a href="">平板·笔记本</a></li>
+                <li><a href="">电视</a></li>
+                <li><a href="">盒子·影音</a></li>
+                <li><a href="">路由器</a></li>
+                <li><a href="">智能硬件</a></li>
+                <li><a href="#">服务</a></li>
+                <li><a href="#">社区</a></li>
+            </ul>
+        </div>
+        <div class="search fr">
+            <form action="" method="post">
+                <div class="text fl">
+                    <input type="text" class="shuru" placeholder="Redim K20 Pro&nbsp;小米手环4现货" id="name">
+                </div>
+                <div class="submit fl">
+                    <input type="submit" class="sousuo" value="搜索" onclick="getName()"/>
+                </div>
+                <div class="clear"></div>
+            </form>
             <div class="clear"></div>
-        </form>
-        <div class="clear"></div>
+        </div>
     </div>
 </div>
 
+
 <!--end header -->
-<script type="text/javascript" src="../static/jquery/jquery.cookie.js"></script>
+
 <script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/jquery/jquery.cookie.js"></script>
+<script src="../static/jquery/jquery.validate.js"></script>
+<script src="../static/jquery/jquery.validate.min.js"></script>
 <script>
-
-
-    //搜索
-    function getName() {
-        var $name = $("#name").val();
-        var s = encodeURI($name);
-        if ($name != null && $name != "") {
-            window.location.href = "http://localhost:8080/main/liebiao3.html?name=" + s;
-        }
-    }
-
-
     //获取用户id 查询用户信息
     $(function () {
         $.ajax({
             url: '/getMember',
             type: 'GET', //GET
-            // contentType: "application/json",
-            // dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
             success: function (data) {
 
                 $("#ulId").find("li").remove();
-                if (data.regemail === null && data.regemail === "") {
+                if (data.regemail == null || data.regemail == "") {
                     $("#ulId").append("<li><a href=\"./login.html\" target=\"_blank\">登录</a></li>\n" +
                         "                    <li>|</li>\n" +
                         "                    <li><a href=\"./register.html\" target=\"_blank\" >注册</a></li>\n" +
@@ -121,7 +113,7 @@
                         "                    <li>|</li>\n" +
                         "                    <li><a href=\"./footprint.html\">浏览足迹</a></li>\n" +
                         "                    <li>|</li>\n" +
-                        "                    <li  onclick='deletes()'><a href=''>注销</a></li>")
+                        "                    <li><a  onclick='deletes()'>注销</a></li>")
                 } else {
                     $("#ulId").append("<li id='username'>" + data.regemail + "&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://note.youdao.com/yws/public/resource/37c3a14c28d057d4df4a4196fd82f014/xmlnote/B926A28CB2FE4C8A9F9940FE112892BE/7157' alt=''></li>\n" +
                         "                    <li>|</li>\n" +
@@ -131,7 +123,7 @@
                         "                    <li>|</li>\n" +
                         "                    <li><a href=\"./footprint.html\">浏览足迹</a></li>\n" +
                         "                    <li>|</li>\n" +
-                        "                    <li  onclick='deletes()'><a href=''>注销</a></li>")
+                        "                    <li  ><a  onclick='deletes()'>注销</a></li>")
                 }
 
             },
@@ -142,16 +134,51 @@
         });
     })
 
-    function deletes() {
 
+    //搜索
 
-        $.cookie("username", "", {expires: -1});
-        $.cookie("password", "", {expires: -1});
-
-        window.location.href = "http://127.0.0.1:8080/main/login.html";
+    function getName() {
+        var $name = $("#name").val();
+        var s = encodeURI($name);
+        if ($name != null && $name != "") {
+            window.location.href = "http://localhost:8080/main/liebiao3.html?name=" + s;
+        }
     }
 
 
+    function deletes() {
+        alert(123)
+        //
+        // $.cookie("username", "", {expires: -1});
+        // $.cookie("password", "", {expires: -1});
+
+
+        $.ajax({
+            url:'/deleteCookic',
+            type:'GET', //GET
+            contentType:"application/json",
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            /*成功*/
+            success:function(data){
+
+                alert(data)
+                if(data){
+                    window.location.href="http://localhost:8080/main/login.html";
+                }
+            },
+            /*发生错误时*/
+            error:function(xhr,textStatus){
+
+            }
+        });
+
+
+
+    }
+
+function gowuche() {
+    window.location.href="http://localhost:8080/main/gouwuche.html";
+}
 </script>
 
 </body>
