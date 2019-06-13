@@ -12,4 +12,8 @@ public interface ProductBrandMapper {
     ProductBrandDto findBrandById(int id);
 
     int updateBrand(ProductBrandDto productBrandDto);
+
+    int addBrand(ProductBrandDto productBrandDto);
+
+    int deleteBrandById(int id);
 }

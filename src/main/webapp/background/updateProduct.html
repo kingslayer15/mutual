@@ -5,15 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>修改商品</title>
-    <link href="mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
+            src="../static/mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/5.ab752a1a96f36ec723b1.js"></script>
+            src="../static/mall-admin-web_files/5.ab752a1a96f36ec723b1.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/3.bdde2483074687b995c5.js"></script>
+            src="../static/mall-admin-web_files/3.bdde2483074687b995c5.js"></script>
 
-    <link rel="stylesheet" type="text/css" id="u0" href="./mall-admin-web_files/skin.min.css">
+    <link rel="stylesheet" type="text/css" id="u0" href="../static/mall-admin-web_files/skin.min.css">
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2619,7 +2619,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
 <!--<script type="text/javascript" src="./mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
-<script src="jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
 
     //根据要修改的商品id 获取其所有属性
@@ -2665,10 +2665,11 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "post",
-                url: "updateProductMsg?id="+productid,
+                url: "updateProductMsg",
                 contentType: "application/json",
                 dataType: "json",
                 data:JSON.stringify({
+                    "id":productid,
                     "product_category_name":$("#product_category_name").val(),
                     "name":$("#name").val(),
                     "sub_title":$("#sub_title").val(),

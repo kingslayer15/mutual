@@ -39,4 +39,12 @@ public class ProductBrandServiceImpl implements ProductBrandService {
     public int updateBrand(ProductBrandDto productBrandDto) {
         return productBrandMapper.updateBrand(productBrandDto);
     }
+
+    public int addBrand(ProductBrandDto productBrandDto) {
+        return productBrandMapper.addBrand(productBrandDto);
+    }
+
+    public int deleteBrandById(int id) {
+        return productBrandMapper.deleteBrandById(id);
+    }
 }

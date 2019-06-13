@@ -20,10 +20,10 @@ public class ProductAttrCategoryController {
      */
     @ResponseBody
     @RequestMapping(value = "findAllProductCategory",method = RequestMethod.GET)
-    public Object findAllProductCategory(@RequestParam(defaultValue = "1",required = true,value = "pageNo") Integer pageNo){
+    public Object findAllProductCategory(@RequestParam(defaultValue = "1",required = true,value = "pageNo") Integer pageNo, Integer maxShowPage){
 
         //最大显示行数数
-        int maxShow = 5;
+        int maxShow = maxShowPage;
 
         PageInfo<ProductAttrCategoryDto> productAttrCategoryDtos = productAttrCategoryService.findAllProductCategory(pageNo,maxShow);
 

@@ -81,6 +81,7 @@
         //将获取的值填充入输入框中
         $('#userName').val(username);
         $('#password').val(password);
+        // alert(username+":"+password)
         $.ajax({
             type: "post",
             url: "/userLogin",

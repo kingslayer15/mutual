@@ -88,6 +88,35 @@ public class ProductBrandController {
     }
 
     /**
+     * 添加品牌信息
+     * @param productBrandDto
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("addBrand")
+    public Object addBrand(@RequestBody ProductBrandDto productBrandDto){
+
+        String logo = productBrandDto.getLogo();
+        if (logo.length()>0){
+            productBrandDto.setLogo("http://localhost:8080/static/upload/"+logo);
+        }
+        int i = productBrandService.addBrand(productBrandDto);
+        return i;
+    }
+
+    /**
+     * 根据id删除品牌信息
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("deleteBrandById")
+    public Object deleteBrandById(@RequestParam int id){
+        int i = productBrandService.deleteBrandById(id);
+        return i;
+    }
+
+    /**
      * 图片上传
      * @param dropzFile
      * @param request

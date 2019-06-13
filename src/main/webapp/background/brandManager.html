@@ -5,13 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>mall-admin-web</title>
-    <link href="mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <!--<link href="./brandManager_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">-->
+    <!--<script type="text/javascript" charset="utf-8" async=""
+            src="../static/brandManager_files/0.c3b42f8bcbc75e89d5c5.js.下载"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="./brandManager_files/0.c3b42f8bcbc75e89d5c5.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async=""
-            src="./brandManager_files/34.20914eaf5eb00deccc8e.js.下载"></script>
-    <link rel="stylesheet" type="text/css" id="u0" href="mall-admin-web_files/skin.min.css">
+            src="./brandManager_files/34.20914eaf5eb00deccc8e.js.下载"></script>-->
+    <link rel="stylesheet" type="text/css" id="u0" href="../static/mall-admin-web_files/skin.min.css">
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -566,7 +566,7 @@
                         <div class="el-card__body"><i data-v-4ce87767="" class="el-icon-tickets"></i> <span
                                 data-v-4ce87767="">数据列表</span>
                             <button data-v-4ce87767="" type="button"
-                                    class="el-button btn-add el-button--default el-button--mini"><!----><!----><span>
+                                    class="el-button btn-add el-button--default el-button--mini" onclick="jumptoAddBrand()"><!----><!----><span>
       添加
     </span></button>
                         </div>
@@ -610,7 +610,7 @@
                                                     class="el-checkbox__inner"></span><input type="checkbox"
                                                                                              aria-hidden="true"
                                                                                              class="el-checkbox__original"
-                                                                                             value=""></span><!---->
+                                                                                             value="" onclick="check()"></span><!---->
                                             </label></div>
                                         </th>
                                         <th colspan="1" rowspan="1" class="el-table_1_column_2  is-center   is-leaf">
@@ -823,6 +823,25 @@
         window.location.href=url;
     }
 
+    //跳转到addBrand.html
+    function jumptoAddBrand() {
+        window.location.href="addbrand.html"
+    }
+
+
+    //全选
+    function check() {
+
+        if ($(".el-checkbox").prop("class") == "el-checkbox"){
+            $(".el-checkbox").prop("class","el-checkbox is-checked");
+            $(".el-checkbox__input").prop("class","el-checkbox__input is-checked is-focus");
+        } else {
+            $(".el-checkbox").prop("class","el-checkbox");
+            $(".el-checkbox__input").prop("class","el-checkbox__input");
+        }
+    }
+
+
 
     //分页查找所有品牌
     var currentPage=1;
@@ -909,7 +928,7 @@
                             "                                                    <!----><span>编辑\n" +
                             "          </span></button>\n" +
                             "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--danger el-button--mini\"><!---->\n" +
+                            "                                                        class=\"el-button el-button--danger el-button--mini\" onclick='deleteBrandById("+element.id+")'><!---->\n" +
                             "                                                    <!----><span>删除\n" +
                             "          </span></button>\n" +
                             "                                            </div>\n" +
@@ -1007,6 +1026,29 @@
         var jpage = $("#inputValNum").val();
         alert(jpage)
         findAllByPage(jpage)
+    }
+
+    //根据id删除品牌
+    function deleteBrandById(id) {
+        var r = confirm("您确定要删除?")
+        if (r == true) {
+            $.ajax(
+                {
+                    type: "get",
+                    url: "deleteBrandById?id=" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        window.location.reload();
+                    },
+                    error: function (data) {
+
+                    }
+                }
+            )
+        } else {
+            return;
+        }
     }
 
     //根据品牌名称/关键字查找

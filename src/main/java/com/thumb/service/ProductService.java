@@ -15,8 +15,7 @@ public interface ProductService {
 
     List<ProductBrandDto> findAllBrand();
 
-    List<ProductDto> findByCondition(ProductDto productDto);
-
+    PageInfo<ProductDto> findByCondition(ProductDto productDto, int maxShow);
 
     List<ProductCategoryDto> listProductParent();
 
@@ -29,4 +28,5 @@ public interface ProductService {
     int addProduct(ProductDto productDto);
 
     int updateProductMsg(ProductDto productDto);
+
 }

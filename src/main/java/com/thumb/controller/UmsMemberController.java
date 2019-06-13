@@ -194,5 +194,11 @@ public class UmsMemberController {
             return true;
         }
         return false;
+
+
     }
+
+
+
+
 }
