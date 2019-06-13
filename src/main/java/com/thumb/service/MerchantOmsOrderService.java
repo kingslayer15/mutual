@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface MerchantOmsOrderService {
-    List<Merchant> listAllOmsOrderByMerchant(int merchantId);
+    Merchant listAllOmsOrderByMerchant(int merchantId);
 
     Merchant merchantSearchOmsOrder(SearchOmsOrder searchOmsOrder);
 

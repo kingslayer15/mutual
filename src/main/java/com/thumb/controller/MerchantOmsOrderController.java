@@ -7,6 +7,7 @@ import com.thumb.entity.dto.MerchantDto;
 import com.thumb.entity.dto.Page;
 import com.thumb.entity.dto.SearchOmsOrder;
 import com.thumb.entity.pojo.Merchant;
+import com.thumb.entity.pojo.OmsOrder;
 import com.thumb.entity.pojo.OmsOrderReturnApply;
 import com.thumb.service.MerchantOmsOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +26,18 @@ public class MerchantOmsOrderController {
 
     /**
      * 根据商家id,分页查询该商家的订单
-     * @param merchantId
+     * @param page  分页
      * @return
      */
     @RequestMapping("listAllOmsOrderByMerchant")
-    public Object listAllOmsOrderByMerchant(@RequestBody Page page, @RequestParam int merchantId) {
+    public Object listAllOmsOrderByMerchant(@RequestBody Page page) {
+
+        //从session中获取商家id
+        int merchantId = 1;
+
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
-        List<Merchant> merchantList = merchantOmsOrderService.listAllOmsOrderByMerchant(merchantId);
-        PageInfo<Merchant> pageInfo = new PageInfo<>(merchantList);
+        Merchant merchant = merchantOmsOrderService.listAllOmsOrderByMerchant(merchantId);
+        PageInfo<OmsOrder> pageInfo = new PageInfo<>(merchant.getOmsOrderList());
         return pageInfo;
     }
 
