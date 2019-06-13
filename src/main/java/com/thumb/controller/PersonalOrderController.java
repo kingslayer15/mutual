@@ -3,6 +3,7 @@ package com.thumb.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.thumb.dto.*;
+import com.thumb.entity.pojo.UmsMember;
 import com.thumb.service.PersonalOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("orderByUid")
     public Object orderByUid(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
         orderPageDto.setUid(uId);
         List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid(orderPageDto);
         System.out.println(clientOrderDtos);
@@ -34,7 +37,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("count")
     public Object count(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
         int count = personalOrderService.count(uId);
         System.out.println(count);
         return count;
@@ -43,7 +48,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("orderByUid0")
     public Object orderByUid0(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
         orderPageDto.setUid(uId);
         List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid0(orderPageDto);
         System.out.println(clientOrderDtos);
@@ -53,7 +60,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("count0")
     public Object count0(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
         int count = personalOrderService.count0(uId);
         System.out.println(count);
         return count;
@@ -62,7 +71,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("orderByUid1")
     public Object orderByUid1(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
         orderPageDto.setUid(uId);
         List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid1(orderPageDto);
         System.out.println(clientOrderDtos);
@@ -73,7 +84,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("count1")
     public Object count1(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
         int count = personalOrderService.count1(uId);
         System.out.println(count);
         return count;
@@ -92,7 +105,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("count2")
     public Object count2(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
         int count = personalOrderService.count2(uId);
         System.out.println(count);
         return count;
@@ -101,7 +116,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("orderByUid3")
     public Object orderByUid3(HttpServletRequest httpServletRequest,@RequestBody OrderPageDto orderPageDto){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
         orderPageDto.setUid(uId);
         List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid3(orderPageDto);
         System.out.println(clientOrderDtos);
@@ -111,7 +128,9 @@ public class PersonalOrderController {
     @ResponseBody
     @RequestMapping("count3")
     public Object count3(HttpServletRequest httpServletRequest){
-        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("UmsMember");
+        int uId = umsMember.getId().intValue();
+//        int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
         int count = personalOrderService.count3(uId);
         System.out.println(count);
         return count;
