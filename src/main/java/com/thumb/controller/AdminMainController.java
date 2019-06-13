@@ -362,12 +362,17 @@ public class AdminMainController {
         if (thisMonthAmount == null){
             return 0;
         }
+        if (bigDecimal == null){
+            return 0;
+        }
 
         if (bigDecimal.compareTo(new BigDecimal(0)) == 0){
             return 0;
         }else {
             lastMonth = thisMonthAmount.subtract(bigDecimal).divide(bigDecimal);
         }
+
+
 
 
         return lastMonth;

@@ -109,7 +109,6 @@ $(function () {
         success: function (data) {
             if (data != "") {
                 $("#lackStock1").text("(" + data + ")");
-                alert(data);
                 $("#lackStock2").text(data);
             } else {
                 $("#lackStock1").text("(" + 0 + ")");
