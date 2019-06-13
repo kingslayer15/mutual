@@ -60,11 +60,26 @@ public class OmsCartItemController {
 
     @ResponseBody
     @RequestMapping(value = "insertCart",method = RequestMethod.POST)
-    public Object insertCart(@RequestBody OmsCartItemDto omsCartItemDto){
-        System.out.println(omsCartItemDto+"------------------------------------------------------------");
-        int insert = omsCartItemService.insertCart(omsCartItemDto);
-        System.out.println(insert);
-        return true;
+    public String insertCart(@RequestBody OmsCartItemDto omsCartItemDto){
+        System.out.println(omsCartItemDto);
+
+        OmsCartItem omsCartItem = omsCartItemService.selectOneByAll(omsCartItemDto);
+        if (omsCartItem != null) {
+            Integer quantity = omsCartItem.getQuantity();
+            System.out.println(quantity+"已有的商品数量");
+            quantity++;
+            omsCartItem.setQuantity(quantity);
+            int i = omsCartItemService.updateByPrimaryKey(omsCartItem);
+            System.out.println("商品有了,quantity++");
+            return "true";
+        }
+        //空商品插入
+        else {
+            System.out.println(omsCartItem+"else");
+            int insert = omsCartItemService.insertCart(omsCartItemDto);
+            System.out.println(insert+"空,商品新加入");
+            return "true";
+        }
 
 
     }

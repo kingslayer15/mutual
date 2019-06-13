@@ -238,7 +238,7 @@
                         productSubTitle =item.subTitle
                         productCategoryId = item.productCategoryId
 
-                        innerHtml += "\t\t<div class=\"left fl\"><img src=\"" + item.pic + "\"></div>\n" +
+                        innerHtml += "\t\t<div style='text-align: center;vertical-align:middle' class=\"left fl\"><img style='height: 80%;width: 80%;' src=\"" + item.pic + "\"></div>\n" +
                             "\t\t<div class=\"right fr\">\n" +
                             "\t\t\t<div class=\"h3 ml20 mt20\">" + item.name + "</div>\n" +
                             "\t\t\t<div class=\"jianjie mr40 ml20 mt10\">" + item.subTitle + "</div>\n" +
@@ -299,7 +299,7 @@
             for (var i = 0; i <= versionindexsum; i++) {
                 if (index == i) {
 
-                    $("#"+i).attr("style","background:gray");
+                    $("#"+i).attr("style","background:rgb(217,217,217)");
                 } else {
 
                     $("#"+i).attr("style","background:rgb(248,248,248)");
@@ -358,7 +358,7 @@
             // $('#color'+index).attr("style","background:gray")
             for (var i = 0; i <= colorindexsum; i++) {
                 if (index == i) {
-                    $("#color"+i).attr("style","background:gray")
+                    $("#color" + i).attr("style", "background:rgb(217,217,217)");
                 } else {
                     $("#color"+i).attr("style","background:rgb(248,248,248)");
                 }

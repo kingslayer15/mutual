@@ -92,10 +92,8 @@
 <script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
 <script>
 
+
     $("#header").load("header.html")
-
-
-
 
 
     $(function () {
@@ -113,12 +111,10 @@
                 $(data).each(function (index, volual) {/*onclick= \"brands("+volual.id+")\"*/
 
                     var tableUser = "<div class=\"mingxing fl\" >\n" +
-                        "\t\t\t\t\t<div class=\"sub_mingxing\"><a href=\"/main/liebiao.html?Id=" + volual.id + "\"><img  src=\" " + volual.big_pic + " \" ></a></div>\n" +
+                        "\t\t\t\t\t<div class=\"sub_mingxing\"><a href=\"/main/liebiao.html?Id=" + volual.id + "\"><img  src=\" " + volual.logo + " \" ></a></div>\n" +
                         "\t\t\t\t\t<div class=\"pinpai\"><a href=\"\">" + volual.name + "</a></div>\n" +
                         "\t\t\t\t\t<div class=\"youhui\">6月9日-21日享花呗12期分期免息</div>\n" +
-                        // "\t\t\t\t\t<div class=\"jiage\"></div>\n" +
                         "\t\t\t\t</div>";
-
                     if (index < 5) {
                         $brand.append(tableUser);
                     } else if(index < 10){
@@ -236,16 +232,16 @@
                         $(data).each(function (index,vaurl) {
                             if(vaurl.parentId==val.id){
                                  li =li+ "<div>\n" +
-                                     "                            <div class=\"xuangou_left fl\">\n" +
-                                     "                                <a href=\"\">\n" +
-                                     "                                    <div class=\"img fl\"><img src=\"./image/xm6_80.png\" alt=\"\"></div>\n" +
-                                     "                                    <span class=\"fl\">"+vaurl.name+"</span>\n" +
-                                     "                                    <div class=\"clear\"></div>\n" +
-                                     "                                </a>\n" +
-                                     "                            </div>\n" +
-                                     "                            <div class=\"xuangou_right fr\"><a href=\"./xiangqing.html\" target=\"_blank\">选购</a></div>\n" +
-                                     "                            <div class=\"clear\"></div>\n" +
-                                     "                        </div>";
+                                     "         <div class=\"xuangou_left fl\">\n" +
+                                     "             <a href=\"\">\n" +
+                                     "                 <div class=\"img fl\"><img src=\"./image/xm6_80.png\" alt=\"\"></div>\n" +
+                                     "                 <span class=\"fl\">"+vaurl.name+"</span>\n" +
+                                     "                 <div class=\"clear\"></div>\n" +
+                                     "             </a>\n" +
+                                     "         </div>\n" +
+                                     "         <div class=\"xuangou_right fr\"><a href=\"./xiangqing.html\" target=\"_blank\">选购</a></div>\n" +
+                                     "         <div class=\"clear\"></div>\n" +
+                                     "     </div>";
                             }
                         })
 
