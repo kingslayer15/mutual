@@ -41,6 +41,7 @@ public class UmsAdminController {
         }
 
     }
+
     @RequestMapping("merchantLogin")
     @ResponseBody
     public Object merchantLogin(@RequestBody Merchant merchant, HttpSession httpSession) {
@@ -48,6 +49,9 @@ public class UmsAdminController {
         System.out.println(merchant);
         Merchant merchant1 = merchantService.selectOnebyall(merchant);
         System.out.println(merchant1);
+
+        httpSession.setAttribute("merchant", merchant);
+
         if (merchant1 != null) {
             System.out.println("商家登录成功");
             httpSession.setAttribute("merchant", merchant1);
