@@ -575,7 +575,7 @@
                                                     </span>
                                                 </div>
                                                 <div id="handleStatusItem" class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 203px; z-index: 10; position: absolute">
+                                                     style="display: none; min-width: 203px; z-index: 2103; position: absolute">
                                                     <div class="el-scrollbar" style="">
                                                         <div class="el-select-dropdown__wrap el-scrollbar__wrap"
                                                              style="margin-bottom: -15px; margin-right: -15px;">
@@ -604,6 +604,7 @@
                                     </div>
                                     <!--处理状态 end-->
 
+                                    <div style="display: none;">
                                     <div data-v-4c7852dc="" class="el-form-item el-form-item--small"><label
                                             class="el-form-item__label" style="width: 140px;">申请时间：</label>
                                         <div class="el-form-item__content">
@@ -635,6 +636,8 @@
                                                     class="el-input__icon"></i><!----></span><!----></span><!----></div>
                                             <!----></div>
                                     </div>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
@@ -1137,18 +1140,18 @@
                             <span id="total" style="text-align: center"></span>
                             条</span><span
                                 class="el-pagination__sizes"><div class="el-select"><!----><div
-                                class="el-input el-input--suffix"><!----><input type="text" autocomplete="off"
+                                class="el-input el-input--suffix"><!----><input id="selectInput" type="text" autocomplete="off"
                                                                                 placeholder="请选择" readonly="readonly"
                                                                                 class="el-input__inner"><!----><span
                                 class="el-input__suffix"><span class="el-input__suffix-inner"><i
                                 class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
-                            <!----></span><!----></div><div class="el-select-dropdown el-popper"
+                            <!----></span><!----></div><div id="selectSizeDiv" class="el-select-dropdown el-popper"
                                                             style="display: none; min-width: 110px;"><div
                                 class="el-scrollbar" style=""><div class="el-select-dropdown__wrap el-scrollbar__wrap"
                                                                    style="margin-bottom: -15px; margin-right: -15px;"><ul
-                                class="el-scrollbar__view el-select-dropdown__list"><!----><li
-                                class="el-select-dropdown__item"><span>5条/页</span></li><li
-                                class="el-select-dropdown__item selected"><span>10条/页</span></li><li
+                                class="el-scrollbar__view el-select-dropdown__list"><!----><li onclick="setPageSize(5)"
+                                class="el-select-dropdown__item"><span>5条/页</span></li><li onclick="setPageSize(10)"
+                                class="el-select-dropdown__item selected"><span>10条/页</span></li><li onclick="setPageSize(15)"
                                 class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
                                 class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb"
                                                                              style="transform: translateX(0%);"></div></div><div
@@ -1204,15 +1207,14 @@
         $("#handleStatusItem").css("display", "none");
         handleItem_status = 0;
     })
-    // $("#handleStatus").click(function (e) {
-    //     var target = e ? e.target : window.event.srcElement;
-    //     if(target.id!="handleStatus"&&target.id!="handleStatusInput")
-    //         $("#handleStatusItem").hide();
-    // });
+
+    // <div class="el-select-dropdown el-popper" style="min-width: 202.988px; transform-origin: center top; z-index: 2101; display: none;">
+    // <div class="el-select-dropdown el-popper" style="min-width: 202.988px; transform-origin: center top; z-index: 2103; position: absolute; top: 205px; left: 181px;" x-placement="bottom-start">
 
 
     var pageNum = 1;    //当前页面
     var pages;
+    var pageSize = 5;   //页面显示数量
 
     //网页加载时调用
     $(function () {
@@ -1230,7 +1232,7 @@
             dataType: "json",
             data: JSON.stringify({
                 "pageNum" : pageNum,
-                "pageSize" : 5
+                "pageSize" : pageSize
             }),
             success: function (data) {
                 console.log(data);
@@ -1271,8 +1273,6 @@
                 case 2 : statusText = "已完成"; break;
                 case 3 : statusText = "已拒绝"; break;
             }
-            console.log("jj");
-            console.log(item);
 
             str = "<tr class=\"el-table__row\">\n" +
                 "    <td class=\"el-table_1_column_1 is-center el-table-column--selection\">\n" +
@@ -1375,6 +1375,17 @@
         pageNum = parseInt(pageNum);
         listAllOmsOrderReturnApply();
     });
+    $("#selectInput").click(function () {
+        $("#selectSizeDiv").show();
+        // css("display", "");
+    });
+    function setPageSize(size) {
+        pageSize = size;
+        $("#selectSizeDiv").hide();
+        $("#selectInput").val(size+"条/页");
+        listAllOmsOrderReturnApply();
+        // $("#selectSizeDiv").css("display", "none");
+    }
 
 </script>
 

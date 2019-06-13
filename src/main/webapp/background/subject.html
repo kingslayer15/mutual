@@ -49,7 +49,7 @@
 <script src="../static/mall-admin-web_files/tinymce.min.js"></script>
 
 
-<div id="header" style="float: left;"></div>
+<div id="header" style="width: 9%;float: left"></div>
 <script>
     $("#header").load('header.html')
 </script>
@@ -122,7 +122,7 @@
                     <div><i class="el-icon-search"></i>
                         <span>筛选搜索</span>
                         <button type="button" class="el-button el-button--primary el-button--small"
-                                style="float: right;" onclick="getSubjectName()">
+                                style="float: right;" onclick="getSubjectName(1,5)">,
                             <span>查询搜索</span>
                         </button>
                         <button type="button" class="el-button el-button--default el-button--small"
@@ -460,6 +460,7 @@
 </div>
 <script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../static/js/js/bootstrap.js"></script>
 <script type="text/javascript">
 
@@ -480,87 +481,7 @@
                 "pageSize": pageSize
             }),
             success: function (data) {
-
-                var subject = $("#subject");
-                subject.find("tr").remove();
-
-                //显示总记录数
-                $("#totalSubject").html(data.total);
-                $("#pageBlur").val(data.pageNum);
-                $("#pageCondition").val(pageSize + "条/页");
-
-                var list = data.list;
-                $(list).each(function (index, val) {
-                    var tableSubject = "<tr class=\"el-table__row\">\n" +
-                        "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
-                        "         style=\"width: 6%;\">\n" +
-                        "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
-                        "         </div>\n" +
-                        "     </td>\n" +
-                        "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
-                        "         <div class=\"cell\">" + val.id + "</div>\n" +
-                        "     </td>\n" +
-                        "     <td class=\"el-table_16_column_124 is-center \" style=\"width: 38%;\">\n" +
-                        "         <div class=\"cell\">" + val.title + "</div>\n" +
-                        "     </td>\n" +
-                        "     <td class=\"el-table_16_column_125 is-center \" style=\"width: 10%;\">\n" +
-                        "         <div class=\"cell\">\n" +
-                        //
-                        // "<div  role=\"switch\" class=\"el-switch\">" +
-                        // "<span class=\"el-switch__core\" style=\"width: 40px;\">" +
-                        // "</span>" +
-                        // "</div>"+
-
-
-
-                        "<div role=\"switch\" class=\"el-switch is-checked\"   aria-checked=\"true\" id=\"el_switch\">\n" +
-                    "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch(this)' name='132' '>\n" +
-                    "     </span>\n" +
-                    "    </div>\n" +
-
-
-
-                        "</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_126 is-center \" style=\"width: 10%;\">\n" +
-                    "         <div class=\"cell\">" + val.sort + "</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_127 is-center \" style=\"width: 15%;\">\n" +
-                    "         <div class=\"cell\">推荐中</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_128 is-center \" style=\"width: 20%;\">\n" +
-                    "         <div class=\"cell\">\n" +
-                    "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"aSort(" + val.id + "," + val.sort + ")\">\n" +
-                    "                 <span>设置排序</span>\n" +
-                    "             </button>\n" +
-                    "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"bDelete(" + val.id + ")\">\n" +
-                    "                 <span>删除</span>\n" +
-                    "             </button>\n" +
-                    "         </div>\n" +
-                    "     </td>\n" +
-                    " </tr>";
-                    subject.append(tableSubject);
-
-                })
-                var $ulLi = $("#subject_butten");
-                $ulLi.find("li").remove();
-                var now = data.pageNum;
-                var now1 = now - 1;
-                var button = "<li class=\"number \" onclick=\"fSubject(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>" + "</li>";
-                $ulLi.append(button);
-
-                for (var i = 1; i <= data.pages; i++) {
-                    var li = "";
-                    if (i == data.pageNum) {
-                        li = "<li class=\"number active\" onclick=\"fSubject(" + i + "," + pageSize + ")\">" + i + "</li>";
-                    } else {
-                        li = "<li class=\"number \" onclick=\"fSubject(" + i + "," + pageSize + ")\">" + i + "</li>";
-                    }
-                    $ulLi.append(li);
-                }
-                var now2 = now + 1;
-                var button2 = "<li class=\"number \" onclick=\"fSubject(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>" + "</li>";
-                $ulLi.append(button2);
+                dataAll(pageNow,pageSize,data);
             },
             /*发生错误时*/
             error: function (xhr, textStatus) {
@@ -569,10 +490,140 @@
     }
 
 
+    function dataAll(pageNow,pageSize,data){
 
-    function open_switch(obj) {
-        var name = obj.name.isPrototypeOf();
-        alert(name)
+
+        var subject = $("#subject");
+        subject.find("tr").remove();
+        //显示总记录数
+        $("#totalSubject").html(data.total);
+        $("#pageBlur").val(data.pageNum);
+        $("#pageCondition").val(pageSize + "条/页");
+
+        var list = data.list;
+        $(list).each(function (index, val) {
+
+            if(val.show_status==1){
+                var showshowNow = "推荐中";
+                var show_status = 0;
+                var table =  "<div role=\"switch\" class=\"el-switch is-checked\"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
+                    "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
+                    "<input type='hidden' value='"+show_status+"' id='"+index+"'>"+
+                    "     </span>\n" +
+                    "    </div>\n" ;
+            }else {
+                var showshowNow = "等待推荐";
+                var show_status = 1;
+                var table =  "<div role=\"switch\" class=\"el-switch \"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
+                    "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
+                    "<input type='hidden' value='"+show_status+"' id='"+index+"'>"+
+                    "     </span>\n" +
+                    "    </div>\n" ;
+            }
+
+            var tableSubject = "<tr class=\"el-table__row\">\n" +
+                "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
+                "         style=\"width: 6%;\">\n" +
+                "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
+                "         </div>\n" +
+                "     </td>\n" +
+                "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
+                "         <div class=\"cell\">" + val.id + "</div>\n" +
+                "     </td>\n" +
+                "     <td class=\"el-table_16_column_124 is-center \" style=\"width: 38%;\">\n" +
+                "         <div class=\"cell\">" + val.title + "</div>\n" +
+                "     </td>\n" +
+                "     <td class=\"el-table_16_column_125 is-center \" style=\"width: 10%;\">\n" +
+                "         <div class=\"cell\">\n"
+
+                +table+
+
+
+                "</div>\n" +
+                "     </td>\n" +
+                "     <td class=\"el-table_16_column_126 is-center \" style=\"width: 10%;\">\n" +
+                "         <div class=\"cell\">" + val.sort + "</div>\n" +
+                "     </td>\n" +
+                "     <td class=\"el-table_16_column_127 is-center \" style=\"width: 15%;\">\n" +
+                "         <div class=\"cell\" id = 'b"+index+"'>"+showshowNow+"</div>\n" +
+                "     </td>\n" +
+                "     <td class=\"el-table_16_column_128 is-center \" style=\"width: 20%;\">\n" +
+                "         <div class=\"cell\">\n" +
+                "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"aSort(" + val.id + "," + val.sort + ")\">\n" +
+                "                 <span>设置排序</span>\n" +
+                "             </button>\n" +
+                "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"bDelete(" + val.id + ")\">\n" +
+                "                 <span>删除</span>\n" +
+                "             </button>\n" +
+                "         </div>\n" +
+                "     </td>\n" +
+                " </tr>";
+            subject.append(tableSubject);
+
+        })
+        var $ulLi = $("#subject_butten");
+        $ulLi.find("li").remove();
+        var now = data.pageNum;
+        var now1 = now - 1;
+        var button = "<li class=\"number \" onclick=\"fSubject(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>" + "</li>";
+        $ulLi.append(button);
+
+        for (var i = 1; i <= data.pages; i++) {
+            var li = "";
+            if (i == data.pageNum) {
+                li = "<li class=\"number active\" onclick=\"fSubject(" + i + "," + pageSize + ")\">" + i + "</li>";
+            } else {
+                li = "<li class=\"number \" onclick=\"fSubject(" + i + "," + pageSize + ")\">" + i + "</li>";
+            }
+            $ulLi.append(li);
+        }
+        var now2 = now + 1;
+        var button2 = "<li class=\"number \" onclick=\"fSubject(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>" + "</li>";
+        $ulLi.append(button2);
+    }
+
+    //是否推送
+    function open_switch(index,id) {
+        var i= 100;
+       var $1 = $("#"+index);
+        var val = $1.val();
+        var show = 0;
+        var one = 1;
+        var two = 0;
+       if(val==0){
+          $("#a"+index).attr("class","el-switch");
+          show = 0;
+           $1.val(one);
+       }else {
+           $("#a"+index).attr("class","el-switch is-checked");
+           show = 1;
+           $1.val(two);
+       }
+        $.ajax({
+            url: '/selectSubjecShow',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            data: JSON.stringify({
+                "id": id,
+                "show":show
+            }),
+            /*成功*/
+            success: function (data) {
+
+                if(show==1){
+                    $("#b"+index).html("推送中")
+                }else {
+                    $("#b"+index).html("等待推送")
+                }
+
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+                alert("请求错误!!!")
+            }
+        });
+
     }
 
 
@@ -657,7 +708,7 @@
 
         //模态框初始化就显示了
         $("#folioModa2").modal("show");
-        $("#c").val(sort);
+        $("#cSort").val(sort);
         shortId = id;
 
     }
@@ -742,8 +793,9 @@
     }
 
     /*条件查询*/
-    function getSubjectName() {
+    function getSubjectName(pageNow, pageSize)  {
         var val = $("#Subject_name").val();
+        alert(val)
         $.ajax({
             url: '/getSelectSubject?name=' + val,
             type: 'GET', //GET
@@ -751,49 +803,75 @@
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
             success: function (data) {
+                var subject = $("#subject");
+                subject.find("tr").remove();
+                //显示总记录数
+                $("#totalSubject").html(data.total);
+                $("#pageBlur").val(data.pageNum);
+                $("#pageCondition").val(pageSize + "条/页");
 
-                var tableSubject = "<tr class=\"el-table__row\">\n" +
-                    "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
-                    "         style=\"width: 6%;\">\n" +
-                    "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
-                    "         </div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
-                    "         <div class=\"cell\">" + val.id + "</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_124 is-center \" style=\"width: 38%;\">\n" +
-                    "         <div class=\"cell\">" + val.title + "</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_125 is-center \" style=\"width: 10%;\">\n" +
-                    "         <div class=\"cell\">\n" +
-                    "             <div role=\"switch\" aria-checked=\"true\" class=\"el-switch is-checked\" id=\"el_switch\">\n" +
-                    "             <!--<div role=\"switch\"  class=\"el-switch \">-->\n" +
-                    "                 <!--<input type=\"checkbox\"  true-value=\"1\" false-value=\"0\">-->\n" +
-                    "                 <span class=\"el-switch__core\" style=\"width: 40px;\">\n" +
-                    "                 </span>\n" +
-                    "             </div>\n" +
-                    "         </div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_126 is-center \" style=\"width: 10%;\">\n" +
-                    "         <div class=\"cell\">" + val.sort + "</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_127 is-center \" style=\"width: 15%;\">\n" +
-                    "         <div class=\"cell\">推荐中</div>\n" +
-                    "     </td>\n" +
-                    "     <td class=\"el-table_16_column_128 is-center \" style=\"width: 20%;\">\n" +
-                    "         <div class=\"cell\">\n" +
-                    "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"aSort(" + val.id + "," + val.sort + ")\">\n" +
-                    "                 <span>设置排序</span>\n" +
-                    "             </button>\n" +
-                    "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"bDelete(" + val.id + ")\">\n" +
-                    "                 <span>删除</span>\n" +
-                    "             </button>\n" +
-                    "         </div>\n" +
-                    "     </td>\n" +
-                    " </tr>";
-                subject.append(tableSubject);
+                var list = data.list;
+                $(list).each(function (index, val) {
+                    var tableSubject = "<tr class=\"el-table__row\">\n" +
+                        "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
+                        "         style=\"width: 6%;\">\n" +
+                        "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
+                        "         </div>\n" +
+                        "     </td>\n" +
+                        "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
+                        "         <div class=\"cell\">" + val.id + "</div>\n" +
+                        "     </td>\n" +
+                        "     <td class=\"el-table_16_column_124 is-center \" style=\"width: 38%;\">\n" +
+                        "         <div class=\"cell\">" + val.title + "</div>\n" +
+                        "     </td>\n" +
+                        "     <td class=\"el-table_16_column_125 is-center \" style=\"width: 10%;\">\n" +
+                        "         <div class=\"cell\">\n" +
+                        "<div role=\"switch\" class=\"el-switch is-checked\"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
+                        "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
+                        "<input type='hidden' value='"+index+"' id='"+index+"'>"+
+                        "     </span>\n" +
+                        "    </div>\n" +
+                        "</div>\n" +
+                        "     </td>\n" +
+                        "     <td class=\"el-table_16_column_126 is-center \" style=\"width: 10%;\">\n" +
+                        "         <div class=\"cell\">" + val.sort + "</div>\n" +
+                        "     </td>\n" +
+                        "     <td class=\"el-table_16_column_127 is-center \" style=\"width: 15%;\">\n" +
+                        "         <div class=\"cell\" id = '"+index+"'>推荐中</div>\n" +
+                        "     </td>\n" +
+                        "     <td class=\"el-table_16_column_128 is-center \" style=\"width: 20%;\">\n" +
+                        "         <div class=\"cell\">\n" +
+                        "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"aSort(" + val.id + "," + val.sort + ")\">\n" +
+                        "                 <span>设置排序</span>\n" +
+                        "             </button>\n" +
+                        "             <button type=\"button\" class=\"el-button el-button--text el-button--mini\" onclick=\"bDelete(" + val.id + ")\">\n" +
+                        "                 <span>删除</span>\n" +
+                        "             </button>\n" +
+                        "         </div>\n" +
+                        "     </td>\n" +
+                        " </tr>";
+                    subject.append(tableSubject);
 
+                })
+                var $ulLi = $("#subject_butten");
+                $ulLi.find("li").remove();
+                var now = data.pageNum;
+                var now1 = now - 1;
+                var button = "<li class=\"number \" onclick=\"getSubjectName(" + now1 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-left\"></i>" + "</li>";
+                $ulLi.append(button);
 
+                for (var i = 1; i <= data.pages; i++) {
+                    var li = "";
+                    if (i == data.pageNum) {
+                        li = "<li class=\"number active\" onclick=\"getSubjectName(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    } else {
+                        li = "<li class=\"number \" onclick=\"getSubjectName(" + i + "," + pageSize + ")\">" + i + "</li>";
+                    }
+                    $ulLi.append(li);
+                }
+                var now2 = now + 1;
+                var button2 = "<li class=\"number \" onclick=\"getSubjectName(" + now2 + "," + pageSize + ")\">" + "<i class=\"el-icon el-icon-arrow-right\"></i>" + "</li>";
+                $ulLi.append(button2);
             },
             /*发生错误时*/
             error: function (xhr, textStatus) {
@@ -805,8 +883,7 @@
     function addBrands() {
         var checkID = [];
         var i = 0;
-        $("input[name='checkbox']:checked").each(function () {//把所有被选中的复选框的值存入数组
-
+        $("input[name='checkbox']:checked").each(function () {//把所有被选中的复选框的值存入
             checkID[i] = $(this).val();
             // alert( checkID[i] )
             i++;

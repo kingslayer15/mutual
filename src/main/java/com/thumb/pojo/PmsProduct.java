@@ -45,6 +45,7 @@ public class PmsProduct {
      * 货号
      */
     private String productSn;
+    private String product_sn;
 
     /**
      * 删除状态：0->未删除；1->已删除

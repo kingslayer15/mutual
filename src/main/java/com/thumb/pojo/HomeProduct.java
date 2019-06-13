@@ -15,5 +15,5 @@ public class HomeProduct {
     private String product_name;
     private int recommend_status;
     private int sort;
-
+    private int show_status;
 }

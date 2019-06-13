@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0037)http://39.98.190.128/index.html#/home -->
 <html class=" ">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -320,7 +319,7 @@
             <div data-v-69d4f5dd="" class="scroll-wrapper" style="top: 0px;">
                 <ul role="menubar" class="el-menu" show-timeout="200" data-v-69d4f5dd=""
                     style="background-color: rgb(48, 65, 86);">
-                    <div class="menu-wrapper"><!----><!----><a href="http://39.98.190.128/index.html#/home"
+                    <div class="menu-wrapper"><!----><!----><a href="#"
                                                                class="router-link-exact-active router-link-active">
                         <li role="menuitem" tabindex="-1" class="el-menu-item is-active submenu-title-noDropdown"
                             style="padding-left: 20px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
@@ -346,7 +345,7 @@
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
                                     </svg>
                                     <span>商品列表</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/pms/addProduct" class="">
+                            </a><a href="/merchant/addProduct.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
@@ -365,34 +364,27 @@
                             </div>
                             <ul id="b" role="menu" class="el-menu el-menu--inline"
                                 style="background-color: rgb(48, 65, 86); display: none;"><a
-                                    href="http://39.98.190.128/index.html#/oms/order" class="">
+                                    href="/merchant/order.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
                                     </svg>
                                     <span>订单列表</span></li>
-                            </a><!----><!----><a href="http://39.98.190.128/index.html#/oms/orderSetting" class="">
+                            </a><!----><!----><a href="/merchant/orderSetting.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-order-setting"></use>
                                     </svg>
                                     <span>订单设置</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnApply" class="">
+                            </a><a href="/merchant/returnApply.html" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-order-return"></use>
                                     </svg>
                                     <span>退货申请处理</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnReason" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-order-return-reason"></use>
-                                    </svg>
-                                    <span>退货原因设置</span></li>
                             </a><!----></ul>
                         </li>
                         <!----></div>
@@ -551,6 +543,92 @@
                             </div>
                         </div>
                     </div>
+                    <div data-v-13e9f1ae="" class="statistics-layout">
+                        <div data-v-13e9f1ae="" class="layout-title">订单统计</div>
+                        <div data-v-13e9f1ae="" style="height: 460px" class="el-row">
+                            <div data-v-13e9f1ae="" class="el-col el-col-4">
+                                <div data-v-13e9f1ae="" style="padding: 20px;">
+                                    <div data-v-13e9f1ae="">
+                                        <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
+                                            本月订单总数
+                                        </div>
+                                        <div id="thisMonthOrder" data-v-13e9f1ae=""
+                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
+                                        </div>
+                                        <div data-v-13e9f1ae=""><span id="lastMonthOrder" data-v-13e9f1ae="" class="color-success"
+                                                                      style="font-size: 14px;"></span> <span
+                                                data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上月</span>
+                                        </div>
+                                    </div>
+                                    <div data-v-13e9f1ae="" style="margin-top: 20px;">
+                                        <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
+                                            本周订单总数
+                                        </div>
+                                        <div id="thisWeekOrder" data-v-13e9f1ae=""
+                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
+                                        </div>
+                                        <div data-v-13e9f1ae=""><span id="lastWeekOrder" data-v-13e9f1ae="" class="color-danger"
+                                                                      style="font-size: 14px;"></span> <span
+                                                data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上周</span>
+                                        </div>
+                                    </div>
+                                    <div data-v-13e9f1ae="" style="margin-top: 20px;">
+                                        <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
+                                            本月销售总额
+                                        </div>
+                                        <div id="thisMonthAmount" data-v-13e9f1ae=""
+                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
+                                        </div>
+                                        <div data-v-13e9f1ae=""><span id="lastMonthAmount" data-v-13e9f1ae="" class="color-success"
+                                                                      style="font-size: 14px;"></span> <span
+                                                data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上月</span>
+                                        </div>
+                                    </div>
+                                    <div data-v-13e9f1ae="" style="margin-top: 20px;">
+                                        <div data-v-13e9f1ae="" style="color: rgb(144, 147, 153); font-size: 14px;">
+                                            本周销售总额
+                                        </div>
+                                        <div id="thisWeekAmount" data-v-13e9f1ae=""
+                                             style="color: rgb(96, 98, 102); font-size: 24px; padding: 10px 0px;">
+                                        </div>
+                                        <div data-v-13e9f1ae=""><span id="lastWeekAmount" data-v-13e9f1ae="" class="color-danger"
+                                                                      style="font-size: 14px;"></span> <span
+                                                data-v-13e9f1ae="" style="color: rgb(192, 196, 204); font-size: 14px;">同比上周</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-v-13e9f1ae="" class="el-col el-col-20">
+                                <div data-v-13e9f1ae=""
+                                     style="padding: 10px; border-left: 1px solid rgb(220, 223, 230);">
+
+                                    <div data-v-13e9f1ae="">
+                                        <div data-v-13e9f1ae="" class="ve-line"
+                                             style="width: auto; height: 400px; position: relative;">
+                                            <div class="" _echarts_instance_="ec_1559273991873"
+                                                 style="width: auto; height: 400px; position: relative; -webkit-tap-highlight-color: transparent; user-select: none;">
+                                                <div style="position: relative; overflow: hidden; width: 981px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;">
+                                                    <div id="main" width="1962" height="800" style="position: absolute; left: 0px; top: 0px; width: 981px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></div>
+                                                </div>
+                                                <div></div>
+                                            </div>
+                                            <div class="v-charts-data-empty" style="display: none;"> 暂无数据</div>
+                                            <div class="v-charts-component-loading" style="display: none;">
+                                                <div class="loader">
+                                                    <div class="loading-spinner">
+                                                        <svg viewBox="25 25 50 50" class="circular">
+                                                            <circle cx="50" cy="50" r="20" fill="none"
+                                                                    class="path"></circle>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </section>
@@ -565,7 +643,7 @@
 
 
 <script src="../static/back-main-home/main-home-ajax.js"></script>
-
+<script src="../static/back-main-home/main-home-charts.js"></script>
 <script>
     var a = 0;
     var b = 0;

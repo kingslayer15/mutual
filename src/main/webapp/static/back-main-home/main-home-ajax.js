@@ -360,7 +360,6 @@ $(function () {
         contentType: "application/json",
         success: function (data) {
 
-
             if (data != "") {
                 $("#lastWeekAmount").text(data + "%");
             } else {

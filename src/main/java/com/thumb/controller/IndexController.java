@@ -49,7 +49,7 @@ public class IndexController {
     @RequestMapping("BrandIndex")
     public Object BrandIndex() {
 
-        return marketingService.selectBrandAll();
+        return marketingService.selectBrandAllFactory();
     }
     /**
      * 获取正在推荐的专题
@@ -59,7 +59,7 @@ public class IndexController {
     @RequestMapping("SubjectIndex")
     public Object SubjectIndex() {
 
-        return subjectService.selectSubjectAll();
+        return subjectService.selectSubjectAllShow();
     }
     /**
      * 获取正在推荐的新品

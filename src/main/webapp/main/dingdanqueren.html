@@ -195,6 +195,7 @@
     var receiverPhone = "";
     var receiverPostCode = "";
 
+
     $(function () {
         $.ajax({
             url:"/getItem",
@@ -218,7 +219,7 @@
 
                     $("#J_goodsList").append("<li class=\"clearfix\">\n" +
                         "                            <div class=\"col col-img\">\n" +
-                        "                                <img src=\"../static/xiaomi/pms_1550642185.33171962!30x30.jpg\" width=\"30\" height=\"30\">\n" +
+                        "                                <img src='"+ item.productPic+"' width=\"30\" height=\"30\">\n" +
                         "                            </div>\n" +
                         "                            <div class=\"col col-name\">\n" +
                         "\n" +
@@ -327,7 +328,7 @@
                 });
 
                 $("#J_addressList").append("<!-- addresslist end -->\n" +
-                    "                    <div class=\"address-item address-item-new\" id=\"J_newAddress\">\n" +
+                    "                    <div onclick='toAdd()' class=\"address-item address-item-new\" id=\"J_newAddress\">\n" +
                     "                        <i class=\"iconfont\"></i>\n" +
                     "                        添加新地址\n" +
                     "                    </div>");
@@ -394,6 +395,13 @@
 
 
 
+
+
+    function toAdd() {
+
+        window.location.href="/main/address.html";
+
+    }
 
 
 

@@ -54,8 +54,15 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
      */
     @Override
     public int deleteOmsOrderById(int omsOrderId) {
-//        return adminOmsOrderMapper.deleteOmsOrderById(omsOrderId);
-        return 0;
+//        System.out.println("service");
+//        System.out.println(omsOrderId);
+//        int i = 0;
+//        i += adminOmsOrderMapper.deleteOmsOrderById(omsOrderId);
+//        System.out.println(i);
+//        i += adminOmsOrderMapper.deleteOmsOrderItemByOrderId(omsOrderId);
+//        System.out.println(i);
+//        return i;
+        return adminOmsOrderMapper.deleteOmsOrderById(omsOrderId)+adminOmsOrderMapper.deleteOmsOrderItemByOrderId(omsOrderId);
     }
 
     /**
@@ -107,6 +114,7 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
         return adminOmsOrderMapper.showOmsOrderReturnApplyById(id);
     }
 
+
     /**
      * 查询所有退货原因
      * @return
@@ -151,5 +159,10 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     @Override
     public int updateReturnApplyStatusById(UpdateStatus updateStatus) {
         return adminOmsOrderMapper.updateReturnApplyStatusById(updateStatus);
+    }
+
+    @Override
+    public int updateReturnReasonStatus(UpdateStatus updateStatus) {
+        return adminOmsOrderMapper.updateReturnReasonStatus(updateStatus);
     }
 }
