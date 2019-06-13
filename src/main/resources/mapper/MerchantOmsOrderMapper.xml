@@ -193,7 +193,7 @@
             merchant_order mo
         WHERE
             m.id = mo.merchant_id AND o.id = mo.order_id
-            AND m.id = #{id};
+            AND m.id = #{id}
     </select>
 
     <!--商家通过条件查询订单-->

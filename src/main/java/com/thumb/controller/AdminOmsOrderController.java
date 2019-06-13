@@ -171,6 +171,19 @@ public class AdminOmsOrderController {
     }
 
     /**
+     * 根据id删除退货订单
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("deleteOrderReturnApplyById")
+    public Object deleteOrderReturnApplyById(@RequestParam int id) {
+        int i = adminOmsOrderService.deleteOrderReturnApplyById(id);
+        return i;
+    }
+
+
+    /**
      * 查询所有的退货原因
      * @return
      */
