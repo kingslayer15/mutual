@@ -146,9 +146,9 @@
 
     function deletes() {
 
-        //
-        // $.cookie("username", "", {expires: -1});
-        // $.cookie("password", "", {expires: -1});
+
+        $.cookie("username", "", {expires: -1});
+        $.cookie("password", "", {expires: -1});
 
 
         $.ajax({
@@ -158,8 +158,6 @@
             dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
             success:function(data){
-
-
                 if(data){
                     window.location.href="http://localhost:8080/main/login.html";
                 }
