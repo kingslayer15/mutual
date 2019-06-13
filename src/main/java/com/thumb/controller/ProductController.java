@@ -25,11 +25,11 @@ public class ProductController {
      */
     @ResponseBody
     @RequestMapping(value = "listAllProduct",method = RequestMethod.GET)
-    public Object listAllProduct(@RequestParam(defaultValue = "1",required = true,value = "pageNo") Integer pageNo) {
+    public Object listAllProduct(@RequestParam(defaultValue = "1",required = true,value = "pageNo") Integer pageNo, Integer maxShowPage) {
 
 
         //最大显示行数数
-        int maxShow = 8;
+        int maxShow = maxShowPage;
 
         PageInfo<ProductDto> products = productService.listAllProduct(pageNo, maxShow);
 
@@ -73,14 +73,24 @@ public class ProductController {
     @RequestMapping(value = "findByCondition")
     public Object findByCondition(@RequestBody ProductDto productDto){
 
-        System.out.println("Publish_status:"+productDto.getPublish_status());
+        System.err.println("页数：：：：："+productDto.getPageNo());
+        System.err.println("上架状态：：：：："+productDto.getPublish_status());
+        System.err.println("审核状态：：：：：："+productDto.getVerify_status());
+        //最大显示行数数
+//        int maxShow = 8;
+        int maxShow = productDto.getMaxShowPage();
+        int pageNo = productDto.getPageNo()==0?1:productDto.getPageNo();
 
-        System.out.println(productDto);
+        productDto.setPageNo(pageNo);
 
-        List<ProductDto> productDtos = productService.findByCondition(productDto);
+        PageInfo<ProductDto> products = productService.findByCondition(productDto, maxShow);
 
-        System.out.println(productDtos);
-            return productDtos;
+        return products;
+        /*List<ProductDto> productDtos = productService.findByCondition(productDto);
+
+        System.err.println(productDtos);
+            return productDtos;*/
+
         }
 
     /**
@@ -133,9 +143,9 @@ public class ProductController {
     @ResponseBody
     @RequestMapping("addProductMsg")
     public Object addProduct(@RequestBody ProductDto productDto){
-        String album_pics = productDto.getAlbum_pics();
-        if (album_pics.length()>0){
-            productDto.setAlbum_pics("http://localhost:8080/static/upload/"+album_pics);
+        String pic = productDto.getPic();
+        if (pic.length()>0){
+            productDto.setPic("http://localhost:8080/static/upload/"+pic);
         }
         int i = productService.addProduct(productDto);
         return i;
@@ -150,7 +160,7 @@ public class ProductController {
     @ResponseBody
     @RequestMapping("updateProductMsg")
     public Object updateProductMsg(@RequestBody ProductDto productDto){
-        System.out.println(productDto);
+        System.err.println(productDto);
         int i = productService.updateProductMsg(productDto);
         return i;
     }

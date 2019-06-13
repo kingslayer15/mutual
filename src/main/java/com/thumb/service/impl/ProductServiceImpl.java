@@ -37,8 +37,15 @@ public class ProductServiceImpl implements ProductService {
         return productMapper.findAllBrand();
     }
 
-    public List<ProductDto> findByCondition(ProductDto productDto) {
-        return productMapper.findByCondition(productDto);
+    public PageInfo<ProductDto> findByCondition(ProductDto productDto, int maxShow) {
+
+        PageHelper.startPage(productDto.getPageNo(),maxShow);
+
+        List<ProductDto> productDtos = productMapper.findByCondition(productDto);
+
+        PageInfo<ProductDto> productDtoPageInfo = new PageInfo<ProductDto>(productDtos);
+
+        return productDtoPageInfo;
     }
 
 

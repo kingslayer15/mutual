@@ -5,11 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>商品分类</title>
-    <link href="mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
+            src="../static/mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="mall-admin-web_files/32.f7c159f497c05c073d8b.js"></script>
+            src="../static/mall-admin-web_files/32.f7c159f497c05c073d8b.js"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -744,11 +744,13 @@
         </div>
     </div>
 </div>
+
+<input hidden id="maxShowPage" value="5"></input>
 <!--<script type="text/javascript" src="./mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
 
-<script src="/jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script>
 
     //跳转到添加页面
@@ -759,9 +761,123 @@
 
     //跳转到编辑页面
     function jumptoUpdateProductCate(id) {
-        var url = "updateProductCate?id="+id;
+        var url = "updateProductCate.html?id="+id;
         window.location.href= url;
     }
+
+
+    //删除分类信息
+    function removeByid(id) {
+        var r = confirm("您确定要删除?")
+        if (r == true) {
+            $.ajax(
+                {
+                    type: "get",
+                    url: "removeProductCategoryById?id=" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        findAllByPage(currentPage)
+                    },
+                    error: function (data) {
+
+                    }
+                }
+            )
+        } else {
+            return;
+        }
+    }
+
+    //查看下级
+    function findLower(id) {
+        $.ajax(
+            {
+                type: "get",
+                url: "findLowerById?id=" + id,
+                contentType: "application/json",
+                dataType:"json",
+                success:function (data) {
+                    $("#dataTr").empty();
+                    var table = $("#dataTr");
+
+                    $(data).each(function (index, element) {
+                        var trData = "                                  <tr class=\"el-table__row\">\n" +
+                            "                                        <td class=\"el-table_1_column_1 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.id+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_2 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.name+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_3 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+(element.level==0?"一级":"二级")+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_4 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.product_count+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_5 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.product_unit+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_6 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <div data-v-6806acc0=\"\" role=\"switch\" aria-checked=\"true\"\n" +
+                            "                                                     class=\"el-switch is-checked\"><input type=\"checkbox\" name=\"\"\n" +
+                            "                                                                                         true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                                                         class=\"el-switch__input\">\n" +
+                            "                                                    <!----><span class=\"el-switch__core\" style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_7 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <div data-v-6806acc0=\"\" role=\"switch\" aria-checked=\"true\"\n" +
+                            "                                                     class=\"el-switch is-checked\"><input type=\"checkbox\" name=\"\"\n" +
+                            "                                                                                         true-value=\"1\" false-value=\"0\"\n" +
+                            "                                                                                         class=\"el-switch__input\">\n" +
+                            "                                                    <!----><span class=\"el-switch__core\" style=\"width: 40px;\"></span>\n" +
+                            "                                                    <!----></div>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_8 is-center \">\n" +
+                            "                                            <div class=\"cell\">"+element.sort+"</div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_9 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
+                            "                                                        class=\"el-button el-button--default el-button--mini\" onclick='findLower("+element.id+")'><!---->\n" +
+                            "                                                    <!----><span>查看下级\n" +
+                            "          </span></button>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                        <td class=\"el-table_1_column_10 is-center \">\n" +
+                            "                                            <div class=\"cell\">\n" +
+                            "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
+                            "                                                        class=\"el-button el-button--default el-button--mini\" onclick='jumptoUpdateProductCate("+element.id+")'><!---->\n" +
+                            "                                                    <!----><span>编辑\n" +
+                            "          </span></button>\n" +
+                            "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
+                            "                                                        class=\"el-button el-button--danger el-button--mini\" onclick='removeByid("+ element.id +")'><!---->\n" +
+                            "                                                    <!----><span>删除\n" +
+                            "          </span></button>\n" +
+                            "                                            </div>\n" +
+                            "                                        </td>\n" +
+                            "                                    </tr>\n" +
+                            "                                 ";
+
+
+                        //将字符窜拼接到table中
+                        table.append(trData);
+                    })
+
+                },
+                error:function (data) {
+                    console.log(data);
+                }
+            }
+        )
+    }
+
+
 
 
     //分页查询
@@ -769,10 +885,11 @@
     var totalPage;
 
     function findAllByPage(currentPage) {
+        var maxShowPage = $("#maxShowPage").val();
         $.ajax(
             {
                 type: "get",
-                url: "ListParentProductCategory?pageNo=" + currentPage,
+                url: "ListParentProductCategory?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();
@@ -825,23 +942,19 @@
                             "                                        <td class=\"el-table_1_column_9 is-center \">\n" +
                             "                                            <div class=\"cell\">\n" +
                             "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--default el-button--mini\"><!---->\n" +
+                            "                                                        class=\"el-button el-button--default el-button--mini\" onclick='findLower("+element.id+")'><!---->\n" +
                             "                                                    <!----><span>查看下级\n" +
-                            "          </span></button>\n" +
-                            "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--default el-button--mini\"><!---->\n" +
-                            "                                                    <!----><span>转移商品\n" +
                             "          </span></button>\n" +
                             "                                            </div>\n" +
                             "                                        </td>\n" +
                             "                                        <td class=\"el-table_1_column_10 is-center \">\n" +
                             "                                            <div class=\"cell\">\n" +
                             "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--default el-button--mini\" onclick="jumptoUpdateProductCate()"><!---->\n" +
+                            "                                                        class=\"el-button el-button--default el-button--mini\" onclick='jumptoUpdateProductCate("+element.id+")'><!---->\n" +
                             "                                                    <!----><span>编辑\n" +
                             "          </span></button>\n" +
                             "                                                <button data-v-6806acc0=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--danger el-button--mini\"><!---->\n" +
+                            "                                                        class=\"el-button el-button--danger el-button--mini\" onclick='removeByid("+ element.id +")'><!---->\n" +
                             "                                                    <!----><span>删除\n" +
                             "          </span></button>\n" +
                             "                                            </div>\n" +
@@ -881,6 +994,29 @@
                                                 "                                class=\"el-scrollbar__bar is-vertical\"><div class=\"el-scrollbar__thumb\"\n" +
                                                 "                                                                           style=\"transform: translateY(0%);\"></div></div></div>\n" +
                                                 "                            <!----></div>" +*/
+
+                        "<div class=\"el-select-dropdown el-popper\" style=\"display: none; min-width: 110px;\"\n" +
+                        "                                     id=\"splitPage\" >\n" +
+                        "                                    <div class=\"el-scrollbar\">\n" +
+                        "                                        <div class=\"el-select-dropdown__wrap el-scrollbar__wrap\"\n" +
+                        "                                             style=\"margin-bottom: -15px; margin-right: -15px;\">\n" +
+                        "                                            <ul class=\"el-scrollbar__view el-select-dropdown__list\">\n" +
+                        "                                                <li class=\"el-select-dropdown__item selected\" onclick=\"setMaxPage(5,currentPage)\">\n" +
+                        "                                                    <span>5条/页</span>\n" +
+                        "                                                </li>\n" +
+                        "                                                <li class=\"el-select-dropdown__item\" onclick=\"setMaxPage(10,currentPage)\">\n" +
+                        "                                                    <span>10条/页</span>\n" +
+                        "                                                </li>\n" +
+                        "                                                <li class=\"el-select-dropdown__item\" onclick=\"setMaxPage(15,currentPage)\">\n" +
+                        "                                                    <span>15条/页</span>\n" +
+                        "                                                </li>\n" +
+                        "                                            </ul>\n" +
+                        "                                        </div>\n" +
+                        "                                        </div>\n" +
+                        "                                     </div>"+
+
+
+
                         "</div></span>\n" +
                         "                            <button type=\"button\"  class=\"btn-prev\" onclick='subcurrentPage()'><i\n" +
                         "                                    class=\"el-icon el-icon-arrow-left\"></i></button>\n" +
@@ -921,6 +1057,25 @@
     findAllByPage(currentPage);
 
 
+
+    //设置最大显示页数
+    function setMaxPage(i,currentPage){
+        $("#maxShowPage").val(i);
+        // alert("okokokoko"+$("#maxShowPage").val())
+        findAllByPage(currentPage)
+    }
+
+    //显示最大显示行数
+    function showSplitPage(item) {
+        // alert($("#splitPage"))
+        // alert(document.getElementById(item))
+        if (document.getElementById(item).style.display == "none") {
+            document.getElementById(item).style.display = "block"
+        } else {
+            document.getElementById(item).style.display = "none"
+        }
+    }
+
     //前进一页
     function addcurrentPage() {
         currentPage = currentPage + 1 > totalPage ? totalPage : currentPage + 1;
@@ -944,6 +1099,13 @@
         var jpage = $("#inputValNum").val();
         alert(jpage)
         findAllByPage(jpage)
+    }
+
+    function document.onkeydown(){                //网页内按下回车触发
+        if(event.keyCode==13) {
+            document.getElementById("Button").click();
+            return false;
+        }
     }
 
 

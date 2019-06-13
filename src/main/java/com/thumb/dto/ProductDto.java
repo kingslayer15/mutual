@@ -93,6 +93,11 @@ public class ProductDto {
     // 3->使用阶梯价格；4->使用满减价格；5->限时购
     private int promotion_type;
 
+    //当前页数
+    private int pageNo;
+
+    //最大显示页数
+    private int maxShowPage;
 
 
 

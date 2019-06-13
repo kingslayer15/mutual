@@ -22,10 +22,10 @@ public class ProductCategoryController {
      */
     @ResponseBody
     @RequestMapping(value = "ListParentProductCategory",method = RequestMethod.GET)
-    public Object findAllProductCategory(@RequestParam(defaultValue = "1",required = true,value = "pageNo") Integer pageNo){
+    public Object findAllProductCategory(@RequestParam(defaultValue = "1",required = true,value = "pageNo") Integer pageNo, Integer maxShowPage){
 
         //最大显示行数数
-        int maxShow = 5;
+        int maxShow = maxShowPage;
 
         PageInfo<ProductCategoryDto> productCategoryDtos = productCategoryService.ListParentProductCategory(pageNo,maxShow);
 
@@ -53,5 +53,54 @@ public class ProductCategoryController {
     public Object insertProductCategory(@RequestBody ProductCategoryDto productCategoryDto){
         int i = productCategoryService.insertProductCategory(productCategoryDto);
         return i;
+    }
+
+    /**
+     * 根据id查找分类信息
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("lookProductCategoryById")
+    public Object lookProductCategoryById(@RequestParam int id){
+        ProductCategoryDto productCategoryDto = productCategoryService.lookProductCategoryById(id);
+        return productCategoryDto;
+    }
+
+    /**
+     * 根据id修改分类信息
+     * @param productCategoryDto
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("modifyProductCategoryById")
+    public Object modifyProductCategoryById(@RequestBody ProductCategoryDto productCategoryDto){
+        int i = productCategoryService.modifyProductCategoryById(productCategoryDto);
+        return i;
+    }
+
+    /**
+     * 根据id删除分类信息
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("removeProductCategoryById")
+    public Object removeProductCategoryById(@RequestParam int id){
+        int i = productCategoryService.removeProductCategoryById(id);
+        return i;
+    }
+
+
+    /**
+     * 查看下级
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("findLowerById")
+    public Object findLowerById(@RequestParam int id){
+        List<ProductCategoryDto> productCategoryDtos = productCategoryService.findLowerById(id);
+        return productCategoryDtos;
     }
 }
