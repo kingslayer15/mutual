@@ -62,4 +62,7 @@ public interface MarketingService {
 
 
     List<PmsProduct> getSubject(int id);
+
+    List<Brand> selectBrandAllFactory();
+
 }

@@ -1,7 +1,7 @@
 package com.thumb.entity.dto;
 
 
-import lombok.Data;
+        import lombok.Data;
 
 /**
  * 修改状态类

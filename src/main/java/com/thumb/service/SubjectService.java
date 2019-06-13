@@ -52,4 +52,11 @@ public interface SubjectService {
      */
     List<CmsSubject> selectSubjectsAll();
 
+    int selectSubjecShow(PageName pageName);
+
+    List<CmsSubject> selectSubjectAllShow();
+
+    int selectBandsShow(PageName pageName);
+
+    int selectNewShow(PageName pageName);
 }

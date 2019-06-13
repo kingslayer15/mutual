@@ -7,6 +7,11 @@
         select * from pms_brand where show_status=1 order by  sort desc
     </select>
 
+    <!--获取正在推荐的品牌-->
+    <select id="selectBrandAllFactory" resultType="com.thumb.pojo.Brand">
+        select * from pms_brand where show_status=1 and factory_status = 1 order by  sort desc
+    </select>
+
     <!--修改品牌推荐排序值-->
     <update id="updateBySort" parameterType="com.thumb.pojo.Brand">
         UPDATE pms_brand SET `sort` = #{sort} WHERE `id` = #{id};

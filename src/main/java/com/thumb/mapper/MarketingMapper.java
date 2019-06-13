@@ -60,4 +60,7 @@ public interface MarketingMapper {
     List<PmsProduct> getBrands(int id);
 
     List<PmsProduct> getSubject(int id);
+
+    List<Brand> selectBrandAllFactory();
+
 }

@@ -94,4 +94,9 @@ public class MarketingServiceImpl implements MarketingService {
     public List<PmsProduct> getSubject(int id) {
         return marketingMapper.getSubject(id);
     }
+
+    @Override
+    public List<Brand> selectBrandAllFactory() {
+        return marketingMapper. selectBrandAllFactory();
+    }
 }
