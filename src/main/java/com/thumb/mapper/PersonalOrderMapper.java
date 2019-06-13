@@ -1,9 +1,6 @@
 package com.thumb.mapper;
 
-import com.thumb.dto.ClientOrderDto;
-import com.thumb.dto.ClientRefundDto;
-import com.thumb.dto.Client_order_itemDto;
-import com.thumb.dto.RefundReasonsDto;
+import com.thumb.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -20,4 +17,6 @@ public interface PersonalOrderMapper {
     ClientRefundDto getReturnInfo(int itemId);
 
     int addReturnAapply(ClientRefundDto returnInfo);
+
+    int addRate(RateDto rateDto);
 }

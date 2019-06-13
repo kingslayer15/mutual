@@ -114,5 +114,27 @@
         #{product_real_price}
         )
     </insert>
+
+    <insert id="addRate" parameterType="com.thumb.dto.RateDto">
+        insert into pms_comment (
+        product_id,
+        member_nick_name,
+        product_name,
+        star,
+        create_time,
+        product_attribute,
+        content,
+        pics
+        ) values (
+        #{product_id},
+        #{member_nick_name},
+        #{product_name},
+        #{star},
+        NOW(),
+        #{product_attribute},
+        #{content},
+        #{pics}
+        )
+    </insert>
 </mapper>
 
