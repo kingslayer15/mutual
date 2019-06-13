@@ -205,7 +205,6 @@
                         status = "无效订单"
                     }
 
-                    if (item.status == "3") {
                         var html = "<div class=\"s-bar\" data-spm-anchor-id=\"a1z02.1.1998049142.i0.66bc782dbSIL5O\">" +
                             "                    <i id=\"orderTime\">创建时间：" + item.create_time + "</i><i id=\"orderNumber\" style=\"padding-left: 50px\">" +
                             " 订单编号：" + item.order_sn + "</i>" +
@@ -268,11 +267,11 @@
 
                         orderList.append(html)
 
-                    }
+
                 })
             },
             error:function(data){
-                console.error(data);
+                console.log(data);
             }
         })
     }

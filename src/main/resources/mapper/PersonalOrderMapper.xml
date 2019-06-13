@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.thumb.mapper.PersonalOrderMapper">
     <select id="orderByUid" parameterType="int" resultMap="order">
-      SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`create_time`,o.`pay_amount`,o.`pay_type`,
-      i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+      SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`create_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`,
+      i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
       FROM oms_order o
       LEFT JOIN oms_order_item i
       ON o.`id`=i.`order_id`
@@ -14,8 +14,8 @@
     </select>
 
     <select id="orderByUid0" parameterType="int" resultMap="order">
-        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,
-        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
         FROM oms_order o
         LEFT JOIN oms_order_item i
         ON o.`id`=i.`order_id`
@@ -25,8 +25,8 @@
     </select>
 
     <select id="orderByUid1" parameterType="int" resultMap="order">
-        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,
-        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
         FROM oms_order o
         LEFT JOIN oms_order_item i
         ON o.`id`=i.`order_id`
@@ -36,8 +36,8 @@
     </select>
 
     <select id="orderByUid2" parameterType="int" resultMap="order">
-        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,
-        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
         FROM oms_order o
         LEFT JOIN oms_order_item i
         ON o.`id`=i.`order_id`
@@ -47,8 +47,8 @@
     </select>
 
     <select id="orderByUid3" parameterType="int" resultMap="order">
-        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,
-        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`
+        SELECT o.`id` order_id,o.`member_id`,o.`order_sn`,o.`status`,o.`payment_time`,o.`pay_amount`,o.`pay_type`,o.`create_time`,
+        i.`id`,i.`product_pic`,i.`product_name`,i.`product_attr`,i.`real_amount`,i.`product_quantity`,i.`product_id`
         FROM oms_order o
         LEFT JOIN oms_order_item i
         ON o.`id`=i.`order_id`

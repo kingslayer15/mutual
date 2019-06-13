@@ -61,6 +61,7 @@ public class PersonalOrderController {
     @RequestMapping("orderByUid3")
     public Object orderByUid3(HttpServletRequest httpServletRequest){
         int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+        System.out.println(uId);
         List<ClientOrderDto> clientOrderDtos = personalOrderService.orderByUid3(uId);
         System.out.println(clientOrderDtos);
         return clientOrderDtos;
