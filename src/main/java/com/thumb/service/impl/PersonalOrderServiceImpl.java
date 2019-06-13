@@ -1,9 +1,6 @@
 package com.thumb.service.impl;
 
-import com.thumb.dto.ClientOrderDto;
-import com.thumb.dto.ClientRefundDto;
-import com.thumb.dto.Client_order_itemDto;
-import com.thumb.dto.RefundReasonsDto;
+import com.thumb.dto.*;
 import com.thumb.mapper.PersonalOrderMapper;
 import com.thumb.service.PersonalOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +52,30 @@ public class PersonalOrderServiceImpl implements PersonalOrderService {
     @Override
     public List<RefundReasonsDto> getreasons() {
         return personalOrderMapper.getreasons();
+    }
+
+    @Override
+    public int addRate(RateDto rateDto) {
+        return personalOrderMapper.addRate(rateDto);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid0(int uId) {
+        return personalOrderMapper.orderByUid0(uId);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid1(int uId) {
+        return personalOrderMapper.orderByUid1(uId);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid2(int uId) {
+        return personalOrderMapper.orderByUid2(uId);
+    }
+
+    @Override
+    public List<ClientOrderDto> orderByUid3(int uId) {
+        return personalOrderMapper.orderByUid3(uId);
     }
 }

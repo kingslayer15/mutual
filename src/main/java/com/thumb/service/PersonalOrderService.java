@@ -1,9 +1,6 @@
 package com.thumb.service;
 
-import com.thumb.dto.ClientOrderDto;
-import com.thumb.dto.ClientRefundDto;
-import com.thumb.dto.Client_order_itemDto;
-import com.thumb.dto.RefundReasonsDto;
+import com.thumb.dto.*;
 
 import java.util.List;
 
@@ -17,5 +14,13 @@ public interface PersonalOrderService {
     boolean addRefundAppply(ClientRefundDto clientRefundDto);
 
     List<RefundReasonsDto> getreasons();
+
+    int addRate(RateDto rateDto);
+
+    List<ClientOrderDto> orderByUid0(int uId);
+
+    List<ClientOrderDto> orderByUid1(int uId);
+    List<ClientOrderDto> orderByUid2(int uId);
+    List<ClientOrderDto> orderByUid3(int uId);
 
 }

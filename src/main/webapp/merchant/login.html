@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>mall-admin-web</title>
+    <title>商家登录</title>
     <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8" async=""
             src="../static/mall-admin-web_files/19.3f11436646691d2c3a11.js"></script>
@@ -311,7 +311,7 @@
               p-id="7987"></path>
     </symbol>
 </svg>
-<!--<script src="../static/mall-admin-web_files/tinymce.min.js"></script>-->
+
 <div id="app">
     <div data-v-1ab27f02="">
         <div data-v-1ab27f02="" class="el-card login-form-layout is-always-shadow"><!---->
@@ -323,7 +323,7 @@
                             <use data-v-81d70f2a="" xlink:href="#icon-login-mall"></use>
                         </svg>
                     </div>
-                    <h2 data-v-1ab27f02="" class="login-title color-main">mall-admin-web</h2>
+                    <h2 data-v-1ab27f02="" class="login-title color-main">mutual-shop</h2>
                     <div data-v-1ab27f02="" class="el-form-item is-success is-required"><!---->
                         <div class="el-form-item__content">
                             <div data-v-1ab27f02="" class="el-input el-input--prefix"><!----><input type="text"
@@ -335,27 +335,38 @@
                                                                                            data-v-1ab27f02=""
                                                                                            aria-hidden="true"
                                                                                            class="color-main svg-icon"><use
-                                    data-v-81d70f2a="" xlink:href="#icon-user"></use></svg></span><!----></span><!---->
-                                <!----></div><!----></div>
+                                    data-v-81d70f2a="" xlink:href="#icon-user"></use></svg></span></span>
+                                </div>
+                        </div>
                     </div>
-                    <div data-v-1ab27f02="" class="el-form-item is-required"><!---->
+                    <div data-v-1ab27f02="" class="el-form-item is-required">
                         <div class="el-form-item__content">
-                            <div data-v-1ab27f02="" class="el-input el-input--prefix el-input--suffix"><!----><input
-                                    type="password" autocomplete="on" name="password" placeholder="请输入密码"
-                                    class="el-input__inner"><span class="el-input__prefix"><span data-v-1ab27f02=""><svg
-                                    data-v-81d70f2a="" data-v-1ab27f02="" aria-hidden="true"
-                                    class="color-main svg-icon"><use data-v-81d70f2a=""
-                                                                     xlink:href="#icon-password"></use></svg></span>
-                                <!----></span><span class="el-input__suffix"><span class="el-input__suffix-inner"><span
-                                    data-v-1ab27f02=""><svg data-v-81d70f2a="" data-v-1ab27f02="" aria-hidden="true"
-                                                            class="color-main svg-icon"><use data-v-81d70f2a=""
-                                                                                             xlink:href="#icon-eye"></use></svg></span>
-                                <!----></span><!----></span><!----></div><!----></div>
+                            <div data-v-1ab27f02="" class="el-input el-input--prefix el-input--suffix">
+                                <input type="password" autocomplete="on" name="password" placeholder="请输入密码"  class="el-input__inner">
+                                <span class="el-input__prefix"><span data-v-1ab27f02="">
+                                    <svg  data-v-81d70f2a="" data-v-1ab27f02="" aria-hidden="true" class="color-main svg-icon"><use data-v-81d70f2a=""
+                                    \ xlink:href="#icon-password">
+                                    </use>
+                                    </svg>
+                                </span>
+                                </span>
+                                <span class="el-input__suffix">
+                                    <span class="el-input__suffix-inner">
+                                        <span data-v-1ab27f02="">
+                                            <svg data-v-81d70f2a="" data-v-1ab27f02="" aria-hidden="true" class="color-main svg-icon">
+                                                <use data-v-81d70f2a="" xlink:href="#icon-eye">
+                                                </use>
+                                            </svg>
+                                        </span>
+                                </span>
+                            </span>
+                            </div>
+                        </div>
                     </div>
-                    <div data-v-1ab27f02="" class="el-form-item" style="margin-bottom: 60px;"><!---->
+                    <div data-v-1ab27f02="" class="el-form-item" style="margin-bottom: 60px;">
                         <div class="el-form-item__content">
                             <button onclick="ll()" data-v-1ab27f02="" type="button" class="el-button el-button--primary"
-                                    style="width: 100%;"><!----><!----><span>
+                                    style="width: 100%;"><span>
           登录
         </span></button><!----></div>
                     </div>
@@ -364,10 +375,6 @@
         </div>
     </div>
 </div>
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
-
 
 <script>
     function ll() {
@@ -376,7 +383,7 @@
             type: "GET",
             contentType: "application/json",
             success: function (data) {
-                    window.location.href = "/admin/home"
+                    window.location.href = "http://localhost:8080/merchant/home.html"
             }
         });
     }
