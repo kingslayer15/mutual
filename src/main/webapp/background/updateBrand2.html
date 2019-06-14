@@ -126,13 +126,13 @@
                                     <div>
                                         <div>
                                             <div id="dropz" class="dropzone"></div>
-                                            <div tabindex="0" class="el-upload el-upload--picture">
+                                            <!--<div tabindex="0" class="el-upload el-upload&#45;&#45;picture">
                                                 <button type="button"
-                                                        class="el-button el-button--primary el-button--small"
+                                                        class="el-button el-button&#45;&#45;primary el-button&#45;&#45;small"
                                                         onclick="driverUpload()">
                                                     <span>点击上传</span></button>
                                                 <input type="file" name="file" id="upload">
-                                            </div>
+                                            </div>-->
                                             <input hidden id="picPath" value=""></input>
                                             <div class="el-upload__tip">只能上传jpg/png文件，且不超过10MB</div>
                                             <ul class="el-upload-list el-upload-list--picture">
@@ -159,18 +159,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="el-form-item"><label class="el-form-item__label"
+                            <!--<div class="el-form-item">
+                                <label class="el-form-item__label"
                                                              style="width: 150px;">品牌专区大图：</label>
                                 <div class="el-form-item__content" style="margin-left: 150px;">
                                     <div>
                                         <div>
-                                            <div tabindex="0" class="el-upload el-upload--picture">
+                                            <div tabindex="0" class="el-upload el-upload&#45;&#45;picture">
                                                 <button type="button"
-                                                        class="el-button el-button--primary el-button--small">
+                                                        class="el-button el-button&#45;&#45;primary el-button&#45;&#45;small">
                                                     <span>点击上传</span></button>
                                                 <input type="file" name="file" class="el-upload__input"></div>
                                             <div class="el-upload__tip">只能上传jpg/png文件，且不超过10MB</div>
-                                            <ul class="el-upload-list el-upload-list--picture">
+                                            <ul class="el-upload-list el-upload-list&#45;&#45;picture">
                                                 <li tabindex="0" class="el-upload-list__item is-success"><img
                                                         src="" alt="" id="brandBigPic"
                                                         class="el-upload-list__item-thumbnail"><a
@@ -193,7 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="el-form-item"><label class="el-form-item__label"
                                                              style="width: 150px;">品牌故事：</label>
                                 <div class="el-form-item__content" style="margin-left: 150px;">
@@ -479,6 +480,8 @@
                 }),
                 success: function (data) {
                     console.log(data);
+                    alert("修改成功");
+                    window.location.href = "brand.html";
                 },
                 error: function (data) {
                     console.log(data);

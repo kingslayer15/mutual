@@ -291,21 +291,21 @@
                             </div>
                         </div>
                     </div>
-                    <div data-v-4ce87767="" class="batch-operate-container">
-                        <div data-v-4ce87767="" class="el-select el-select--small"><!---->
-                            <div class="el-input el-input--small el-input--suffix"><!----><input type="text"
+                    <!--<div data-v-4ce87767="" class="batch-operate-container">
+                        <div data-v-4ce87767="" class="el-select el-select&#45;&#45;small">&lt;!&ndash;&ndash;&gt;
+                            <div class="el-input el-input&#45;&#45;small el-input&#45;&#45;suffix">&lt;!&ndash;&ndash;&gt;<input type="text"
                                                                                                  autocomplete="off"
                                                                                                  placeholder="批量操作"
                                                                                                  readonly="readonly"
                                                                                                  class="el-input__inner">
-                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
-                                    <!----></span><!----></div>
+                                &lt;!&ndash;&ndash;&gt;<span class="el-input__suffix"><span class="el-input__suffix-inner"><i
+                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>&lt;!&ndash;&ndash;&gt;</span>
+                                    &lt;!&ndash;&ndash;&gt;</span>&lt;!&ndash;&ndash;&gt;</div>
                             <div class="el-select-dropdown el-popper" style="display: none; min-width: 203px;">
                                 <div class="el-scrollbar" style="">
                                     <div class="el-select-dropdown__wrap el-scrollbar__wrap"
                                          style="margin-bottom: -17px; margin-right: -17px;">
-                                        <ul class="el-scrollbar__view el-select-dropdown__list"><!---->
+                                        <ul class="el-scrollbar__view el-select-dropdown__list">&lt;!&ndash;&ndash;&gt;
                                             <li data-v-4ce87767="" class="el-select-dropdown__item"><span>显示品牌</span>
                                             </li>
                                             <li data-v-4ce87767="" class="el-select-dropdown__item"><span>隐藏品牌</span>
@@ -318,14 +318,14 @@
                                     <div class="el-scrollbar__bar is-vertical">
                                         <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
                                     </div>
-                                </div><!----></div>
+                                </div>&lt;!&ndash;&ndash;&gt;</div>
                         </div>
                         <button data-v-4ce87767="" type="button"
-                                class="el-button search-button el-button--primary el-button--small"
-                                style="margin-left: 20px;"><!----><!----><span>
+                                class="el-button search-button el-button&#45;&#45;primary el-button&#45;&#45;small"
+                                style="margin-left: 20px;">&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;<span>
       确定
     </span></button>
-                    </div>
+                    </div>-->
                     <div data-v-4ce87767="" class="pagination-container" id="pagination">
                         <div data-v-4ce87767="" class="el-pagination is-background"><span class="el-pagination__total">共 11 条</span><span
                                 class="el-pagination__sizes"><div class="el-select"><!----><div
@@ -657,7 +657,10 @@
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {
-                        window.location.reload();
+                        // window.location.reload();
+
+                        appendBrandItem();
+
                     },
                     error: function (data) {
 
@@ -686,80 +689,7 @@
                 ),
                 success:function (data) {
                     console.log(data)
-                    $("#dataTr").empty();
-                    var table = $("#dataTr");
-
-                    $(data).each(function (index, element) {
-                        var trHTML = "<tr class=\"el-table__row\">\n" +
-                            "                                        <td class=\"el-table_1_column_1 is-center el-table-column--selection\">\n" +
-                            "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\"><span\n" +
-                            "                                                    aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
-                            "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
-                            "                                                                                             aria-hidden=\"true\"\n" +
-                            "                                                                                             class=\"el-checkbox__original\"\n" +
-                            "                                                                                             value=\"\"></span><!---->\n" +
-                            "                                            </label></div>\n" +
-                            "                                        </td>\n" +
-                            "                                        <td class=\"el-table_1_column_2 is-center \">\n" +
-                            "                                            <div class=\"cell\">"+element.id+"</div>\n" +
-                            "                                        </td>\n" +
-                            "                                        <td class=\"el-table_1_column_3 is-center \">\n" +
-                            "                                            <div class=\"cell\">"+element.name+"</div>\n" +
-                            "                                        </td>\n" +
-                            "                                        <td class=\"el-table_1_column_4 is-center \">\n" +
-                            "                                            <div class=\"cell\">"+element.first_letter+"</div>\n" +
-                            "                                        </td>\n" +
-                            "                                        <td class=\"el-table_1_column_5 is-center \">\n" +
-                            "                                            <div class=\"cell\">500</div>\n" +
-                            "                                        </td>\n" +
-                            "                                        <td class=\"el-table_1_column_6 is-center \">\n" +
-                            "                                            <div class=\"cell\">\n" +
-                            "                                                <div data-v-4ce87767=\"\" role=\"switch\" aria-checked=\"true\"\n" +
-                            "                                                     class=\"el-switch is-checked\"><input type=\"checkbox\" name=\"\"\n" +
-                            "                                                                                         true-value=\"1\" false-value=\"0\"\n" +
-                            "                                                                                         class=\"el-switch__input\">\n" +
-                            "                                                    <!----><span class=\"el-switch__core\" style=\"width: 40px;\"></span>\n" +
-                            "                                                    <!----></div>\n" +
-                            "                                            </div>\n" +
-                            "                                        </td>\n" +
-                            "                                        <td class=\"el-table_1_column_7 is-center \">\n" +
-                            "                                            <div class=\"cell\">\n" +
-                            "                                                <div data-v-4ce87767=\"\" role=\"switch\" aria-checked=\"true\"\n" +
-                            "                                                     class=\"el-switch is-checked\"><input type=\"checkbox\" name=\"\"\n" +
-                            "                                                                                         true-value=\"1\" false-value=\"0\"\n" +
-                            "                                                                                         class=\"el-switch__input\">\n" +
-                            "                                                    <!----><span class=\"el-switch__core\" style=\"width: 40px;\"></span>\n" +
-                            "                                                    <!----></div>\n" +
-                            "                                            </div>\n" +
-                            "                                        </td>\n" +
-                            "                                        <td class=\"el-table_1_column_8 is-center \">\n" +
-                            "                                            <div class=\"cell\"><span data-v-4ce87767=\"\">商品：</span>\n" +
-                            "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--text el-button--mini\"><!----><!----><span>"+element.product_count +
-                            "          </span></button>\n" +
-                            "                                                <span data-v-4ce87767=\"\">评价：</span>\n" +
-                            "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--text el-button--mini\"><!----><!----><span>" +element.product_comment_count+
-                            "          </span></button>\n" +
-                            "                                            </div>\n" +
-                            "                                        </td>\n" +
-                            "                                        <td class=\"el-table_1_column_9 is-center \">\n" +
-                            "                                            <div class=\"cell\">\n" +
-                            "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--default el-button--mini\"><!---->\n" +
-                            "                                                    <!----><span>编辑\n" +
-                            "          </span></button>\n" +
-                            "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
-                            "                                                        class=\"el-button el-button--danger el-button--mini\"><!---->\n" +
-                            "                                                    <!----><span>删除\n" +
-                            "          </span></button>\n" +
-                            "                                            </div>\n" +
-                            "                                        </td>\n" +
-                            "                                    </tr>";
-
-                        table.append(trHTML)
-
-                    })
+                    appendBrandItem();
 
                 },
                 error:function (data) {
@@ -768,6 +698,86 @@
             }
         )
     }
+
+
+    function appendBrandItem() {
+        $("#dataTr").empty();
+        var table = $("#dataTr");
+
+        $(data).each(function (index, element) {
+            var trHTML = "<tr class=\"el-table__row\">\n" +
+                "                                        <td class=\"el-table_1_column_1 is-center el-table-column--selection\">\n" +
+                "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\"><span\n" +
+                "                                                    aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
+                "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
+                "                                                                                             aria-hidden=\"true\"\n" +
+                "                                                                                             class=\"el-checkbox__original\"\n" +
+                "                                                                                             value=\"\"></span><!---->\n" +
+                "                                            </label></div>\n" +
+                "                                        </td>\n" +
+                "                                        <td class=\"el-table_1_column_2 is-center \">\n" +
+                "                                            <div class=\"cell\">"+element.id+"</div>\n" +
+                "                                        </td>\n" +
+                "                                        <td class=\"el-table_1_column_3 is-center \">\n" +
+                "                                            <div class=\"cell\">"+element.name+"</div>\n" +
+                "                                        </td>\n" +
+                "                                        <td class=\"el-table_1_column_4 is-center \">\n" +
+                "                                            <div class=\"cell\">"+element.first_letter+"</div>\n" +
+                "                                        </td>\n" +
+                "                                        <td class=\"el-table_1_column_5 is-center \">\n" +
+                "                                            <div class=\"cell\">500</div>\n" +
+                "                                        </td>\n" +
+                "                                        <td class=\"el-table_1_column_6 is-center \">\n" +
+                "                                            <div class=\"cell\">\n" +
+                "                                                <div data-v-4ce87767=\"\" role=\"switch\" aria-checked=\"true\"\n" +
+                "                                                     class=\"el-switch is-checked\"><input type=\"checkbox\" name=\"\"\n" +
+                "                                                                                         true-value=\"1\" false-value=\"0\"\n" +
+                "                                                                                         class=\"el-switch__input\">\n" +
+                "                                                    <!----><span class=\"el-switch__core\" style=\"width: 40px;\"></span>\n" +
+                "                                                    <!----></div>\n" +
+                "                                            </div>\n" +
+                "                                        </td>\n" +
+                "                                        <td class=\"el-table_1_column_7 is-center \">\n" +
+                "                                            <div class=\"cell\">\n" +
+                "                                                <div data-v-4ce87767=\"\" role=\"switch\" aria-checked=\"true\"\n" +
+                "                                                     class=\"el-switch is-checked\"><input type=\"checkbox\" name=\"\"\n" +
+                "                                                                                         true-value=\"1\" false-value=\"0\"\n" +
+                "                                                                                         class=\"el-switch__input\">\n" +
+                "                                                    <!----><span class=\"el-switch__core\" style=\"width: 40px;\"></span>\n" +
+                "                                                    <!----></div>\n" +
+                "                                            </div>\n" +
+                "                                        </td>\n" +
+                "                                        <td class=\"el-table_1_column_8 is-center \">\n" +
+                "                                            <div class=\"cell\"><span data-v-4ce87767=\"\">商品：</span>\n" +
+                "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
+                "                                                        class=\"el-button el-button--text el-button--mini\"><!----><!----><span>"+element.product_count +
+                "          </span></button>\n" +
+                "                                                <span data-v-4ce87767=\"\">评价：</span>\n" +
+                "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
+                "                                                        class=\"el-button el-button--text el-button--mini\"><!----><!----><span>" +element.product_comment_count+
+                "          </span></button>\n" +
+                "                                            </div>\n" +
+                "                                        </td>\n" +
+                "                                        <td class=\"el-table_1_column_9 is-center \">\n" +
+                "                                            <div class=\"cell\">\n" +
+                "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
+                "                                                        class=\"el-button el-button--default el-button--mini\"><!---->\n" +
+                "                                                    <!----><span>编辑\n" +
+                "          </span></button>\n" +
+                "                                                <button data-v-4ce87767=\"\" type=\"button\"\n" +
+                "                                                        class=\"el-button el-button--danger el-button--mini\"><!---->\n" +
+                "                                                    <!----><span>删除\n" +
+                "          </span></button>\n" +
+                "                                            </div>\n" +
+                "                                        </td>\n" +
+                "                                    </tr>";
+
+            table.append(trHTML)
+
+        });
+    }
+
+
 
     function check() {
 
