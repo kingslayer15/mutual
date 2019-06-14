@@ -43,4 +43,9 @@ public class IndexServiceImpl implements IndexService {
     public List<HomeAdvertise> getAdvertise() {
         return indexMapper.getAdvertise();
     }
+
+    @Override
+    public List<PmsProduct> getCategory(String name) {
+        return indexMapper.getCategory(name);
+    }
 }

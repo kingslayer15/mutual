@@ -141,9 +141,24 @@ public class IndexController {
         PageHelper.startPage(pageName.getPageNow(), pageName.getPageSize());
 
         List<PmsProduct> name = indexService.getName(pageName.getName());
-        System.out.println(name);
+
 
         return new PageInfo(name);
+
+    }
+    /**
+     * 条件搜索
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("getCategory")
+    public Object getCategory(@RequestBody PageName pageName) {
+
+        PageHelper.startPage(pageName.getPageNow(), pageName.getPageSize());
+
+        List<PmsProduct> name2 = indexService.getCategory(pageName.getName());
+
+        return new PageInfo(name2);
 
     }
     /**

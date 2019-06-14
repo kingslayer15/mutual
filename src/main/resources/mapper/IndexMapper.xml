@@ -38,5 +38,8 @@
         select * from sms_home_advertise
     </select>
 
+    <select id="getCategory" parameterType="String" resultType="com.thumb.pojo.PmsProduct">
+        select * from pms_product where product_category_id = (select id from pms_product_category where pms_product_category.name = #{name})
+    </select>
 
 </mapper>

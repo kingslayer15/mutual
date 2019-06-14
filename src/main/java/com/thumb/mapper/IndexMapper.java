@@ -20,4 +20,5 @@ public interface IndexMapper {
 
     List<HomeAdvertise> getAdvertise();
 
+    List<PmsProduct> getCategory(String name);
 }

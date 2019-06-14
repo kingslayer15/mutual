@@ -20,4 +20,5 @@ public interface IndexService {
 
     List<HomeAdvertise> getAdvertise();
 
+    List<PmsProduct> getCategory(String name);
 }

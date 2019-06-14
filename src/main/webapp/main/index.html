@@ -100,6 +100,8 @@
 
 
     $(function () {
+
+        //品牌
         var $brand = $("#brand");
         $brand.find("div").remove();
         var $brand2 = $("#brand2");
@@ -130,6 +132,8 @@
             }
         });
     })
+
+    //专题
     $(function () {
         var subject = $("#subject");
         subject.find("div").remove();
@@ -164,7 +168,6 @@
 
     })
     $(function () {
-
         //获取新品推荐selectHomeNew
         $.ajax({
             url: '/selectHomeNew',
@@ -249,7 +252,7 @@
                                     "                 <div class=\"clear\"></div>\n" +
                                     "             </a>\n" +
                                     "         </div>\n" +
-                                    "         <div class=\"xuangou_right fr\"><a href=\"liebiao3.html?name=" + vaurl.name + "\" target=\"_blank\">选购</a></div>\n" +
+                                    "         <div class=\"xuangou_right fr\"><a href=\"liebiao3.html?name&" + vaurl.name + "\" target=\"_blank\">选购</a></div>\n" +
                                     "         <div class=\"clear\"></div>\n" +
                                     "     </div>";
                             }
