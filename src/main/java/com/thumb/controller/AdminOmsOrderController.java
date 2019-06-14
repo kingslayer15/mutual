@@ -81,6 +81,20 @@ public class AdminOmsOrderController {
     }
 
     /**
+     * 发货操作：更新订单状态，写入物流快递和单号
+     * @param consignMentUpdateStatus
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("consignMentUpdateStatusByOrderId")
+    public Object consignMentUpdateStatusByOrderId(@RequestBody ConsignMentUpdateStatus consignMentUpdateStatus) {
+        System.out.println(consignMentUpdateStatus + " ++");
+        int i = adminOmsOrderService.consignMentUpdateStatusByOrderId(consignMentUpdateStatus);
+        System.out.println(i);
+        return i;
+    }
+
+    /**
      * 根据订单id删除该订单的信息
      * @param omsOrderId
      * @return

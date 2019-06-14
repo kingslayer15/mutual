@@ -765,11 +765,12 @@
                                         <td class="el-table_6_column_44 is-center ">
                                             <div class="cell">广东省深圳市福田区东晓街道</div>
                                         </td>
+
                                         <td class="el-table_6_column_45 is-center ">
                                             <div class="cell">
-                                                <div class="el-select el-select--small"><!---->
+                                                <div  class="el-select el-select--small">
                                                     <div class="el-input el-input--small el-input--suffix">
-                                                        <!----><input type="text" autocomplete="off"
+                                                        <!----><input id="wuliuInput" type="text" autocomplete="off" onclick="showKuaidi()"
                                                                       placeholder="请选择物流公司"
                                                                       readonly="readonly"
                                                                       class="el-input__inner">
@@ -777,38 +778,40 @@
                                                             class="el-input__suffix-inner"><i
                                                             class="el-select__caret el-input__icon el-icon-arrow-up"></i>
                                                         <!----></span><!----></span><!----></div>
-                                                    <div class="el-select-dropdown el-popper"
-                                                         style="display: none; min-width: 139.004px;">
-                                                        <div class="el-scrollbar" style="">
-                                                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                                 style="margin-bottom: -21px; margin-right: -21px;">
-                                                                <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                    <div id="wuliuDiv" 
+                                                         style="min-width: 139px; display: none;">
+                                                        <!--<div class="el-scrollbar" style="">-->
+                                                            <!--<div class="el-select-dropdown__wrap el-scrollbar__wrap"-->
+                                                                 <!--style="margin-bottom: -21px; margin-right: -21px;">-->
+                                                                <ul class="">
                                                                     <!---->
-                                                                    <li class="el-select-dropdown__item">
+                                                                    <li onclick="hideKuaidi('顺丰快递')" class="el-select-dropdown__item">
                                                                         <span>顺丰快递</span></li>
-                                                                    <li class="el-select-dropdown__item">
+                                                                    <li onclick="hideKuaidi('圆通快递')" class="el-select-dropdown__item">
                                                                         <span>圆通快递</span></li>
-                                                                    <li class="el-select-dropdown__item">
+                                                                    <li onclick="hideKuaidi('中通快递')" class="el-select-dropdown__item">
                                                                         <span>中通快递</span></li>
-                                                                    <li class="el-select-dropdown__item">
+                                                                    <li onclick="hideKuaidi('韵达快递')" class="el-select-dropdown__item">
                                                                         <span>韵达快递</span></li>
                                                                 </ul>
-                                                            </div>
-                                                            <div class="el-scrollbar__bar is-horizontal">
-                                                                <div class="el-scrollbar__thumb"
-                                                                     style="transform: translateX(0%);"></div>
-                                                            </div>
-                                                            <div class="el-scrollbar__bar is-vertical">
-                                                                <div class="el-scrollbar__thumb"
-                                                                     style="transform: translateY(0%);"></div>
-                                                            </div>
-                                                        </div><!----></div>
+                                                            <!--</div>-->
+                                                            <!--<div class="el-scrollbar__bar is-horizontal">-->
+                                                                <!--<div class="el-scrollbar__thumb"-->
+                                                                     <!--style="transform: translateX(0%);"></div>-->
+                                                            <!--</div>-->
+                                                            <!--<div class="el-scrollbar__bar is-vertical">-->
+                                                                <!--<div class="el-scrollbar__thumb"-->
+                                                                     <!--style="transform: translateY(0%);"></div>-->
+                                                            <!--</div>-->
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </td>
+
                                         <td class="el-table_6_column_46 is-center ">
                                             <div class="cell">
-                                                <div class="el-input el-input--small"><!----><input
+                                                <div class="el-input el-input--small"><!----><input id="deliverSnInput"
                                                         type="text" autocomplete="off"
                                                         class="el-input__inner"><!----><!---->
                                                     <!----></div>
@@ -935,6 +938,19 @@
     //---------------------------------------
 
 
+    var kuaidi = "";
+
+    function showKuaidi() {
+        $("#wuliuDiv").show();
+    }
+    function hideKuaidi(str) {
+        kuaidi = str;
+        $("#wuliuInput").val(str);
+        $("#wuliuDiv").hide();
+    }
+
+
+    // 确认按钮的操作
 
     var orderId = location.search.split("=")[1];
 
@@ -949,11 +965,13 @@
     function updateOrderStatus(status) {
         $.ajax({
             type: 'POST',
-            url: "/updateOmsOrderStatusByOrderId",
+            url: "/consignMentUpdateStatusByOrderId",
             contentType:"application/json",
             data: JSON.stringify({
                 "id" : orderId,
-                "status" : status
+                "status" : status,
+                "deliveryComPany" : kuaidi,
+                "deliverySn" : $("#deliverSnInput").val()
             }),
             success: function(data){
                 console.log(data);
@@ -963,6 +981,11 @@
             },
             error:function (data) {
                 console.error(data);
+
+                hideWindows();
+                $("#consignDiv").css("display", "none");
+                $("#yesConsign").text("发货失败");
+                $("#yesConsign").show();
             },
             dataType: "json"
         });
