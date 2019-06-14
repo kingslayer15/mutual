@@ -52,4 +52,11 @@ public class UmsMemberReceiveAddressServiceImpl implements UmsMemberReceiveAddre
         return all;
     }
 
+    @Override
+    public List<UmsMemberReceiveAddress> findByMemberId(Long memberId) {
+
+        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.findByMemberId(memberId);
+        return umsMemberReceiveAddresses;
+    }
+
 }
