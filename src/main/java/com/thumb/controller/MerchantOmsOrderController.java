@@ -37,10 +37,12 @@ public class MerchantOmsOrderController {
 //        com.thumb.pojo.Merchant merchantSession = (com.thumb.pojo.Merchant)(session.getAttribute("merchant"));
 //        int id = merchantSession.getId();
 
-        Object object = session.getAttribute("merchant");
+//        Object object = session.getAttribute("merchant");
+//        System.out.println(object + "object");
+//        int id = ((com.thumb.pojo.Merchant)(object)).getId();
+//        System.out.println(id + " id");
 
-        System.out.println(object);int
-        id = 1;
+        int id = ((com.thumb.pojo.Merchant)session.getAttribute("merchant")).getId();
 
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
         Merchant merchant = merchantOmsOrderService.listAllOmsOrderByMerchant(id);
@@ -81,10 +83,7 @@ public class MerchantOmsOrderController {
 //        Merchant merchant = (Merchant)session.getAttribute("merchant");
 //        int id = merchant.getId();
 
-        Object object = session.getAttribute("merchant");
-
-        System.out.println(object); int
-        id = 1;
+        int id = ((com.thumb.pojo.Merchant)session.getAttribute("merchant")).getId();
 
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
         List<OmsOrderReturnApply> omsOrderReturnApplies = merchantOmsOrderService.merchantOmsOrderReturnApply(id);
