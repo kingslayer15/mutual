@@ -944,10 +944,7 @@
                                         <col name="gutter" width="0">
                                     </colgroup>-->
                                     <!--此节点下存放订单项-->
-                                    <tbody id="omsOrderBody">
-
-
-                                    </tbody>
+                                    <tbody id="omsOrderBody"></tbody>
                                 </table>
                             </div>
                             <!--订单列表 end-->
@@ -1216,7 +1213,7 @@
                 else $("#btnNext").attr("disabled", false);
             },
             error: function (data) {
-                console.error(data);
+                // console.error(data);
             }
         });
     }
@@ -1295,7 +1292,7 @@
                 "    </td>\n" +
                 "    <td class=\"el-table_2_column_19 is-center \" style='width: 10%'>\n" +
                 "        <div class=\"cell\">\n" +
-                "            <a href='OrderDetail.html?id="+ item.id +"'><button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[0]+";\">\n" +
+                "            <a href='orderDetail.html?id="+ item.id +"'><button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[0]+";\">\n" +
                 "                <span>查看订单</span>\n" +
                 "            </button></a>\n" +
                 "            <button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[1]+";\">\n" +
