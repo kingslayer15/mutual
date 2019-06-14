@@ -232,7 +232,6 @@
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
             success: function (data) {
-
                 var $ul = $("#ul");
                 $ul.find("li").remove();
                 $(data).each(function (ind, val) {
@@ -264,11 +263,8 @@
                             "            </li>";
 
                         $ul.append(li);
-
                     }
-
                 })
-
             },
             /*发生错误时*/
             error: function (xhr, textStatus) {
