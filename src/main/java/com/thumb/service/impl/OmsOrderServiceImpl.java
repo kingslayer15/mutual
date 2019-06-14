@@ -113,6 +113,26 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         return id;
     }
 
+    @Override
+    public BigDecimal findTodayAmount() {
+        BigDecimal todayAmount = omsOrderMapper.findTodayAmount();
+        return todayAmount;
+    }
+
+    @Override
+    public BigDecimal findThisMonthAmount() {
+        BigDecimal thisMonthAmount = omsOrderMapper.findThisMonthAmount();
+        return thisMonthAmount;
+    }
+
+    @Override
+    public BigDecimal findThisMonthCount() {
+
+        BigDecimal thisMonthCount = omsOrderMapper.findThisMonthCount();
+
+        return thisMonthCount;
+    }
+
 //    @Override
 //    public List<Object> selectByDate(String year, String month) {
 //

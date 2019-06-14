@@ -77,19 +77,9 @@ public class AdminMainController {
     @ResponseBody
     @RequestMapping("sumAmount")
     public Object sumAmount(){
-        ArrayList<Date> initDates = InitDateUtils.getInitDayDates(0, 1);
+        BigDecimal todayAmount = omsOrderMapper.findTodayAmount();
 
-        Date starTime = initDates.get(0);
-        Date endTime = initDates.get(1);
-
-
-
-        BigDecimal totalAmount = omsOrderService.findSumTotalAmountByStatusAndCreateTimeBetween(starTime, endTime);
-
-
-
-
-        return totalAmount;
+        return todayAmount;
     }
 
 
@@ -226,15 +216,10 @@ public class AdminMainController {
     @ResponseBody
     @RequestMapping(value = "countOrderByCreateTimeThisMonth")
     public Object countOrderByCreateTime(HttpServletRequest httpServletRequest){
-        ArrayList<Date> initMonthDates = InitDateUtils.getInitMonthDates(0);
-
-        Date starDate = initMonthDates.get(0);
-        Date endDate = initMonthDates.get(1);
-
-        BigDecimal bigDecimal = omsOrderService.countByCreateTime(starDate,endDate);
+        BigDecimal thisMonthCount = omsOrderMapper.findThisMonthCount();
         HttpSession session = httpServletRequest.getSession();
-        session.setAttribute("thisMonthOrder",bigDecimal);
-        return bigDecimal;
+        session.setAttribute("thisMonthOrder",thisMonthCount);
+        return thisMonthCount;
     }
 
     @ResponseBody
@@ -257,7 +242,7 @@ public class AdminMainController {
         if (bigDecimal.compareTo(new BigDecimal(0)) == 0){
             return 0;
         }else {
-            lastMonth = thisMonthOrder.subtract(bigDecimal).divide(bigDecimal);        }
+            lastMonth = thisMonthOrder.subtract(bigDecimal).divide(bigDecimal,1);        }
         return lastMonth;
     }
 
@@ -309,7 +294,7 @@ public class AdminMainController {
         if (bigDecimal.compareTo(new BigDecimal(0)) == 0){
             return 0;
         }else {
-            lastWeek = thisWeekOrder.subtract(bigDecimal).divide(bigDecimal);
+            lastWeek = thisWeekOrder.subtract(bigDecimal).divide(bigDecimal,1);
         }
 
 
@@ -321,20 +306,13 @@ public class AdminMainController {
     public Object sumAmountThisMonth(HttpServletRequest httpServletRequest){
 
 
-        ArrayList<Date> initMonthDates = InitDateUtils.getInitMonthDates(0);
-
-        Date starDate = initMonthDates.get(0);
-        Date endDate = initMonthDates.get(1);
-
-
-        BigDecimal bigDecimal = omsOrderService.findSumTotalAmountByStatusAndCreateTimeBetween(starDate,endDate);
-
-        if (bigDecimal != null) {
+        BigDecimal thisMonthAmount = omsOrderMapper.findThisMonthAmount();
+        if (thisMonthAmount != null) {
 
             HttpSession session = httpServletRequest.getSession();
 
-            session.setAttribute("thisMonthAmount", bigDecimal);
-            return bigDecimal;
+            session.setAttribute("thisMonthAmount", thisMonthAmount);
+            return thisMonthAmount;
         }else {
             return 0;
         }
@@ -369,7 +347,7 @@ public class AdminMainController {
         if (bigDecimal.compareTo(new BigDecimal(0)) == 0){
             return 0;
         }else {
-            lastMonth = thisMonthAmount.subtract(bigDecimal).divide(bigDecimal);
+            lastMonth = thisMonthAmount.subtract(bigDecimal).divide(bigDecimal,1);
         }
 
 
@@ -402,11 +380,10 @@ public class AdminMainController {
 
     @ResponseBody
     @RequestMapping(value = "sumAmountLastWeek")
-    public Object sumAmountLastWeek(HttpServletRequest httpServletRequest){
+    public Object sumAmountLastWeek(HttpSession httpSession){
 
-
+        System.out.println(1111);
         ArrayList<Date> initWeekDates = InitDateUtils.getInitWeekDates(-1);
-
         Date starDate = initWeekDates.get(0);
         Date endDate = initWeekDates.get(1);
 
@@ -414,27 +391,33 @@ public class AdminMainController {
         BigDecimal bigDecimal = omsOrderService.findSumTotalAmountByStatusAndCreateTimeBetween(starDate,endDate);
 
 
-        HttpSession session = httpServletRequest.getSession();
+        System.out.println("bigDecimal也有"+bigDecimal);
 
         BigDecimal lastWeek;
 
-        BigDecimal thisWeekAmount = (BigDecimal)session.getAttribute("thisWeekAmount");
+        BigDecimal thisWeekAmount = (BigDecimal)httpSession.getAttribute("thisWeekAmount");
 
+        System.out.println("这个星期" + thisWeekAmount);
         if (thisWeekAmount == null){
+
             return 0;
         }
 
         if (bigDecimal == null){
+
             return 0;
         }
 
         if (bigDecimal.compareTo(new BigDecimal(0)) == 0){
+
             return 0;
         }else {
-            lastWeek = thisWeekAmount.subtract(bigDecimal).divide(bigDecimal);
+            System.out.println(4);
+            lastWeek = thisWeekAmount.subtract(bigDecimal).divide(bigDecimal,1);
+            System.out.println(lastWeek);
         }
 
-
+        System.out.println("lastWeek"+lastWeek);
         return lastWeek;
     }
 

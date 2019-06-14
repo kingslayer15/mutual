@@ -52,24 +52,11 @@ public interface OmsOrderMapper {
 
     List<DateDto> selectByDate(@Param("year") String year,@Param("month") String month);
 
+    BigDecimal findTodayAmount();
 
+    BigDecimal findThisMonthAmount();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    BigDecimal findThisMonthCount();
 
 
 
