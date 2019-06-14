@@ -417,6 +417,9 @@
         }
 
         function cart() {
+
+			/*验证用户*/
+
             $.ajax({
                 type: "post",
                 url: "/insertCart",
@@ -436,7 +439,7 @@
                     "productCategoryId": productCategoryId
                 }),
                 success: function (data) {
-                    alert("succuss");
+                  /*验证用户*/
                     console.log(data); //  2pm
                 },
                 error: function (data) {
