@@ -27,27 +27,7 @@
 
 <div class="grzxbj">
     <div class="selfinfo center">
-        <div class="lfnav fl" style="height: 1300px">
-            <div class="ddzx" style="height: 20px">个人中心</div>
-            <div class="subddzx">
-                <ul>
-                    <li><a href="./self_info.html" >我的信息</a></li>
-                    <li><a href="./self_info_edit.html">修改信息</a></li>
-                    <li><a href="./self_info_pwd_edit.html">修改密码</a></li>
-                    <!--<li><a href="./coupon.html">优惠券</a></li>-->
-                    <li><a href="./address.html">收货地址</a></li>
-                </ul>
-            </div>
-            <div class="ddzx" style="height: 20px">订单中心</div>
-            <div class="subddzx">
-                <ul>
-                    <li><a href="./orders.html">我的订单</a></li>
-                    <li><a href="./basket.html">我的购物车</a></li>
-                    <li><a href="./favourite.html">我的收藏</a></li>
-                    <!--<li><a href="./footprint.html">我的足迹</a></li>-->
-                </ul>
-            </div>
-        </div>
+        <div id="liftMain"></div>
         <div class="rtcont fr"  style="width: 978px;height: 1300px;background: #fff">
             <div class="grzlbt ml40" id="address">我的收货地址</div>
             <!--新增地址-->
@@ -160,15 +140,15 @@
 
 
 <!-- self_info -->
-<footer class="mt20 center">
+<!--<footer class="mt20 center">-->
 
-    <!--TODO 盒子-->
-    <div>     </div>
-    <!--<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>-->
-    <div>©mutual.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
-    <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+    <!--&lt;!&ndash;TODO 盒子&ndash;&gt;-->
+    <!--<div>     </div>-->
+    <!--&lt;!&ndash;<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>&ndash;&gt;-->
+    <!--<div>©mutual.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>-->
+    <!--<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>-->
 
-</footer>
+<!--</footer>-->
 
 
 
@@ -179,6 +159,7 @@
 <script>
 
     $("#header").load("header.html");
+    $("#liftMain").load("liftMain.html");
 
 
     $(function () {

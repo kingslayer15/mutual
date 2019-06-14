@@ -31,27 +31,7 @@
 <!-- self_info -->
 <div class="grzxbj">
     <div class="selfinfo center">
-        <div class="lfnav fl" style="height: 700px">
-            <div class="ddzx" style="height: 20px">个人中心</div>
-            <div class="subddzx">
-                <ul>
-                    <li><a href="./self_info.html" >我的信息</a></li>
-                    <li><a href="./self_info_edit.html">修改信息</a></li>
-                    <li><a href="./self_info_pwd_edit.html">修改密码</a></li>
-                    <li><a href="./address.html">收货地址</a></li>
-                    <!--<li><a href="./point.html">我的积分</a></li>-->
-                </ul>
-            </div>
-            <div class="ddzx" style="height: 20px">订单中心</div>
-            <div class="subddzx">
-                <ul>
-                    <li><a href="./orders.html">我的订单</a></li>
-                    <li><a href="./basket.html">我的购物车</a></li>
-                    <li><a href="./favourite.html">我的收藏</a></li>
-                    <!--<li><a href="./footprint.html">我的足迹</a></li>-->
-                </ul>
-            </div>
-        </div>
+        <div id="liftMain"></div>
         <!--//===============================================================================-->
         <div class="rtcont fr" style="width: 978px;height: 700px;background: #fff">
             <div class="grzlbt ml40">我的订单</div>
@@ -150,6 +130,7 @@
 
 
     $("#header").load("header.html");
+    $("#liftMain").load("liftMain.html");
 
 
     //获取总订单条数
