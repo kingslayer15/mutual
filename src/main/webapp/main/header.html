@@ -133,13 +133,17 @@
 
     //搜索
     function getName() {
+
         var $name = $("#name").val();
 
         var s = encodeURI($name);
-        alert(s)
 
-        if ($name != null && $name != "") {
-            window.location.href = "http://localhost:8080/main/liebiao3.html?name=" + s;
+
+        if ($name != null || $name != ""||$name.length>0) {
+            // alert($name)
+            var url = "liebiao3.html?name=" + s;
+            window.location.href = url;
+
         }
     }
 
