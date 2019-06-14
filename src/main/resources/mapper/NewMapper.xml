@@ -10,6 +10,9 @@
     <select id="SubjectIndex" resultType="com.thumb.pojo.PmsProduct">
         select * from pms_product where   new_status=1 order by sort desc
     </select>
+    <select id="SubjectIndexHome" resultType="com.thumb.pojo.PmsProduct">
+        select * from pms_product where   new_status=1 and recommand_status = 1 order by sort desc
+    </select>
 
 
     <!--修改品牌推荐排序值-->

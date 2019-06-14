@@ -74,4 +74,5 @@ public interface NewService {
 
     List<PmsProduct> SubjectIndex();
 
+    List<PmsProduct>   SubjectIndexHome();
 }

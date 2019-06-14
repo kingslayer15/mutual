@@ -85,7 +85,7 @@
     </div>
 </div>
 <footer class="mt20 center">
-    <div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+    <div class="mt20">mutual商城|MIUI|米聊|多看书城|路由器|视频电话|天猫店|淘宝直营店|小米网盟|小米移动</div>
     <div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
     <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 </footer>
@@ -183,16 +183,16 @@
                     if(index<4) {
                         var table = "<div class=\"remen fl\">\n" +
                             "                <div class=\"xinpin\"><span>新品</span></div>\n" +
-                            "                <div class=\"tu\"><a href=\"/main/liebiao2.html?id=" + val.id + "\"><img src=\"" + val.pic + "\" style='width: 160px;height: 250'></a></div>\n" +
+                            "                <div class=\"tu\"><a href=\"/main/xiangqing.html?id=" + val.id + "\"><img src=\"" + val.pic + "\" style='width: 160px;height: 250'></a></div>\n" +
                             "                <div class=\"miaoshu\"><a href=\"\">" + val.sub_title + "</a></div>\n" +
                             "                <div class=\"jiage\">" + val.price + "</div>\n" +
                             "                <div class=\"pingjia\">372人评价</div>\n" +
                             "            </div>";
                         $new1.append(table)
-                    }else if(index<7){
+                    }else if(index<8){
                         var table2 = "<div class=\"remen fl\">\n" +
                             "                <div class=\"xinpin\"><span>新品</span></div>\n" +
-                            "                <div class=\"tu\"><a href=\"/main/liebiao2.html?id=" + val.id + "\"><img src=\"" + val.pic + "\" style='width: 160px;height: 250'></a></div>\n" +
+                            "                <div class=\"tu\"><a href=\"/main/xiangqing.html?id=" + val.id + "\"><img src=\"" + val.pic + "\" style='width: 160px;height: 250'></a></div>\n" +
                             "                <div class=\"miaoshu\"><a href=\"\">" + val.sub_title + "</a></div>\n" +
                             "                <div class=\"jiage\">" + val.price + "</div>\n" +
                             "                <div class=\"pingjia\">372人评价</div>\n" +
@@ -200,6 +200,13 @@
                         $new2.append(table2)
 
                     }
+                    // var end = "                <div class=\"remen fr\">\n" +
+                    //     "                    <div class=\"hongmi\"><a href=\"\"><img src=\"./image/hongmin4.png\" alt=\"\"></a></div>\n" +
+                    //     "                    <div class=\"liulangengduo\"><a href=\"\"><img src=\"./image/liulangengduo.png\" alt=\"\"></a></div>\n" +
+                    //     "                </div>";
+                    // $new2.append(end)
+
+
                 })
             },
             /*发生错误时*/
@@ -267,7 +274,6 @@
     //获取数据库广告列表
     $(function () {
 
-        //width:1226px;height:460px;background: url('https://i1.mifile.cn/a4/xmad_15602558984819_nIZyN.jpg'); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;}
         var $img = $("#img");
         var imus = new Array();
         var num = 0;
@@ -298,7 +304,6 @@
 
             $img.attr("style","width:1226px;height:460px;background: url('"+img+"'); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;")
 
-            // $img.fadeIn("style","width:1226px;height:460px;background: url('"+img+"'); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;")
 
         },2000);
 

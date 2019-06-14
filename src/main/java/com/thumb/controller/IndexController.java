@@ -70,7 +70,7 @@ public class IndexController {
     @RequestMapping("NewIndex")
     public Object NewIndex() {
 
-        return newService.SubjectIndex();
+        return newService.SubjectIndexHome();
     }
 
     /**
