@@ -54,9 +54,12 @@ public class OrderDetailsController {
 
     @ResponseBody
     @RequestMapping(value = "getAddress",method = RequestMethod.GET)
-    public Object getAddress(){
+    public Object getAddress(HttpSession httpSession){
 
-        List<UmsMemberReceiveAddress> all = umsMemberReceiveAddressService.findAll();
+        UmsMember umsMember = (UmsMember)httpSession.getAttribute("umsMember");
+        Long memberId = umsMember.getId();
+
+        List<UmsMemberReceiveAddress> all = umsMemberReceiveAddressService.findByMemberId(memberId);
 
         return all;
     }
