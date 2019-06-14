@@ -189,6 +189,16 @@ public class IndexController {
     }
 
 
+    /**
+     * 跳转进subject.html
+     * @return
+     */
+    @RequestMapping("liebiao3")
+    public String toliebiao3s() {
+        return "main/liebiao3";
+    }
+
+
 
 
     @ResponseBody
