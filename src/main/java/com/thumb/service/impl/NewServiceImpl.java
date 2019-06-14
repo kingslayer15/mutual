@@ -81,6 +81,11 @@ public class NewServiceImpl implements NewService {
         return newMapper.SubjectIndex();
     }
 
+    @Override
+    public List<PmsProduct> SubjectIndexHome() {
+        return newMapper.SubjectIndexHome() ;
+    }
+
     /**
      * 删除首页推荐专题
      * @param id

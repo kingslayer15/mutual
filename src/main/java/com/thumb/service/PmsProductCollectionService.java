@@ -16,4 +16,17 @@ public interface PmsProductCollectionService{
     int insertCollection(OmsCartItemDto record);
 
     List<PmsProduct> selectAllBymemberId(long memberId);
+
+
+
+	PmsProductCollection selectOneByAll(OmsCartItemDto omsCartItemDto);
+
+
+
+	int updateById(Integer id);
+    int updateCollectionStatesFor1ById(Integer id);
+
+
+
+
 }

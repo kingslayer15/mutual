@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<!-- saved from url=(0042)http://39.98.190.128/index.html#/oms/order -->
-<html class=" ">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>订单列表</title>
-    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
-    <script type="text/javascript" charset="utf-8" async=""
-            src="../static/mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
-    <script type="text/javascript" charset="utf-8" async=""
-            src="../static/mall-admin-web_files/34.20914eaf5eb00deccc8e.js"></script>
-    <script type="text/javascript" charset="utf-8" async=""
-            src="../static/mall-admin-web_files/16.b9c2a95fdd49f019d172.js"></script>
+    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css"
+          rel="stylesheet"/>
+    <!--<script type="text/javascript" charset="utf-8" async=""-->
+    <!--src="../static/mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>-->
+    <!--<script type="text/javascript" charset="utf-8" async=""-->
+    <!--src="../static/mall-admin-web_files/34.20914eaf5eb00deccc8e.js"></script>-->
+    <!--<script type="text/javascript" charset="utf-8" async=""-->
+    <!--src="../static/mall-admin-web_files/16.b9c2a95fdd49f019d172.js"></script>-->
 </head>
-<body style="">
+
+<body>
+
+<!--图标 begin-->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      style="position: absolute; width: 0; height: 0" id="__SVG_SPRITE_NODE__">
     <symbol class="icon" viewBox="0 0 1024 1024" id="icon-example">
@@ -313,141 +316,189 @@
               p-id="7987"></path>
     </symbol>
 </svg>
+<!--图标 end-->
+
 <script src="../static/mall-admin-web_files/tinymce.min.js"></script>
 <div id="app">
-    <div data-v-0ef526f4="" class="app-wrapper">
+    <div id="allContext" data-v-0ef526f4="" class="app-wrapper">
+        <!--左侧导航栏 begin-->
         <div data-v-69d4f5dd="" data-v-0ef526f4="" class="scroll-container sidebar-container">
             <div data-v-69d4f5dd="" class="scroll-wrapper" style="top: 0px;">
                 <ul role="menubar" class="el-menu" show-timeout="200" data-v-69d4f5dd=""
                     style="background-color: rgb(48, 65, 86);">
-                    <div class="menu-wrapper"><!----><!----><a href="http://39.98.190.128/index.html#/home" class="">
-                        <li role="menuitem" tabindex="-1" class="el-menu-item submenu-title-noDropdown"
-                            style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                            <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
-                            </svg>
-                            <span>首页</span></li>
-                    </a>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
+                    <div class="menu-wrapper">
+                        <!--首页 begin-->
+                        <a href="home.html" class="">
+                            <li role="menuitem" tabindex="-1"
+                                class="el-menu-item submenu-title-noDropdown"
+                                style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                    <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
+                                </svg>
+                                <span>首页</span>
+                            </li>
+                        </a>
+                        <!--首页 end-->
+
+                        <!--商品-->
+                        <li id="product_li" role="menuitem" aria-haspopup="true" class="el-submenu">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-product"></use>
                                 </svg>
-                                <span slot="title">商品</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                                <span slot="title">商品</span><i
+                                    class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" data-old-padding-top=""
+                            <ul id="pruduct_ul" role="menu" class="el-menu el-menu--inline" data-old-padding-top=""
                                 data-old-padding-bottom="" data-old-overflow=""
-                                style="background-color: rgb(48, 65, 86);"><a
-                                    href="http://39.98.190.128/index.html#/pms/product" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
-                                    </svg>
-                                    <span>商品列表</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/pms/addProduct" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-add"></use>
-                                    </svg>
-                                    <span>添加商品</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/pms/productCate"
-                                                        class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-cate"></use>
-                                    </svg>
-                                    <span>商品分类</span></li>
-                            </a><!----><!----><a href="http://39.98.190.128/index.html#/pms/productAttr" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-attr"></use>
-                                    </svg>
-                                    <span>商品类型</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/pms/brand" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
-                                    </svg>
-                                    <span>品牌管理</span></li>
-                            </a><!----><!----></ul>
+                                style="background-color: rgb(48, 65, 86); display: none;">
+                                <a href="product.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-list"></use>
+                                        </svg>
+                                        <span>商品列表</span>
+                                    </li>
+                                </a>
+                                <a href="################" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-add"></use>
+                                        </svg>
+                                        <span>添加商品</span>
+                                    </li>
+                                </a>
+                                <a href="################" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-cate"></use>
+                                        </svg>
+                                        <span>商品分类</span>
+                                    </li>
+                                </a>
+                                <a href="###############" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-attr"></use>
+                                        </svg>
+                                        <span>商品类型</span>
+                                    </li>
+                                </a>
+                                <a href="#############" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-brand"></use>
+                                        </svg>
+                                        <span>品牌管理</span>
+                                    </li>
+                                </a>
+                            </ul>
                         </li>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-active is-opened"
+
+                        <li id="order_li" role="menuitem" aria-haspopup="true"
+                            class="el-submenu is-active is-opened"
                             aria-expanded="true">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-order"></use>
                                 </svg>
-                                <span slot="title">订单</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                                <span slot="title">订单</span>
+                                <i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
-                                    href="http://39.98.190.128/index.html#/oms/order"
-                                    class="router-link-exact-active router-link-active">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
-                                    style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
-                                    </svg>
-                                    <span>订单列表</span></li>
-                            </a><!----><!----><a href="http://39.98.190.128/index.html#/oms/orderSetting" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-order-setting"></use>
-                                    </svg>
-                                    <span>订单设置</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnApply" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-order-return"></use>
-                                    </svg>
-                                    <span>退货申请处理</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnReason" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-order-return-reason"></use>
-                                    </svg>
-                                    <span>退货原因设置</span></li>
-                            </a><!----></ul>
+                            <ul id="order_ul" role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86);"
+                                data-old-padding-top="" data-old-padding-bottom=""
+                                data-old-overflow="">
+                                <a href="order.html"
+                                   class="router-link-exact-active router-link-active">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
+                                        style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-list"></use>
+                                        </svg>
+                                        <span>订单列表</span></li>
+                                </a>
+                                <a href="orderSetting.html"
+                                   class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-order-setting"></use>
+                                        </svg>
+                                        <span>订单设置</span></li>
+                                </a>
+                                <a href="returnApply.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-order-return"></use>
+                                        </svg>
+                                        <span>退货申请处理</span></li>
+                                </a>
+                                <a href="returnReason.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-order-return-reason"></use>
+                                        </svg>
+                                        <span>退货原因设置</span>
+                                    </li>
+                                </a>
+                            </ul>
                         </li>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
+
+                        <li id="sms_li" role="menuitem" aria-haspopup="true" class="el-submenu"
+                            aria-expanded="true">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-sms"></use>
                                 </svg>
-                                <span slot="title">营销</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                                <span slot="title">营销</span><i
+                                    class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
-                                    href="http://39.98.190.128/index.html#/sms/flash" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-flash"></use>
-                                    </svg>
-                                    <span>秒杀活动列表</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/coupon" class="">
+                            <ul id="sms_ul" role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86); display: none"
+                                data-old-padding-top="" data-old-padding-bottom=""
+                                data-old-overflow="">
+                                <a href="http://39.98.190.128/index.html#/sms/flash" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-sms-flash"></use>
+                                        </svg>
+                                        <span>秒杀活动列表</span></li>
+                                </a><!----><!----><!----><a
+                                    href="http://39.98.190.128/index.html#/sms/coupon" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-coupon"></use>
                                     </svg>
                                     <span>优惠券列表</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/brand" class="">
+                            </a><!----><!----><!----><a
+                                    href="http://39.98.190.128/index.html#/sms/brand" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
+                                        <use data-v-81d70f2a=""
+                                             xlink:href="#icon-product-brand"></use>
                                     </svg>
                                     <span>品牌推荐</span></li>
                             </a><a href="http://39.98.190.128/index.html#/sms/new" class="">
@@ -468,7 +519,8 @@
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-subject"></use>
+                                        <use data-v-81d70f2a=""
+                                             xlink:href="#icon-sms-subject"></use>
                                     </svg>
                                     <span>专题推荐</span></li>
                             </a><a href="http://39.98.190.128/index.html#/sms/advertise" class="">
@@ -479,15 +531,26 @@
                                     </svg>
                                     <span>广告列表</span></li>
                             </a><!----><!----></ul>
-                        </li><!----></div>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>
+        <!--左侧导航栏 end-->
+
+        <!--右侧主要内容 begin-->
         <div data-v-0ef526f4="" class="main-container">
-            <ul data-v-453b378a="" data-v-0ef526f4="" role="menubar" class="navbar el-menu--horizontal el-menu">
-                <div data-v-38e027bb="" data-v-453b378a="" class="hamburger-container" tabindex="0">
-                    <svg data-v-38e027bb="" t="1492500959545" viewBox="0 0 1024 1024" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg" p-id="1691" xmlns:xlink="http://www.w3.org/1999/xlink"
+
+            <!--上方导航栏 begin-->
+            <ul data-v-453b378a="" data-v-0ef526f4="" role="menubar"
+                class="navbar el-menu--horizontal el-menu">
+                <!--图标-->
+                <div id="topPic" data-v-38e027bb="" data-v-453b378a="" class="hamburger-container"
+                     tabindex="0">
+                    <svg data-v-38e027bb="" t="1492500959545"
+                         viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" p-id="1691"
+                         xmlns:xlink="http://www.w3.org/1999/xlink"
                          width="64" height="64" class="hamburger is-active">
                         <path data-v-38e027bb=""
                               d="M966.8023 568.849776 57.196677 568.849776c-31.397081 0-56.850799-25.452695-56.850799-56.850799l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 543.397081 998.200404 568.849776 966.8023 568.849776z"
@@ -500,204 +563,280 @@
                               p-id="1694"></path>
                     </svg>
                 </div>
+                <!--导航内容-->
                 <div data-v-830d14b2="" data-v-453b378a="" aria-label="Breadcrumb" role="navigation"
-                     class="el-breadcrumb app-breadcrumb" tabindex="0"><span data-v-830d14b2=""><span data-v-830d14b2=""
-                                                                                                      class="el-breadcrumb__item"><span
-                        role="link" class="el-breadcrumb__inner"><a data-v-830d14b2=""
-                                                                    href="http://39.98.190.128/index.html#/home"
-                                                                    class="">首页</a></span><span role="presentation"
-                                                                                                class="el-breadcrumb__separator">/</span></span><span
-                        data-v-830d14b2="" class="el-breadcrumb__item"><span role="link" class="el-breadcrumb__inner"><a
-                        data-v-830d14b2="" href="http://39.98.190.128/index.html#/oms/order"
-                        class="router-link-exact-active router-link-active">订单</a></span><span role="presentation"
-                                                                                               class="el-breadcrumb__separator">/</span></span><span
-                        data-v-830d14b2="" class="el-breadcrumb__item"><span role="link"
-                                                                             class="el-breadcrumb__inner"><span
-                        data-v-830d14b2="" class="no-redirect">订单列表</span></span><span role="presentation"
-                                                                                       class="el-breadcrumb__separator">/</span></span></span>
+                     class="el-breadcrumb app-breadcrumb" tabindex="0">
+                    <span data-v-830d14b2="">
+                        <span data-v-830d14b2="" class="el-breadcrumb__item">
+                            <span role="link" class="el-breadcrumb__inner">
+                                <a data-v-830d14b2="" href="###############" class="">首页</a>
+                            </span>
+                            <span role="presentation" class="el-breadcrumb__separator">/</span>
+                        </span>
+                    <span data-v-830d14b2="" class="el-breadcrumb__item">
+                        <span role="link" class="el-breadcrumb__inner">
+                            <a data-v-830d14b2="" href="##############"
+                               class="router-link-exact-active router-link-active">订单</a></span>
+                    <span role="presentation" class="el-breadcrumb__separator">/</span></span>
+                    <span data-v-830d14b2="" class="el-breadcrumb__item">
+                    <span role="link" class="el-breadcrumb__inner">
+                    <span data-v-830d14b2="" class="no-redirect">订单列表</span>
+                    </span>
+                    <span role="presentation"
+                          class="el-breadcrumb__separator">/</span></span></span>
                 </div>
+                <!--用户图标-->
                 <div data-v-453b378a="" class="avatar-container el-dropdown" tabindex="0">
-                    <div data-v-453b378a="" class="avatar-wrapper el-dropdown-selfdefine" aria-haspopup="list"
-                         aria-controls="dropdown-menu-9242" role="button" tabindex="0"><img data-v-453b378a=""
-                                                                                            src="../static/mall-admin-web_files/timg.jpg"
-                                                                                            class="user-avatar"> <i
-                            data-v-453b378a="" class="el-icon-caret-bottom"></i></div>
-                    <ul data-v-453b378a="" class="el-dropdown-menu el-popper user-dropdown" id="dropdown-menu-9242"
-                        style="display: none;"><a data-v-453b378a="" href="http://39.98.190.128/index.html#/"
-                                                  class="inlineBlock router-link-active">
-                        <li data-v-453b378a="" tabindex="-1" class="el-dropdown-menu__item">
-                            首页
-                        </li>
-                    </a>
+                    <div data-v-453b378a="" class="avatar-wrapper el-dropdown-selfdefine"
+                         aria-haspopup="list"
+                         aria-controls="dropdown-menu-9242" role="button" tabindex="0">
+                        <img data-v-453b378a="" src="../static/mall-admin-web_files/timg.jpg"
+                             class="user-avatar">
+                        <i data-v-453b378a="" class="el-icon-caret-bottom"></i>
+                    </div>
+                    <ul data-v-453b378a="" class="el-dropdown-menu el-popper user-dropdown"
+                        id="dropdown-menu-9242"
+                        style="display: none;">
+                        <a data-v-453b378a="" href="http://39.98.190.128/index.html#/"
+                           class="inlineBlock router-link-active">
+                            <li data-v-453b378a="" tabindex="-1" class="el-dropdown-menu__item">
+                                首页
+                            </li>
+                        </a>
                         <li data-v-453b378a="" tabindex="-1"
-                            class="el-dropdown-menu__item el-dropdown-menu__item--divided"><span data-v-453b378a=""
-                                                                                                 style="display: block;">退出</span>
+                            class="el-dropdown-menu__item el-dropdown-menu__item--divided">
+                            <span data-v-453b378a="" style="display: block;">退出
+                            </span>
                         </li>
                     </ul>
                 </div>
+
             </ul>
+            <!--上方导航栏 end-->
+
+            <!--页面内容 begin-->
             <section data-v-0ef526f4="" class="app-main">
                 <div data-v-ebcc336a="" class="app-container">
+
                     <div data-v-ebcc336a="" class="el-card filter-container is-never-shadow"><!---->
                         <div class="el-card__body">
-                            <div data-v-ebcc336a=""><i data-v-ebcc336a="" class="el-icon-search"></i> <span
-                                    data-v-ebcc336a="">筛选搜索</span>
-                                <button data-v-ebcc336a="" type="button"
-                                        class="el-button el-button--primary el-button--small" style="float: right;">
-                                    <!----><!----><span>
-        查询搜索
-      </span></button>
-                                <button data-v-ebcc336a="" type="button"
+                            <div data-v-ebcc336a="">
+                                <i data-v-ebcc336a="" class="el-icon-search"></i>
+                                <span data-v-ebcc336a="">筛选搜索</span>
+                                <button onclick="searchOmsOrder()" data-v-ebcc336a="" type="button"
+                                        class="el-button el-button--primary el-button--small"
+                                        style="float: right;">
+                                    <span>查询搜索</span>
+                                </button>
+                                <button onclick="resetValue()" data-v-ebcc336a="" type="button"
                                         class="el-button el-button--default el-button--small"
-                                        style="float: right; margin-right: 15px;"><!----><!----><span>
-        重置
-      </span></button>
+                                        style="float: right; margin-right: 15px;">
+                                    <span>重置</span>
+                                </button>
                             </div>
                             <div data-v-ebcc336a="" style="margin-top: 15px;">
+                                <!--form表单 begin-->
                                 <form data-v-ebcc336a="" class="el-form el-form--inline">
-                                    <div data-v-ebcc336a="" class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label" style="width: 140px;">输入搜索：</label>
+                                    <div data-v-ebcc336a=""
+                                         class="el-form-item el-form-item--small">
+                                        <label class="el-form-item__label"
+                                               style="width: 140px;">输入搜索：</label>
                                         <div class="el-form-item__content">
-                                            <div data-v-ebcc336a="" class="input-width el-input el-input--small"><!----><input
-                                                    type="text" autocomplete="off" placeholder="订单编号"
-                                                    class="el-input__inner"><!----><!----><!----></div><!----></div>
+                                            <div data-v-ebcc336a=""
+                                                 class="input-width el-input el-input--small">
+                                                <!----><input id="order_sn"
+                                                              type="text" autocomplete="off"
+                                                              placeholder="订单编号"
+                                                              class="el-input__inner"><!----><!----><!---->
+                                            </div><!----></div>
                                     </div>
-                                    <div data-v-ebcc336a="" class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label" style="width: 140px;">收货人：</label>
+                                    <div data-v-ebcc336a=""
+                                         class="el-form-item el-form-item--small"><label
+                                            class="el-form-item__label"
+                                            style="width: 140px;">收货人：</label>
                                         <div class="el-form-item__content">
-                                            <div data-v-ebcc336a="" class="input-width el-input el-input--small"><!----><input
-                                                    type="text" autocomplete="off" placeholder="收货人姓名/手机号码"
-                                                    class="el-input__inner"><!----><!----><!----></div><!----></div>
+                                            <div data-v-ebcc336a=""
+                                                 class="input-width el-input el-input--small">
+                                                <!----><input id="member"
+                                                              type="text" autocomplete="off"
+                                                              placeholder="收货人姓名/手机号码"
+                                                              class="el-input__inner"><!----><!----><!---->
+                                            </div><!----></div>
                                     </div>
-                                    <div data-v-ebcc336a="" class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label" style="width: 140px;">提交时间：</label>
+                                    <div data-v-ebcc336a=""
+                                         class="el-form-item el-form-item--small"><label
+                                            class="el-form-item__label"
+                                            style="width: 140px;">提交时间：</label>
                                         <div class="el-form-item__content">
                                             <div data-v-ebcc336a=""
                                                  class="el-date-editor input-width el-input el-input--small el-input--prefix el-input--suffix el-date-editor--date">
-                                                <!----><input type="text" autocomplete="off" name="" placeholder="请选择时间"
-                                                              class="el-input__inner"><span class="el-input__prefix"><i
+                                                <!----><input id="create_time" type="text" autocomplete="off" name=""
+                                                              placeholder="请选择时间"
+                                                              class="el-input__inner"><span
+                                                    class="el-input__prefix"><i
                                                     class="el-input__icon el-icon-date"></i><!----></span><span
-                                                    class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                    class="el-input__icon"></i><!----></span><!----></span><!----></div>
+                                                    class="el-input__suffix"><span
+                                                    class="el-input__suffix-inner"><i
+                                                    class="el-input__icon"></i><!----></span><!----></span>
+                                                <!----></div>
                                             <!----></div>
                                     </div>
-                                    <div data-v-ebcc336a="" class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label" style="width: 140px;">订单状态：</label>
-                                        <div class="el-form-item__content">
-                                            <div data-v-ebcc336a="" class="el-select input-width el-select--small">
-                                                <!---->
-                                                <div class="el-input el-input--small el-input--suffix"><!----><input
-                                                        type="text" autocomplete="off" placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner"><!----><span
-                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 203px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>待付款</span></li>
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>待发货</span></li>
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>已发货</span></li>
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>已完成</span></li>
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>已关闭</span></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
+
+                                    <div style="display: none;">
+                                        <div data-v-ebcc336a=""
+                                             class="el-form-item el-form-item--small"><label
+                                                class="el-form-item__label"
+                                                style="width: 140px;">订单状态：</label>
+                                            <div class="el-form-item__content">
+                                                <div data-v-ebcc336a=""
+                                                     class="el-select input-width el-select--small">
+                                                    <!---->
+                                                    <div class="el-input el-input--small el-input--suffix">
+                                                        <!----><input id="status"
+                                                                      type="text" autocomplete="off"
+                                                                      placeholder="全部"
+                                                                      readonly="readonly" class="el-input__inner">
+                                                        <!----><span
+                                                            class="el-input__suffix"><span
+                                                            class="el-input__suffix-inner"><i
+                                                            class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                        <!----></span><!----></span><!----></div>
+                                                    <div class="el-select-dropdown el-popper"
+                                                         style="display: none; min-width: 203px;">
+                                                        <div class="el-scrollbar" style="">
+                                                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                 style="margin-bottom: -15px; margin-right: -15px;">
+                                                                <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                    <!---->
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>待付款</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>待发货</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>已发货</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>已完成</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>已关闭</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-horizontal">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateX(0%);"></div>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-vertical">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateY(0%);"></div>
+                                                            </div>
+                                                        </div><!----></div>
+                                                </div><!----></div>
+                                        </div>
+                                        <div data-v-ebcc336a=""
+                                             class="el-form-item el-form-item--small"><label
+                                                class="el-form-item__label"
+                                                style="width: 140px;">订单分类：</label>
+                                            <div class="el-form-item__content">
+                                                <div data-v-ebcc336a=""
+                                                     class="el-select input-width el-select--small">
+                                                    <!---->
+                                                    <div class="el-input el-input--small el-input--suffix">
+                                                        <!----><input id="order_type"
+                                                                      type="text" autocomplete="off"
+                                                                      placeholder="全部"
+                                                                      readonly="readonly" class="el-input__inner">
+                                                        <!----><span
+                                                            class="el-input__suffix"><span
+                                                            class="el-input__suffix-inner"><i
+                                                            class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                        <!----></span><!----></span><!----></div>
+                                                    <div class="el-select-dropdown el-popper"
+                                                         style="display: none; min-width: 203px;">
+                                                        <div class="el-scrollbar" style="">
+                                                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                 style="margin-bottom: -15px; margin-right: -15px;">
+                                                                <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                    <!---->
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>正常订单</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>秒杀订单</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-horizontal">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateX(0%);"></div>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-vertical">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateY(0%);"></div>
+                                                            </div>
+                                                        </div><!----></div>
+                                                </div><!----></div>
+                                        </div>
+                                        <div data-v-ebcc336a=""
+                                             class="el-form-item el-form-item--small"><label
+                                                class="el-form-item__label"
+                                                style="width: 140px;">订单来源：</label>
+                                            <div class="el-form-item__content">
+                                                <div data-v-ebcc336a=""
+                                                     class="el-select input-width el-select--small">
+                                                    <!---->
+                                                    <div class="el-input el-input--small el-input--suffix">
+                                                        <!----><input id="source_type"
+                                                                      type="text" autocomplete="off"
+                                                                      placeholder="全部"
+                                                                      readonly="readonly" class="el-input__inner">
+                                                        <!----><span
+                                                            class="el-input__suffix"><span
+                                                            class="el-input__suffix-inner"><i
+                                                            class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                        <!----></span><!----></span><!----></div>
+                                                    <div class="el-select-dropdown el-popper"
+                                                         style="display: none; min-width: 203px;">
+                                                        <div class="el-scrollbar" style="">
+                                                            <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                 style="margin-bottom: -15px; margin-right: -15px;">
+                                                                <ul class="el-scrollbar__view el-select-dropdown__list">
+                                                                    <!---->
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>PC订单</span></li>
+                                                                    <li data-v-ebcc336a=""
+                                                                        class="el-select-dropdown__item">
+                                                                        <span>APP订单</span></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-horizontal">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateX(0%);"></div>
+                                                            </div>
+                                                            <div class="el-scrollbar__bar is-vertical">
+                                                                <div class="el-scrollbar__thumb"
+                                                                     style="transform: translateY(0%);"></div>
+                                                            </div>
+                                                        </div><!----></div>
+                                                </div><!----></div>
+                                        </div>
                                     </div>
-                                    <div data-v-ebcc336a="" class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label" style="width: 140px;">订单分类：</label>
-                                        <div class="el-form-item__content">
-                                            <div data-v-ebcc336a="" class="el-select input-width el-select--small">
-                                                <!---->
-                                                <div class="el-input el-input--small el-input--suffix"><!----><input
-                                                        type="text" autocomplete="off" placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner"><!----><span
-                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 203px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>正常订单</span></li>
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>秒杀订单</span></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
-                                    </div>
-                                    <div data-v-ebcc336a="" class="el-form-item el-form-item--small"><label
-                                            class="el-form-item__label" style="width: 140px;">订单来源：</label>
-                                        <div class="el-form-item__content">
-                                            <div data-v-ebcc336a="" class="el-select input-width el-select--small">
-                                                <!---->
-                                                <div class="el-input el-input--small el-input--suffix"><!----><input
-                                                        type="text" autocomplete="off" placeholder="全部"
-                                                        readonly="readonly" class="el-input__inner"><!----><span
-                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                                    <!----></span><!----></span><!----></div>
-                                                <div class="el-select-dropdown el-popper"
-                                                     style="display: none; min-width: 203px;">
-                                                    <div class="el-scrollbar" style="">
-                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                             style="margin-bottom: -15px; margin-right: -15px;">
-                                                            <ul class="el-scrollbar__view el-select-dropdown__list">
-                                                                <!---->
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>PC订单</span></li>
-                                                                <li data-v-ebcc336a="" class="el-select-dropdown__item">
-                                                                    <span>APP订单</span></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-horizontal">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateX(0%);"></div>
-                                                        </div>
-                                                        <div class="el-scrollbar__bar is-vertical">
-                                                            <div class="el-scrollbar__thumb"
-                                                                 style="transform: translateY(0%);"></div>
-                                                        </div>
-                                                    </div><!----></div>
-                                            </div><!----></div>
-                                    </div>
+
                                 </form>
+                                <!--form表单 end-->
+
                             </div>
                         </div>
                     </div>
-                    <div data-v-ebcc336a="" class="el-card operate-container is-never-shadow"><!---->
-                        <div class="el-card__body"><i data-v-ebcc336a="" class="el-icon-tickets"></i> <span
+
+                    <div data-v-ebcc336a="" class="el-card operate-container is-never-shadow">
+                        <!---->
+                        <div class="el-card__body"><i data-v-ebcc336a=""
+                                                      class="el-icon-tickets"></i> <span
                                 data-v-ebcc336a="">数据列表</span></div>
                     </div>
                     <div data-v-ebcc336a="" class="table-container">
@@ -716,59 +855,67 @@
                                 <div data-v-ebcc336a=""></div>
                                 <div data-v-ebcc336a=""></div>
                             </div>
+
+                            <!--表格标题 begin-->
                             <div class="el-table__header-wrapper">
-                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__header"
-                                       style="width: 1444px;">
-                                    <colgroup>
+                                <table cellspacing="0" cellpadding="0" border="0"
+                                       class="el-table__header"
+                                       style="width: 100%;">
+                                    <!--<colgroup>
                                         <col name="el-table_2_column_10" width="60">
-                                        <col name="el-table_2_column_11" width="80">
+                                        <col name="el-table_2_column_11" width="60">
                                         <col name="el-table_2_column_12" width="180">
                                         <col name="el-table_2_column_13" width="180">
-                                        <col name="el-table_2_column_14" width="264">
-                                        <col name="el-table_2_column_15" width="120">
-                                        <col name="el-table_2_column_16" width="120">
-                                        <col name="el-table_2_column_17" width="120">
-                                        <col name="el-table_2_column_18" width="120">
-                                        <col name="el-table_2_column_19" width="200">
+                                        <col name="el-table_2_column_14" width="100">
+                                        <col name="el-table_2_column_15" width="100">
+                                        <col name="el-table_2_column_16" width="100">
+                                        <col name="el-table_2_column_17" width="100">
+                                        <col name="el-table_2_column_18" width="100">
+                                        <col name="el-table_2_column_19" width="180">
                                         <col name="gutter" width="0">
-                                    </colgroup>
+                                    </colgroup>-->
                                     <thead class="has-gutter">
                                     <tr class="">
-                                        <th colspan="1" rowspan="1"
+                                        <th colspan="1" rowspan="1" style="width: 4%;"
                                             class="el-table_2_column_10  is-center el-table-column--selection  is-leaf">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
+                                            <div class="cell">
+                                                <input id="allCheck" onclick="swapCheck()" type="checkbox">
+                                            </div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_11  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_11  is-center   is-leaf">
                                             <div class="cell">编号</div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_12  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_12  is-center   is-leaf">
                                             <div class="cell">订单编号</div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_13  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_13  is-center   is-leaf">
                                             <div class="cell">提交时间</div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_14  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_14  is-center   is-leaf">
                                             <div class="cell">用户账号</div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_15  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_15  is-center   is-leaf">
                                             <div class="cell">订单金额</div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_16  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_16  is-center   is-leaf">
                                             <div class="cell">支付方式</div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_17  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_17  is-center   is-leaf">
                                             <div class="cell">订单来源</div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_18  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_18  is-center   is-leaf">
                                             <div class="cell">订单状态</div>
                                         </th>
-                                        <th colspan="1" rowspan="1" class="el-table_2_column_19  is-center   is-leaf">
+                                        <th colspan="1" rowspan="1" style="width: 10%;"
+                                            class="el-table_2_column_19  is-center   is-leaf">
                                             <div class="cell">操作</div>
                                         </th>
                                         <th class="gutter" style="width: 0px; display: none;"></th>
@@ -776,602 +923,86 @@
                                     </thead>
                                 </table>
                             </div>
+                            <!--表格标题 end-->
+
+                            <!--订单列表 begin-->
                             <div class="el-table__body-wrapper is-scrolling-none">
-                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
-                                       style="width: 1444px;">
-                                    <colgroup>
+                                <table cellspacing="0" cellpadding="0" border="0"
+                                       class="el-table__body"
+                                       style="width: 100%;">
+                                    <!--<colgroup>
                                         <col name="el-table_2_column_10" width="60">
-                                        <col name="el-table_2_column_11" width="80">
+                                        <col name="el-table_2_column_11" width="60">
                                         <col name="el-table_2_column_12" width="180">
                                         <col name="el-table_2_column_13" width="180">
-                                        <col name="el-table_2_column_14" width="264">
-                                        <col name="el-table_2_column_15" width="120">
-                                        <col name="el-table_2_column_16" width="120">
-                                        <col name="el-table_2_column_17" width="120">
-                                        <col name="el-table_2_column_18" width="120">
-                                        <col name="el-table_2_column_19" width="200">
-                                    </colgroup>
-                                    <tbody>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">12</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809150101000001</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-15 12:24:27</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">未支付</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">已关闭</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"><!---->
-                                                    <!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">13</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809150102000002</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-15 14:24:29</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">支付宝</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">待发货</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"
-                                                        style="display: none;"><!----><!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">14</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809130101000001</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-13 16:57:40</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">微信</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">已发货</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"
-                                                        style="display: none;"><!----><!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">15</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809130102000002</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-13 17:03:00</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">支付宝</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">已完成</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"
-                                                        style="display: none;"><!----><!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">16</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809140101000001</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-14 16:16:16</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">微信</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">已关闭</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"><!---->
-                                                    <!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">17</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809150101000003</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-15 12:24:27</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">未支付</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">已关闭</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"><!---->
-                                                    <!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">18</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809150102000004</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-15 14:24:29</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">支付宝</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">待发货</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"
-                                                        style="display: none;"><!----><!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">19</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809130101000003</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-13 16:57:40</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">微信</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">已发货</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"
-                                                        style="display: none;"><!----><!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">20</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809130102000004</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-13 17:03:00</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">支付宝</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">已完成</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"
-                                                        style="display: none;"><!----><!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="el-table__row">
-                                        <td class="el-table_2_column_10 is-center el-table-column--selection">
-                                            <div class="cell"><label role="checkbox" class="el-checkbox"><span
-                                                    aria-checked="mixed" class="el-checkbox__input"><span
-                                                    class="el-checkbox__inner"></span><input type="checkbox"
-                                                                                             aria-hidden="true"
-                                                                                             class="el-checkbox__original"
-                                                                                             value=""></span><!---->
-                                            </label></div>
-                                        </td>
-                                        <td class="el-table_2_column_11 is-center ">
-                                            <div class="cell">21</div>
-                                        </td>
-                                        <td class="el-table_2_column_12 is-center ">
-                                            <div class="cell">201809140101000002</div>
-                                        </td>
-                                        <td class="el-table_2_column_13 is-center ">
-                                            <div class="cell">2018-09-14 16:16:16</div>
-                                        </td>
-                                        <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell">test</div>
-                                        </td>
-                                        <td class="el-table_2_column_15 is-center ">
-                                            <div class="cell">￥18732</div>
-                                        </td>
-                                        <td class="el-table_2_column_16 is-center ">
-                                            <div class="cell">微信</div>
-                                        </td>
-                                        <td class="el-table_2_column_17 is-center ">
-                                            <div class="cell">APP订单</div>
-                                        </td>
-                                        <td class="el-table_2_column_18 is-center ">
-                                            <div class="cell">已关闭</div>
-                                        </td>
-                                        <td class="el-table_2_column_19 is-center ">
-                                            <div class="cell">
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"><!---->
-                                                    <!----><span>查看订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>关闭订单</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单发货</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--default el-button--mini"
-                                                        style="display: none;"><!----><!----><span>订单跟踪</span></button>
-                                                <button data-v-ebcc336a="" type="button"
-                                                        class="el-button el-button--danger el-button--mini"><!---->
-                                                    <!----><span>删除订单</span></button>
-                                            </div>
-                                        </td>
-                                    </tr><!----></tbody>
-                                </table><!----><!----></div><!----><!----><!----><!---->
+                                        <col name="el-table_2_column_14" width="100">
+                                        <col name="el-table_2_column_15" width="100">
+                                        <col name="el-table_2_column_16" width="100">
+                                        <col name="el-table_2_column_17" width="100">
+                                        <col name="el-table_2_column_18" width="100">
+                                        <col name="el-table_2_column_19" width="180">
+                                        <col name="gutter" width="0">
+                                    </colgroup>-->
+                                    <!--此节点下存放订单项-->
+                                    <tbody id="omsOrderBody"></tbody>
+                                </table>
+                            </div>
+                            <!--订单列表 end-->
+
                             <div class="el-table__column-resize-proxy" style="display: none;"></div>
                             <div class="el-loading-mask" style="display: none;">
                                 <div class="el-loading-spinner">
                                     <svg viewBox="25 25 50 50" class="circular">
                                         <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
-                                    </svg><!----></div>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div data-v-ebcc336a="" class="batch-operate-container">
                         <div data-v-ebcc336a="" class="el-select el-select--small"><!---->
-                            <div class="el-input el-input--small el-input--suffix"><!----><input type="text"
+                            <div class="el-input el-input--small el-input--suffix"><!----><input onclick="plczselectInput()"
+                                                                                                 type="text"
                                                                                                  autocomplete="off"
                                                                                                  placeholder="批量操作"
                                                                                                  readonly="readonly"
                                                                                                  class="el-input__inner">
-                                <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
+                                <!----><span class="el-input__suffix"><span
+                                        class="el-input__suffix-inner"><i
+                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                    <!----></span>
                                     <!----></span><!----></div>
-                            <div class="el-select-dropdown el-popper" style="display: none; min-width: 192px;">
+
+                            <!--批量操作选项 begin-->
+                            <div id="plczselect" class="el-select-dropdown el-popper"
+                                 style="display: none; min-width: 192px;">
                                 <div class="el-scrollbar" style="">
                                     <div class="el-select-dropdown__wrap el-scrollbar__wrap"
                                          style="margin-bottom: -15px; margin-right: -15px;">
-                                        <ul class="el-scrollbar__view el-select-dropdown__list"><!---->
-                                            <li data-v-ebcc336a="" class="el-select-dropdown__item"><span>批量发货</span>
+                                        <ul class="el-scrollbar__view el-select-dropdown__list">
+                                            <!---->
+                                            <li onclick="updateOrderStatusByCheck(2)" data-v-ebcc336a="" class="el-select-dropdown__item">
+                                                <span>批量发货</span>
                                             </li>
-                                            <li data-v-ebcc336a="" class="el-select-dropdown__item"><span>关闭订单</span>
+                                            <li onclick="updateOrderStatusByCheck(4)" data-v-ebcc336a="" class="el-select-dropdown__item">
+                                                <span>关闭订单</span>
                                             </li>
-                                            <li data-v-ebcc336a="" class="el-select-dropdown__item"><span>删除订单</span>
+                                            <li onclick="removeOmsOrderByCheck()" data-v-ebcc336a="" class="el-select-dropdown__item">
+                                                <span>删除订单</span>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="el-scrollbar__bar is-horizontal">
-                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                                        <div class="el-scrollbar__thumb"
+                                             style="transform: translateX(0%);"></div>
                                     </div>
                                     <div class="el-scrollbar__bar is-vertical">
-                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                                        <div class="el-scrollbar__thumb"
+                                             style="transform: translateY(0%);"></div>
                                     </div>
                                 </div><!----></div>
+                            <!--批量操作选项 end-->
+
                         </div>
                         <button data-v-ebcc336a="" type="button"
                                 class="el-button search-button el-button--primary el-button--small"
@@ -1379,68 +1010,509 @@
       确定
     </span></button>
                     </div>
+
+                    <!--分页 begin-->
                     <div data-v-ebcc336a="" class="pagination-container">
-                        <div data-v-ebcc336a="" class="el-pagination is-background"><span class="el-pagination__total">共 14 条</span><span
-                                class="el-pagination__sizes"><div class="el-select"><!----><div
-                                class="el-input el-input--suffix"><!----><input type="text" autocomplete="off"
-                                                                                placeholder="请选择" readonly="readonly"
-                                                                                class="el-input__inner"><!----><span
-                                class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
-                            <!----></span><!----></div><div class="el-select-dropdown el-popper"
-                                                            style="display: none; min-width: 110px;"><div
-                                class="el-scrollbar" style=""><div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                                                   style="margin-bottom: -15px; margin-right: -15px;"><ul
-                                class="el-scrollbar__view el-select-dropdown__list"><!----><li
-                                class="el-select-dropdown__item"><span>5条/页</span></li><li
-                                class="el-select-dropdown__item selected"><span>10条/页</span></li><li
-                                class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
-                                class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb"
-                                                                             style="transform: translateX(0%);"></div></div><div
-                                class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb"
-                                                                           style="transform: translateY(0%);"></div></div></div>
-                            <!----></div></div></span>
-                            <button type="button" disabled="disabled" class="btn-prev"><i
-                                    class="el-icon el-icon-arrow-left"></i></button>
-                            <ul class="el-pager">
-                                <li class="number active">1</li><!----><!---->
-                                <li class="number">2</li>
+                        <div data-v-ebcc336a="" class="el-pagination is-background">
+                            <span class="el-pagination__total">共
+                                <span id="total" style="text-align: center"></span>条
+                            </span>
+                            <span class="el-pagination__sizes"><div class="el-select">
+                                <div class="el-input el-input--suffix">
+                                    <input id="selectInput" type="text" autocomplete="off" placeholder="请选择" readonly="readonly"
+                                           class="el-input__inner">
+                                    <!----><span
+                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
+                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                    <!----></span>
+                                    <!----></span><!----></div><div id="selectSizeDiv" class="el-select-dropdown el-popper"
+                                                                    style="display: none; min-width: 110px;"><div
+                                    class="el-scrollbar" style=""><div
+                                    class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                    style="margin-bottom: -15px; margin-right: -15px;"><ul
+                                    class="el-scrollbar__view el-select-dropdown__list"><!----><li onclick="setPageSize(5)"
+                                                                                                   class="el-select-dropdown__item"><span>5条/页</span></li><li onclick="setPageSize(10)"
+                                                                                                                                                              class="el-select-dropdown__item selected"><span>10条/页</span></li><li onclick="setPageSize(15)"
+                                                                                                                                                                                                                                   class="el-select-dropdown__item"><span>15条/页</span></li></ul></div><div
+                                    class="el-scrollbar__bar is-horizontal"><div
+                                    class="el-scrollbar__thumb"
+                                    style="transform: translateX(0%);"></div></div><div
+                                    class="el-scrollbar__bar is-vertical"><div
+                                    class="el-scrollbar__thumb"
+                                    style="transform: translateY(0%);"></div></div></div>
+                            </div></div></span>
+                            <button id="btnPrev" type="button" disabled="disabled" class="btn-prev">
+                                <i class="el-icon el-icon-arrow-left"></i></button>
+                            <ul id="pagesUl" class="el-pager">
+                                <!--<li class="number active">1</li>
+                                <li class="number">2</li>-->
                             </ul>
-                            <button type="button" class="btn-next"><i class="el-icon el-icon-arrow-right"></i></button>
+                            <button id="btnNext" type="button" class="btn-next"><i
+                                    class="el-icon el-icon-arrow-right"></i></button>
                             <span class="el-pagination__jump">前往<div
-                                    class="el-input el-pagination__editor is-in-pagination"><!----><input type="number"
-                                                                                                          autocomplete="off"
-                                                                                                          min="1"
-                                                                                                          class="el-input__inner"
-                                                                                                          max="2">
-                                <!----><!----><!----></div>页</span></div>
+                                    class="el-input el-pagination__editor is-in-pagination"><input id="numberInput"
+                                                                                                   type="number"
+                                                                                                   autocomplete="off"
+                                                                                                   min="1"
+                                                                                                   class="el-input__inner"
+                                                                                                   max="2">
+                                </div>页</span></div>
                     </div>
+                    <!--分页 end-->
+
                     <div data-v-ebcc336a="" class="el-dialog__wrapper" style="display: none;">
                         <div class="el-dialog" style="width: 30%; margin-top: 15vh;">
-                            <div class="el-dialog__header"><span class="el-dialog__title">关闭订单</span>
-                                <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
+                            <div class="el-dialog__header"><span
+                                    class="el-dialog__title">关闭订单</span>
+                                <button type="button" aria-label="Close"
+                                        class="el-dialog__headerbtn"><i
                                         class="el-dialog__close el-icon el-icon-close"></i></button>
                             </div><!---->
-                            <div class="el-dialog__footer"><span data-v-ebcc336a="" class="dialog-footer"><button
-                                    data-v-ebcc336a="" type="button" class="el-button el-button--default"><!----><!----><span>取 消</span></button> <button
-                                    data-v-ebcc336a="" type="button" class="el-button el-button--primary"><!----><!----><span>确 定</span></button></span>
+                            <div class="el-dialog__footer"><span data-v-ebcc336a=""
+                                                                 class="dialog-footer"><button
+                                    data-v-ebcc336a="" type="button"
+                                    class="el-button el-button--default"><!---->
+                                <!----><span>取 消</span></button> <button
+                                    data-v-ebcc336a="" type="button"
+                                    class="el-button el-button--primary"><!---->
+                                <!----><span>确 定</span></button></span>
                             </div>
                         </div>
                     </div>
-                    <div data-v-ebcc336a="" class="el-dialog__wrapper" style="display: none;">
-                        <div class="el-dialog" style="width: 40%; margin-top: 15vh;">
-                            <div class="el-dialog__header"><span class="el-dialog__title">订单跟踪</span>
-                                <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
-                                        class="el-dialog__close el-icon el-icon-close"></i></button>
-                            </div><!----><!----></div>
-                    </div>
+
+                    <!--订单跟踪 begin-->
+                    <div id="trackingDiv" data-v-ebcc336a="" class="el-dialog__wrapper" style="z-index: 2044; display: none;"><div class="el-dialog" style="width: 40%; margin-top: 15vh;"><div class="el-dialog__header"><span class="el-dialog__title">订单跟踪</span><button onclick="hideTrackingDiv()" type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><div class="el-dialog__body"><div class="el-steps el-steps--vertical"><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 0ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">订单已提交，等待付款</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 150ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">订单付款成功</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 300ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">在北京市进行下级地点扫描，等待付款</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 450ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">在分拨中心广东深圳公司进行卸车扫描，等待付款</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 600ms; border-width: 1px; height: 100%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">在广东深圳公司进行发出扫描</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-success"><div class="el-step__line" style="margin-right: 0px;"><i class="el-step__line-inner" style="transition-delay: 750ms; border-width: 0px; height: 0%;"></i></div><div class="el-step__icon is-text"><i class="el-step__icon-inner is-status el-icon-check"></i></div></div><div class="el-step__main"><div class="el-step__title is-success">到达目的地网点广东深圳公司，快件将很快进行派送</div><div class="el-step__description is-success">2017-04-01 12:00:00 </div></div></div><div class="el-step is-vertical" style="flex-basis: 50px;"><div class="el-step__head is-process"><div class="el-step__line"><i class="el-step__line-inner"></i></div><div class="el-step__icon is-text"><!----><div class="el-step__icon-inner">7</div></div></div><div class="el-step__main"><div class="el-step__title is-process">订单已签收，期待再次为您服务</div><div class="el-step__description is-process">2017-04-01 12:00:00 </div></div></div></div></div><!----></div></div>
+                    <!--订单跟踪 end-->
+
+
                 </div>
             </section>
+            <!--页面内容 end-->
+
         </div>
+        <!--右侧主要内容 end-->
+
     </div>
 </div>
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
-<!--<script type="text/javascript" src="../static/mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
+
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="../static/js/js/bootstrap.js"></script>
+<script>
+
+
+    var left_status = 1;    //左边导航栏的当前状态
+    //网页动态脚本
+    $("#topPic").click(function () {
+        //设置隐藏
+        if (left_status) {
+            $("#topPic svg").attr("class", "hamburger is-active");
+            $("#allContext").attr("class", "app-wrapper hideSidebar withoutAnimation");
+            $("#pruduct_ul").hide();
+            $("#order_ul").hide();
+            $("#sms_ul").hide();
+
+            left_status = 0;
+        }
+        //设置显示
+        else {
+            $("#topPic svg").attr("class", "hamburger is-active");
+            $("#allContext").attr("class", "app-wrapper withoutAnimation");
+            $("#order_ul").show();
+
+            left_status = 1;
+        }
+    });
+
+    var u_1 = 0;    //当前状态
+    $("#product_li").click(function () {
+        if (u_1) {
+            $("#pruduct_ul").hide();
+            u_1 = 0;
+        } else {
+            $("#pruduct_ul").show();
+            u_1 = 1;
+        }
+    });
+    var u_2 = 1;    //当前状态
+    $("#order_li").click(function () {
+        if (u_2) {
+            $("#order_ul").hide();
+            u_2 = 0;
+        } else {
+            $("#order_ul").show();
+            u_2 = 1;
+        }
+    });
+    var u_3 = 0;    //当前状态
+    $("#sms_li").click(function () {
+        if (u_3) {
+            $("#sms_ul").hide();
+            u_3 = 0;
+        } else {
+            $("#sms_ul").show();
+            u_3 = 1;
+        }
+    });
+
+    // 隐藏：hamburger
+    // app-wrapper hideSidebar withoutAnimation
+    // 显示：hamburger is-active
+    //---------------------------------------
+
+    // app-wrapper withoutAnimation
+
+
+    //订单跟踪弹窗
+    function hideTrackingDiv() {
+        // $("#trackingDiv").css("display", "none");
+        $("#trackingDiv").hide();
+    }
+    function showTrackingDiv() {
+        // $("#trackingDiv").css("display", "");
+        $("#trackingDiv").show();
+        $("#trackingDiv").modal("show");
+    }
+
+
+    /**
+     * 加载网页是调用
+     */
+    $(function () {
+        listAllOmsOrder();
+    });
+
+    var pageNum = 1;    //当前页面
+    var pages;          //总页数
+    var pageSize = 5;       //每页数量
+
+    /**
+     * 商家获取所有订单信息
+     */
+    function listAllOmsOrder() {
+        $.ajax({
+            type: 'POST',
+            url: "/listAllOmsOrderByMerchant",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({
+                "pageNum" : pageNum,
+                "pageSize" : pageSize
+            }),
+            success: function (data) {
+                console.log(data);
+                appendStrByOmsOrder(data.list);
+
+                $("#total").text(data.total);
+                pages = data.pages;
+                appendPageNum(data.pages);
+                $("#pageLi_"+data.pageNum).attr("class","active");
+                if ( data.prePage==0 ) $("#btnPrev").attr("disabled", "disabled");
+                else $("#btnPrev").removeAttr("disabled");
+                if ( data.nextPage==0 ) $("#btnNext").attr("disabled", "disabled");
+                else $("#btnNext").attr("disabled", false);
+            },
+            error: function (data) {
+                // console.error(data);
+            }
+        });
+    }
+
+    /**
+     * 循环添加订单项信息节点
+     * @param data
+     */
+    function appendStrByOmsOrder(data) {
+        var roleTbody = $("#omsOrderBody");
+        roleTbody.empty();
+        var str;
+        $(data).each(function (index, item) {
+            var payTypeText, sourceTypeText, statusText;
+            switch (item.payType) {
+                case 0 : payTypeText = "未支付"; break;
+                case 1 : payTypeText = "支付宝"; break;
+                case 2 : payTypeText = "微信"; break;
+            }
+            switch (item.sourceType) {
+                case 1 : sourceTypeText="APP订单"; break;
+            }
+            var dis = ["","none","none","none","none"];
+            switch (item.status) {
+                case 1 : {
+                    statusText = "待发货";
+                    dis[2] = "";
+                    break;
+                }
+                case 2 : {
+                    statusText = "已发货";
+                    dis[3] = "";
+                    break;
+                }
+                case 3 : {
+                    statusText = "已完成";
+                    dis[3] = "";
+                    break;
+                }
+                case 4 : {
+                    statusText = "已关闭";
+                    dis[4] = "";
+                    break;
+                }
+            }
+
+            str = "<tr id=\"omsOrderBodyTr_" + item.id + "\" class=\"el-table__row\" >\n" +
+                "    <td class=\"el-table_2_column_10 is-center el-table-column--selection\" style='width: 4%'>\n" +
+                "        <div class=\"cell\">\n" +
+                "            <input id=\"itemInput_"+item.id+"\" onclick='itemCheck()' type=\"checkbox\" aria-hidden=\"true\"" +
+                "        </div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_11 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">" + item.id + "</div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_12 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">" + item.orderSn + "</div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_13 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">" + item.createTime + "</div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_14 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">" + item.memberUsername + "</div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_15 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">￥" + item.totalAmount + "</div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_16 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">" + payTypeText + "</div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_17 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">" + sourceTypeText + "</div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_18 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">" + statusText + "</div>\n" +
+                "    </td>\n" +
+                "    <td class=\"el-table_2_column_19 is-center \" style='width: 10%'>\n" +
+                "        <div class=\"cell\">\n" +
+                "            <a href='OrderDetail.html?id="+ item.id +"'><button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[0]+";\">\n" +
+                "                <span>查看订单</span>\n" +
+                "            </button></a>\n" +
+                "            <button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[1]+";\">\n" +
+                "                <span>关闭订单</span>\n" +
+                "            </button>\n" +
+                "            <a href='deliverOrderList.html?id="+ item.id +"'><button data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[2]+";\">\n" +
+                "                <span>订单发货</span>\n" +
+                "            </button></a>\n" +
+                "            <button onclick='showTrackingDiv()' data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--default el-button--mini\" style=\"display: "+dis[3]+";\">\n" +
+                "                <span>订单跟踪</span>\n" +
+                "            </button>\n" +
+                "            <button onclick=\"removeOmsOrderById(" + item.id + ")\" data-v-ebcc336a=\"\" type=\"button\" class=\"el-button el-button--danger el-button--mini\" style=\"display: "+dis[4]+";\">\n" +
+                "                <span>删除订单</span>\n" +
+                "            </button>\n" +
+                "        </div>\n" +
+                "    </td>\n" +
+                "</tr>"
+            ;
+            roleTbody.append(str);
+        });
+    }
+
+    /**
+     * 重置查询条件表单中的值
+     */
+    function resetValue() {
+        $("#order_sn").val("");
+        $("#member").val("");
+        $("#create_time").val("");
+    }
+
+    /**
+     * 根据条件查询订单信息
+     */
+    function searchOmsOrder() {
+        var order_sn = $("#order_sn").val();
+        var member = $("#member").val();
+        var create_time = $("#create_time").val();
+        var status = $("#status").val();
+        var order_type = $("#order_type").val();
+        var source_type = $("#source_type").val();
+        console.log(order_sn);
+        console.log(member);
+        console.log(create_time);
+        $.ajax({
+            type: 'POST',
+            url: "/searchOmsOrder",
+            contentType:"application/json",
+            data: JSON.stringify({
+                "order_sn" : order_sn,
+                "member" : member,
+                "create_time" : create_time,
+                "status" : status,
+                "order_type" : order_type,
+                "source_type" : source_type
+            }),
+            success: function(data){
+                console.log(data);
+                appendStrByOmsOrder(data);
+            },
+            error:function (data) {
+                console.error(data);
+            },
+            dataType: "json"
+        });
+    }
+
+    /**
+     * 根据id删除订单
+     */
+    function removeOmsOrderById(omsOrderId) {
+        $.ajax({
+            type: 'POST',
+            url: "/deleteOmsOrderById?omsOrderId=" + omsOrderId,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                $("#omsOrderBodyTr_" + omsOrderId).remove();
+            },
+            error: function (data) {
+                console.error(data);
+            }
+        });
+    }
+
+    //修改订单的状态（已发货->2, 已关闭->4）
+    function updateOrderStatusByIds(orderId, status) {
+        $.ajax({
+            type: 'POST',
+            url: "/updateOmsOrderStatusByOrderId",
+            contentType:"application/json",
+            dataType: "json",
+            data: JSON.stringify({
+                "id" : orderId,
+                "status" : status
+            }),
+            success: function(data){
+                console.log(data);
+            },
+            error:function (data) {
+                console.error(data);
+            }
+        });
+    }
+
+
+    /**
+     * 复选框的全选和取消全选功能
+     */
+    var isCheckAll = false;     //变量随全选框一起改变
+    function swapCheck() {
+        if (isCheckAll) {
+            $("#omsOrderBody input").each(function () {
+                this.checked = false;
+            });
+            isCheckAll = false;
+        } else {
+            $("#omsOrderBody input").each(function () {
+                this.checked = true;
+            });
+            isCheckAll = true;
+        }
+    }
+    function itemCheck() {
+        var flag = true;
+        $("#omsOrderBody input").each(function () {
+            if (!this.checked) {
+                flag = false;
+                return false;
+            }
+        });
+        isCheckAll = flag;
+        $("#allCheck").prop("checked", flag);
+    }
+
+    /**
+     * 打开批量选项窗口
+     */
+    function plczselectInput() {
+        $("#plczselect").show();
+    }
+
+    /**
+     * 订单的批量操作：修改订单状态，并隐藏批量窗口
+     */
+    function updateOrderStatusByCheck(status) {
+        // console.log(status);
+        $("#omsOrderBody input:checked").each(function () {
+            var id = this.id.split("_")[1];
+            // console.log(id + " " + status);
+            updateOrderStatusByIds(id, status);
+        });
+        $("#plczselect").hide();
+    }
+    /**
+     * 订单的批量操作：删除订单
+     */
+    function removeOmsOrderByCheck() {
+        $("#omsOrderBody input:checked").each(function () {
+            var id = this.id.split("_")[1];
+            removeOmsOrderById(id);
+        });
+        listAllOmsOrder();
+        $("#plczselect").hide();
+        isCheckAll = false;
+        $("#allCheck").prop("checked", false);
+    }
+
+
+
+
+    /**
+     * 添加分页按钮
+     * @param pages
+     */
+    function appendPageNum(pages) {
+        var str = "";
+        for (var i=1; i<=pages; ++i) {
+            str += "<li id=\"pageLi_"+ i +"\" onclick=\"pageLiClick("+i+")\" class=\"number\">"+ i +"</li>";
+        }
+        $("#numberInput").val(pageNum);
+        $("#pagesUl").empty();
+        $("#pagesUl").append(str);
+    }
+
+    /**
+     * 点击分页按钮的事件
+     * @param i
+     */
+    function pageLiClick(i) {
+        pageNum = i;
+        listAllOmsOrder();
+    }
+    $("#btnPrev").click(function () {
+        --pageNum;
+        listAllOmsOrder();
+    });
+    $("#btnNext").click(function () {
+        ++pageNum;
+        listAllOmsOrder();
+    });
+    $("#numberInput").blur(function () {
+        pageNum = $("#numberInput").val();
+        pageNum = pageNum<1 ? 1 : pageNum>pages ? pages : pageNum;
+        pageNum = parseInt(pageNum);
+        listAllOmsOrder();
+    });
+    $("#selectInput").click(function () {
+        $("#selectSizeDiv").show();
+        // css("display", "");
+    });
+    function setPageSize(size) {
+        pageSize = size;
+        $("#selectSizeDiv").hide();
+        $("#selectInput").val(size+"条/页");
+        listAllOmsOrder();
+        // $("#selectSizeDiv").css("display", "none");
+    }
+
+</script>
 </body>
 </html>

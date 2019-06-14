@@ -1,148 +1,141 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-        <meta name="author" content="order by dede58.com"/>
-		<title>品牌商品页</title>
-		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-	</head>
-	<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="order by dede58.com"/>
+    <title>品牌商品页</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
 
 
+<div id="header"></div>
 
 
-	<div id="header"></div>
+<div class="banner_x center">
+    <!--<a href="index.html" target="_blank"><div class="logo fl"></div></a>-->
+
+    <div class="wdgwc fl ml40" id="title">首页推荐</div>
+    <div class="wxts fl ml20">温馨提示：商城运营,全程5折起,多买多送,还抽奖哦!!!</div>
+    <div class="dlzc fr"></div>
+    <div class="clear"></div>
+</div>
+<div class="xiantiao"></div>
+<div class="gwcxqbj">
+
+    <!-- start danpin -->
+    <div class="danpin center">
+
+        <div class="biaoti center"></div>
+        <div class="main center" id="li1">
+
+            <div class="clear"></div>
+        </div>
+        <div class="main center mb20" id="li2">
+
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
+<!-- end danpin -->
+
+<script>
 
 
+    $("#header").load("header.html");
 
 
-	<div class="banner_x center">
-		<!--<a href="index.html" target="_blank"><div class="logo fl"></div></a>-->
+    function get(pageNow, pageSize) {
 
-		<div class="wdgwc fl ml40"  id="title">首页推荐</div>
-		<div class="wxts fl ml20">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</div>
-		<div class="dlzc fr"></div>
-		<div class="clear"></div>
-	</div>
-	<div class="xiantiao"></div>
-	<div class="gwcxqbj" >
+        var id = window.location.search.split("=")[1];
+        // alert(pageNow+":"+pageSize+":"+id)
+        //加载此品牌下的所有商品
 
-	<!-- start danpin -->
-		<div class="danpin center">
-			
-			<div class="biaoti center" ></div>
-			<div class="main center" id="li1">
-
-				<div class="clear"></div>
-			</div>
-			<div class="main center mb20" id="li2">
-
-				<div class="clear"></div>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript" src="../static/js/js/jquery-3.2.1.js"></script>
-	<!-- end danpin -->
+        $.ajax({
+            url: '/getBrands',
+            type: 'POST', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            data: JSON.stringify({
+                "id": id,
+                "pageNow": pageNow,
+                "pageSize": pageSize
+            }),
+            /*成功*/
+            success: function (data) {
 
 
+                var $li1 = $("#li1");
+                $li1.find("div").remove();
+                var $li2 = $("#li2");
+                $li2.find("div").remove();
 
-	<script>
+                var list = data.list;
+                $(list).each(function (index, val) {
+                    var table = "<div class=\"mingxing fl mb20\" style=\"border:2px solid #fff;width:230px;cursor:pointer;\" onmouseout=\"this.style.border='2px solid #fff'\" onmousemove=\"this.style.border='2px solid red'\">\n" +
+                        "\t\t\t\t\t<div class=\"sub_mingxing\"><a href=\"/main/xiangqing.html?id=" + val.id + "\" target=\"_blank\"><img src=\"" + val.pic + "\" alt=\"\"></a></div>\n" +
+                        "\t\t\t\t\t<div class=\"pinpai\"><a href=\"xiangqing.html\" target=\"_blank\">" + val.name + "</a></div>\n" +
+                        "\t\t\t\t\t<div class=\"youhui\">" + "" + "</div>\n" +
+                        "\t\t\t\t\t<div class=\"jiage\">" + val.price + "元</div>" +
+                        "\t\t\t\t</div>";
+                    if (index < 5) {
+                        $li1.append(table)
+                    } else {
+                        $li2.append(table)
+                    }
+                    if (index == 0) {
+                        $("#title").html(val.brand_name)
+                    }
 
+                })
+            },
+            /*发生错误时*/
+            error: function (xhr, textStatus) {
+                alert("错误请求!!!")
+            }
+        });
 
-		$("#header").load("header.html");
+    }
 
-
-
-		function get(pageNow,pageSize) {
-
-			var  id = window.location.search.split("=")[1];
-			// alert(pageNow+":"+pageSize+":"+id)
-			//加载此品牌下的所有商品
-
-			$.ajax({
-				url: '/getBrands',
-				type: 'POST', //GET
-				contentType: "application/json",
-				dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
-				data: JSON.stringify({
-					"id":id,
-					"pageNow": pageNow,
-					"pageSize": pageSize
-				}),
-				/*成功*/
-				success: function (data) {
-
-
-					var $li1 = $("#li1");
-					$li1.find("div").remove();
-					var $li2 = $("#li2");
-					$li2.find("div").remove();
-
-					var list = data.list;
-					$(list).each(function (index, val) {
-						var table = "<div class=\"mingxing fl mb20\" style=\"border:2px solid #fff;width:230px;cursor:pointer;\" onmouseout=\"this.style.border='2px solid #fff'\" onmousemove=\"this.style.border='2px solid red'\">\n" +
-								"\t\t\t\t\t<div class=\"sub_mingxing\"><a href=\"/main/xiangqing.html?id="+val.id+"\" target=\"_blank\"><img src=\""+val.pic+"\" alt=\"\"></a></div>\n" +
-								"\t\t\t\t\t<div class=\"pinpai\"><a href=\"xiangqing.html\" target=\"_blank\">"+val.name+"</a></div>\n" +
-								"\t\t\t\t\t<div class=\"youhui\">"+""+"</div>\n" +
-								"\t\t\t\t\t<div class=\"jiage\">"+val.price+"元</div>" +
-								"\t\t\t\t</div>";
-						if(index<5){
-							$li1.append(table)
-						}else {
-							$li2.append(table)
-						}
-						if(index==0){
-							$("#title").html(val.brand_name)
-						}
-
-					})
-				},
-				/*发生错误时*/
-				error: function (xhr, textStatus) {
-					alert("错误请求!!!")
-				}
-			});
-
-		}
-
-		get(1,10);
+    get(1, 10);
 
 
-		$(function () {
+    $(function () {
 
-			$(function () {
-				$.ajax({
-					url:'/getType',
-					type:'GET', //GET
-					contentType:"application/json",
-					dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
-					/*成功*/
-					success:function(data){
+        $(function () {
+            $.ajax({
+                url: '/getType',
+                type: 'GET', //GET
+                contentType: "application/json",
+                dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                /*成功*/
+                success: function (data) {
 
-						var inebiao = $("#inebiao");
+                    var inebiao = $("#inebiao");
 
-						inebiao.find("li").remove();
+                    inebiao.find("li").remove();
 
-						$(data).each(function (ind,val) {
-							if(val.parentId==0&&ind<10){
-								var li2 = " <li><a href=\"http://localhost:8080/main/liebiao3.html?name="+val.name+"\">"+val.name+"</a></li>";
-								inebiao.append(li2);
-							}
-						})
+                    $(data).each(function (ind, val) {
+                        if (val.parentId == 0 && ind < 10) {
+                            var li2 = " <li><a href=\"http://localhost:8080/main/liebiao3.html?name=" + val.name + "\">" + val.name + "</a></li>";
+                            inebiao.append(li2);
+                        }
+                    })
 
-					},
-					/*发生错误时*/
-					error:function(xhr,textStatus){
-						alert("请求出错!!!")
-					}
-				})
-			})
+                },
+                /*发生错误时*/
+                error: function (xhr, textStatus) {
+                    alert("请求出错!!!")
+                }
+            })
+        })
 
-		})
-
-
-	</script>
+    })
 
 
-	</body>
+</script>
+
+
+</body>
 </html>
