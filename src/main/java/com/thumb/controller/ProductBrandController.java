@@ -82,7 +82,7 @@ public class ProductBrandController {
     @RequestMapping("updateBrand")
     public Object updateBrand(@RequestBody ProductBrandDto productBrandDto){
         String logo = productBrandDto.getLogo();
-        productBrandDto.setLogo("http://localhost:8080/static/upload/"+logo);
+        productBrandDto.setLogo("http://localhost:8080/upload/"+logo);
         int i = productBrandService.updateBrand(productBrandDto);
         return i;
     }
@@ -98,7 +98,7 @@ public class ProductBrandController {
 
         String logo = productBrandDto.getLogo();
         if (logo.length()>0){
-            productBrandDto.setLogo("http://localhost:8080/static/upload/"+logo);
+            productBrandDto.setLogo("http://localhost:8080/upload/"+logo);
         }
         int i = productBrandService.addBrand(productBrandDto);
         return i;
