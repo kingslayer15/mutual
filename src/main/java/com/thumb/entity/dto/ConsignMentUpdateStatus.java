@@ -8,45 +8,20 @@ import lombok.Data;
  */
 
 @Data
-public class ConsignMentUpdateStatus {
-
-    int id,status;
+public class ConsignMentUpdateStatus extends UpdateStatus {
 
     //物流快递
-    private String deliveryComPany;
+    private String deliveryCompany;
     //物流单号
     private String deliverySn;
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getDeliveryComPany() {
-        return deliveryComPany;
-    }
-
-    public void setDeliveryComPany(String deliveryComPany) {
-        this.deliveryComPany = deliveryComPany;
-    }
-
-    public String getDeliverySn() {
-        return deliverySn;
-    }
-
-    public void setDeliverySn(String deliverySn) {
-        this.deliverySn = deliverySn;
+    @Override
+    public String toString() {
+        return "ConsignMentUpdateStatus{" +
+                "deliveryCompany='" + deliveryCompany + '\'' +
+                ", deliverySn='" + deliverySn + '\'' +
+                ", id=" + id +
+                ", status=" + status +
+                '}';
     }
 }
