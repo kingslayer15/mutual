@@ -6,6 +6,7 @@ import com.thumb.dto.MerchantProductDto;
 import com.thumb.dto.ProductBrandDto;
 import com.thumb.dto.ProductCategoryDto;
 import com.thumb.dto.ProductDto;
+import com.thumb.pojo.Merchant;
 import com.thumb.service.MerchantProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +22,8 @@ public class MerchantProductController {
 
     //获取商家id
      public int getMerchantId(HttpSession httpSession){
-         MerchantProductDto merchant = (MerchantProductDto) httpSession.getAttribute("merchant");
-         int merchantId = merchant.getMerchantId();
+         Merchant merchant = (Merchant) httpSession.getAttribute("merchant");
+         int merchantId = merchant.getId();
          return merchantId;
     }
 
