@@ -38,9 +38,10 @@ public class MerchantOmsOrderController {
 //        int id = merchantSession.getId();
 
         Object object = session.getAttribute("merchant");
+        System.out.println(object + "object");
 
-        System.out.println(object);int
-        id = 1;
+        int id = ((com.thumb.pojo.Merchant)(object)).getId();
+        System.out.println(id + " id");
 
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
         Merchant merchant = merchantOmsOrderService.listAllOmsOrderByMerchant(id);
