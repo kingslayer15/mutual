@@ -82,7 +82,7 @@ public class ProductBrandController {
     @RequestMapping("updateBrand")
     public Object updateBrand(@RequestBody ProductBrandDto productBrandDto){
         String logo = productBrandDto.getLogo();
-        productBrandDto.setLogo("http://localhost:8080/static/upload/"+logo);
+        productBrandDto.setLogo("http://localhost:8080/upload/"+logo);
         int i = productBrandService.updateBrand(productBrandDto);
         return i;
     }
@@ -98,7 +98,7 @@ public class ProductBrandController {
 
         String logo = productBrandDto.getLogo();
         if (logo.length()>0){
-            productBrandDto.setLogo("http://localhost:8080/static/upload/"+logo);
+            productBrandDto.setLogo("http://localhost:8080/upload/"+logo);
         }
         int i = productBrandService.addBrand(productBrandDto);
         return i;
@@ -130,7 +130,7 @@ public class ProductBrandController {
         //获取上传的文件名
         String fileName=dropzFile.getOriginalFilename();
         //设置文件上传路径
-        String filePath=request.getSession().getServletContext().getRealPath("/static/upload");
+        String filePath=request.getSession().getServletContext().getRealPath("/upload");
         //获取文件的后缀名
         String fileSuffix=fileName.substring(fileName.lastIndexOf("."),fileName.length());
         //判断并创建上传文件夹

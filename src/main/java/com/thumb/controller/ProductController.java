@@ -145,7 +145,7 @@ public class ProductController {
     public Object addProduct(@RequestBody ProductDto productDto){
         String pic = productDto.getPic();
         if (pic.length()>0){
-            productDto.setPic("http://localhost:8080/static/upload/"+pic);
+            productDto.setPic("http://localhost:8080/upload/"+pic);
         }
         int i = productService.addProduct(productDto);
         return i;

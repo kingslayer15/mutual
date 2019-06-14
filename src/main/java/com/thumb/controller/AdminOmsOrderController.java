@@ -142,7 +142,7 @@ public class AdminOmsOrderController {
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
         List<OmsOrderReturnApply> omsOrderReturnApplies = adminOmsOrderService.listAllOmsOrderReturnApply();
         PageInfo<OmsOrderReturnApply> pageInfo = new PageInfo<>(omsOrderReturnApplies);
-//        for (OmsOrderReturnApply oora : omsOrderReturnApplies) System.out.println(oora);
+        for (OmsOrderReturnApply oora : omsOrderReturnApplies) System.out.println(oora);
         return pageInfo;
     }
 
