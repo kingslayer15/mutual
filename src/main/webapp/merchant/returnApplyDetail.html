@@ -770,11 +770,12 @@
             }),
             success: function(data){
                 console.log(data);
+                alert("操作成功！");
                 window.location.reload(true);
-                // alert("操作成功！");
             },
             error:function (data) {
                 console.error(data);
+                alert("操作失败");
             }
         });
     }
