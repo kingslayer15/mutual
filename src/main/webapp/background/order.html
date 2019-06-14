@@ -1238,6 +1238,10 @@
             }
             var dis = ["","none","none","none","none"];
             switch (item.status) {
+                case 0 : {
+                    statusText = "待付款";
+                    break;
+                }
                 case 1 : {
                     statusText = "待发货";
                     dis[2] = "";
@@ -1256,6 +1260,10 @@
                 case 4 : {
                     statusText = "已关闭";
                     dis[4] = "";
+                    break;
+                }
+                case 5 : {
+                    statusText = "无效订单";
                     break;
                 }
             }
