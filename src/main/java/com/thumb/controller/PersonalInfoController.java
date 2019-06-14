@@ -51,6 +51,8 @@ public class PersonalInfoController {
     @RequestMapping("userInfoById_")
     public Object userInfoById_(HttpServletRequest httpServletRequest){
         int uId = Integer.parseInt(httpServletRequest.getSession().getAttribute("userId").toString());
+
+        System.out.println("ID===="+ uId);
 //        UmsMember umsMember = (UmsMember) httpServletRequest.getSession().getAttribute("umsMember");
 //        int uid = umsMember.getId().intValue();
 //        System.out.println(uid);
