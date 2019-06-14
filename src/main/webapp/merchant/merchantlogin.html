@@ -313,7 +313,7 @@
 <script src="../static/mall-admin-web_files/tinymce.min.js"></script>
 <div id="app">
     <div data-v-1ab27f02="">
-        <div data-v-1ab27f02="" class="el-card login-form-layout is-always-shadow"><!---->
+        <div data-v-1ab27f02="" class="el-card login-form-layout is-always-shadow">
             <div class="el-card__body">
                 <form data-v-1ab27f02="" class="el-form el-form--label-left" autocomplete="on">
                     <div data-v-1ab27f02="" style="text-align: center;">
@@ -323,38 +323,41 @@
                         </svg>
                     </div>
                     <h2 data-v-1ab27f02="" class="login-title color-main">商家系统</h2>
-                    <div data-v-1ab27f02="" class="el-form-item is-success is-required"><!---->
+                    <div data-v-1ab27f02="" class="el-form-item is-success is-required">
                         <div class="el-form-item__content">
-                            <div data-v-1ab27f02="" class="el-input el-input--prefix"><!----><input id="userName" type="text"
-                                                                                                    autocomplete="on"
-                                                                                                    name="username"
-                                                                                                    placeholder="请输入用户名"
-                                                                                                    class="el-input__inner"><span
+                            <div data-v-1ab27f02="" class="el-input el-input--prefix"><input id="userName" type="text"
+                                                                                             autocomplete="on"
+                                                                                             name="username"
+                                                                                             placeholder="请输入用户名"
+                                                                                             class="el-input__inner"><span
                                     class="el-input__prefix"><span data-v-1ab27f02=""><svg data-v-81d70f2a=""
                                                                                            data-v-1ab27f02=""
                                                                                            aria-hidden="true"
                                                                                            class="color-main svg-icon"><use
-                                    data-v-81d70f2a="" xlink:href="#icon-user"></use></svg></span><!----></span><!---->
-                                <!----></div><!----></div>
+                                    data-v-81d70f2a="" xlink:href="#icon-user"></use></svg></span></span>
+                            </div>
+                        </div>
                     </div>
-                    <div data-v-1ab27f02="" class="el-form-item is-success is-required"><!---->
+                    <div data-v-1ab27f02="" class="el-form-item is-success is-required">
                         <div class="el-form-item__content">
-                            <div data-v-1ab27f02="" class="el-input el-input--prefix el-input--suffix"><!----><input
+                            <div data-v-1ab27f02="" class="el-input el-input--prefix el-input--suffix"><input
                                     type="password" autocomplete="on" name="password" placeholder="请输入密码" id="password"
                                     class="el-input__inner"><span class="el-input__prefix"><span data-v-1ab27f02=""><svg
                                     data-v-81d70f2a="" data-v-1ab27f02="" aria-hidden="true"
                                     class="color-main svg-icon"><use data-v-81d70f2a=""
                                                                      xlink:href="#icon-password"></use></svg></span>
-                                <!----></span><span class="el-input__suffix"><span class="el-input__suffix-inner"><span
+                                </span><span class="el-input__suffix"><span class="el-input__suffix-inner"><span
                                     data-v-1ab27f02=""><svg data-v-81d70f2a="" data-v-1ab27f02="" aria-hidden="true"
                                                             class="color-main svg-icon"><use data-v-81d70f2a=""
                             ></use></svg></span>
-                                <!----></span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
-                                <!----></div><!----></div>
+                                </span><i class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
+                            </div>
+                        </div>
                     </div>
-                    <div data-v-1ab27f02="" class="el-form-item" style="margin-bottom: 60px;"><!---->
+                    <div data-v-1ab27f02="" class="el-form-item" style="margin-bottom: 60px;">
                         <div class="el-form-item__content">
-                            <a onclick="dobackLogin()"  type="button" class="el-button el-button--primary" style="width: 100%">
+                            <a onclick="dobackLogin()" type="button" class="el-button el-button--primary"
+                               style="width: 100%">
                                 <span>登录</span>
                             </a>
                         </div>
@@ -362,18 +365,19 @@
                 </form>
             </div>
         </div>
-        <img data-v-1ab27f02="" src="../static/mall-admin-web_files/login_center_bg.5307896.png" class="login-center-layout">
+        <img data-v-1ab27f02="" src="../static/mall-admin-web_files/login_center_bg.5307896.png"
+             class="login-center-layout">
         <div data-v-1ab27f02="" class="el-dialog__wrapper" style="display: none;">
             <div class="el-dialog" style="width: 30%; margin-top: 15vh;">
                 <div class="el-dialog__header"><span class="el-dialog__title">特别赞助</span>
                     <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
                             class="el-dialog__close el-icon el-icon-close"></i></button>
-                </div><!---->
+                </div>
                 <div class="el-dialog__footer"><span data-v-1ab27f02="" class="dialog-footer"><button data-v-1ab27f02=""
                                                                                                       type="button"
-                                                                                                      class="el-button el-button--default"><!---->
-                    <!----><span>残忍拒绝</span></button> <button data-v-1ab27f02="" type="button"
-                                                              class="el-button el-button--primary"><!----><!----><span>去支持</span></button></span>
+                                                                                                      class="el-button el-button--default">
+                    <span>残忍拒绝</span></button> <button data-v-1ab27f02="" type="button"
+                                                       class="el-button el-button--primary"><span>去支持</span></button></span>
                 </div>
             </div>
         </div>
@@ -387,21 +391,21 @@
     // 后台登录
     function dobackLogin() {
 //        1.获取用户名和密码的值
-        var userNameVal = $("#userName").val()+"";
-        var passwordVal = $("#password").val()+"";
-        console.log("userName:"+userNameVal+",password:"+passwordVal);
+        var userNameVal = $("#userName").val() + "";
+        var passwordVal = $("#password").val() + "";
+        console.log("userName:" + userNameVal + ",password:" + passwordVal);
 //        2.传值到control层
         $.ajax({
             type: 'POST',
             //一定要加/,否则自动前缀加background
             url: "/merchantLogin",
-            contentType:"application/json",
+            contentType: "application/json",
             //js对象  jquery对象  兼容
             data: JSON.stringify({
-                "username":userNameVal,
-                "password":passwordVal
+                "username": userNameVal,
+                "password": passwordVal
             }),
-            success: function(data){
+            success: function (data) {
                 console.log(data); //  2pm
                 // 登录成功往哪里跳
                 if (data) {

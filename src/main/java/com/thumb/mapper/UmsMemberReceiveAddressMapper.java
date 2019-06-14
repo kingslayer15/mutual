@@ -19,5 +19,9 @@ public interface UmsMemberReceiveAddressMapper {
 
     List<UmsMemberReceiveAddress> findAll();
 
+    List<UmsMemberReceiveAddress> findByMemberId(@Param("memberId")Long memberId);
+
+
+
 
 }

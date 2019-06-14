@@ -1,6 +1,7 @@
 package com.thumb.service;
 
 import com.thumb.pojo.UmsMemberReceiveAddress;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,5 +21,7 @@ public interface UmsMemberReceiveAddressService{
     int updateByPrimaryKey(UmsMemberReceiveAddress record);
 
     List<UmsMemberReceiveAddress> findAll();
+
+    List<UmsMemberReceiveAddress> findByMemberId(Long memberId);
 
 }
