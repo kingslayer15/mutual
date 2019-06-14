@@ -13,8 +13,8 @@
 <!--end header -->
 
 
-<!-- start banner_y -->
-<div class="banner_y center" id="img" >
+<!-- start banner_y -->$
+<div class="banner_y center" id="img">
     <div class="nav" id="dvertise">
         <ul id="ul">
         </ul>
@@ -40,7 +40,7 @@
 
 </div>
 <!-- end banner -->
-<div class="tlinks">Collect from </div>
+<div class="tlinks">Collect from</div>
 
 
 <!-- start danpin -->
@@ -84,7 +84,9 @@
 </div>
 <footer class="mt20 center">
     <div class="xiantiao"></div>
-    <div class="mt20" style="margin: auto">mutual商城|MIUI|米聊|多看书城|mutual路由器|视频电话|mutual天猫店|mutual淘宝直营店|mutual网盟|mutual移动|隐私政策|Select Region</div>
+    <div class="mt20" style="margin: auto">
+        mutual商城|MIUI|米聊|多看书城|mutual路由器|视频电话|mutual天猫店|mutual淘宝直营店|mutual网盟|mutual移动|隐私政策|Select Region
+    </div>
     <div style="margin: auto">©mutual.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
     <div style="margin: auto">违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 </footer>
@@ -118,7 +120,7 @@
                         "\t\t\t\t</div>";
                     if (index < 5) {
                         $brand.append(tableUser);
-                    } else if(index < 10){
+                    } else if (index < 10) {
                         $brand2.append(tableUser);
                     }
                 })
@@ -150,7 +152,7 @@
 
                     if (index < 5) {
                         subject.append(tableUser);
-                    } else if(index < 10){
+                    } else if (index < 10) {
                         subject2.append(tableUser);
                     }
                 })
@@ -165,12 +167,12 @@
 
         //获取新品推荐selectHomeNew
         $.ajax({
-            url:'/selectHomeNew',
-            type:'GET', //GET
-            contentType:"application/json",
-            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            url: '/selectHomeNew',
+            type: 'GET', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
-            success:function(data){
+            success: function (data) {
                 var $new1 = $("#new");
                 var $new2 = $("#new2");
                 $new1.find("div").remove();
@@ -181,7 +183,7 @@
                 $new2.append(div2)
                 $(data).each(function (index, val) {
 
-                    if(index<4) {
+                    if (index < 4) {
                         var table = "<div class=\"remen fl\">\n" +
                             "                <div class=\"xinpin\"><span>新品</span></div>\n" +
                             "                <div class=\"tu\"><a href=\"/main/xiangqing.html?id=" + val.id + "\"><img src=\"" + val.pic + "\" style='width: 160px;height: 250'></a></div>\n" +
@@ -190,7 +192,7 @@
                             "                <div class=\"pingjia\">372人评价</div>\n" +
                             "            </div>";
                         $new1.append(table)
-                    }else if(index<8){
+                    } else if (index < 8) {
                         var table2 = "<div class=\"remen fl\">\n" +
                             "                <div class=\"xinpin\"><span>新品</span></div>\n" +
                             "                <div class=\"tu\"><a href=\"/main/xiangqing.html?id=" + val.id + "\"><img src=\"" + val.pic + "\" style='width: 160px;height: 250'></a></div>\n" +
@@ -211,7 +213,7 @@
                 })
             },
             /*发生错误时*/
-            error:function(xhr,textStatus){
+            error: function (xhr, textStatus) {
             }
         })
 
@@ -221,39 +223,39 @@
     //获取商品种类
     $(function () {
         $.ajax({
-            url:'/getType',
-            type:'GET', //GET
-            contentType:"application/json",
-            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            url: '/getType',
+            type: 'GET', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
-            success:function(data){
+            success: function (data) {
 
                 var $ul = $("#ul");
                 $ul.find("li").remove();
-                $(data).each(function (ind,val) {
-                    if(val.parentId==0){
+                $(data).each(function (ind, val) {
+                    if (val.parentId == 0) {
                         var li = " <li>\n" +
-                            "                <a href=\"\">"+val.name+"</a>\n" +
+                            "                <a href=\"\">" + val.name + "</a>\n" +
                             "                <div class=\"pop\">\n" +
                             "                    <div class=\"left fl\">";
                         //添加子节点
-                        $(data).each(function (index,vaurl) {
-                            if(vaurl.parentId==val.id){
-                                 li =li+ "<div>\n" +
-                                     "         <div class=\"xuangou_left fl\">\n" +
-                                     "             <a href=\"\">\n" +
-                                     "                 <div class=\"img fl\"><img src=\"./image/xm6_80.png\" alt=\"\"></div>\n" +
-                                     "                 <span class=\"fl\">"+vaurl.name+"</span>\n" +
-                                     "                 <div class=\"clear\"></div>\n" +
-                                     "             </a>\n" +
-                                     "         </div>\n" +
-                                     "         <div class=\"xuangou_right fr\"><a href=\"liebiao3.html?name="+vaurl.name+"\" target=\"_blank\">选购</a></div>\n" +
-                                     "         <div class=\"clear\"></div>\n" +
-                                     "     </div>";
+                        $(data).each(function (index, vaurl) {
+                            if (vaurl.parentId == val.id) {
+                                li = li + "<div>\n" +
+                                    "         <div class=\"xuangou_left fl\">\n" +
+                                    "             <a href=\"\">\n" +
+                                    "                 <div class=\"img fl\"><img src=\"./image/xm6_80.png\" alt=\"\"></div>\n" +
+                                    "                 <span class=\"fl\">" + vaurl.name + "</span>\n" +
+                                    "                 <div class=\"clear\"></div>\n" +
+                                    "             </a>\n" +
+                                    "         </div>\n" +
+                                    "         <div class=\"xuangou_right fr\"><a href=\"liebiao3.html?name=" + vaurl.name + "\" target=\"_blank\">选购</a></div>\n" +
+                                    "         <div class=\"clear\"></div>\n" +
+                                    "     </div>";
                             }
                         })
 
-                        li = li+"</div>\n" +
+                        li = li + "</div>\n" +
                             "                    <div class=\"clear\"></div>\n" +
                             "                </div>\n" +
                             "            </li>";
@@ -266,7 +268,7 @@
 
             },
             /*发生错误时*/
-            error:function(xhr,textStatus){
+            error: function (xhr, textStatus) {
             }
         })
     })
@@ -279,34 +281,34 @@
         var imus = new Array();
         var num = 0;
         $.ajax({
-            url:'/getAdvertise',
-            type:'GET', //GET
-            contentType:"application/json",
-            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            url: '/getAdvertise',
+            type: 'GET', //GET
+            contentType: "application/json",
+            dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
-            success:function(data){
+            success: function (data) {
                 $(data).each(function (ind, val) {
                     imus.push(val.pic);
-                    num = ind-1;
+                    num = ind - 1;
                 })
 
 
             },
             /*发生错误时*/
-            error:function(xhr,textStatus){
+            error: function (xhr, textStatus) {
 
             }
         })
 
         //创建定时器
-        timer=setInterval(function () {
+        timer = setInterval(function () {
 
-            var  img = imus[Math.round(Math.random()*num)]
+            var img = imus[Math.round(Math.random() * num)]
 
-            $img.attr("style","width:1226px;height:460px;background: url('"+img+"'); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;")
+            $img.attr("style", "width:1226px;height:460px;background: url('" + img + "'); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;")
 
 
-        },2000);
+        }, 2000);
 
 
     })

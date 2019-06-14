@@ -338,6 +338,14 @@
         </if>
     </update>
 
+    <!--发货操作：更新订单状态，写入物流快递和单号-->
+    <update id="consignMentUpdateStatusByOrderId" parameterType="com.thumb.entity.dto.ConsignMentUpdateStatus">
+        <if test="id!=null and status!=null">
+            update oms_order set status = #{status}, delivery_company = #{deliveryCompany}, delivery_sn = #{deliverySn} where id = #{id}
+        </if>
+    </update>
+
+
     <!--删除订单-->
     <delete id="deleteOmsOrderById" parameterType="int">
             delete from oms_order where id = #{id}

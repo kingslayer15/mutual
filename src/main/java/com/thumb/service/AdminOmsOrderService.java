@@ -43,4 +43,6 @@ public interface AdminOmsOrderService {
     int updateReturnReasonStatus(UpdateStatus updateStatus);
 
     int deleteOrderReturnApplyById(int id);
+
+    int consignMentUpdateStatusByOrderId(ConsignMentUpdateStatus consignMentUpdateStatus);
 }

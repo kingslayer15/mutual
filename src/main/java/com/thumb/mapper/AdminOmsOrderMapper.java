@@ -42,4 +42,6 @@ public interface AdminOmsOrderMapper {
     int updateReturnReasonStatus(UpdateStatus updateStatus);
 
     int deleteOrderReturnApplyById(int id);
+
+    int consignMentUpdateStatusByOrderId(ConsignMentUpdateStatus consignMentUpdateStatus);
 }

@@ -170,4 +170,9 @@ public class AdminOmsOrderServiceImpl implements AdminOmsOrderService {
     public int deleteOrderReturnApplyById(int id) {
         return adminOmsOrderMapper.deleteOrderReturnApplyById(id);
     }
+
+    @Override
+    public int consignMentUpdateStatusByOrderId(ConsignMentUpdateStatus consignMentUpdateStatus) {
+        return adminOmsOrderMapper.consignMentUpdateStatusByOrderId(consignMentUpdateStatus);
+    }
 }

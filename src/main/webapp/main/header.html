@@ -58,7 +58,7 @@
         </a>
         <div class="nav fl">
             <ul id="inebiao">
-                <li><a href="../main/index.html" target="_blank">小米手机</a></li>
+                <li><a href="../main/index.html" target="_blank">手机</a></li>
                 <li><a href="http://localhost:8080/main/xiangqing.html?id=28">红米</a></li>
                 <li><a onclick="toSearch('小米')" href="#">平板·笔记本</a></li>
                 <li><a onclick="toSearch('电视')" href="#">电视</a></li>
@@ -136,21 +136,21 @@
 
         var $name = $("#name").val();
 
-        var s = encodeURI($name);
-
 
         if ($name != null || $name != ""||$name.length>0) {
-            // alert($name)
-            var url = "liebiao3.html?name=" + s;
-            window.location.href = url;
+
+
+            toSearch($name);
 
         }
     }
 
     function toSearch(s) {
 
-            var url = "liebiao3.html?name=" + encodeURI(s);
-            window.location.href = url;
+
+
+        var url = "liebiao3.html?name=" + encodeURI(s);
+        window.location.href = url;
 
     }
 

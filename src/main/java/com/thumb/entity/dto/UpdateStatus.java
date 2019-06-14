@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class UpdateStatus {
 
-    private int id;
-    private int status;
+    protected int id;
+    protected int status;
 
 }
