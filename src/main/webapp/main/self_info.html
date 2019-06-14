@@ -119,8 +119,8 @@
                 /*成功*/
                 success: function (data) {
                     userId=data.id
-                    alert(data.id)
-                    alert(userId)
+                    // alert(data.id)
+                    // alert(userId)
                     $.ajax({
                         url: '/userInfoById?userId=' + userId,
                         type: 'GET', //GET
