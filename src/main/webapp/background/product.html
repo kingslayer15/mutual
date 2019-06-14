@@ -626,6 +626,7 @@
 <script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
 
+    $("#header2").load("header2.html");
 
     //跳到updateProduct.html页面
     function jumptoUpdateProduct(id) {
@@ -979,6 +980,8 @@
             $("#ss"+id).prop("class","el-checkbox__input");
         }
 
+        // alert($("#sss"+id).prop("checked"))
+
     }
 
 
@@ -1033,7 +1036,7 @@
                             "                                                  name='"+ element.id+"'  aria-checked=\"mixed\" class=\"el-checkbox__input\" id='ss"+element.id+"'><span\n" +
                             "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
                             "                                                                                             aria-hidden=\"true\"\n" +
-                            "                                                                                       id='"+ element.id+"'      class=\"el-checkbox__original\"\n" +
+                            "                                                                                       id='sss"+ element.id+"'      class=\"el-checkbox__original\"\n" +
                             "                                                                                       onclick='checkone("+element.id+")'   ></span><!---->\n" +
                             "                                            </label></div>\n" +
                             "                                        </td>\n" +
