@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -30,13 +32,18 @@ public class MerchantOmsOrderController {
      * @return
      */
     @RequestMapping("listAllOmsOrderByMerchant")
-    public Object listAllOmsOrderByMerchant(@RequestBody Page page) {
+    public Object listAllOmsOrderByMerchant(@RequestBody Page page, HttpSession session) {
 
-        //从session中获取商家id
-        int merchantId = 1;
+//        com.thumb.pojo.Merchant merchantSession = (com.thumb.pojo.Merchant)(session.getAttribute("merchant"));
+//        int id = merchantSession.getId();
+
+        Object object = session.getAttribute("merchant");
+
+        System.out.println(object);int
+        id = 1;
 
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
-        Merchant merchant = merchantOmsOrderService.listAllOmsOrderByMerchant(merchantId);
+        Merchant merchant = merchantOmsOrderService.listAllOmsOrderByMerchant(id);
         PageInfo<OmsOrder> pageInfo = new PageInfo<>(merchant.getOmsOrderList());
         return pageInfo;
     }
@@ -66,13 +73,23 @@ public class MerchantOmsOrderController {
 
     /**
      * 商家查询所有的退货信息
-     * @param id    商家id
      * @return
      */
     @RequestMapping("merchantOmsOrderReturnApply")
-    public Object merchantOmsOrderReturnApply(@RequestParam int id) {
+    public Object merchantOmsOrderReturnApply(@RequestBody Page page, HttpSession session) {
+
+//        Merchant merchant = (Merchant)session.getAttribute("merchant");
+//        int id = merchant.getId();
+
+        Object object = session.getAttribute("merchant");
+
+        System.out.println(object); int
+        id = 1;
+
+        PageHelper.startPage(page.getPageNum(), page.getPageSize());
         List<OmsOrderReturnApply> omsOrderReturnApplies = merchantOmsOrderService.merchantOmsOrderReturnApply(id);
-        return omsOrderReturnApplies;
+        PageInfo<OmsOrderReturnApply> pageInfo = new PageInfo<>(omsOrderReturnApplies);
+        return pageInfo;
     }
 
     /**

@@ -5,6 +5,7 @@
     <meta name="author" content="order by dede58.com"/>
     <title>Mutual商城-信息修改</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <script src="../static/js/js/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="../static/bootstrap/js/bootstrap.min.js">
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
@@ -218,14 +219,16 @@
                 // alert(data)
                 console.log(data)
                 if (data) {
-                    var url = "self_info.html"
-                    window.location.href = url
+                    // var url = "self_info.html"
+                    // window.location.href = url
+                    window.history.back(-1)
                 }
             },
             error: function (data) {
                 if (!data) {
-                    var url = "self_info.html"
-                    window.location.href = url
+                    // var url = "self_info.html"
+                    // window.location.href = url
+                    window.history.back(-1)
                 }
             }
         })
