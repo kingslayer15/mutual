@@ -47,9 +47,6 @@ public class OrderDetailsController {
     @RequestMapping(value = "getItem",method = RequestMethod.GET)
     public Object getItem(HttpSession httpSession){
 
-        com.thumb.entity.pojo.Merchant merchantSession = (com.thumb.entity.pojo.Merchant)httpSession.getAttribute("merchant");
-        System.out.println(merchantSession+"---");
-
         List<OmsCartItem> omsCartItems = (List<OmsCartItem>) httpSession.getAttribute("omsCartItems");
 
         return omsCartItems;
