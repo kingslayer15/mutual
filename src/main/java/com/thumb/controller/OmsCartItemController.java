@@ -109,46 +109,38 @@ public class OmsCartItemController {
     @RequestMapping(value = "insertCollection", method = RequestMethod.POST)
     public Object insertCollection(@RequestBody OmsCartItemDto omsCartItemDto) {
         System.out.println(omsCartItemDto);
-        int memberId = omsCartItemDto.getMemberId();
-        //如果用户没登录
-        if (memberId == 0) {
-            return false;
+
+        //根据产品id,会员id找收藏夹对象
+        PmsProductCollection pmsProductCollection = pmsProductCollectionService.selectOneByAll(omsCartItemDto);
+        System.out.println(pmsProductCollection);
+
+        //如果有
+        if (pmsProductCollection != null) {
+            Integer id = pmsProductCollection.getId();
+            Integer states = pmsProductCollection.getStates();
+            //如果状态1
+            if (states == 1) {
+                //改成0
+                int i = pmsProductCollectionService.updateById(id);
+                return "0";
+            } else {
+                //改成1
+                int i = pmsProductCollectionService.updateCollectionStatesFor1ById(id);
+                return "1";
+
+            }
+            //状态改0
+
         }
-        //用户已经登录
+        //如果没有
         else {
-
-            //根据产品id,会员id找收藏夹对象
-            PmsProductCollection pmsProductCollection = pmsProductCollectionService.selectOneByAll(omsCartItemDto);
-            System.out.println(pmsProductCollection);
-
-            //如果有
-            if (pmsProductCollection != null) {
-                Integer id = pmsProductCollection.getId();
-                Integer states = pmsProductCollection.getStates();
-                //如果状态1
-                if (states == 1) {
-                    //改成0
-                    int i = pmsProductCollectionService.updateById(id);
-                    return "0";
-                } else {
-                    //改成1
-                    int i = pmsProductCollectionService.updateCollectionStatesFor1ById(id);
-                    return "1";
-
-                }
-                //状态改0
-
+            int insert = pmsProductCollectionService.insertCollection(omsCartItemDto);
+            if (insert != 0) {
+                System.out.println(insert);
+                return true;
             }
-            //如果没有
-            else {
-                int insert = pmsProductCollectionService.insertCollection(omsCartItemDto);
-                if (insert != 0) {
-                    System.out.println(insert);
-                    return true;
-                }
-            }
-            return null;
         }
+        return null;
     }
 
     @ResponseBody
