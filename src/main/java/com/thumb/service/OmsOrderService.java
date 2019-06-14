@@ -47,5 +47,21 @@ public interface OmsOrderService {
 
 //    List<Object> selectByDate(String year, String month);
 
+    BigDecimal findTodayCount();
+
+    BigDecimal findTodayAmount();
+
+    BigDecimal findThisMonthAmount();
+
+    BigDecimal findThisMonthCount();
+
+    BigDecimal findThisWeekAmount();
+
+    BigDecimal findThisWeekCount();
+
+    BigDecimal findLastDayAmount();
+
+    BigDecimal findLastMonthAmount();
+
 
 }

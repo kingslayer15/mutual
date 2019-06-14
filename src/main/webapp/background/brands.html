@@ -251,16 +251,16 @@
                     </div>
                     <div class="batch-operate-container">
                         <div class="el-select el-select--small">
-                            <div class="el-input el-input--small el-input--suffix"  onblur="BlurPage()" onclick="batchOperation()">
-                                <input type="text" autocomplete="off" placeholder="批量操作" readonly="readonly"
-                                       class="el-input__inner" onblur="BlurPage()">
-                                <span class="el-input__suffix">
-                                    <span class="el-input__suffix-inner" onblur="BlurPage()">
-                                    <i class="el-select__caret el-input__icon el-icon-arrow-up" onblur="BlurPage()">
-                                    </i>
-                                    </span>
-                                </span>
-                            </div>
+                            <!--<div class="el-input el-input&#45;&#45;small el-input&#45;&#45;suffix"  onblur="BlurPage()" onclick="batchOperation()">-->
+                                <!--&lt;!&ndash;<input type="text" autocomplete="off" placeholder="批量操作" readonly="readonly"&ndash;&gt;-->
+                                       <!--&lt;!&ndash;class="el-input__inner" onblur="BlurPage()">&ndash;&gt;-->
+                                <!--<span class="el-input__suffix">-->
+                                    <!--<span class="el-input__suffix-inner" onblur="BlurPage()">-->
+                                    <!--<i class="el-select__caret el-input__icon el-icon-arrow-up" onblur="BlurPage()">-->
+                                    <!--</i>-->
+                                    <!--</span>-->
+                                <!--</span>-->
+                            <!--</div>-->
                             <div class="el-select-dropdown el-popper" style="display: none;" id="popper">
                                 <div class="el-scrollbar" style="">
                                     <div class="el-select-dropdown__wrap el-scrollbar__wrap"
@@ -282,7 +282,7 @@
                         </div>
                         <button type="button" class="el-button search-button el-button--primary el-button--small"
                                 style="margin-left: 20px;">
-                            <span>确定</span>
+                            <span onclick="addDelete()">批量删除</span>
                         </button>
                     </div>
                     <div class="pagination-container">
@@ -460,7 +460,7 @@
                                 <!--内容结束-->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                            onclick="deleteById()">确定
+                                            onclick="deleteById(0)">确定
                                     </button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal" >取消</button>
                                 </div>
@@ -715,9 +715,12 @@
         });
     }
 
-    function deleteById() {
+    function deleteById(id) {
+        if(id==0){
+            id=shortId;
+        }
         $.ajax({
-            url: '/deleteById?id=' + shortId,
+            url: '/deleteById?id=' + id,
             type: 'GET', //GET
             contentType: "application/json",
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
@@ -773,7 +776,7 @@
                             "    </div>\n" ;
                     }
                     var tableUser = "<tr class=\"el-table__row\">" + " <td class=\"el-table_16_column_122 is-center el-table-column--selection\">" +
-                        "<input type=\"checkbox\" class=\"check\" value=\" " +val.id+ " \">" + "</td>" + "<td class=\"el-table_16_column_123 is-center \">" +
+                        "<input type=\"checkbox\" class=\"check\" onclick='itemCheck()' value=\" " +val.id+ " \">" + "</td>" + "<td class=\"el-table_16_column_123 is-center \">" +
 
                         "<div class=\"cell\">" + val.id + "</div>" + " </td>" + "<td class=\"el-table_16_column_124 is-center \">" +
                         " <div class=\"cell\">" + val.name + "</div>" + "</td>" + "<td class=\"el-table_16_column_125 is-center \">" +
@@ -897,7 +900,7 @@
                     var tableTd = "<tr class=\"el-table__row\" >\n" +
                         "<td class=\"el-table_2_column_8 is-center el-table-column--selection\">\n" +
                         "<div class=\"cell\">\n" +
-                        "<input type=\"checkbox\" name=\"checkbox\" class=\"brand123\" value="+value.id+">" +
+                        "<input type=\"checkbox\" onclick='itemCheck2()' name=\"checkbox\" class=\"brand123\" value="+value.id+">" +
                         "</div>\n" +
                         "</td>\n" +
                         "<td class=\"el-table_2_column_9 is-center \">\n" +
@@ -998,7 +1001,7 @@
             isCheckAll2 = true;
         }
     }
-    function itemCheck() {
+    function itemCheck2() {
         var flag = true;
         $("#tr_td input").each(function () {
             if (!this.checked) {
@@ -1015,6 +1018,19 @@
     }
 
 
+
+
+    /*批量删除*/
+    function addDelete() {
+
+        var i = 0;
+        $(".check:checked").each(function () {//把所有被选中的复选框的值存入数组
+            i = $(this).val();
+            alert(i)
+            // deleteById( i) ;
+        });
+
+    }
 
 
 </script>

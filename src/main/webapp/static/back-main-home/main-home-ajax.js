@@ -315,7 +315,6 @@ $(function () {
         contentType: "application/json",
         success: function (data) {
 
-
             if (data != "") {
 
                 $("#thisMonthAmount").text(data);
@@ -359,7 +358,6 @@ $(function () {
         type:"GET",
         contentType: "application/json",
         success: function (data) {
-
             if (data != "") {
                 $("#lastWeekAmount").text(data + "%");
             } else {

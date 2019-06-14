@@ -323,138 +323,188 @@
 
 <!--<script src="./mall-admin-web_files/tinymce.min.js"></script>-->
 <div id="app">
-    <div data-v-0ef526f4="" class="app-wrapper">
+
+    <div id="allContext" data-v-0ef526f4="" class="app-wrapper">
+
+        <!--左侧导航栏 begin-->
         <div data-v-69d4f5dd="" data-v-0ef526f4="" class="scroll-container sidebar-container">
             <div data-v-69d4f5dd="" class="scroll-wrapper" style="top: 0px;">
                 <ul role="menubar" class="el-menu" show-timeout="200" data-v-69d4f5dd=""
                     style="background-color: rgb(48, 65, 86);">
-                    <div class="menu-wrapper"><!----><!----><a href="http://39.98.190.128/index.html#/home" class="">
-                        <li role="menuitem" tabindex="-1" class="el-menu-item submenu-title-noDropdown"
-                            style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                            <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
-                            </svg>
-                            <span>首页</span></li>
-                    </a>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-active is-opened"
-                            aria-expanded="true">
+                    <div class="menu-wrapper">
+                        <!--首页 begin-->
+                        <a href="home.html" class="">
+                            <li role="menuitem" tabindex="-1"
+                                class="el-menu-item submenu-title-noDropdown"
+                                style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                    <use data-v-81d70f2a="" xlink:href="#icon-home"></use>
+                                </svg>
+                                <span>首页</span>
+                            </li>
+                        </a>
+                        <!--首页 end-->
+
+                        <!--商品-->
+                        <li id="product_li" role="menuitem" aria-haspopup="true" class="el-submenu">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-product"></use>
                                 </svg>
-                                <span slot="title">商品</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                                <span slot="title">商品</span><i
+                                    class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
-                                    href="http://39.98.190.128/index.html#/pms/product"
-                                    class="router-link-exact-active router-link-active">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
-                                    style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
-                                    </svg>
-                                    <span>商品列表</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/pms/addProduct" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-add"></use>
-                                    </svg>
-                                    <span>添加商品</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/pms/productCate"
-                                                        class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-cate"></use>
-                                    </svg>
-                                    <span>商品分类</span></li>
-                            </a><!----><!----><a href="http://39.98.190.128/index.html#/pms/productAttr" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-attr"></use>
-                                    </svg>
-                                    <span>商品类型</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/pms/brand" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
-                                    </svg>
-                                    <span>品牌管理</span></li>
-                            </a><!----><!----></ul>
+                            <ul id="pruduct_ul" role="menu" class="el-menu el-menu--inline" data-old-padding-top=""
+                                data-old-padding-bottom="" data-old-overflow=""
+                                style="background-color: rgb(48, 65, 86); display: block;">
+                                <a href="product.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
+                                        style="padding-left: 40px; color: rgb(64, 158, 255); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-list"></use>
+                                        </svg>
+                                        <span>商品列表</span>
+                                    </li>
+                                </a>
+                                <a href="addProduct.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-add"></use>
+                                        </svg>
+                                        <span>添加商品</span>
+                                    </li>
+                                </a>
+                                <a href="productCate.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-cate"></use>
+                                        </svg>
+                                        <span>商品分类</span>
+                                    </li>
+                                </a>
+                                <a href="productAttr.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-attr"></use>
+                                        </svg>
+                                        <span>商品类型</span>
+                                    </li>
+                                </a>
+                                <a href="brandManager.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-brand"></use>
+                                        </svg>
+                                        <span>品牌管理</span>
+                                    </li>
+                                </a>
+                            </ul>
                         </li>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
+
+                        <li id="order_li" role="menuitem" aria-haspopup="true"
+                            class="el-submenu is-active is-opened"
+                            aria-expanded="true">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-order"></use>
                                 </svg>
-                                <span slot="title">订单</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                                <span slot="title">订单</span>
+                                <i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
-                                    href="http://39.98.190.128/index.html#/oms/order" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-list"></use>
-                                    </svg>
-                                    <span>订单列表</span></li>
-                            </a><!----><!----><a href="http://39.98.190.128/index.html#/oms/orderSetting" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-order-setting"></use>
-                                    </svg>
-                                    <span>订单设置</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnApply" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-order-return"></use>
-                                    </svg>
-                                    <span>退货申请处理</span></li>
-                            </a><a href="http://39.98.190.128/index.html#/oms/returnReason" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-order-return-reason"></use>
-                                    </svg>
-                                    <span>退货原因设置</span></li>
-                            </a><!----></ul>
+                            <ul id="order_ul" role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86); display: none"
+                                data-old-padding-top="" data-old-padding-bottom=""
+                                data-old-overflow="">
+                                <a href="order.html"
+                                   class="router-link-exact-active router-link-active">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item is-active"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-product-list"></use>
+                                        </svg>
+                                        <span>订单列表</span>
+                                    </li>
+                                </a>
+                                <a href="orderSetting.html"
+                                   class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-order-setting"></use>
+                                        </svg>
+                                        <span>订单设置</span></li>
+                                </a>
+                                <a href="returnApply.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-order-return"></use>
+                                        </svg>
+                                        <span>退货申请处理</span></li>
+                                </a>
+                                <a href="returnReason.html" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item" style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-order-return-reason"></use>
+                                        </svg>
+                                        <span>退货原因设置</span>
+                                    </li>
+                                </a>
+                            </ul>
                         </li>
-                        <li role="menuitem" aria-haspopup="true" class="el-submenu is-opened" aria-expanded="true">
+
+                        <li id="sms_li" role="menuitem" aria-haspopup="true" class="el-submenu"
+                            aria-expanded="true">
                             <div class="el-submenu__title"
                                  style="padding-left: 20px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                 <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                     <use data-v-81d70f2a="" xlink:href="#icon-sms"></use>
                                 </svg>
-                                <span slot="title">营销</span><i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                                <span slot="title">营销</span><i
+                                    class="el-submenu__icon-arrow el-icon-arrow-down"></i>
                             </div>
-                            <ul role="menu" class="el-menu el-menu--inline" style="background-color: rgb(48, 65, 86);"
-                                data-old-padding-top="" data-old-padding-bottom="" data-old-overflow=""><a
-                                    href="http://39.98.190.128/index.html#/sms/flash" class="">
-                                <li role="menuitem" tabindex="-1" class="el-menu-item"
-                                    style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
-                                    <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-flash"></use>
-                                    </svg>
-                                    <span>秒杀活动列表</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/coupon" class="">
+                            <ul id="sms_ul" role="menu" class="el-menu el-menu--inline"
+                                style="background-color: rgb(48, 65, 86); display: none"
+                                data-old-padding-top="" data-old-padding-bottom=""
+                                data-old-overflow="">
+                                <a href="http://39.98.190.128/index.html#/sms/flash" class="">
+                                    <li role="menuitem" tabindex="-1" class="el-menu-item"
+                                        style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
+                                        <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
+                                            <use data-v-81d70f2a=""
+                                                 xlink:href="#icon-sms-flash"></use>
+                                        </svg>
+                                        <span>秒杀活动列表</span></li>
+                                </a><!----><!----><!----><a
+                                    href="http://39.98.190.128/index.html#/sms/coupon" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
                                         <use data-v-81d70f2a="" xlink:href="#icon-sms-coupon"></use>
                                     </svg>
                                     <span>优惠券列表</span></li>
-                            </a><!----><!----><!----><a href="http://39.98.190.128/index.html#/sms/brand" class="">
+                            </a><!----><!----><!----><a
+                                    href="http://39.98.190.128/index.html#/sms/brand" class="">
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-product-brand"></use>
+                                        <use data-v-81d70f2a=""
+                                             xlink:href="#icon-product-brand"></use>
                                     </svg>
                                     <span>品牌推荐</span></li>
                             </a><a href="http://39.98.190.128/index.html#/sms/new" class="">
@@ -475,7 +525,8 @@
                                 <li role="menuitem" tabindex="-1" class="el-menu-item"
                                     style="padding-left: 40px; color: rgb(191, 203, 217); background-color: rgb(48, 65, 86);">
                                     <svg data-v-81d70f2a="" aria-hidden="true" class="svg-icon">
-                                        <use data-v-81d70f2a="" xlink:href="#icon-sms-subject"></use>
+                                        <use data-v-81d70f2a=""
+                                             xlink:href="#icon-sms-subject"></use>
                                     </svg>
                                     <span>专题推荐</span></li>
                             </a><a href="http://39.98.190.128/index.html#/sms/advertise" class="">
@@ -486,15 +537,26 @@
                                     </svg>
                                     <span>广告列表</span></li>
                             </a><!----><!----></ul>
-                        </li><!----></div>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>
+
+
         <div data-v-0ef526f4="" class="main-container">
-            <ul data-v-453b378a="" data-v-0ef526f4="" role="menubar" class="navbar el-menu--horizontal el-menu">
-                <div data-v-38e027bb="" data-v-453b378a="" class="hamburger-container" tabindex="0">
-                    <svg data-v-38e027bb="" t="1492500959545" viewBox="0 0 1024 1024" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg" p-id="1691" xmlns:xlink="http://www.w3.org/1999/xlink"
+
+
+            <!--上方导航栏 begin-->
+            <ul data-v-453b378a="" data-v-0ef526f4="" role="menubar"
+                class="navbar el-menu--horizontal el-menu">
+                <!--图标-->
+                <div id="topPic" data-v-38e027bb="" data-v-453b378a="" class="hamburger-container"
+                     tabindex="0">
+                    <svg data-v-38e027bb="" t="1492500959545"
+                         viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" p-id="1691"
+                         xmlns:xlink="http://www.w3.org/1999/xlink"
                          width="64" height="64" class="hamburger is-active">
                         <path data-v-38e027bb=""
                               d="M966.8023 568.849776 57.196677 568.849776c-31.397081 0-56.850799-25.452695-56.850799-56.850799l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 543.397081 998.200404 568.849776 966.8023 568.849776z"
@@ -507,43 +569,58 @@
                               p-id="1694"></path>
                     </svg>
                 </div>
+                <!--导航内容-->
                 <div data-v-830d14b2="" data-v-453b378a="" aria-label="Breadcrumb" role="navigation"
-                     class="el-breadcrumb app-breadcrumb" tabindex="0"><span data-v-830d14b2=""><span data-v-830d14b2=""
-                                                                                                      class="el-breadcrumb__item"
-                                                                                                      aria-current="page"><span
-                        role="link" class="el-breadcrumb__inner"><a data-v-830d14b2=""
-                                                                    href="http://39.98.190.128/index.html#/home"
-                                                                    class="">首页</a></span><span role="presentation"
-                                                                                                class="el-breadcrumb__separator">/</span></span><span
-                        data-v-830d14b2="" class="el-breadcrumb__item"><span role="link" class="el-breadcrumb__inner"><a
-                        data-v-830d14b2="" href="http://39.98.190.128/index.html#/pms/product"
-                        class="router-link-exact-active router-link-active">商品</a></span><span role="presentation"
-                                                                                               class="el-breadcrumb__separator">/</span></span><span
-                        data-v-830d14b2="" class="el-breadcrumb__item"><span role="link"
-                                                                             class="el-breadcrumb__inner"><span
-                        data-v-830d14b2="" class="no-redirect">商品列表</span></span><span role="presentation"
-                                                                                       class="el-breadcrumb__separator">/</span></span></span>
+                     class="el-breadcrumb app-breadcrumb" tabindex="0">
+                    <span data-v-830d14b2="">
+                        <span data-v-830d14b2="" class="el-breadcrumb__item">
+                            <span role="link" class="el-breadcrumb__inner">
+                                <a data-v-830d14b2="" href="###############" class="">首页</a>
+                            </span>
+                            <span role="presentation" class="el-breadcrumb__separator">/</span>
+                        </span>
+                    <span data-v-830d14b2="" class="el-breadcrumb__item">
+                        <span role="link" class="el-breadcrumb__inner">
+                            <a data-v-830d14b2="" href="##############"
+                               class="router-link-exact-active router-link-active">商品</a></span>
+                    <span role="presentation" class="el-breadcrumb__separator">/</span></span>
+                    <span data-v-830d14b2="" class="el-breadcrumb__item">
+                    <span role="link" class="el-breadcrumb__inner">
+                    <span data-v-830d14b2="" class="no-redirect">商品列表</span>
+                    </span>
+                    <span role="presentation"
+                          class="el-breadcrumb__separator">/</span></span></span>
                 </div>
+                <!--用户图标-->
                 <div data-v-453b378a="" class="avatar-container el-dropdown" tabindex="0">
-                    <div data-v-453b378a="" class="avatar-wrapper el-dropdown-selfdefine" aria-haspopup="list"
-                         aria-controls="dropdown-menu-5061" role="button" tabindex="0"><img data-v-453b378a=""
-                                                                                            src="\mall-admin-web_files\5a9d248cN071f4959.jpg"
-                                                                                            class="user-avatar"> <i
-                            data-v-453b378a="" class="el-icon-caret-bottom"></i></div>
-                    <ul data-v-453b378a="" class="el-dropdown-menu el-popper user-dropdown" id="dropdown-menu-5061"
-                        style="display: none;"><a data-v-453b378a="" href="http://39.98.190.128/index.html#/"
-                                                  class="inlineBlock router-link-active">
-                        <li data-v-453b378a="" tabindex="-1" class="el-dropdown-menu__item">
-                            首页
-                        </li>
-                    </a>
+                    <div data-v-453b378a="" class="avatar-wrapper el-dropdown-selfdefine"
+                         aria-haspopup="list"
+                         aria-controls="dropdown-menu-9242" role="button" tabindex="0">
+                        <img data-v-453b378a="" src="../static/mall-admin-web_files/timg.jpg"
+                             class="user-avatar">
+                        <i data-v-453b378a="" class="el-icon-caret-bottom"></i>
+                    </div>
+                    <ul data-v-453b378a="" class="el-dropdown-menu el-popper user-dropdown"
+                        id="dropdown-menu-9242"
+                        style="display: none;">
+                        <a data-v-453b378a="" href="http://39.98.190.128/index.html#/"
+                           class="inlineBlock router-link-active">
+                            <li data-v-453b378a="" tabindex="-1" class="el-dropdown-menu__item">
+                                首页
+                            </li>
+                        </a>
                         <li data-v-453b378a="" tabindex="-1"
-                            class="el-dropdown-menu__item el-dropdown-menu__item--divided"><span data-v-453b378a=""
-                                                                                                 style="display: block;">退出</span>
+                            class="el-dropdown-menu__item el-dropdown-menu__item--divided">
+                            <span data-v-453b378a="" style="display: block;">退出
+                            </span>
                         </li>
                     </ul>
                 </div>
+
             </ul>
+            <!--上方导航栏 end-->
+
+
             <section data-v-0ef526f4="" class="app-main">
                 <div class="app-container">
                     <div class="el-card filter-container is-never-shadow"><!---->
@@ -1069,6 +1146,66 @@
 
 <script src="../static/jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
+
+
+
+    var left_status = 1;    //左边导航栏的当前状态
+    //网页动态脚本
+    $("#topPic").click(function () {
+        //设置隐藏
+        if (left_status) {
+            $("#topPic svg").attr("class", "hamburger is-active");
+            $("#allContext").attr("class", "app-wrapper hideSidebar withoutAnimation");
+            $("#pruduct_ul").hide();
+            $("#order_ul").hide();
+            $("#sms_ul").hide();
+
+            left_status = 0;
+        }
+        //设置显示
+        else {
+            $("#topPic svg").attr("class", "hamburger is-active");
+            $("#allContext").attr("class", "app-wrapper withoutAnimation");
+            $("#order_ul").show();
+
+            left_status = 1;
+        }
+    });
+
+    var u_1 = 1;    //当前状态
+    $("#product_li").click(function () {
+        if (u_1) {
+            $("#pruduct_ul").hide();
+            u_1 = 0;
+        } else {
+            $("#pruduct_ul").show();
+            u_1 = 1;
+        }
+    });
+    var u_2 = 0;    //当前状态
+    $("#order_li").click(function () {
+        if (u_2) {
+            $("#order_ul").hide();
+            u_2 = 0;
+        } else {
+            $("#order_ul").show();
+            u_2 = 1;
+        }
+    });
+    var u_3 = 0;    //当前状态
+    $("#sms_li").click(function () {
+        if (u_3) {
+            $("#sms_ul").hide();
+            u_3 = 0;
+        } else {
+            $("#sms_ul").show();
+            u_3 = 1;
+        }
+    });
+
+    // 隐藏：hamburger
+    // app-wrapper hideSidebar withoutAnimation
+    // 显示：hamburger is-active
 
 
     //跳到updateProduct.html页面

@@ -47,6 +47,9 @@ public class OrderDetailsController {
     @RequestMapping(value = "getItem",method = RequestMethod.GET)
     public Object getItem(HttpSession httpSession){
 
+        com.thumb.entity.pojo.Merchant merchantSession = (com.thumb.entity.pojo.Merchant)httpSession.getAttribute("merchant");
+        System.out.println(merchantSession+"---");
+
         List<OmsCartItem> omsCartItems = (List<OmsCartItem>) httpSession.getAttribute("omsCartItems");
 
         return omsCartItems;
@@ -91,7 +94,7 @@ public class OrderDetailsController {
         aliPayInfoVo.setMemberUsername(umsMember.getUsername());
         aliPayInfoVo.setTotalAmount(new BigDecimal(aliPayInfoVo.getPay_amount()));
         aliPayInfoVo.setFreightAmount(new BigDecimal(0));
-        aliPayInfoVo.setPayType(1);
+        aliPayInfoVo.setPayType(0);
         aliPayInfoVo.setSourceType(1);
         aliPayInfoVo.setStatus(0);
         aliPayInfoVo.setDeleteStatus(0);

@@ -151,6 +151,7 @@
     </div>
 </div>
 
+
 <!--out_trade_no = "1231";-->
 <!--total_amount = "1231";-->
 <!--subject="1231";-->
@@ -168,6 +169,14 @@
 <input  name="receiverCity">
 <input  name="receiverRegion">
 <input  name="receiverDetailAddress">
+
+    <footer class="mt20 center">
+        <div class="xiantiao"></div>
+        <div class="mt20" style="margin: auto">mutual商城|MIUI|米聊|多看书城|mutual路由器|视频电话|mutual天猫店|mutual淘宝直营店|mutual网盟|mutual移动|隐私政策|Select Region</div>
+        <div style="margin: auto">©mutual.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
+        <div style="margin: auto">违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+
+    </footer>
 
 </form>
 </div>
@@ -206,7 +215,6 @@
                 $(data).each(function (index, item) {
 
                     totalPrice += item.price;
-                    totalNum++;
 
                     if (index == 0){
                         if ($(data).length > 1) {
@@ -231,15 +239,22 @@
                         "                            <div class=\"col col-price\">\n" +
                         "                                "+ item.price+"元 x "+ item.quantity+"                                    </div>\n" +
                         "                            <div class=\"col col-status\">&nbsp;</div>\n" +
-                        "                            <div class=\"col col-total\">\n" +
-                        "                                "+ item.price +"元\n" +
+                        "                            <div id='"+ item.id +"' class=\"col col-total\">\n" +
+                        "                                "+ item.price * item.quantity +"元\n" +
                         "                            </div>\n" +
                         "\n" +
                         "                        </li>");
+
+
+                    realTotalPrice += parseInt($("#"+item.id).text());
+                    totalNum += item.quantity;
                 });
                 $("#totalNum").text(totalNum + "件");
-                $("#totalPrice").text(totalPrice + "元");
-                $("#realTotalPrice").text(totalPrice + "元");
+                $("#totalPrice").text(realTotalPrice + "元");
+
+
+
+                $("#realTotalPrice").text(realTotalPrice + "元");
             }
 
         });
@@ -360,7 +375,7 @@
 
 
     function pay() {
-        $("input[name='pay_amount']").val(totalPrice);
+        $("input[name='pay_amount']").val(realTotalPrice);
         $("input[name='subject']").val(productName);
         $("input[name='body']").val("222");
         $("input[name='receiverProvince']").val(province);

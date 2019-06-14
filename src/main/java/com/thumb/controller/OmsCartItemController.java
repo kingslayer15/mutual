@@ -151,6 +151,30 @@ public class OmsCartItemController {
         }
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/updateCartItem", method = RequestMethod.POST)
+    public Object updateCartItem(@RequestBody OmsCartItem omsCartItem) {
+
+        System.out.println(omsCartItem);
+        int i = omsCartItemService.updateByPrimaryKeySelective(omsCartItem);
+
+        OmsCartItem returnOmsCartItem = omsCartItemService.selectByPrimaryKey(omsCartItem.getId());
+
+
+//        omsCartItemService.selectByPrimaryKey()
+
+        return returnOmsCartItem;
+    }
+
+
+    @RequestMapping(value = "selectCartItemById",method = RequestMethod.GET)
+    @ResponseBody
+    public Object selectCartItemById(@RequestParam Long id){
+
+        OmsCartItem omsCartItem = omsCartItemService.selectByPrimaryKey(id);
+
+        return omsCartItem;
+    }
 }
 
 

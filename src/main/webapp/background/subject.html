@@ -173,7 +173,7 @@
                                     class="el-table_16_column_122  is-center el-table-column--selection  is-leaf"
                                     style="width: 6%;">
                                     <div class="cell">
-                                        <input type="checkbox" name='checkbox' value="val">
+                                        <input type="checkbox" name='checkbox' value="val" onclick="swapCheck2()" id="allCheck2">
                                     </div>
                                 </th>
                                 <th colspan="1" rowspan="1" class="el-table_16_column_123  is-center   is-leaf"
@@ -223,13 +223,12 @@
 
             <div class="batch-operate-container">
                 <div class="el-select el-select--small">
-                    <div class="el-input el-input--small el-input--suffix" onblur="BlurPage()"
-                         onclick="batchOperation()">
-                        <input type="text" autocomplete="off" placeholder="批量操作" readonly="readonly"
-                               class="el-input__inner" onblur="BlurPage()">
+                    <div class="el-input el-input--small el-input--suffix">
+                        <!--<input type="text" autocomplete="off" placeholder="批量操作" readonly="readonly"-->
+                               <!--class="el-input__inner" onblur="BlurPage()">-->
                         <span class="el-input__suffix">
-                                    <span class="el-input__suffix-inner" onblur="BlurPage()">
-                                    <i class="el-select__caret el-input__icon el-icon-arrow-up" onblur="BlurPage()">
+                                    <span class="el-input__suffix-inner" >
+                                    <i class="el-select__caret el-input__icon el-icon-arrow-up" >
                                     </i>
                                     </span>
                                 </span>
@@ -255,7 +254,7 @@
                 </div>
                 <button type="button" class="el-button search-button el-button--primary el-button--small"
                         style="margin-left: 20px;">
-                    <span>确定</span>
+                    <span onclick="addDelete()">批量删除</span>
                 </button>
             </div>
 
@@ -342,7 +341,7 @@
                                                 class="el-table_5_column_25  is-center el-table-column--selection  is-leaf"
                                                 style="width: 15%;">
                                                 <div class="cell">
-                                                    <input type="checkbox" value="">
+                                                    <input type="checkbox" value="" id="allCheck" onclick="swapCheck()">
                                                 </div>
                                             </th>
                                             <th colspan="1" rowspan="1"
@@ -525,7 +524,7 @@
             var tableSubject = "<tr class=\"el-table__row\">\n" +
                 "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
                 "         style=\"width: 6%;\">\n" +
-                "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
+                "      <input type=\"checkbox\" class='input' name='checkbox' onclick='itemCheck()'  value=" + val.id + ">" +
                 "         </div>\n" +
                 "     </td>\n" +
                 "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
@@ -657,7 +656,7 @@
                             "      <td class=\"el-table_5_column_25 is-center el-table-column--selection\"\n" +
                             "          style=\"width: 15%;\">\n" +
                             "          <div class=\"cell\">\n" +
-                            "              <input type=\"checkbox\" name=\"checkbox\"  value=" + value.id + ">\n" +
+                            "              <input type=\"checkbox\" name=\"checkbox\"  onclick='itemCheck2()' value=" + value.id + ">\n" +
                             "          </div>\n" +
                             "      </td>\n" +
                             "      <td class=\"el-table_5_column_26 is-center \" style=\"width: 35%;\">\n" +
@@ -772,9 +771,12 @@
     }
 
     //删除展示的专题
-    function deleteSubjectById() {
+    function deleteSubjectById(id) {
+        if(id==0){
+            id= shortId
+        }
         $.ajax({
-            url: '/deleteSubjectById?id=' + shortId,
+            url: '/deleteSubjectById?id=' + id,
             type: 'GET', //GET
             contentType: "application/json",
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
@@ -816,7 +818,7 @@
                     var tableSubject = "<tr class=\"el-table__row\">\n" +
                         "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
                         "         style=\"width: 6%;\">\n" +
-                        "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
+                        "      <input type=\"checkbox\" class='input' name='checkbox' value=" + val.id + ">" +
                         "         </div>\n" +
                         "     </td>\n" +
                         "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
@@ -910,6 +912,90 @@
             }
         });
     }
+
+    /*批量删除*/
+    function addDelete() {
+
+
+        var i = 0;
+        $(".input:checked").each(function () {//把所有被选中的复选框的值存入数组
+            i = $(this).val();
+            alert(i)
+            // deleteSubjectById( i) ;
+        });
+
+    }
+
+
+    /**
+     * 复选框的全选和取消全选功能
+     */
+    var isCheckAll2 = false;
+    function swapCheck2() {
+        if (isCheckAll2) {
+            $("#subject input").each(function () {
+                this.checked = false;
+            });
+            isCheckAll2 = false;
+        } else {
+            $("#subject input").each(function () {
+                this.checked = true;
+            });
+            isCheckAll2 = true;
+        }
+    }
+    function itemCheck() {
+        var flag = true;
+        $("#subject input").each(function () {
+            if (!this.checked) {
+                flag = false;
+                return false;
+            }
+        });
+        isCheckAll2 = flag;
+        $("#allCheck2").prop("checked", flag);
+    }
+
+    function plczselectInput() {
+        $("#plczselect").show();
+    }
+
+
+
+    /**
+     * 复选框的全选和取消全选功能
+     */
+    var isCheckAll = false;
+    function swapCheck() {
+        if (isCheckAll) {
+            $("#tbody input").each(function () {
+                this.checked = false;
+            });
+            isCheckAll = false;
+        } else {
+            $("#tbody input").each(function () {
+                this.checked = true;
+            });
+            isCheckAll = true;
+        }
+    }
+    function itemCheck2() {
+        var flag = true;
+        $("#tbody input").each(function () {
+            if (!this.checked) {
+                flag = false;
+                return false;
+            }
+        });
+        isCheckAll = flag;
+        $("#allCheck").prop("checked", flag);
+    }
+
+    function plczselectInput() {
+        $("#plczselect").show();
+    }
+
+
 </script>
 </body>
 </html>

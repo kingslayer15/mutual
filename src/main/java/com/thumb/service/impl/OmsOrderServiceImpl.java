@@ -113,6 +113,56 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         return id;
     }
 
+    @Override
+    public BigDecimal findTodayCount() {
+        BigDecimal todayCount = omsOrderMapper.findTodayCount();
+        return todayCount;
+    }
+
+    @Override
+    public BigDecimal findTodayAmount() {
+        BigDecimal todayAmount = omsOrderMapper.findTodayAmount();
+        return todayAmount;
+    }
+
+    @Override
+    public BigDecimal findThisMonthAmount() {
+        BigDecimal thisMonthAmount = omsOrderMapper.findThisMonthAmount();
+        return thisMonthAmount;
+    }
+
+    @Override
+    public BigDecimal findThisMonthCount() {
+
+        BigDecimal thisMonthCount = omsOrderMapper.findThisMonthCount();
+
+        return thisMonthCount;
+    }
+
+    @Override
+    public BigDecimal findThisWeekAmount() {
+        BigDecimal thisWeekAmount = omsOrderMapper.findThisWeekAmount();
+        return thisWeekAmount;
+    }
+
+    @Override
+    public BigDecimal findThisWeekCount() {
+        BigDecimal thisWeekCount = omsOrderMapper.findThisWeekCount();
+        return thisWeekCount;
+    }
+
+    @Override
+    public BigDecimal findLastDayAmount() {
+        BigDecimal lastDayAmount = omsOrderMapper.findLastDayAmount();
+        return lastDayAmount;
+    }
+
+    @Override
+    public BigDecimal findLastMonthAmount() {
+        BigDecimal lastMonthAmount = omsOrderMapper.findLastMonthAmount();
+        return lastMonthAmount;
+    }
+
 //    @Override
 //    public List<Object> selectByDate(String year, String month) {
 //

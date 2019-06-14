@@ -146,7 +146,7 @@
                         <div class="el-card__body"><i class="el-icon-tickets"></i> <span>数据列表</span>
                             <button type="button" class="el-button btn-add el-button--default el-button--mini"
                                     onclick="showSubject(1,5)">
-                                <span>选择专题</span></button>
+                                <span>选择新品</span></button>
                         </div>
                     </div>
                     <div class="table-container">
@@ -220,39 +220,39 @@
 
                     <div class="batch-operate-container">
                         <div class="el-select el-select--small">
-                            <div class="el-input el-input--small el-input--suffix" onblur="BlurPage()"
+                            <div class="el-input el-input--small el-input--suffix"
                                  onclick="batchOperation()">
-                                <input type="text" autocomplete="off" placeholder="批量操作" readonly="readonly"
-                                       class="el-input__inner" onblur="BlurPage()">
+                                <!--<input type="text" autocomplete="off" placeholder="批量操作" readonly="readonly"-->
+                                       <!--class="el-input__inner" id="allName">-->
                                 <span class="el-input__suffix">
-                                    <span class="el-input__suffix-inner" onblur="BlurPage()">
-                                    <i class="el-select__caret el-input__icon el-icon-arrow-up" onblur="BlurPage()">
+                                    <span class="el-input__suffix-inner">
+                                    <i class="el-select__caret el-input__icon el-icon-arrow-up" >
                                     </i>
                                     </span>
                                 </span>
                             </div>
-                            <div class="el-select-dropdown el-popper" style="display: none;" id="popper">
-                                <div class="el-scrollbar" style="">
-                                    <div class="el-select-dropdown__wrap el-scrollbar__wrap"
-                                         style="margin-bottom: -15px; margin-right: -15px;">
-                                        <ul class="el-scrollbar__view el-select-dropdown__list">
-                                            <!--<li class="el-select-dropdown__item"><span>设为推荐</span></li>-->
-                                            <li class="el-select-dropdown__item"><span>取消推荐</span></li>
-                                            <li class="el-select-dropdown__item"><span>删除</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="el-scrollbar__bar is-horizontal">
-                                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-                                    </div>
-                                    <div class="el-scrollbar__bar is-vertical">
-                                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!--<div class="el-select-dropdown el-popper" style="display: none;" id="popper">-->
+                                <!--<div class="el-scrollbar" style="">-->
+                                    <!--<div class="el-select-dropdown__wrap el-scrollbar__wrap"-->
+                                         <!--style="margin-bottom: -15px; margin-right: -15px;">-->
+                                        <!--<ul class="el-scrollbar__view el-select-dropdown__list">-->
+                                            <!--<li class="el-select-dropdown__item" ><span onclick="alltable()">设为推荐</span></li>-->
+                                            <!--<li class="el-select-dropdown__item" ><span onclick="alltable()">取消推荐</span></li>-->
+                                            <!--<li class="el-select-dropdown__item" ><span onclick="alltable()">删除</span></li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                    <!--<div class="el-scrollbar__bar is-horizontal">-->
+                                        <!--<div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>-->
+                                    <!--</div>-->
+                                    <!--<div class="el-scrollbar__bar is-vertical">-->
+                                        <!--<div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
                         </div>
                         <button type="button" class="el-button search-button el-button--primary el-button--small"
                                 style="margin-left: 20px;">
-                            <span onclick="addDelete()">确定</span>
+                            <span onclick="addDelete()">批量删除</span>
                         </button>
                     </div>
 
@@ -270,7 +270,7 @@
                                     </span>
                                 </div>
                                 <div class="el-select-dropdown el-popper" style="display: none; min-width: 110px;"
-                                     id="nowSize" onblur="BlurPage()">
+                                     id="nowSize">
                                     <div class="el-scrollbar">
                                         <div class="el-select-dropdown__wrap el-scrollbar__wrap"
                                              style="margin-bottom: -15px; margin-right: -15px;">
@@ -310,7 +310,7 @@
                                     <!--条件搜索盒子-->
                                     <div class="el-input el-input--small el-input-group el-input-group--append"
                                          style="width: 250px; margin-bottom: 20px;">
-                                        <input type="text" autocomplete="off" placeholder="专题名称搜索"
+                                        <input type="text" autocomplete="off" placeholder="新品名称搜索"
                                                class="el-input__inner" id="getNew_folioModal" style=" height: 35px">
 
 
@@ -369,7 +369,7 @@
 
                                                 <tbody id="tbody">
 
-                                                <!--为推荐专题内容-->
+                                                <!--为推荐新品内容-->
 
                                                 </tbody>
                                             </table>
@@ -445,7 +445,7 @@
                                 <!--内容结束-->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                            onclick="deleteSubjectById()">确定
+                                            onclick="deleteSubjectById(0)">确定
                                     </button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                                 </div>
@@ -494,7 +494,7 @@
                         var showshowNow = "推荐中";
                         var show_status = 0;
                         var table =  "<div role=\"switch\" class=\"el-switch is-checked\"   aria-checked=\"true\" id=\"a"+index+"\">\n" +
-                            "    <span class=\"el-switch__core\" style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
+                            "    <span class=\"el-switch__core\"  style=\"width: 40px;\" onclick='open_switch("+index+","+ val.id +")' >\n" +
                             "<input type='hidden' value='"+show_status+"' id='"+index+"'>"+
                             "     </span>\n" +
                             "    </div>\n" ;
@@ -510,7 +510,7 @@
                     var tableSubject = "<tr class=\"el-table__row\">\n" +
                         "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
                         "         style=\"width: 6%;\">\n" +
-                        "      <input type=\"checkbox\" name='checkbox' value=" + val.id + ">" +
+                        "      <input type=\"checkbox\" class='input' name='checkbox' value=" + val.id + ">" +
                         "         </div>\n" +
                         "     </td>\n" +
                         "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
@@ -669,6 +669,9 @@
     //每页数据选择
     function page() {
         $("#nowSize").attr('style', ' min-width: 110px;');
+        timer=setInterval(function () {
+            $("#nowSize").attr("style","display: none;")
+        },5000);
     }
 
     function BlurPage() {
@@ -679,6 +682,9 @@
     //批量操作
     function batchOperation() {
         $("#popper").attr('style', ' min-width: 192px;');
+        timer=setInterval(function () {
+            $("#popper").attr("style","display: none;")
+        },5000);
     }
 
 
@@ -716,10 +722,14 @@
         });
     }
 
-    //删除展示的专题
-    function deleteSubjectById() {
+    //删除展示的新品
+    function deleteSubjectById(id) {
+
+        if(id==0){
+            id= shortId;
+        }
         $.ajax({
-            url: '/deleteNewById?id=' + shortId,
+            url: '/deleteNewById?id=' + id,
             type: 'GET', //GET
             contentType: "application/json",
             dataType: 'json',    //返回的数据格式：json/xml/html/script/jsonp/text
@@ -786,7 +796,7 @@
                         var tableSubject = "<tr class=\"el-table__row\">\n" +
                             "     <td class=\"el-table_16_column_122 is-center el-table-column--selection\"\n" +
                             "         style=\"width: 6%;\">\n" +
-                            "      <input type=\"checkbox\" name='tot' class='tots' value=" + val.id + ">" +
+                            "      <input type=\"checkbox\" name='tot'  class='input' value=" + val.id + ">" +
                             "         </div>\n" +
                             "     </td>\n" +
                             "     <td class=\"el-table_16_column_123 is-center \" style=\"width: 10%;\">\n" +
@@ -1085,16 +1095,25 @@
 
     /*添加新品*/
     function addDelete() {
-        alert(23)
+
         var checkID = [];
         var i = 0;
-        $(".tots[name='tot']:checked").each(function () {//把所有被选中的复选框的值存入数组
-            checkID[i] = $(this).val();
-            alert($(this).val());
-            i++;
+        $(".input:checked").each(function () {//把所有被选中的复选框的值存入数组
+            i = $(this).val();
+
+            deleteSubjectById( i) ;
         });
-        // window.location.reload();
+
     }
+
+    function alltable() {
+        alert(123)
+        $("#popper").attr("style","display: none;")
+        $("#allName").val(nama);
+    }
+
+
+
 
 
 

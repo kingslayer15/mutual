@@ -70,7 +70,7 @@ public class IndexController {
     @RequestMapping("NewIndex")
     public Object NewIndex() {
 
-        return newService.SubjectIndex();
+        return newService.SubjectIndexHome();
     }
 
     /**
@@ -178,15 +178,25 @@ public class IndexController {
     }
 
 
-//
-//    /**
-//     * 跳转进subject.html
-//     * @return
-//     */
-//    @RequestMapping("login")
-//    public String toBrands() {
-//        return "main/login";
-//    }
+
+    /**
+     * 跳转进subject.html
+     * @return
+     */
+    @RequestMapping("/")
+    public String toBrands() {
+        return "main/login";
+    }
+
+
+    /**
+     * 跳转进subject.html
+     * @return
+     */
+    @RequestMapping("liebiao3")
+    public String toliebiao3s() {
+        return "main/liebiao3";
+    }
 
 
 

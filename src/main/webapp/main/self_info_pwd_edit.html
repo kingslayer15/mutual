@@ -5,6 +5,8 @@
     <meta name="author" content="order by dede58.com"/>
     <title>Mutual商城-密码修改</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <script src="../static/js/js/jquery-3.2.1.js"></script>
+
     <link rel="stylesheet" href="../static/bootstrap/js/bootstrap.min.js">
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-fileinput.css">
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
@@ -33,9 +35,9 @@
                     <li><a href="./self_info.html" >我的信息</a></li>
                     <li><a href="./self_info_edit.html">修改信息</a></li>
                     <li><a href="./self_info_pwd_edit.html">修改密码</a></li>
-                    <li><a href="./coupon.html">优惠券</a></li>
+
                     <li><a href="./address.html">收货地址</a></li>
-                    <li><a href="./point.html">我的积分</a></li>
+                    <!--<li><a href="./point.html">我的积分</a></li>-->
                 </ul>
             </div>
             <div class="ddzx" style="height: 20px">订单中心</div>
@@ -44,7 +46,7 @@
                     <li><a href="./orders.html">我的订单</a></li>
                     <li><a href="./basket.html">我的购物车</a></li>
                     <li><a href="./favourite.html">我的收藏</a></li>
-                    <li><a href="./footprint.html">我的足迹</a></li>
+                    <!--<li><a href="./footprint.html">我的足迹</a></li>-->
                 </ul>
             </div>
         </div>
@@ -143,12 +145,13 @@
                     alert("修改成功")
                     var url= "self_info.html"
                     window.location.href = url
+                    // window.history.back(-1)
                     },
                 error:function(data){
-                    if (!data) {
+
                         alert("原密码不正确，修改失败")
                         var url= "self_info.html"
-                        window.location.href = url   }}
+                        window.location.href = url   }
             })
         }else {alert("修改失败")}
 
