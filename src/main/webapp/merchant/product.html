@@ -1154,7 +1154,7 @@
 
                         var trHTML = "<tr class=\"el-table__row\">" + "<td class=\"el-table_2_column_12 is-center el-table-column--selection\">\n" +
                             "                                            <div class=\"cell\" id='cellStyle'><label role=\"checkbox\" class=\"el-checkbox\"><span\n" +
-                            "                                                    aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
+                            "                                                     aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
                             "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
                             "                                                                                             aria-hidden=\"true\"\n" +
                             "                                                                                             class=\"el-checkbox__original\"\n" +
@@ -1412,7 +1412,21 @@
             $(".el-checkbox").prop("class","el-checkbox");
             $(".el-checkbox__input").prop("class","el-checkbox__input");
         }
+
+        var iitem= new Array();
+        $(".el-checkbox__input.is-checked.is-focus").each(function (index,item) {
+            // iitem.push(item.id);
+            // alert($(item).attr("name"));
+
+            // $(item).attr("name") != undefined
+            if($(item).attr("name") != undefined){
+                iitem.push($(item).attr("name"));
+                alert(iitem);
+            }
+        })
     }
+
+
 
 
 
@@ -1457,8 +1471,8 @@
                         }
                         var trHTML = "<tr class=\"el-table__row\">" + "<td class=\"el-table_2_column_12 is-center el-table-column--selection\">\n" +
                             "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\"><span\n" +
-                            "                                                    aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
-                            "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
+                            "                                                  name=' "+element.id+"'  aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
+                            "                                                    class=\"el-checkbox__inner\"></span><input id='"+ element.id +"' type=\"checkbox\"\n" +
                             "                                                                                             aria-hidden=\"true\"\n" +
                             "                                                                                             class=\"el-checkbox__original\"\n" +
                             "                                                                                              onclick='checkById(" + index + ")' name='check'></span><!---->\n" +
