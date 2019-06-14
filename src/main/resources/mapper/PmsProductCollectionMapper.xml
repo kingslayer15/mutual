@@ -77,7 +77,7 @@
   </insert>
     <select id="selectAllBymemberId" parameterType="long" resultType="com.thumb.pojo.PmsProduct">
       select pp.* from pms_product_collection ppc,pms_product pp
-      where ppc.product_id=pp.id
+      where ppc.product_id=pp.id and ppc.states=1
       and ppc.member_id=#{id}
     </select>
 

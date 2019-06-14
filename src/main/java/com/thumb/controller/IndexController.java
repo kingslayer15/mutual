@@ -141,6 +141,7 @@ public class IndexController {
         PageHelper.startPage(pageName.getPageNow(), pageName.getPageSize());
 
         List<PmsProduct> name = indexService.getName(pageName.getName());
+        System.out.println(name);
 
 
         return new PageInfo(name);
@@ -157,6 +158,9 @@ public class IndexController {
         PageHelper.startPage(pageName.getPageNow(), pageName.getPageSize());
 
         List<PmsProduct> name2 = indexService.getCategory(pageName.getName());
+
+        System.out.println(name2);
+
 
         return new PageInfo(name2);
 

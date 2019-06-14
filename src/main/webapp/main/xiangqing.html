@@ -417,6 +417,9 @@
         }
 
         function cart() {
+
+			/*验证用户*/
+
             $.ajax({
                 type: "post",
                 url: "/insertCart",
@@ -436,7 +439,7 @@
                     "productCategoryId": productCategoryId
                 }),
                 success: function (data) {
-                    alert("succuss");
+                  /*验证用户*/
                     console.log(data); //  2pm
                 },
                 error: function (data) {
@@ -458,16 +461,11 @@
                     "memberId": memberId,
                 }),
                 success: function (data) {
-                    if (data == false) {
-                        alert("用户没登录")
-                        window.location = "login.html";
-                    } else {
-                        if (data == 0) {
+                    if (data == 0) {
 
-                            $("#collection").val("加入收藏夹");
-                        } else {
-                            $("#collection").val("取消收藏");
-                        }
+                        $("#collection").val("加入收藏夹");
+                    } else {
+                        $("#collection").val("取消收藏");
                     }
                     console.log(data); //  2pm
                 },

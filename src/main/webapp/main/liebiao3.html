@@ -55,26 +55,32 @@
 
     $("#header").load("header.html");
 
-    var searchText = "";
-    var url = "";
+
 
     $(function () {
+
+        var searchText = "";
+        var url = "";
+
         var name = window.location.search.split("=")[1];
+
         var name2 = window.location.search.split("&")[1];
 
-         if(name!=""||name!=null){
+
+
+         if(name!=""&&name!=undefined){
              searchText = decodeURI(name);
              url = "/getName";
-         }if(name2!=""||name2!=null){
+
+
+         }else if(name2!=""&&name2!=undefined){
             searchText = decodeURI(name2);
             url = "/getCategory";
         }
-         alert(searchText);
-    })
+        var pageNow = 1;
+         var pageSize = 10;
 
-
-
-    function get(pageNow, pageSize,searchText,url) {
+         alert(url);
         //加载此品牌下的所有商品
         $.ajax({
             url: url,
@@ -116,7 +122,7 @@
                 alert("错误请求!!!")
             }
         });
-    }
+    })
 
     get(1, 10,searchText,url);
 
