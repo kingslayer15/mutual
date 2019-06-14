@@ -114,6 +114,12 @@ public class OmsOrderServiceImpl implements OmsOrderService {
     }
 
     @Override
+    public BigDecimal findTodayCount() {
+        BigDecimal todayCount = omsOrderMapper.findTodayCount();
+        return todayCount;
+    }
+
+    @Override
     public BigDecimal findTodayAmount() {
         BigDecimal todayAmount = omsOrderMapper.findTodayAmount();
         return todayAmount;
@@ -131,6 +137,30 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         BigDecimal thisMonthCount = omsOrderMapper.findThisMonthCount();
 
         return thisMonthCount;
+    }
+
+    @Override
+    public BigDecimal findThisWeekAmount() {
+        BigDecimal thisWeekAmount = omsOrderMapper.findThisWeekAmount();
+        return thisWeekAmount;
+    }
+
+    @Override
+    public BigDecimal findThisWeekCount() {
+        BigDecimal thisWeekCount = omsOrderMapper.findThisWeekCount();
+        return thisWeekCount;
+    }
+
+    @Override
+    public BigDecimal findLastDayAmount() {
+        BigDecimal lastDayAmount = omsOrderMapper.findLastDayAmount();
+        return lastDayAmount;
+    }
+
+    @Override
+    public BigDecimal findLastMonthAmount() {
+        BigDecimal lastMonthAmount = omsOrderMapper.findLastMonthAmount();
+        return lastMonthAmount;
     }
 
 //    @Override

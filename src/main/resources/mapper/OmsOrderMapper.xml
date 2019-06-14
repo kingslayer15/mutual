@@ -663,6 +663,9 @@
   <select id="findTodayAmount" resultType="java.math.BigDecimal">
     select SUM(pay_amount) from oms_order where to_days(create_time) = to_days(now());
   </select>
+  <select id="findTodayCount" resultType="java.math.BigDecimal">
+    select count(1) from oms_order where to_days(create_time) = to_days(now());
+  </select>
 
   <select id="findThisMonthAmount" resultType="java.math.BigDecimal">
     SELECT SUM(pay_amount) FROM oms_order WHERE DATE_FORMAT( create_time, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' ) AND (status = 0 or status = 1 or status = 2 or status = 3)
@@ -670,6 +673,22 @@
 
   <select id="findThisMonthCount" resultType="java.math.BigDecimal">
     SELECT count(1) FROM oms_order WHERE DATE_FORMAT( create_time, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' ) AND (status = 0 or status = 1 or status = 2 or status = 3)
+  </select>
+
+  <select id="findThisWeekAmount" resultType="java.math.BigDecimal">
+    SELECT SUM(pay_amount) FROM oms_order WHERE YEARWEEK(date_format(create_time,'%Y-%m-%d')) = YEARWEEK(now());
+  </select>
+
+  <select id="findThisWeekCount" resultType="java.math.BigDecimal">
+    SELECT count(1) FROM oms_order WHERE YEARWEEK(date_format(create_time,'%Y-%m-%d')) = YEARWEEK(now());
+  </select>
+
+  <select id="findLastDayAmount" resultType="java.math.BigDecimal">
+    SELECT SUM(pay_amount) FROM oms_order WHERE TO_DAYS( NOW( ) ) - TO_DAYS( create_time) <![CDATA[<=]]> 1
+  </select>
+  
+  <select id="findLastMonthAmount" resultType="java.math.BigDecimal">
+    SELECT SUM(pay_amount) FROM oms_order WHERE PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( create_time, '%Y%m' ) ) =1
   </select>
 
 </mapper>
