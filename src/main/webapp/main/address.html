@@ -99,9 +99,8 @@
 <div class="grzxbj" >
 
 
-
     <div class="selfinfo center">
-        <div class="lfnav fl" style="height: 700px">
+        <div class="lfnav fl" style="height: 500px">
 
             <div class="ddzx" style="height: 20px">个人中心</div>
             <div class="subddzx">
@@ -109,8 +108,8 @@
                     <li><a href="./self_info.html">我的信息</a></li>
                     <li><a href="./self_info_edit.html">修改信息</a></li>
                     <li><a href="./self_info_pwd_edit.html">修改密码</a></li>
-                    <!--<li><a href="./coupon.html">优惠券</a></li>-->
                     <li><a href="./address.html">收货地址</a></li>
+                    <li><a href="./point.html">我的积分</a></li>
                 </ul>
             </div>
             <div class="ddzx" style="height: 20px">订单中心</div>
@@ -119,14 +118,12 @@
                     <li><a href="./orders.html">我的订单</a></li>
                     <li><a href="./basket.html">我的购物车</a></li>
                     <li><a href="./favourite.html">我的收藏</a></li>
-                    <!--<li><a href="./footprint.html">我的足迹</a></li>-->
+                    <li><a href="./footprint.html">我的足迹</a></li>
                 </ul>
             </div>
         </div>
 
-
-
-        <div class="rtcont fr" style="height: 700px">
+        <div class="rtcont fr" style="height: 500px">
             <div class="grzlbt ml40" id="address">新增地址</div>
             <!--新增地址-->
             <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set">
@@ -150,9 +147,7 @@
                                             <!--省份选择-->
                                             <select id="prov" onchange="showCity(this)">
                                                 <option>=请选择省份=</option>
-
                                             </select>
-
                                             <!--城市选择-->
                                             <select id="city" onchange="showCountry(this)">
                                                 <option>=请选择城市=</option>
@@ -175,28 +170,6 @@
 
                                 <script src="../static/js/js/city.js"></script>
                                 <script src="../static/js/js/method.js"></script>
-
-
-                                <!--<div class=" gzxx ml40" style="width: 550px" >-->
-                                <!--<span class="gzxx" style="padding-right: 30px">国家：</span>-->
-                                <!--<input type="text" id="country" style="height: 30px;width: 260px" placeholder="country">-->
-                                <!--</div>-->
-                                <!--<br/><br/>-->
-                                <!--<div class=" gzxx ml40" style="width: 550px" >-->
-                                <!--<span class="gzxx" style="padding-right: 30px">省：</span>-->
-                                <!--<input type="text" id="province" style="height: 30px;width: 260px" placeholder="province">-->
-                                <!--</div>-->
-                                <!--<br/><br/>-->
-                                <!--<div class=" gzxx ml40" style="width: 550px" >-->
-                                <!--<span class="gzxx" style="padding-right: 30px">市：</span>-->
-                                <!--<input type="text" id="city" style="height: 30px;width: 260px" placeholder="city">-->
-                                <!--</div>-->
-                                <!--<br/><br/>-->
-                                <!--<div class=" gzxx ml40" style="width: 550px" >-->
-                                <!--<span class="gzxx" style="padding-right: 30px">区：</span>-->
-                                <!--<input type="text" id="region" style="height: 30px;width: 260px" placeholder="region">-->
-                                <!--</div>-->
-                                <!--<br/><br/>-->
                                 <div class=" gzxx ml40" style="width: 550px">
                                     <span class="gzxx" style="padding-right: 30px">详细地址：</span>
                                     <textarea id="detail_address" style="resize: none" rows="3" cols="40"
@@ -232,67 +205,78 @@
             </div>
 
             <!--遍历地址-->
-            <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set">
-                <div class="s-bar">
-                    <i class="s-icon"></i>我的地址
-                </div>
 
-
-                <div class="addressList">
-                    <div class="next-table">
-
-                        <table id="addressList">
-                            <colgroup>
-                                <col style="width: 70px;">
-                                <col>
-                                <col style="width: 200px;">
-                                <col style="width: 100px;">
-                                <col style="width: 140px;">
-                                <col style="width: 110px;">
-                                <col style="width: 90px;">
-                            </colgroup>
-                            <thead class="next-table-header">
-                            <tr>
-                                <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
-                                    role="gridcell" style="width: 60px">
-                                    <div class="next-table-cell-wrapper">收货人</div>
-                                </th>
-                                <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
-                                    role="gridcell" style="width: 150px;margin-right: 20px">
-                                    <div class="next-table-cell-wrapper">所在地区</div>
-                                </th>
-                                <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
-                                    role="gridcell">
-                                    <div class="next-table-cell-wrapper">详细地址</div>
-                                </th>
-                                <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
-                                    role="gridcell">
-                                    <div class="next-table-cell-wrapper">邮编</div>
-                                </th>
-                                <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
-                                    role="gridcell">
-                                    <div class="next-table-cell-wrapper">电话/手机</div>
-                                </th>
-                                <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
-                                    role="gridcell">
-                                    <div class="next-table-cell-wrapper">操作</div>
-                                </th>
-                                <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
-                                    role="gridcell">
-                                    <div class="next-table-cell-wrapper"></div>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody class="next-table-body" id="addressInfo">
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+
+<div ><div style="margin: auto;height: 500px;width: 65%;margin-top: 450px">
+
+    <div data-spm="1998049142" class="m-logistics g-box-base g-mb-set">
+
+        <div class="addressList">
+            <div class="next-table">
+
+                <table id="addressList" border="1"  cellpadding="0">
+                    <colgroup>
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 20%;">
+                        <col style="width: 15%;">
+                        <col style="width: 15%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                    </colgroup>
+                    <thead class="next-table-header">
+                    <tr>
+                        <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
+                            role="gridcell" style="width: 60px">
+                            <div class="next-table-cell-wrapper">收货人</div>
+                        </th>
+                        <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
+                            role="gridcell" style="width: 150px;margin-right: 20px">
+                            <div class="next-table-cell-wrapper">所在地区</div>
+                        </th>
+                        <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
+                            role="gridcell">
+                            <div class="next-table-cell-wrapper">详细地址</div>
+                        </th>
+                        <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
+                            role="gridcell">
+                            <div class="next-table-cell-wrapper">邮编</div>
+                        </th>
+                        <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
+                            role="gridcell">
+                            <div class="next-table-cell-wrapper">电话/手机</div>
+                        </th>
+                        <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
+                            role="gridcell">
+                            <div class="next-table-cell-wrapper">操作</div>
+                        </th>
+                        <th rowspan="1" type="header" class="next-table-cell next-table-header-node"
+                            role="gridcell">
+                            <div class="next-table-cell-wrapper">状态</div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody class="next-table-body" id="addressInfo">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div style="margin: auto">
+    <!--<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>-->
+    <div>©mutual.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
+    <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+    </div>
+
+</div></div>
+
 
 
 <!-- self_info -->
@@ -306,45 +290,7 @@
 
     $("#header").load("header.html");
 
-    $(function () {
-        $.ajax({
-            url: '/getMember',
-            type: 'GET', //GET
-            /*成功*/
-            success: function (data) {
 
-                $("#ulId").find("li").remove();
-                if (data.regemail == null || data.regemail == "") {
-                    $("#ulId").append("<li><a href=\"./login.html\" target=\"_blank\">登录</a></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li><a href=\"./register.html\" target=\"_blank\" >注册</a></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li><a href=\"./self_info.html\">个人中心</a></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li><a href=\"./favourite.html\">收藏夹</a></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li><a href=\"./footprint.html\">浏览足迹</a></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li><a  onclick='deletes()'>注销</a></li>")
-                } else {
-                    $("#ulId").append("<li id='username'>" + data.regemail + "&nbsp;&nbsp;&nbsp;&nbsp;<img src='http://note.youdao.com/yws/public/resource/37c3a14c28d057d4df4a4196fd82f014/xmlnote/B926A28CB2FE4C8A9F9940FE112892BE/7157' alt=''></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li><a href=\"./self_info.html\">个人中心</a></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li><a href=\"./favourite.html\">收藏夹</a></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li><a href=\"./footprint.html\">浏览足迹</a></li>\n" +
-                        "                    <li>|</li>\n" +
-                        "                    <li  ><a  onclick='deletes()'>注销</a></li>")
-                }
-
-            },
-            /*发生错误时*/
-            error: function (xhr, textStatus) {
-
-            }
-        });
-    })
 
     function editAddress(id) {
         // alert(id);
