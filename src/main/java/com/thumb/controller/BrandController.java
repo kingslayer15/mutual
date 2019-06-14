@@ -63,6 +63,7 @@ public class BrandController {
      * @param id
      * @return
      */
+
     @ResponseBody
     @RequestMapping("deleteById")
     public Object deleteById(@RequestParam  int id) {
