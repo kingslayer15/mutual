@@ -130,7 +130,7 @@ public class ProductBrandController {
         //获取上传的文件名
         String fileName=dropzFile.getOriginalFilename();
         //设置文件上传路径
-        String filePath=request.getSession().getServletContext().getRealPath("/static/upload");
+        String filePath=request.getSession().getServletContext().getRealPath("/upload");
         //获取文件的后缀名
         String fileSuffix=fileName.substring(fileName.lastIndexOf("."),fileName.length());
         //判断并创建上传文件夹
