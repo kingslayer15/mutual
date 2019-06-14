@@ -59,7 +59,7 @@
                  name like CONCAT('%',#{name},'%')
             </if>
             <if test="product_sn !=null and product_sn !=''">
-                and product_sn = #{product_sn}
+                and product_sn like CONCAT(#{product_sn},'%')
             </if>
             <if test="product_category_name !=null and product_category_name !=''">
                 and  product_category_name = #{product_category_name}
