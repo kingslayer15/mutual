@@ -136,7 +136,7 @@
                                 <br/><br/>
                                 <div class=" gzxx ml40" style="width: 550px" >
                                     <span class="gzxx" style="padding-right: 30px">收货人姓名：</span>
-                                    <input type="text" id="name" style="height: 30px;width: 260px" placeholder="name">
+                                    <input type="text" id="receivename" style="height: 30px;width: 260px" placeholder="name">
                                 </div>
                                 <br/><br/>
                                 <div class=" gzxx ml40" style="width: 550px" >
@@ -271,7 +271,7 @@
             provice[current.prov]["city"][current.city].name != "=请选择城市=" &&
             provice[current.prov]["city"][current.city].districtAndCounty[current.country] != "=请选择县区=" &&
             $("#detail_address").val().trim() != '' &&
-            $("#name").val().trim() != '' &&
+            $("#receivename").val().trim() != '' &&
             $("#phone_number").val().trim() != ''
         ) {
             $.ajax({
@@ -285,7 +285,7 @@
                     member_id:$("#uid").val(),
                     detail_address:$("#detail_address").val(),
                     post_code:$("#post_code").val(),
-                    name:$("#name").val(),
+                    name:$("#receivename").val(),
                     phone_number:$("#phone_number").val(),
                     id:id,
                 }),
@@ -324,7 +324,7 @@
                 $("#uid").val(data.member_id);
                 $("#detail_address").val(data.detail_address);
                 $("#post_code").val(data.post_code);
-                $("#name").val(data.name);
+                $("#receivename").val(data.name);
                 $("#phone_number").val(data.phone_number);
                 // $("#prov option").each(function () {
                 //     if($(this).text()==data.province){
