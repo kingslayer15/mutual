@@ -147,6 +147,7 @@ public class ProductController {
         if (pic.length()>0){
             productDto.setPic("http://localhost:8080/upload/"+pic);
         }
+
         int i = productService.addProduct(productDto);
         return i;
     }

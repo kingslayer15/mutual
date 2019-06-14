@@ -27,10 +27,10 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzFjEdoOQIN505BVoy8+onu1GY1PpbU6yafp81Fa9TLum0xwrNwdNDJizalvIC3bQPXVXTF1PcNpvrn32WAUFKsZtYsolEwmPcN2WUYpNcH/+AOINv1slZE9TImNsiTqsNoMDMG4Q1KR6YVsz2+1DtlFQkH4t+gpO/RRUlmdDt22aLDK/Q8HyZ9TF0bpNG7JHWB8HZ14eNWFegHwGWNcCxTuJJEXNLXIMMJ1QoVrs11J5MR4mvo4GMiIduep5E98f0/dNC6SSKHfPeN38lSzv1Glcai/eBRP9YZ+4scavwpl9M637H2uV4AfIetDuBT4y/QloGx4SenT3oj3RJwpcswIDAQAB\n";
 
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url = "http://t3s6we.natappfree.cc/notify";
+    public static String notify_url = "http://w56xi6.natappfree.cc/notify";
 
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String return_url = "http://t3s6we.natappfree.cc/alipayreturn";
+    public static String return_url = "http://w56xi6.natappfree.cc/alipayreturn";
 
     // 签名方式
     public static String sign_type = "RSA2";
