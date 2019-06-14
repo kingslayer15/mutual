@@ -36,7 +36,6 @@ public class AdminOmsOrderController {
         List<OmsOrder> omsOrders = adminOmsOrderService.listAllOmsOrderByAdmin();
         PageInfo<OmsOrder> pageInfo = new PageInfo<>(omsOrders);
 //        for (OmsOrder omsOrder : omsOrders) System.out.println(omsOrder);
-        System.out.println("---");
         return pageInfo;
     }
 
