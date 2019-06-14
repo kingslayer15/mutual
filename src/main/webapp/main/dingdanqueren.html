@@ -206,7 +206,6 @@
                 $(data).each(function (index, item) {
 
                     totalPrice += item.price;
-                    totalNum++;
 
                     if (index == 0){
                         if ($(data).length > 1) {
@@ -231,15 +230,22 @@
                         "                            <div class=\"col col-price\">\n" +
                         "                                "+ item.price+"元 x "+ item.quantity+"                                    </div>\n" +
                         "                            <div class=\"col col-status\">&nbsp;</div>\n" +
-                        "                            <div class=\"col col-total\">\n" +
-                        "                                "+ item.price +"元\n" +
+                        "                            <div id='"+ item.id +"' class=\"col col-total\">\n" +
+                        "                                "+ item.price * item.quantity +"元\n" +
                         "                            </div>\n" +
                         "\n" +
                         "                        </li>");
+
+
+                    realTotalPrice += parseInt($("#"+item.id).text());
+                    totalNum += item.quantity;
                 });
                 $("#totalNum").text(totalNum + "件");
-                $("#totalPrice").text(totalPrice + "元");
-                $("#realTotalPrice").text(totalPrice + "元");
+                $("#totalPrice").text(realTotalPrice + "元");
+
+
+
+                $("#realTotalPrice").text(realTotalPrice + "元");
             }
 
         });
@@ -360,7 +366,7 @@
 
 
     function pay() {
-        $("input[name='pay_amount']").val(totalPrice);
+        $("input[name='pay_amount']").val(realTotalPrice);
         $("input[name='subject']").val(productName);
         $("input[name='body']").val("222");
         $("input[name='receiverProvince']").val(province);

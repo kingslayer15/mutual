@@ -94,7 +94,7 @@ public class OrderDetailsController {
         aliPayInfoVo.setMemberUsername(umsMember.getUsername());
         aliPayInfoVo.setTotalAmount(new BigDecimal(aliPayInfoVo.getPay_amount()));
         aliPayInfoVo.setFreightAmount(new BigDecimal(0));
-        aliPayInfoVo.setPayType(1);
+        aliPayInfoVo.setPayType(0);
         aliPayInfoVo.setSourceType(1);
         aliPayInfoVo.setStatus(0);
         aliPayInfoVo.setDeleteStatus(0);

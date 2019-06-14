@@ -6,6 +6,7 @@ import com.alipay.api.internal.util.AlipaySignature;
 import com.thumb.pay.utils.AlipayConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
@@ -17,8 +18,9 @@ import java.util.Map;
 public class PayResult {
 
 
+    @ResponseBody
     @RequestMapping(value = "/notify")
-    public void notify(HttpServletRequest request) throws UnsupportedEncodingException, AlipayApiException {
+    public Object notify(HttpServletRequest request) throws UnsupportedEncodingException, AlipayApiException {
 
         /* *
          * 功能：支付宝服务器异步通知页面
@@ -51,6 +53,7 @@ public class PayResult {
             params.put(name, valueStr);
         }
 
+        System.out.println("params" +params);
         boolean signVerified = AlipaySignature.rsaCheckV1(params, AlipayConfig.alipay_public_key, AlipayConfig.charset, AlipayConfig.sign_type); //调用SDK验证签名
 
         System.out.println("signVerified:::" + signVerified);
@@ -102,6 +105,8 @@ public class PayResult {
         }
 
         System.out.println("trade_status::" +trade_status);
+
+        return trade_status;
     }
 
 
@@ -111,7 +116,7 @@ public class PayResult {
 
 
 
-        return "main/index2";
+        return "/main/index";
 
     }
 }
