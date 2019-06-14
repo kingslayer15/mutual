@@ -95,7 +95,7 @@
             }),
             success: function (data) {
                 if (data == true) {
-                    window.location.href = "index.html";
+                    window.location.href = "main/index.html";
                 }
                 console.log(data); //  2pm
             },
@@ -166,7 +166,6 @@
                         if (data == false) {
                             alert("账户名或密码错误!!!")
                             window.location.href = "/main/login.html";
-
                         } else {
                             saveCookie();
                             window.location.href = "/main/index.html";
@@ -181,7 +180,7 @@
             },
 
             invalidHandler: function (form, validator) {
-                window.location.href = "login.html";
+                window.location.href = "/main/login.html";
                 return false;
             }
         })
