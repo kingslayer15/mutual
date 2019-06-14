@@ -397,7 +397,7 @@
                     innerHtml+="\n" +
                         "\t\t\t</div>\n" +
                         "\t\t\t<div class=\"xiadan ml20 mt20\">\n" +
-                        "\t\t\t\t\t<input onclick='collectProduct()' href='' class=\"jrgwc\"  type=\"button\" name=\"jrgwc\" value=\"加入收藏夹\" />\n" +
+                        "\t\t\t\t\t<input id='collection' onclick='collectProduct()' href='' class=\"jrgwc\"  type=\"button\" name=\"jrgwc\" value=\"加入收藏夹\" />\n" +
                         "\t\t\t\t\t<input onclick='cart()' class=\"jrgwc\" type=\"button\" name=\"jrgwc\" value=\"加入购物车\" />\n" +
                         "\t\t\t\t\n" +
                         "\t\t\t</div>\n" +
@@ -458,7 +458,12 @@
                     "memberId": memberId,
                 }),
                 success: function (data) {
-                    alert("success")
+                    if (data == 0) {
+
+                        $("#collection").val("加入收藏夹");
+                    } else {
+                        $("#collection").val("已加入");
+                    }
                     console.log(data); //  2pm
                 },
                 error: function (data) {
