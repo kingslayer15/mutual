@@ -163,7 +163,7 @@
             contentType:"application/json",
             dataType:'json',   //返回的数据格式：json/xml/html/script/jsonp/text
             success:function(data){
-                alert(data)
+
                 max=data
             },
             error:function(data){
@@ -327,7 +327,7 @@
     //确认收货
 
     function confirmOrder(product_id) {
-        alert(product_id)
+
 
         $.ajax({
             url:"/changeStatus?id="+product_id,

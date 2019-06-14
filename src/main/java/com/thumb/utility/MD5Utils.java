@@ -170,7 +170,7 @@ public class MD5Utils {
     }
 
     public static void main(String[] args) {
-        String encodeStr = myEncode("201314");
+        String encodeStr = myEncode("123456");
 
         System.out.println(encodeStr);
 

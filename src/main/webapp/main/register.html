@@ -66,7 +66,7 @@
                     $("#tips").text('邮箱格式不正确！');
                     return false;
                 } else {
-                    let count = 300;
+                    let count = 60;
                     const countDown = setInterval(() => {
                         if (count === 0) {
                             $('.feachBtn').text('重新发送').removeAttr('disabled');
@@ -212,16 +212,10 @@
                                 // "regCode": $("#regCode").val()
                             }),
                             success: function (data) {
-                                //获取用户验证码
-                                // var regCodeVal = $("#regCode").val();
-                                // //如果验证码跟后台不一样
-                                // if (data != regCodeVal) {
-                                //     $("#codeTips").text("验证码错误");
-                                //     return false;
-                                // }
+
                                 alert("注册成功");
                                 console.log(data); //  2pm
-                                window.location.href = "login.html";
+                                window.location.href = "/main/login.html";
                             },
                             error: function (data) {
                                 console.log(data);

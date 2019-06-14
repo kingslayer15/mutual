@@ -46,7 +46,7 @@
                     <li><a href="./orders.html">我的订单</a></li>
                     <li><a href="./basket.html">我的购物车</a></li>
                     <li><a href="./favourite.html">我的收藏</a></li>
-                    <!--<li><a href="./footprint.html">我的足迹</a></li>-->
+                    <li><a href="./footprint.html">我的足迹</a></li>
                 </ul>
             </div>
         </div>
@@ -246,7 +246,7 @@
                             if (item.status=="3"){
                                 if (item.duration==1) {
                                     html+="<div class=\"lg-confirm\">\n" +
-                                        "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\" href=\"\" style=\"width: 40px\">评价</a>\n" +
+                                        "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
                                         "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"refund("+product.id+")\""+">申请退货</a>\n" +
 
                                         "                            </div>\n" +
@@ -257,7 +257,7 @@
                                         "                </div>"
                                 }else {
                                     html+="<div class=\"lg-confirm\">\n" +
-                                        "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\" href=\"\" style=\"width: 40px\">评价</a>\n" +
+                                        "                                <a data-spm=\"d4919529\" target=\"_blank\" class=\"i-btn-typical\""+" onclick=\"toRate("+product.id+")\""+" style=\"width: 40px\"> 评价</a>\n" +
                                         "                            </div>\n" +
                                         "                        </li>\n" +
                                         "\n" +
@@ -328,6 +328,12 @@
 
     function logistics(product_id) {
         var url="logistics.html?id="+product_id;
+        window.location.href=url;
+    }
+
+    function toRate(product_id) {
+        // alert(id);
+        var url="rate.html?id="+product_id;
         window.location.href=url;
     }
 

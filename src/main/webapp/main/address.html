@@ -345,7 +345,7 @@
     //删除一个地址
     function deleteAddress(id) {
         alert("删除")
-        alert(id)
+
 
         $.ajax({
             url: "/deleteOneAddress?id=" + id,
@@ -433,8 +433,8 @@
 
     //    设置默认地址
     function setDefault(id) {
-        alert("设置")
-        alert(id)
+
+
         $.ajax({
             url: '/setDefault?id=' + id,
             type: 'POST', //GET
@@ -442,7 +442,7 @@
             // data:JSON.stringify({addressId:id}),
             dataType: 'json',
             success: function (data) {
-                alert(data)
+
                 console.log(data)
                 if (data) {
                     var url = "address.html"
