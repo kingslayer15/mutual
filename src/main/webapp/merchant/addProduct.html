@@ -12,7 +12,12 @@
             src="../static/mall-admin-web_files/5.ab752a1a96f36ec723b1.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
             src="../static/mall-admin-web_files/3.bdde2483074687b995c5.js"></script>
-    <link rel="stylesheet" type="text/css" id="u0" href="./mall-admin-web_files/skin.min.css">
+
+    <link rel="stylesheet" type="text/css" id="u0" href="../static/mall-admin-web_files/skin.min.css">
+
+    <link rel="stylesheet" href="../static/css/basic.min.css" />
+    <link rel="stylesheet" href="../static/css/dropzone.min.css" />
+    <script src="../static/js/js/dropzone.min.js"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -537,7 +542,7 @@
                 </div>
             </ul>
             <section data-v-0ef526f4="" class="app-main">
-                <div class="el-card form-container is-never-shadow"><!---->
+                <div class="el-card form-container is-never-shadow">
                     <div class="el-card__body">
                         <div class="el-steps el-steps--horizontal">
                             <div class="el-step is-horizontal is-center" style="flex-basis: 25%; margin-right: 0px;">
@@ -595,48 +600,53 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-v-51f80952="" style="margin-top: 50px;">
+                        <div data-v-51f80952="" style="margin-top: 50px;" id="step1">
                             <form data-v-51f80952="" class="el-form" style="width: 600px;">
-                                <div data-v-51f80952="" class="el-form-item is-required el-form-item--small"><label
-                                        for="productCategoryId" class="el-form-item__label"
-                                        style="width: 120px;">商品分类：</label>
+                                <div data-v-51f80952="" class="el-form-item is-required el-form-item--small">
+                                    <label for="productCategoryId" class="el-form-item__label"
+                                           style="width: 120px;">商品分类：</label>
                                     <div class="el-form-item__content" style="margin-left: 120px;"><span
                                             data-v-51f80952="" class="el-cascader el-cascader--small"><div
-                                            class="el-input el-input--small el-input--suffix"><!----><input type="text"
-                                                                                                            autocomplete="off"
-                                                                                                            readonly="readonly"
-                                                                                                            placeholder="请选择"
-                                                                                                            class="el-input__inner"
-                                                                                                            value="">
+                                            class="el-input el-input--small el-input--suffix">
+                                        <input type="text" autocomplete="off" readonly="readonly"
+                                               placeholder="请选择"
+                                               class="el-input__inner"
+                                               value="" id="product_category_name">
                                         <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                class="el-input__icon el-icon-arrow-down"></i><!----></span>
-                                            <!----></span><!----></div><span class="el-cascader__label"></span></span>
+                                            class="el-input__icon el-icon-arrow-down"></i><!----></span>
+                                        <!----></span><!----></div><span class="el-cascader__label" onclick="showProductCategory('sort1')"></span></span>
                                         <!----></div>
                                 </div>
+
+
+
+
+
                                 <div data-v-51f80952="" class="el-form-item is-required el-form-item--small"><label
                                         for="name" class="el-form-item__label" style="width: 120px;">商品名称：</label>
                                     <div class="el-form-item__content" style="margin-left: 120px;">
                                         <div data-v-51f80952="" class="el-input el-input--small"><!----><input
-                                                type="text" autocomplete="off" class="el-input__inner"><!----><!---->
+                                                type="text" autocomplete="off" class="el-input__inner" id="productName"><!----><!---->
                                             <!----></div><!----></div>
                                 </div>
                                 <div data-v-51f80952="" class="el-form-item is-required el-form-item--small"><label
                                         for="subTitle" class="el-form-item__label" style="width: 120px;">副标题：</label>
                                     <div class="el-form-item__content" style="margin-left: 120px;">
                                         <div data-v-51f80952="" class="el-input el-input--small"><!----><input
-                                                type="text" autocomplete="off" class="el-input__inner"><!----><!---->
+                                                type="text" autocomplete="off" class="el-input__inner" id="sub_title"><!----><!---->
                                             <!----></div><!----></div>
                                 </div>
-                                <div data-v-51f80952="" class="el-form-item is-required el-form-item--small"><label
-                                        for="brandId" class="el-form-item__label" style="width: 120px;">商品品牌：</label>
+                                <div data-v-51f80952="" class="el-form-item is-required el-form-item--small">
+                                    <label for="brandId" class="el-form-item__label" style="width: 120px;">商品品牌：</label>
                                     <div class="el-form-item__content" style="margin-left: 120px;">
                                         <div data-v-51f80952="" class="el-select el-select--small"><!---->
-                                            <div class="el-input el-input--small el-input--suffix"><!----><input
-                                                    type="text" autocomplete="off" placeholder="请选择品牌"
-                                                    readonly="readonly" class="el-input__inner"><!----><span
-                                                    class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                    class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
-                                                <!----></span><!----></div>
+                                            <div class="el-input el-input--small el-input--suffix" onclick="showProductCategory('sort2')">
+                                                <input type="text" autocomplete="off" placeholder="请选择品牌"
+                                                       readonly="readonly" class="el-input__inner" id="productBrandVal">
+                                                <span
+                                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
+                                                        class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----></span>
+                                                    <!----></span><!----></div>
                                             <div class="el-select-dropdown el-popper"
                                                  style="display: none; min-width: 192px;">
                                                 <div class="el-scrollbar" style="">
@@ -685,18 +695,19 @@
                                                 autosize="true" placeholder="请输入内容" class="el-textarea__inner"
                                                 style="min-height: 31px;"></textarea></div><!----></div>
                                 </div>
-                                <div data-v-51f80952="" class="el-form-item el-form-item--small"><label
-                                        class="el-form-item__label" style="width: 120px;">商品货号：</label>
+                                <div data-v-51f80952="" class="el-form-item el-form-item--small">
+                                    <label class="el-form-item__label" style="width: 120px;">商品货号：</label>
                                     <div class="el-form-item__content" style="margin-left: 120px;">
                                         <div data-v-51f80952="" class="el-input el-input--small"><!----><input
-                                                type="text" autocomplete="off" class="el-input__inner"><!----><!---->
-                                            <!----></div><!----></div>
+                                                type="text" autocomplete="off" class="el-input__inner" id="product_sn"><!----><!---->
+                                            <!----></div>
+                                    </div>
                                 </div>
                                 <div data-v-51f80952="" class="el-form-item el-form-item--small"><label
                                         class="el-form-item__label" style="width: 120px;">商品售价：</label>
                                     <div class="el-form-item__content" style="margin-left: 120px;">
                                         <div data-v-51f80952="" class="el-input el-input--small"><!----><input
-                                                type="text" autocomplete="off" class="el-input__inner"><!----><!---->
+                                                type="text" autocomplete="off" class="el-input__inner" id="price"><!----><!---->
                                             <!----></div><!----></div>
                                 </div>
                                 <div data-v-51f80952="" class="el-form-item el-form-item--small"><label
@@ -738,13 +749,12 @@
                                 <div data-v-51f80952="" class="el-form-item el-form-item--small"
                                      style="text-align: center;"><!---->
                                     <div class="el-form-item__content" style="margin-left: 120px;">
-                                        <button data-v-51f80952="" type="button"
-                                                class="el-button el-button--primary el-button--medium"><!---->
+                                        <button data-v-51f80952="" type="button" class="el-button el-button--primary el-button--medium" onclick="getnext('step2')">
                                             <!----><span>下一步，填写商品促销</span></button><!----></div>
                                 </div>
                             </form>
                         </div>
-                        <div data-v-319f6798="" style="margin-top: 50px; display: none;">
+                        <div data-v-319f6798="" style="margin-top: 50px; display: none;" id="step2">
                             <form data-v-319f6798="" class="el-form" style="width: 600px;">
                                 <div data-v-319f6798="" class="el-form-item el-form-item--small"><label
                                         class="el-form-item__label" style="width: 120px;">赠送积分：</label>
@@ -1126,16 +1136,16 @@
                                      style="text-align: center;"><!---->
                                     <div class="el-form-item__content" style="margin-left: 120px;">
                                         <button data-v-319f6798="" type="button"
-                                                class="el-button el-button--default el-button--medium"><!---->
+                                                class="el-button el-button--default el-button--medium" onclick="getnext('step1')"><!---->
                                             <!----><span>上一步，填写商品信息</span></button>
                                         <button data-v-319f6798="" type="button"
-                                                class="el-button el-button--primary el-button--medium"><!---->
+                                                class="el-button el-button--primary el-button--medium" onclick="getnext('step3')"><!---->
                                             <!----><span>下一步，填写商品属性</span></button><!----></div>
                                 </div>
                             </form>
                         </div>
-                        <div data-v-67ea16b1="" style="margin-top: 50px; display: none;">
-                            <form data-v-67ea16b1="" class="el-form" style="width: 720px;">
+                        <div data-v-67ea16b1="" style="margin-top: 50px; display: none;" id="step3">
+                            <form data-v-67ea16b1="" class="el-form" style="width: 720px;" >
                                 <div data-v-67ea16b1="" class="el-form-item el-form-item--small"><label
                                         class="el-form-item__label" style="width: 120px;">属性类型：</label>
                                     <div class="el-form-item__content" style="margin-left: 120px;">
@@ -1271,9 +1281,12 @@
                                         <div data-v-67ea16b1="">
                                             <div>
                                                 <ul class="el-upload-list el-upload-list--picture-card"></ul>
-                                                <div tabindex="0" class="el-upload el-upload--picture-card"><i
-                                                        class="el-icon-plus"></i><input type="file" name="file"
-                                                                                        class="el-upload__input"></div>
+                                                <div id="dropz" class="dropzone"></div>
+                                                <input hidden id="picPath" value="">
+                                                <!--<div tabindex="0" class="el-upload el-upload&#45;&#45;picture-card">
+                                                    <i class="el-icon-plus"></i><input type="file" name="file"
+                                                                                        class="el-upload__input">
+                                                </div>-->
                                             </div>
                                             <div class="el-dialog__wrapper" style="display: none;">
                                                 <div class="el-dialog" style="margin-top: 15vh;">
@@ -2240,16 +2253,16 @@
                                      style="text-align: center;"><!---->
                                     <div class="el-form-item__content" style="margin-left: 120px;">
                                         <button data-v-67ea16b1="" type="button"
-                                                class="el-button el-button--default el-button--medium"><!---->
+                                                class="el-button el-button--default el-button--medium" onclick="getnext('step2')"><!---->
                                             <!----><span>上一步，填写商品促销</span></button>
                                         <button data-v-67ea16b1="" type="button"
-                                                class="el-button el-button--primary el-button--medium"><!---->
+                                                class="el-button el-button--primary el-button--medium" onclick="getnext('step4')"><!---->
                                             <!----><span>下一步，选择商品关联</span></button><!----></div>
                                 </div>
                             </form>
                         </div>
-                        <div data-v-330b1389="" style="margin-top: 50px; display: none;">
-                            <form data-v-330b1389="" class="el-form" style="width: 680px;">
+                        <div data-v-330b1389="" style="margin-top: 50px; display: none;" id="step4">
+                            <form data-v-330b1389="" class="el-form" style="width: 680px;" >
                                 <div data-v-330b1389="" class="el-form-item el-form-item--small"><label
                                         class="el-form-item__label" style="width: 120px;">关联专题：</label>
                                     <div class="el-form-item__content" style="margin-left: 120px;">
@@ -2523,7 +2536,7 @@
                                                                                              value=""></span><span
                                                     class="el-checkbox__label">
       已选择
-      <span>0/0</span></span></label></p>
+      <span>0/0</span><!----></span></label></p>
                                                 <div class="el-transfer-panel__body">
                                                     <div class="el-transfer-panel__filter el-input el-input--small el-input--prefix">
                                                         <!----><input type="text" autocomplete="off"
@@ -2543,10 +2556,10 @@
                                      style="text-align: center;"><!---->
                                     <div class="el-form-item__content" style="margin-left: 120px;">
                                         <button data-v-330b1389="" type="button"
-                                                class="el-button el-button--default el-button--medium"><!---->
+                                                class="el-button el-button--default el-button--medium" onclick="getnext('step3')"><!---->
                                             <!----><span>上一步，填写商品属性</span></button>
                                         <button data-v-330b1389="" type="button"
-                                                class="el-button el-button--primary el-button--medium"><!---->
+                                                class="el-button el-button--primary el-button--medium" onclick="submitFroms()"><!---->
                                             <!----><span>完成，提交商品</span></button><!----></div>
                                 </div>
                             </form>
@@ -2557,8 +2570,253 @@
         </div>
     </div>
 </div>
+
+<!--商品分类1-->
+<div class="el-cascader-menus el-popper" style="z-index: 2016; position: absolute; top: 264px;
+left: 536px; display: none;" x-placement="bottom-start" id="sort1">
+    <!--<div x-arrow="true" class="popper__arrow" style="left: 35px;">
+    </div>-->
+    <ul role="menu" id="cascader-menu-4494" class="el-cascader-menu">
+        <!--<li tabindex="-1" role="menuitem" aria-haspopup="true" aria-owns="menu-2924-1" class="el-cascader-menu__item el-cascader-menu__item&#45;&#45;extensible">服装</li>
+        <li tabindex="-1" role="menuitem" aria-haspopup="true" aria-owns="menu-2924-1" class="el-cascader-menu__item el-cascader-menu__item&#45;&#45;extensible">手机数码</li>
+        <li tabindex="-1" role="menuitem" aria-haspopup="true" aria-owns="menu-2924-1" class="el-cascader-menu__item el-cascader-menu__item&#45;&#45;extensible">家用电器</li>
+        <li tabindex="-1" role="menuitem" aria-haspopup="true" aria-owns="menu-2924-1" class="el-cascader-menu__item el-cascader-menu__item&#45;&#45;extensible">家具家装</li>
+        <li tabindex="-1" role="menuitem" aria-haspopup="true" aria-owns="menu-2924-1" class="el-cascader-menu__item el-cascader-menu__item&#45;&#45;extensible">汽车用品</li>
+  -->  </ul>
+    <ul role="menu" id="menu-2924-2" class="el-cascader-menu">
+        <!--<li tabindex="-1" role="menuitem" id="menu-2924-1-0" class="el-cascader-menu__item">外套</li>
+        <li tabindex="-1" role="menuitem" id="menu-2924-1-1" class="el-cascader-menu__item">T恤</li>
+        <li tabindex="-1" role="menuitem" id="menu-2924-1-2" class="el-cascader-menu__item">休闲裤</li>
+        <li tabindex="-1" role="menuitem" id="menu-2924-1-3" class="el-cascader-menu__item">牛仔裤</li>
+        <li tabindex="-1" role="menuitem" id="menu-2924-1-4" class="el-cascader-menu__item">衬衫</li>
+        <li tabindex="-1" role="menuitem" id="menu-2924-1-5" class="el-cascader-menu__item">男鞋</li>-->
+    </ul>
+</div>
+<div class="el-select-dropdown el-popper" style="min-width: 203px; transform-origin: center top; z-index: 2096;
+ position: absolute;top: 414px; left: 536px; display: none" x-placement="bottom-start" id="sort2">
+    <div class="el-scrollbar" style="">
+        <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -17px; margin-right: -17px;">
+            <ul class="el-scrollbar__view el-select-dropdown__list" id="productBrand">
+                <!--<li data-v-51f80952="" class="el-select-dropdown__item"><span>小米</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>七匹狼</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item hover"><span>海澜之家</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>苹果</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>三星</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>华为</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>格力</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>方太</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>万和</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>OPPO</span></li>
+                <li data-v-51f80952="" class="el-select-dropdown__item"><span>NIKE</span></li>-->
+            </ul>
+        </div>
+        <div class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb" style="transform: translateX(0%);">
+        </div>
+        </div>
+        <div class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb" style="transform: translateY(0%); height: 66.8394%;">
+        </div>
+        </div>
+    </div>
+    <div x-arrow="" class="popper__arrow" style="left: 35px;">
+    </div>
+</div>
+
+
 <!--<script type="text/javascript" src="./mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
+<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    //表单之间的跳转
+    function getnext(i){
+        // alert(i);
+        var sz=new Array("step1","step2","step3","step4");
+        for(var j=0;j<sz.length;j++){
+            if(i==sz[j]){
+                document.getElementById(i).style.display="block";
+            }else{
+                document.getElementById(sz[j]).style.display="none";
+            }
+        }
+    }
+
+    //展示商品类型
+    function showProductCategory(item){
+        if ( document.getElementById(item).style.display=="none") {
+            document.getElementById(item).style.display="block"
+        }else{
+            document.getElementById(item).style.display="none"
+        }
+    }
+
+    //遍历商品大类型
+    (function findParentProduct() {
+        var cascader = $("#cascader-menu-4494");
+        $.ajax(
+            {
+                type: "get",
+                url: "/listProductParent",
+                contentType: "application/json",
+                dataType:"json",
+                success:function (data) {
+                    var str1='';
+                    $(data).each(function (index, item) {
+                        var name = item.name
+                        str1 += "<li tabindex=\"-1\" role=\"menuitem\" aria-haspopup=\"true\" aria-owns=\"menu-2924-1\" " +
+                            "class=\"el-cascader-menu__item el-cascader-menu__item--extensible\" onclick='showByParentId("+item.id+")'>"+item.name+"</li>";
+                    })
+
+                    cascader.append(str1);
+                },
+                error:function (data) {
+                    console.log(data)
+                }
+            }
+        )
+    })();
+
+
+    //遍历小类型
+    function showByParentId(parentid) {
+        var child = $("#menu-2924-2");
+        child.empty();
+        $.ajax(
+            {
+                type: "post",
+                url: "/listProductChild?parentid="+parentid,
+                contentType: "application/json",
+                dataType:"json",
+                success:function (data) {
+                    console.log(data)
+                    var str2='';
+
+                    $(data).each(function (index, item) {
+                        $(item.chiren).each(function (a, b) {
+                            str2 +="<li tabindex=\"-1\" role=\"menuitem\" id=\"menu-2924-1-0\" class=\"el-cascader-menu__item\" onclick='setCategoryVal(&quot;"+b.name+"&quot;)'>"+b.name+"</li>"
+                        })
+                    });
+                    child.append(str2);
+
+                },
+                error:function (data) {
+                    console.log(data)
+                }
+            }
+        )
+    }
+
+    //获取商品品牌
+    (function showProductBrand() {
+        var productBrand = $("#productBrand");
+        $.ajax(
+            {
+                type: "get",
+                url: "/findAllBrand",
+                contentType: "application/json",
+                dataType:"json",
+                success:function (data) {
+                    var str ='';
+                    $(data).each(function (index,item) {
+                        str += "<li data-v-51f80952=\"\" class=\"el-select-dropdown__item\" onclick='setBrandVal(&quot;"+item.name+"&quot;)'><span>"+item.name+"</span></li>"
+                    })
+                    productBrand.append(str);
+
+                },
+                error:  function (data) {
+                    console.log(data)
+                }
+
+            })
+    })();
+
+    //给商品分类赋值
+    function setCategoryVal(name) {
+        $("#product_category_name").val(name)
+        showProductCategory("sort1")
+        // alert($("#product_category_name").val())
+    }
+
+    //给品牌赋值
+    function setBrandVal(name) {
+        $("#productBrandVal").val(name)
+        showProductCategory("sort2")
+        // alert($("#productBrandVal").val())
+    }
+
+
+    //添加商品
+    function submitFroms(){
+        $.ajax(
+            {
+                type: "post",
+                url: "/addProductMsg",
+                contentType: "application/json",
+                dataType:"json",
+                data:JSON.stringify({
+                    "product_category_name":$("#product_category_name").val(),
+                    "name":$("#productName").val(),
+                    "sub_title":$("#sub_title").val(),
+                    "brand_name":$("#productBrandVal").val(),
+                    "product_sn":$("#product_sn").val(),
+                    "pic":$("#picPath").val(),
+                    "price":$("#price").val()
+                }),
+                success:function (data) {
+                    console.log(data);
+                },
+                error:function (data) {
+                    console.log(data);
+                }
+            }
+        )
+    }
+
+
+
+    Dropzone.options.dropz= {
+        url: "/upload", // 文件提交地址
+        method: "POST",  // 也可用put
+        paramName: "dropzFile", // 默认为file
+        maxFiles: 1,// 一次性上传的文件数量上限
+        maxFilesize: 2, // 文件大小，单位：MB
+        acceptedFiles: ".jpg,.gif,.png,.jpeg,.txt,.doc,.docx", // 上传的类型
+        addRemoveLinks: true,
+        parallelUploads: 1,// 一次上传的文件数量
+        //previewsContainer:"#preview", // 上传图片的预览窗口
+        dictDefaultMessage: '拖动文件至此或者点击上传',
+        dictMaxFilesExceeded: "您最多只能上传1个文件！",
+        dictResponseError: '文件上传失败!',
+        dictInvalidFileType: "文件类型只能是*.jpg,*.gif,*.png,*.jpeg,.txt,.doc,.docx。",
+        dictFallbackMessage: "浏览器不受支持",
+        dictFileTooBig: "文件过大上传文件最大支持.",
+        dictRemoveLinks: "删除",
+        dictCancelUpload: "取消",
+        init: function () {
+            this.on("addedfile", function (file) {
+                // 上传文件时触发的事件
+            });
+            this.on("success", function (file, data) {
+                // 上传成功触发的事件
+                $("#picPath").val(data.fileName);
+                // alert($("#picPath").val());
+                // alert(data.fileName)
+                console.log(data);
+
+            });
+            this.on("error", function (file, data) {
+                // 上传失败触发的事件
+            });
+            this.on("removedfile", function (file) {
+                // 删除文件时触发的方法
+            });
+        }
+    };
+
+
+
+
+
+</script>
+
 </body>
 </html>
