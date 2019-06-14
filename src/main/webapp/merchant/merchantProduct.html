@@ -1109,7 +1109,7 @@
 
     //跳到updateProduct.html页面
     function jumptoUpdateProduct(id) {
-        var url = "updateMerchantProduct.html?id=" + id;
+        var url = "/merchant/updateMerchantProduct.html?id=" + id;
         window.location.href = url;
     }
 
@@ -1120,7 +1120,7 @@
             $.ajax(
                 {
                     type: "get",
-                    url: "deleteMerchantProductById?id=" + id,
+                    url: "/deleteMerchantProductById?id=" + id,
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {
@@ -1167,7 +1167,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "findMerchantProductByCondition",
+                url: "/findMerchantProductByCondition",
                 contentType: "application/json",
                 dataType: "json",
                 data: JSON.stringify({
@@ -1381,7 +1381,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findAllMerchantBrand",
+                url: "/findAllMerchantBrand",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -1407,7 +1407,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findAllMerchantCategory",
+                url: "/findAllMerchantCategory",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -1474,7 +1474,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "listAllMerchantProduct?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
+                url: "/listAllMerchantProduct?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();
@@ -1760,7 +1760,7 @@
 
     //跳转到添加页面
     function jumptoAddProduct() {
-        window.location.href = "addMerchantProduct.html"
+        window.location.href = "/merchant/addMerchantProduct.html"
     }
 
 
