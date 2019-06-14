@@ -63,20 +63,24 @@
         var url = "";
 
         var name = window.location.search.split("=")[1];
-        alert(name)
+
         var name2 = window.location.search.split("&")[1];
 
 
 
-         if(name!=""||name!=null){
+         if(name!=""&&name!=undefined){
              searchText = decodeURI(name);
              url = "/getName";
-         }if(name2!=""||name2!=null){
+
+
+         }else if(name2!=""&&name2!=undefined){
             searchText = decodeURI(name2);
             url = "/getCategory";
         }
         var pageNow = 1;
          var pageSize = 10;
+
+         alert(url);
         //加载此品牌下的所有商品
         $.ajax({
             url: url,

@@ -151,7 +151,6 @@ public class MerchantProductController {
     @RequestMapping("findMerchantProductById")
     public Object findProductById(@RequestParam int shopId, HttpSession httpSession){
         int merchantId = getMerchantId(httpSession);
-
         ProductDto productDto = merchantService.findProductById(merchantId,shopId);
         return productDto;
     }
@@ -171,7 +170,7 @@ public class MerchantProductController {
 
         String pic = merchantDto.getPic();
         if (pic.length()>0){
-            merchantDto.setPic("http://localhost:8080/static/upload/"+pic);
+            merchantDto.setPic("http://localhost:8080/upload/"+pic);
         }
         int i = merchantService.addProduct(merchantDto);
         //添加到中间表
