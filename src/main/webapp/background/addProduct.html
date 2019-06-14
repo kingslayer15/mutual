@@ -2636,9 +2636,9 @@
                                         <button data-v-330b1389="" type="button"
                                                 class="el-button el-button--default el-button--medium" onclick="getnext('step3')"><!---->
                                             <!----><span>上一步，填写商品属性</span></button>
-                                        <button data-v-330b1389="" type="button"
+                                        <a href="product.html"><button data-v-330b1389="" type="button"
                                                 class="el-button el-button--primary el-button--medium" onclick="submitFroms()"><!---->
-                                            <!----><span>完成，提交商品</span></button><!----></div>
+                                            <!----><span>完成，提交商品</span></button><!----></a></div>
                                 </div>
                             </form>
                         </div>
@@ -2897,6 +2897,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
                     "product_sn":$("#product_sn").val(),
                     "pic":$("#picPath").val(),
                     "price":$("#price").val()
+
                 }),
                 success:function (data) {
                     console.log(data);
