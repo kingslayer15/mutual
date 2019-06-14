@@ -38,5 +38,20 @@ public class PmsProductCollectionServiceImpl implements PmsProductCollectionServ
         return pmsProductCollectionMapper.selectAllBymemberId(memberId);
     }
 
+	@Override
+	public PmsProductCollection selectOneByAll(OmsCartItemDto omsCartItemDto){
+		 return pmsProductCollectionMapper.selectOneByAll(omsCartItemDto);
+	}
+
+	@Override
+	public int updateById(Integer id){
+		 return pmsProductCollectionMapper.updateById(id);
+	}
+
+    @Override
+    public int updateCollectionStatesFor1ById(Integer id) {
+        return pmsProductCollectionMapper.updateCollectionStatesFor1ById(id);
+    }
+
 
 }

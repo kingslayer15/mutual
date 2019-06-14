@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="order by dede58.com"/>
-    <title>共勉商城</title>
+    <title>mutual商城</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
         <div class="top center">
             <div class="left fl">
                 <ul>
-                    <li><a href="http://localhost:8080/main/index.html" target="_blank">共勉商城</a></li>
+                    <li><a href="http://localhost:8080/main/index.html" target="_blank">mutual商城</a></li>
                     <li>|</li>
                     <li><a href="">MIUI</a></li>
                     <li>|</li>
@@ -132,10 +132,12 @@
 
 
     //搜索
-
     function getName() {
         var $name = $("#name").val();
+
         var s = encodeURI($name);
+        alert(s)
+
         if ($name != null && $name != "") {
             window.location.href = "http://localhost:8080/main/liebiao3.html?name=" + s;
         }

@@ -21,6 +21,9 @@
         width: 70px;
         display: inline-block
     }
+    body{
+
+    }
 
 </style>
 <body>
@@ -38,7 +41,6 @@
                     <li><a href="./self_info.html">我的信息</a></li>
                     <li><a href="./self_info_edit.html">修改信息</a></li>
                     <li><a href="./self_info_pwd_edit.html">修改密码</a></li>
-                    <li><a href="./coupon.html">优惠券</a></li>
                     <li><a href="./address.html">收货地址</a></li>
                     <li><a href="./point.html">我的积分</a></li>
                 </ul>
@@ -72,8 +74,9 @@
                     id="phone">phone</span></div>
             <br/><br/>
             <!--<div class=" gzxx ml40" id="password" style="width: 550px"><span>密码</span><span>password</span></div>-->
-            <div class=" gzxx ml40" style="width: 550px" style="padding-right: 30px"><span class="gzxx"
-                                                                                           style="padding-right: 30px; width: 150px">个性签名</span><span
+            <div class=" gzxx ml40" style="width: 500px" style="padding-right: 30px"><span class="gzxx"
+                                                                                          style="padding-right: 30px; width: 150px">个性签名</span>
+                <br/><span style="margin-left: 180px ;width: 400px;height: 50px;display: block;overflow: hidden;white-space: pre-line;word-break: normal"
                     id="personalized_signature">一支穿云箭，千军万马来相见！</span></div>
             <br/><br/>
             <div class=" gzxx ml40" style="width: 550px" style="padding-right: 30px"><span class="gzxx"
@@ -109,7 +112,7 @@
         $("#header").load("header.html");
 
     //获取用户id
-    var userId=0;
+    var userId;
 
     function getUserId() {
         $(function () {
@@ -118,8 +121,42 @@
                 type: 'GET', //GET
                 /*成功*/
                 success: function (data) {
-                    userId=$(data).id
-                    alert(data.id)
+                    userId=data.id
+                    // alert(data.id)
+                    // alert(userId)
+                    $.ajax({
+                        url: '/userInfoById?userId=' + userId,
+                        type: 'GET', //GET
+                        contentType: "application/json",
+                        dataType: 'json',
+                        // data: JSON.stringify({
+                        //     userId: begin,
+                        // }),
+                        success: function (data) {
+                            console.log(data)
+                            $("#icon").attr("src", "../userIcon/" + data.icon);
+
+                            $("#nickname").html(data.nickname);
+                            if (data.gender == 1) {
+                                $("#gender").html("男");
+                            } else if (data.gender == 2) {
+                                $("#gender").html("女");
+                            } else {
+                                $("#gender").html("未设置");
+
+                            }
+                            $("#phone").html(data.phone);
+                            $("#personalized_signature").html(data.personalized_signature);
+                            $("#job").html(data.job);
+                            $("#city").html(data.city);
+
+                        },
+                        error: function (data) {
+                            console.error(data);
+                        }
+                    })
+
+
 
                 },
                 /*发生错误时*/
@@ -132,38 +169,42 @@
     getUserId();
 
     //根据id获取用户信息
-    function getUserInfoById() {
-        $.ajax({
-            url: '/userInfoById?userId=' + userId,
-            type: 'GET', //GET
-            contentType: "application/json",
-            dataType: 'json',
-            success: function (data) {
-                console.log(data)
-                $("#icon").attr("src", "../userIcon/" + data.icon);
-
-                $("#nickname").html(data.nickname);
-                if (data.gender == 1) {
-                    $("#gender").html("男");
-                } else if (data.gender == 2) {
-                    $("#gender").html("女");
-                } else {
-                    $("#gender").html("未设置");
-
-                }
-                $("#phone").html(data.phone);
-                $("#personalized_signature").html(data.personalized_signature);
-                $("#job").html(data.job);
-                $("#city").html(data.city);
-
-            },
-            error: function (data) {
-                console.error(data);
-            }
-        })
-    }
-
-    getUserInfoById();
+    // function getUserInfoById() {
+    //     alert(userId)
+    //     $.ajax({
+    //         url: '/userInfoById?userId=' + userId,
+    //         type: 'GET', //GET
+    //         contentType: "application/json",
+    //         dataType: 'json',
+    //         // data: JSON.stringify({
+    //         //     userId: begin,
+    //         // }),
+    //         success: function (data) {
+    //             console.log(data)
+    //             $("#icon").attr("src", "../userIcon/" + data.icon);
+    //
+    //             $("#nickname").html(data.nickname);
+    //             if (data.gender == 1) {
+    //                 $("#gender").html("男");
+    //             } else if (data.gender == 2) {
+    //                 $("#gender").html("女");
+    //             } else {
+    //                 $("#gender").html("未设置");
+    //
+    //             }
+    //             $("#phone").html(data.phone);
+    //             $("#personalized_signature").html(data.personalized_signature);
+    //             $("#job").html(data.job);
+    //             $("#city").html(data.city);
+    //
+    //         },
+    //         error: function (data) {
+    //             console.error(data);
+    //         }
+    //     })
+    // }
+    //
+    // getUserInfoById();
 
     function toEdit() {
         var url = "self_info_edit.html";

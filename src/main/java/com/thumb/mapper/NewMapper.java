@@ -65,4 +65,6 @@ public interface NewMapper {
 
     List<PmsProduct> SubjectIndex();
 
+    List<PmsProduct> SubjectIndexHome();
+
 }
