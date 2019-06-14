@@ -312,8 +312,8 @@
                                 <div data-v-51f80952="" class="el-form-item el-form-item--small"
                                      style="text-align: center;"><!---->
                                     <div class="el-form-item__content" style="margin-left: 120px;">
-                                        <button data-v-51f80952="" type="button" class="el-button el-button--primary el-button--medium" onclick="getnext('step2')">
-                                            <!----><span>下一步，填写商品促销</span></button><!----></div>
+                                        <button data-v-51f80952="" type="button" class="el-button el-button--primary el-button--medium" onclick="submitFroms()">
+                                            <!----><span>修改商品</span></button><!----></div>
                                 </div>
                             </form>
                         </div>
@@ -1291,7 +1291,7 @@
                                                                             frameborder="0" allowtransparency="true"
                                                                             title="在编辑区按ALT-F9打开菜单，按ALT-F10打开工具栏，按ALT-0查看帮助"
                                                                             style="width: 100%; height: 300px; display: block;"
-                                                                            src="./mall-admin-web_files/saved_resource.html"></iframe>
+                                                                            src=""></iframe>
                                                                 </div>
                                                                 <div id="mceu_33"
                                                                      class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last"
@@ -1754,7 +1754,7 @@
                                                                             frameborder="0" allowtransparency="true"
                                                                             title="在编辑区按ALT-F9打开菜单，按ALT-F10打开工具栏，按ALT-0查看帮助"
                                                                             style="width: 100%; height: 300px; display: block;"
-                                                                            src="./mall-admin-web_files/saved_resource(1).html"></iframe>
+                                                                            src=""></iframe>
                                                                 </div>
                                                                 <div id="mceu_70"
                                                                      class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last"
@@ -2255,15 +2255,15 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
     //获取传过来的商品id
     (function getId() {
         productid =window.location.search.split("=")[1];
-        // alert(brandid)
+        // alert(productid)
     })();
     
     //根据id 获取商品信息
     (function getProductById() {
         $.ajax(
             {
-                type: "post",
-                url: "findMerchantProductById?id="+productid,
+                type: "get",
+                url: "/findMerchantProductById?shopId="+productid,
                 contentType: "application/json",
                 dataType: "json",
                 success:function (data) {
@@ -2293,7 +2293,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "post",
-                url: "updateMerchantProductMsg",
+                url: "/updateMerchantProductMsg",
                 contentType: "application/json",
                 dataType: "json",
                 data:JSON.stringify({
@@ -2414,7 +2414,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "get",
-                url: "listMerchantProductParent",
+                url: "/listMerchantProductParent",
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -2441,7 +2441,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "post",
-                url: "listMerchantProductChild?parentid="+parentid,
+                url: "/listMerchantProductChild?parentid="+parentid,
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -2469,7 +2469,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "get",
-                url: "findAllMerchantBrand",
+                url: "/findAllMerchantBrand",
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {

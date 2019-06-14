@@ -664,7 +664,7 @@
 
     //跳到updateProduct.html页面
     function jumptoUpdateProduct(id) {
-        var url = "updateMerchantProduct.html?id=" + id;
+        var url = "/merchant/updateMerchantProduct.html?id=" + id;
         window.location.href = url;
     }
 
@@ -675,7 +675,7 @@
             $.ajax(
                 {
                     type: "get",
-                    url: "deleteMerchantProductById?id=" + id,
+                    url: "/deleteMerchantProductById?id=" + id,
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {
@@ -722,7 +722,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "findMerchantProductByCondition",
+                url: "/findMerchantProductByCondition",
                 contentType: "application/json",
                 dataType: "json",
                 data: JSON.stringify({
@@ -934,7 +934,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findAllMerchantBrand",
+                url: "/findAllMerchantBrand",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -960,7 +960,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "findAllMerchantCategory",
+                url: "/findAllMerchantCategory",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -1025,7 +1025,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "listAllMerchantProduct?pageNo=" + currentPage + "&maxShowPage=" + maxShowPage,
+                url: "/listAllMerchantProduct?pageNo=" + currentPage + "&maxShowPage=" + maxShowPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();
@@ -1043,12 +1043,12 @@
                             innertext = "未审核"
                         }
                         var trHTML = "<tr class=\"el-table__row\">" + "<td class=\"el-table_2_column_12 is-center el-table-column--selection\">\n" +
-                            "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\"><span\n" +
-                            "                                                    aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
+                            "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\" id='s"+element.id+"'><span\n" +
+                            "                                         name='"+ element.id+"'    aria-checked=\"mixed\" class=\"el-checkbox__input\" id='ss"+element.id+"'><span\n" +
                             "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
                             "                                                                                             aria-hidden=\"true\"\n" +
-                            "                                                                                             class=\"el-checkbox__original\"\n" +
-                            "                                                                                              onclick='checkById(" + index + ")' name='check'></span>\n" +
+                            "                                                                              id='"+ element.id+"'     class=\"el-checkbox__original\"\n" +
+                            "                                                                                              onclick='checkone(" + element.id + ")' name='check'></span>\n" +
                             "                                            </label></div>\n" +
                             "                                        </td>\n" +
                             "                                        <td class=\"el-table_2_column_13 is-center \">\n" +
@@ -1293,6 +1293,19 @@
              }
          }
      )*/
+
+    function checkone(id) {
+
+        if ($("#s"+id).prop("class") == "el-checkbox"){
+            $("#s"+id).prop("class","el-checkbox is-checked");
+            $("#ss"+id).prop("class","el-checkbox__input is-checked is-focus");
+        } else {
+            $("#s"+id).prop("class","el-checkbox");
+            $("#ss"+id).prop("class","el-checkbox__input");
+        }
+    }
+
+
 
     //显示最大显示行数
     function showSplitPage(item) {

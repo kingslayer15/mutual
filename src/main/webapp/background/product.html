@@ -237,7 +237,7 @@
                                                     class="el-checkbox__inner"></span><input type="checkbox"
                                                                                              aria-hidden="true"
                                                                                              class="el-checkbox__original"
-                                                                                             value="" onclick="check()"></span><!---->
+                                                                                             value=""  onclick="check()"></span><!---->
                                             </label></div>
                                         </th>
                                         <th colspan="1" rowspan="1" class="el-table_2_column_13  is-center   is-leaf">
@@ -300,14 +300,14 @@
                                                     class="el-checkbox__inner"></span><input type="checkbox"
                                                                                              aria-hidden="true"
                                                                                              class="el-checkbox__original"
-                                                                                             value=""></span><!---->
+                                                                                             value="" onclick='check()'></span><!---->
                                             </label></div>
                                         </td>
                                         <td class="el-table_2_column_13 is-center ">
                                             <div class="cell">26</div>
                                         </td>
                                         <td class="el-table_2_column_14 is-center ">
-                                            <div class="cell"><img src="/mall-admin-web_files/5ac1bf58Ndefaac16.jpg"
+                                            <div class="cell"><img src=""
                                                                    style="height: 80px;"></div>
                                         </td>
                                         <td class="el-table_2_column_15 is-center ">
@@ -927,7 +927,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "//findAllCategory",
+                url: "/findAllCategory",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -946,21 +946,8 @@
     });
 
     function check() {
-        /*var dataTr = document.getElementById("dataTr");
-        var inputs = dataTr.getElementsByTagName('input');
-        for (var i = 0; i < inputs.length; i++) {
-            if (i == index) {
-                var cellStyle = $("#cellStyle");
-                cellStyle.empty();
-                alert(inputs[i].checked)
-                if (inputs[i].checked) {
-                    inputs[i].checked = false;
-                    alert(inputs[i].checked)
-                } else {
-                    inputs[i].checked = true;
-                }
-            }
-        }*/
+
+
         if ($(".el-checkbox").prop("class") == "el-checkbox"){
             $(".el-checkbox").prop("class","el-checkbox is-checked");
             $(".el-checkbox__input").prop("class","el-checkbox__input is-checked is-focus");
@@ -968,12 +955,39 @@
             $(".el-checkbox").prop("class","el-checkbox");
             $(".el-checkbox__input").prop("class","el-checkbox__input");
         }
+
+        var iitem= new Array();
+        $(".el-checkbox__input.is-checked.is-focus").each(function (index,item) {
+            // iitem.push(item.id <http://item.id>);
+            // alert($(item).attr("name"));
+
+            // $(item).attr("name") != undefined
+            if($(item).attr("name") != undefined){
+                // iitem.push($(item).attr("name"));
+                // alert(iitem);
+            }
+        })
+    }
+
+    function checkone(id) {
+
+        if ($("#s"+id).prop("class") == "el-checkbox"){
+            $("#s"+id).prop("class","el-checkbox is-checked");
+            $("#ss"+id).prop("class","el-checkbox__input is-checked is-focus");
+        } else {
+            $("#s"+id).prop("class","el-checkbox");
+            $("#ss"+id).prop("class","el-checkbox__input");
+        }
+
     }
 
 
 
 
+
+
     /*$(".el-checkbox__original").click(function(){
+
         var check = $(this).prop("checked");//通过这个值判断全选按钮有没有触发
         alert(check);
         /!*if(check==true){
@@ -982,6 +996,9 @@
 
         }*!/
     });*/
+
+
+
 
 
 
@@ -1012,12 +1029,12 @@
                             innertext = "未审核"
                         }
                         var trHTML = "<tr class=\"el-table__row\">" + "<td class=\"el-table_2_column_12 is-center el-table-column--selection\">\n" +
-                            "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\"><span\n" +
-                            "                                                    aria-checked=\"mixed\" class=\"el-checkbox__input\"><span\n" +
+                            "                                            <div class=\"cell\"><label role=\"checkbox\" class=\"el-checkbox\" id='s"+element.id+"'><span\n" +
+                            "                                                  name='"+ element.id+"'  aria-checked=\"mixed\" class=\"el-checkbox__input\" id='ss"+element.id+"'><span\n" +
                             "                                                    class=\"el-checkbox__inner\"></span><input type=\"checkbox\"\n" +
                             "                                                                                             aria-hidden=\"true\"\n" +
-                            "                                                                                             class=\"el-checkbox__original\"\n" +
-                            "                                                                                              onclick='checkById(" + index + ")' name='check'></span><!---->\n" +
+                            "                                                                                       id='"+ element.id+"'      class=\"el-checkbox__original\"\n" +
+                            "                                                                                       onclick='checkone("+element.id+")'   ></span><!---->\n" +
                             "                                            </label></div>\n" +
                             "                                        </td>\n" +
                             "                                        <td class=\"el-table_2_column_13 is-center \">\n" +

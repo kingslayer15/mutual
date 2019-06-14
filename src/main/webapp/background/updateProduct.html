@@ -313,8 +313,8 @@
                                 <div data-v-51f80952="" class="el-form-item el-form-item--small"
                                      style="text-align: center;"><!---->
                                     <div class="el-form-item__content" style="margin-left: 120px;">
-                                        <button data-v-51f80952="" type="button" class="el-button el-button--primary el-button--medium" onclick="getnext('step2')">
-                                            <!----><span>下一步，填写商品促销</span></button><!----></div>
+                                        <button data-v-51f80952="" type="button" class="el-button el-button--primary el-button--medium" onclick="submitFroms()">
+                                            <!----><span>修改商品</span></button><!----></div>
                                 </div>
                             </form>
                         </div>
@@ -1292,7 +1292,7 @@
                                                                             frameborder="0" allowtransparency="true"
                                                                             title="在编辑区按ALT-F9打开菜单，按ALT-F10打开工具栏，按ALT-0查看帮助"
                                                                             style="width: 100%; height: 300px; display: block;"
-                                                                            src="./mall-admin-web_files/saved_resource.html"></iframe>
+                                                                            src=""></iframe>
                                                                 </div>
                                                                 <div id="mceu_33"
                                                                      class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last"
@@ -1755,7 +1755,7 @@
                                                                             frameborder="0" allowtransparency="true"
                                                                             title="在编辑区按ALT-F9打开菜单，按ALT-F10打开工具栏，按ALT-0查看帮助"
                                                                             style="width: 100%; height: 300px; display: block;"
-                                                                            src="./mall-admin-web_files/saved_resource(1).html"></iframe>
+                                                                            src=""></iframe>
                                                                 </div>
                                                                 <div id="mceu_70"
                                                                      class="mce-statusbar mce-container mce-panel mce-stack-layout-item mce-last"
@@ -2313,6 +2313,8 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
                     "sort":$("#sort").val()
                 }),
                 success:function (data) {
+                    alert("修改成功");
+                    window.location.href ="/background/product.html"
                     console.log(data);
                 },
                 error:function (data) {
