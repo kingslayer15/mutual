@@ -3,6 +3,7 @@ package com.thumb.controller;
 
 import com.thumb.dto.OmsCartItemDto;
 import com.thumb.pojo.OmsCartItem;
+import com.thumb.pojo.PmsProductCollection;
 import com.thumb.pojo.UmsMember;
 import com.thumb.service.OmsCartItemService;
 import com.thumb.service.PmsProductCollectionService;
