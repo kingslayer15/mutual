@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thumb.mapper.MerchantProductMapper">
+    <resultMap id="productCategoryMapper" type="com.thumb.dto.ProductCategoryDto">
+        <id column="id" property="id"></id>
+        <result column="parent_id" property="parent_id"></result>
+        <result column="name" property="name"></result>
+        <result column="level" property="level"></result>
+        <result column="product_count" property="product_count"></result>
+        <result column="product_unit" property="product_unit"></result>
+        <result column="nav_status" property="nav_status"></result>
+        <result column="show_status" property="show_status"></result>
+        <result column="sort" property="sort"></result>
+        <result column="icon" property="icon"></result>
+        <result column="keywords" property="keywords"></result>
+        <result column="description" property="description"></result>
+        <collection property="chiren" ofType="com.thumb.dto.ProductCategoryDto">
+            <id column="pid" property="id"></id>
+            <result column="parentid" property="parent_id"></result>
+            <result column="pname" property="name"></result>
+            <result column="plevel" property="level"></result>
+            <result column="pcount" property="product_count"></result>
+            <result column="punit" property="product_unit"></result>
+            <result column="navstat" property="nav_status"></result>
+            <result column="showstat" property="show_status"></result>
+            <result column="psort" property="sort"></result>
+            <result column="picon" property="icon"></result>
+            <result column="pkeywords" property="keywords"></result>
+            <result column="pdesc" property="description"></result>
+        </collection>
+    </resultMap>
+
+
+<select id="listAllProduct" resultType="com.thumb.dto.ProductDto" parameterType="int">
+    SELECT p.* FROM pms_product p,merchant m,merchant_shop mp
+    WHERE p.`id`=mp.`shop_id` AND mp.`merchant_id`=m.`id` and m.id = #{value}
+</select>
+
+<select id="findAllCategory" resultType="com.thumb.dto.ProductCategoryDto">
+        SELECT DISTINCT ppc.name,ppc.`id`,ppc.`level`,ppc.`product_count`,ppc.`product_unit`,ppc.`nav_status`,
+        ppc.`show_status`,ppc.`sort`,ppc.`icon`,ppc.`keywords`,ppc.description
+        FROM pms_product pp,pms_product_category ppc WHERE pp.product_category_name=ppc.name
+</select>
+
+
+    <select id="findAllBrand" resultType="com.thumb.dto.ProductBrandDto">
+        select * from pms_brand
+    </select>
+
+
+    <select id="findByCondition" resultType="com.thumb.dto.MerchantProductDto" parameterType="com.thumb.dto.MerchantProductDto">
+        select * from
+        (SELECT p.* FROM pms_product p,merchant m,merchant_shop mp
+        WHERE p.`id`=mp.`shop_id` AND mp.`merchant_id`=m.`id` AND m.id=#{merchantId}) tb
+        <where>
+            <if test="name !=null and name!=''">
+                name like CONCAT('%',#{name},'%')
+            </if>
+            <if test="product_sn !=null and product_sn !=''">
+                and product_sn = #{product_sn}
+            </if>
+            <if test="product_category_name !=null and product_category_name !=''">
+                and  product_category_name = #{product_category_name}
+            </if>
+            <if test="brand_name !=null and brand_name!=''">
+                and brand_name = #{brand_name}
+            </if>
+            <if test="publish_status!=null  and publish_status!=-1">
+                and publish_status = #{publish_status}
+            </if>
+            <if test="verify_status !=null and verify_status!=-1">
+                and verify_status = #{verify_status}
+            </if>
+        </where>
+    </select>
+
+    <!--获取商品子类型-->
+    <select id="listProductChild" resultMap="productCategoryMapper" parameterType="int">
+        SELECT p1.*,p2.`id` pid,p2.`parent_id` parentid,p2.`name` pname,p2.`level` plevel,
+        p2.`product_count` pcount,p2.`product_unit` punit,p2.`nav_status` navstat,p2.`show_status` showstat,
+        p2.`sort` psort,p2.`icon` picon,p2.`keywords` pkeywords,p2.`description` pdesc
+        FROM pms_product_category p1,pms_product_category p2 WHERE p1.`id`=p2.`parent_id` and p2.parent_id=#{value};
+    </select>
+
+
+    <!--获取产品父类型-->
+    <select id="listProductParent" resultType="com.thumb.dto.ProductCategoryDto">
+         select * from pms_product_category where level=0;
+    </select>
+
+    <!--获取产品品牌-->
+    <select id="listProductBrand" resultType="com.thumb.dto.ProductBrandDto">
+        select * from pms_brand
+    </select>
+
+    <!--根据id删除产品-->
+    <delete id="deleteProductById">
+        delete from merchant_shop where merchant_id = #{param1} and shop_id = #{param2}
+    </delete>
+
+    <!--根据id查找产品-->
+    <select id="findProductById" resultType="com.thumb.dto.ProductDto">
+        select * from
+         (SELECT p.* FROM pms_product p,merchant m,merchant_shop mp
+          WHERE p.`id`=mp.`shop_id` AND mp.`merchant_id`=m.`id` and m.id=#{param1}) tb
+         where id=#{param2}
+    </select>
+
+    <!--添加商品-->
+    <insert id="addProduct" parameterType="com.thumb.dto.MerchantProductDto">
+        insert into pms_product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="product_category_name!=null and product_category_name!=''">
+                product_category_name,
+            </if>
+            <if test="name!=null and name!=''">
+                name,
+            </if>
+            <if test="sub_title!=null and sub_title!=''">
+                sub_title,
+            </if>
+            <if test="brand_name!=null and brand_name!=''">
+                brand_name,
+            </if>
+            <if test="product_sn!=null and product_sn!=''">
+                product_sn,
+            </if>
+            <if test="pic!=null and pic!=''">
+                pic,
+            </if>
+            <if test="price!=null and price!=''">
+                price,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="product_category_name!=null and product_category_name!=''">
+                #{product_category_name},
+            </if>
+            <if test="name!=null and name!=''">
+                #{name},
+            </if>
+            <if test="sub_title!=null and sub_title!=''">
+                #{sub_title},
+            </if>
+            <if test="brand_name!=null and brand_name!=''">
+                #{brand_name},
+            </if>
+            <if test="product_sn!=null and product_sn!=''">
+                #{product_sn},
+            </if>
+            <if test="pic!=null and pic!=''">
+                #{pic},
+            </if>
+            <if test="price!=null and price!=''">
+                #{price},
+            </if>
+        </trim>
+    </insert>
+    <!--添加中间表-->
+    <insert id="addMerchant_Shop" parameterType="com.thumb.dto.MerchantProductDto">
+        INSERT INTO merchant_shop (merchant_id,shop_id) VALUE (#{merchantId},
+        (SELECT id FROM pms_product WHERE pic=#{pic}))
+    </insert>
+
+
+    <!--修改商品-->
+    <update id="updateProductMsg" parameterType="com.thumb.dto.MerchantProductDto">
+        update pms_product
+        <set>
+            <if test="product_category_name!=null and product_category_name!=''">
+                product_category_name = #{product_category_name},
+            </if>
+            <if test="name!=null and name!=''">
+                name = #{name},
+            </if>
+            <if test="sub_title!=null and sub_title!=''">
+                sub_title = #{sub_title},
+            </if>
+            <if test="brand_name!=null and brand_name!=''">
+                brand_name = #{brand_name},
+            </if>
+            <if test="description!=null and description!=''">
+                description = #{description},
+            </if>
+            <if test="product_sn!=null and product_sn!=''">
+                product_sn = #{product_sn},
+            </if>
+            <if test="price!=null and price!=''">
+                price = #{price},
+            </if>
+            <if test="original_price!=null and original_price!=''">
+                original_price = #{original_price},
+            </if>
+        </set>
+        where id = (SELECT * FROM(SELECT p.id FROM pms_product p,merchant m,merchant_shop mp
+        WHERE p.`id`=mp.`shop_id` AND mp.`merchant_id`=m.`id` AND m.`id`=#{merchantId} AND p.`id`=#{id}) AS tb)
+    </update>
+</mapper>

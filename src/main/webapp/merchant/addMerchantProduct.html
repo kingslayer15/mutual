@@ -5,19 +5,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>添加商品</title>
-    <link href="../static/mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
+    <link href="mall-admin-web_files/app.8adf8f71e2b3e1354ebc85468c2142cc.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8" async=""
-            src="../static/mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
+            src="mall-admin-web_files/0.c3b42f8bcbc75e89d5c5.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="../static/mall-admin-web_files/5.ab752a1a96f36ec723b1.js"></script>
+            src="mall-admin-web_files/5.ab752a1a96f36ec723b1.js"></script>
     <script type="text/javascript" charset="utf-8" async=""
-            src="../static/mall-admin-web_files/3.bdde2483074687b995c5.js"></script>
+            src="mall-admin-web_files/3.bdde2483074687b995c5.js"></script>
 
-    <link rel="stylesheet" type="text/css" id="u0" href="../static/mall-admin-web_files/skin.min.css">
+    <link rel="stylesheet" type="text/css" id="u0" href="./mall-admin-web_files/skin.min.css">
 
-    <link rel="stylesheet" href="../static/css/basic.min.css" />
-    <link rel="stylesheet" href="../static/css/dropzone.min.css" />
-    <script src="../static/js/js/dropzone.min.js"></script>
+    <link rel="stylesheet" href="css/basic.min.css" />
+    <link rel="stylesheet" href="css/dropzone.min.css" />
+    <script src="js/dropzone.min.js"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -614,7 +614,7 @@
                                                value="" id="product_category_name">
                                         <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i
                                             class="el-input__icon el-icon-arrow-down"></i><!----></span>
-                                        <!----></span><!----></div><span class="el-cascader__label" onclick="showProductCategory('sort1')"></span></span>
+                                        <!----></span><!----></div><span class="el-cascader__label" onclick="showProductCategory('sort1')" onblur="aaaa()"></span></span>
                                         <!----></div>
                                 </div>
 
@@ -2625,7 +2625,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
 <!--<script type="text/javascript" src="./mall-admin-web_files/manifest.6ed17977cd281dde32f6.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/vendor.48a1ef0705a71cc87472.js"></script>-->
 <!--<script type="text/javascript" src="./mall-admin-web_files/app.85ae43be5ac0839f3d77.js"></script>-->
-<script src="../static/jquery/jquery-2.1.1.min.js"></script>
+<script src="jquery/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
     //表单之间的跳转
     function getnext(i){
@@ -2655,7 +2655,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "get",
-                url: "/listProductParent",
+                url: "/listMerchantProductParent",
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -2683,7 +2683,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "post",
-                url: "/listProductChild?parentid="+parentid,
+                url: "/listMerchantProductChild?parentid="+parentid,
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -2705,13 +2705,18 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         )
     }
 
+    function aaaa() {
+        alert(11111)
+
+    }
+
     //获取商品品牌
     (function showProductBrand() {
         var productBrand = $("#productBrand");
         $.ajax(
             {
                 type: "get",
-                url: "/findAllBrand",
+                url: "/findAllMerchantBrand",
                 contentType: "application/json",
                 dataType:"json",
                 success:function (data) {
@@ -2749,7 +2754,7 @@ left: 536px; display: none;" x-placement="bottom-start" id="sort1">
         $.ajax(
             {
                 type: "post",
-                url: "/addProductMsg",
+                url: "/addMerchantProductMsg",
                 contentType: "application/json",
                 dataType:"json",
                 data:JSON.stringify({

@@ -15,8 +15,8 @@
             src="../static/mall-admin-web_files/1.204fcd3d0675d157f1ac.js"></script>
 
     <!--bootstrap-->
-    <link rel="stylesheet" href="../static/js/css/bootstrap.css">
-    <script src="../static/js/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
 
 
 </head>
@@ -1073,7 +1073,7 @@
 
     //跳到updateProduct.html页面
     function jumptoUpdateProduct(id) {
-        var url = "updateProduct.html?id=" + id;
+        var url = "updateMerchantProduct.html?id=" + id;
         window.location.href = url;
     }
 
@@ -1084,7 +1084,7 @@
             $.ajax(
                 {
                     type: "get",
-                    url: "/deleteProductById?id=" + id,
+                    url: "/deleteMerchantProductById?id=" + id,
                     contentType: "application/json",
                     dataType: "json",
                     success: function (data) {
@@ -1131,7 +1131,7 @@
         $.ajax(
             {
                 type: "post",
-                url: "/findByCondition",
+                url: "/findMerchantProductByCondition",
                 contentType: "application/json",
                 dataType: "json",
                 data: JSON.stringify({
@@ -1345,7 +1345,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "/findAllBrand",
+                url: "/findAllMerchantBrand",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -1371,7 +1371,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "//findAllCategory",
+                url: "/findAllMerchantCategory",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
@@ -1438,7 +1438,7 @@
         $.ajax(
             {
                 type: "get",
-                url: "/listAllProduct?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
+                url: "/listAllMerchantProduct?pageNo=" + currentPage+"&maxShowPage="+maxShowPage,
                 contentType: "application/json",
                 success: function (data) {
                     $("#dataTr").empty();
@@ -1724,7 +1724,7 @@
 
     //跳转到添加页面
     function jumptoAddProduct() {
-        window.location.href = "addProduct.html"
+        window.location.href = "addMerchantProduct.html"
     }
 
 

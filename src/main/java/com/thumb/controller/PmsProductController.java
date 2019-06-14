@@ -1,6 +1,9 @@
 package com.thumb.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.thumb.dto.Page;
+import com.thumb.dto.PageName;
 import com.thumb.pojo.PmsProduct;
 import com.thumb.pojo.PmsProductCategory;
 import com.thumb.pojo.PmsProductCollection;
@@ -171,13 +174,13 @@ public class PmsProductController {
 
     @RequestMapping("getCollection")
     @ResponseBody
-    public Object getCollection(@RequestParam long id) {
-        System.out.println(id);
-        PageHelper.startPage(0, 3);
-        List<PmsProduct> pmsProducts = pmsProductCollectionService.selectAllBymemberId(id);
+    public Object getCollection(@RequestBody PageName pageName) {
+        System.out.println(pageName.getId());
+        PageHelper.startPage(pageName.getPageNow(), pageName.getPageSize());
+        List<PmsProduct> pmsProducts = pmsProductCollectionService.selectAllBymemberId(pageName.getId());
         if (pmsProducts != null) {
             System.out.println("pmsProducts = " + pmsProducts);
-            return pmsProducts;
+            return new PageInfo(pmsProducts);
         }
         return false;
     }

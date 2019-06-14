@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="order by dede58.com"/>
-    <title>共勉商城</title>
+    <title>mutual商城</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
         <div class="top center">
             <div class="left fl">
                 <ul>
-                    <li><a href="http://localhost:8080/main/index.html" target="_blank">共勉商城</a></li>
+                    <li><a href="http://localhost:8080/main/index.html" target="_blank">mutual商城</a></li>
                     <li>|</li>
                     <li><a href="">MIUI</a></li>
                     <li>|</li>
@@ -145,10 +145,10 @@
 
 
     function deletes() {
-        alert(123)
-        //
-        // $.cookie("username", "", {expires: -1});
-        // $.cookie("password", "", {expires: -1});
+
+
+        $.cookie("username", "", {expires: -1});
+        $.cookie("password", "", {expires: -1});
 
 
         $.ajax({
@@ -158,8 +158,6 @@
             dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
             /*成功*/
             success:function(data){
-
-                alert(data)
                 if(data){
                     window.location.href="http://localhost:8080/main/login.html";
                 }
