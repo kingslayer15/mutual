@@ -52,7 +52,7 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 /*banner_y*/
 /*.banner_y{width:1226px;height:460px;background: url('../image/banner2.jpg') no-repeat;}*/
 .banner_y{width:1226px;height:460px;background: url('https://i1.mifile.cn/a4/xmad_15602558984819_nIZyN.jpg'); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;}
-.banner_y .nav{width: 234px;height: 460px;background: rgb(12,12,19);}
+.banner_y .nav{width: 234px;height: 460px;background: rgba(0,0,0,0.5);}
 .banner_y .nav ul{padding: 20px 0;position:relative;}
 .banner_y .nav ul li{display: block;width: 174px;height: 40px;line-height:40px;font-size: 14px;padding: 0 30px;}
 .banner_y .nav ul li .pop{width: 400px;height: 460px;background: #fff;position:absolute;left:234px;top:0px;display: none;}
