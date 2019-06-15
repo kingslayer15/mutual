@@ -416,13 +416,11 @@
             });
         }
 
+        var cartid;
         function cart() {
-
-			/*验证用户*/
-
             $.ajax({
                 type: "post",
-                url: "/insertCart",
+                url: "/selectOneByAll",
                 contentType: "application/json",
                 data: JSON.stringify({
                     "productId": productId,
@@ -439,6 +437,13 @@
                     "productCategoryId": productCategoryId
                 }),
                 success: function (data) {
+                    cartid=data;
+                    if (cartid == 1) {
+                        alert("if not add 1");
+                    } else {
+
+                        alert("else ++");
+                    }
                   /*验证用户*/
                     console.log(data); //  2pm
                 },
@@ -447,7 +452,6 @@
                 },
                 dataType: "json"
             });
-
 
         }
         function collectProduct() {
