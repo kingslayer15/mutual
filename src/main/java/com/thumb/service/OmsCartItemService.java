@@ -26,8 +26,9 @@ public interface OmsCartItemService{
 
 
 
+	OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto);
 
-    OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto);
+    OmsCartItem selectOneByAll2(OmsCartItemDto omsCartItemDto);
 
 
 

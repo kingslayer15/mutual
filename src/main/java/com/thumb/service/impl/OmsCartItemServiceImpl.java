@@ -60,10 +60,14 @@ public class OmsCartItemServiceImpl implements OmsCartItemService{
     }
 
 
+	@Override
+	public OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto){
+		 return omsCartItemMapper.selectOneByAll(omsCartItemDto);
+	}
 
     @Override
-    public OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto) {
-        return omsCartItemMapper.selectOneByAll(omsCartItemDto);
+    public OmsCartItem selectOneByAll2(OmsCartItemDto omsCartItemDto) {
+        return omsCartItemMapper.selectOneByAll2(omsCartItemDto);
     }
 
 	@Override

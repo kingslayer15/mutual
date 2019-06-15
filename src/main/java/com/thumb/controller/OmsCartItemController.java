@@ -66,9 +66,9 @@ public class OmsCartItemController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "selectOneByAll",method = RequestMethod.POST)
-    public Object selectOneByAll(@RequestBody OmsCartItemDto omsCartItemDto){
-        OmsCartItem omsCartItem = omsCartItemService.selectOneByAll(omsCartItemDto);
+    @RequestMapping(value = "selectOneByAll2",method = RequestMethod.POST)
+    public Object selectOneByAll2(@RequestBody OmsCartItemDto omsCartItemDto){
+        OmsCartItem omsCartItem = omsCartItemService.selectOneByAll2(omsCartItemDto);
         System.out.println(omsCartItem+"前台传入的值");
         if (omsCartItem==null) {
             int insert = omsCartItemService.insertCart(omsCartItemDto);

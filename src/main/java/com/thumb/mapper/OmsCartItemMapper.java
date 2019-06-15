@@ -29,8 +29,9 @@ public interface OmsCartItemMapper {
 
 
 
-
     OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto);
+
+    OmsCartItem selectOneByAll2(OmsCartItemDto omsCartItemDto);
 
 
     int updateQuantityById(@Param("updatedQuantity")Integer updatedQuantity,@Param("id")Long id);
