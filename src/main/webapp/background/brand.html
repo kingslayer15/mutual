@@ -679,7 +679,7 @@
         $.ajax(
             {
                 type:"post",
-                url:"findBrandByCondition",
+                url:"/findBrandByCondition",
                 contentType: "application/json",
                 dataType: "json",
                 data:JSON.stringify(
@@ -689,7 +689,7 @@
                 ),
                 success:function (data) {
                     console.log(data)
-                    appendBrandItem();
+                    appendBrandItem(data);
 
                 },
                 error:function (data) {
@@ -700,7 +700,7 @@
     }
 
 
-    function appendBrandItem() {
+    function appendBrandItem(data) {
         $("#dataTr").empty();
         var table = $("#dataTr");
 
