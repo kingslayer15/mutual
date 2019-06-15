@@ -59,33 +59,33 @@ public class OmsCartItemController {
 
 
     /**
-     * 加入购物车,判断是否有,有+1
+     * 加入购物车,根据前台的选择信息查到购物车对象
+     * 如果对象空,插入前台信息
+     * 如果有对象,该对象拿id,以及拿数量,根据数量++和id去update数量
      * @param omsCartItemDto
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "insertCart",method = RequestMethod.POST)
-    public String insertCart(@RequestBody OmsCartItemDto omsCartItemDto){
-        System.out.println(omsCartItemDto);
-
-        OmsCartItem omsCartItem = omsCartItemService.selectOneByAll(omsCartItemDto);
-        if (omsCartItem != null) {
-            Integer quantity = omsCartItem.getQuantity();
-            System.out.println(quantity+"已有的商品数量");
-            quantity++;
-            omsCartItem.setQuantity(quantity);
-            int i = omsCartItemService.updateByPrimaryKey(omsCartItem);
-            System.out.println("商品有了,quantity++");
-            return "true";
-        }
-        //空商品插入
-        else {
-            System.out.println(omsCartItem+"else");
+    @RequestMapping(value = "selectOneByAll2",method = RequestMethod.POST)
+    public Object selectOneByAll2(@RequestBody OmsCartItemDto omsCartItemDto){
+        OmsCartItem omsCartItem = omsCartItemService.selectOneByAll2(omsCartItemDto);
+        System.out.println(omsCartItem+"前台传入的值");
+        if (omsCartItem==null) {
             int insert = omsCartItemService.insertCart(omsCartItemDto);
-            System.out.println(insert+"空,商品新加入");
-            return "true";
-        }
+            System.out.println(insert+"空则插入");
+            return insert;
 
+        } else {
+            Long id1 = omsCartItem.getId();
+            System.out.println(id1);
+            Integer quantity = omsCartItem.getQuantity();
+            System.out.println(quantity);
+            quantity++;
+            int i = omsCartItemService.updateQuantityById(quantity,id1);
+            System.out.println(i+"quantity++");
+            return "++";
+
+        }
 
     }
 

@@ -8,6 +8,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OmsCartItemDto {
+    int id;
 
     int productId;
     int productSkuId;

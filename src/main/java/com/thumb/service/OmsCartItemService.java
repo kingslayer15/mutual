@@ -28,6 +28,12 @@ public interface OmsCartItemService{
 
 	OmsCartItem selectOneByAll(OmsCartItemDto omsCartItemDto);
 
+    OmsCartItem selectOneByAll2(OmsCartItemDto omsCartItemDto);
+
+
+
+	int updateQuantityById(Integer updatedQuantity,Long id);
+
 
 
 
