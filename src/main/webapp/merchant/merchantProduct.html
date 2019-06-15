@@ -394,9 +394,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="batch-operate-container">
-                        <div class="el-select el-select--small">
-                            <div class="el-input el-input--small el-input--suffix"><input type="text"
+                    <!--<div class="batch-operate-container">
+                        <div class="el-select el-select&#45;&#45;small">
+                            <div class="el-input el-input&#45;&#45;small el-input&#45;&#45;suffix"><input type="text"
                                                                                           autocomplete="off"
                                                                                           placeholder="批量操作"
                                                                                           readonly="readonly"
@@ -428,9 +428,9 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="el-button search-button el-button--primary el-button--small"
+                        <button type="button" class="el-button search-button el-button&#45;&#45;primary el-button&#45;&#45;small"
                                 style="margin-left: 20px;"><span>确定</span></button>
-                    </div>
+                    </div>-->
 
 
                     <div class="pagination-container" id="pagination">
@@ -802,29 +802,17 @@
                             "                                        </td>\n" +
                             "                                        <td class=\"el-table_2_column_21 is-center \">\n" +
                             "                                            <div class=\"cell\"><p>" + (element.verify_status == 1 ? "已审核" : "未审核") + "</p>\n" +
-                            "                                                <p>\n" +
-                            "                                                    <button type=\"button\" class=\"el-button el-button--text\">\n" +
-                            "                                                           <span>审核详情</span></button>\n" +
-                            "                                                </p>\n" +
                             "                                            </div>\n" +
                             "                                        </td>\n" +
                             "                                        <td class=\"el-table_2_column_22 is-center \">\n" +
                             "                                            <div class=\"cell\">\n" +
                             "                                                <p>\n" +
                             "                                                    <button type=\"button\"\n" +
-                            "                                                            class=\"el-button el-button--default el-button--mini\">\n" +
-                            "                                                        <span>查看\n" +
-                            "            </span></button>\n" +
-                            "                                                    <button type=\"button\"\n" +
                             "                                                            class=\"el-button el-button--default el-button--mini\" onclick='jumptoUpdateProduct(" + element.id + ")'>\n" +
                             "                                                        <span>编辑\n" +
                             "            </span></button>\n" +
                             "                                                </p>\n" +
                             "                                                <p>\n" +
-                            "                                                    <button type=\"button\"\n" +
-                            "                                                            class=\"el-button el-button--default el-button--mini\">\n" +
-                            "                                                        <span>日志\n" +
-                            "            </span></button>\n" +
                             "                                                    <button type=\"button\"\n" +
                             "                                                            class=\"el-button el-button--danger el-button--mini\">\n" +
                             "                                                        <span>删除\n" +
@@ -1101,19 +1089,11 @@
                             "                                        </td>\n" +
                             "                                        <td class=\"el-table_2_column_21 is-center \">\n" +
                             "                                            <div class=\"cell\"><p id='audit'>" + innertext + "</p>\n" +
-                            "                                                <p>\n" +
-                            "                                                    <button type=\"button\" class=\"el-button el-button--text\">\n" +
-                            "                                                           <span>审核详情</span></button>\n" +
-                            "                                                </p>\n" +
                             "                                            </div>\n" +
                             "                                        </td>\n" +
                             "                                        <td class=\"el-table_2_column_22 is-center \">\n" +
                             "                                            <div class=\"cell\">\n" +
                             "                                                <p>\n" +
-                            "                                                    <button type=\"button\"\n" +
-                            "                                                            class=\"el-button el-button--default el-button--mini\">\n" +
-                            "                                                        <span>查看\n" +
-                            "            </span></button>\n" +
                             "                                                    <button type=\"button\"\n" +
                             "                                                            class=\"el-button el-button--default el-button--mini\" " +
                             "onclick='jumptoUpdateProduct(" + element.id + ")'>\n" +
@@ -1121,10 +1101,6 @@
                             "            </span></button>\n" +
                             "                                                </p>\n" +
                             "                                                <p>\n" +
-                            "                                                    <button type=\"button\"\n" +
-                            "                                                            class=\"el-button el-button--default el-button--mini\">\n" +
-                            "                                                        <span>日志\n" +
-                            "            </span></button>\n" +
                             "                                                    <button type=\"button\"\n" +
                             "                                                            class=\"el-button el-button--danger el-button--mini\" onclick=\"deleteByid(" + element.id + ")\">\n" +
                             "                                                        <span>删除\n" +
