@@ -130,7 +130,7 @@
 								$("#total").empty();
 								$("#total").append("<div class=\"tishi fl ml20\">\n" +
 										"\t\t\t\t\t<ul>\n" +
-										"\t\t\t\t\t\t<li><a href=\"liebiao.html\">继续购物</a></li>\n" +
+										"\t\t\t\t\t\t<li><a href=\"/main/index.html\">继续购物</a></li>\n" +
 										"\t\t\t\t\t\t<li>|</li>\n" +
 										"\t\t\t\t\t\t<li>共<span>"+totalNum+"</span>件商品，已选择<span>"+$(".quanxuan:checked").length+"</span>件</li>\n" +
 										"\t\t\t\t\t\t<div class=\"clear\"></div>\n" +
@@ -147,7 +147,7 @@
 								$("#total").empty();
 								$("#total").append("<div class=\"tishi fl ml20\">\n" +
 										"\t\t\t\t\t<ul>\n" +
-										"\t\t\t\t\t\t<li><a href=\"liebiao.html\">继续购物</a></li>\n" +
+										"\t\t\t\t\t\t<li><a href=\"/main/index.html\">继续购物</a></li>\n" +
 										"\t\t\t\t\t\t<li>|</li>\n" +
 										"\t\t\t\t\t\t<li>共<span>"+totalNum+"</span>件商品，已选择<span>"+$(".quanxuan:checked").length+"</span>件</li>\n" +
 										"\t\t\t\t\t\t<div class=\"clear\"></div>\n" +
@@ -188,7 +188,7 @@
 				$("#total").empty();
 				$("#total").append("<div class=\"tishi fl ml20\">\n" +
 						"\t\t\t\t\t<ul>\n" +
-						"\t\t\t\t\t\t<li><a href=\"liebiao.html\">继续购物</a></li>\n" +
+						"\t\t\t\t\t\t<li><a href=\"/main/index.html\">继续购物</a></li>\n" +
 						"\t\t\t\t\t\t<li>|</li>\n" +
 						"\t\t\t\t\t\t<li>共<span>"+totalNum+"</span>件商品，已选择<span>"+$(".quanxuan:checked").length+"</span>件</li>\n" +
 						"\t\t\t\t\t\t<div class=\"clear\"></div>\n" +
@@ -206,7 +206,7 @@
 				$("#total").empty();
 				$("#total").append("<div class=\"tishi fl ml20\">\n" +
 						"\t\t\t\t\t<ul>\n" +
-						"\t\t\t\t\t\t<li><a href=\"liebiao.html\">继续购物</a></li>\n" +
+						"\t\t\t\t\t\t<li><a href=\"/main/index.html\">继续购物</a></li>\n" +
 						"\t\t\t\t\t\t<li>|</li>\n" +
 						"\t\t\t\t\t\t<li>共<span>"+totalNum+"</span>件商品，已选择<span>"+$(".quanxuan:checked").length+"</span>件</li>\n" +
 						"\t\t\t\t\t\t<div class=\"clear\"></div>\n" +
@@ -249,7 +249,7 @@
 			$("#total").empty();
 			$("#total").append("<div class=\"tishi fl ml20\">\n" +
 					"\t\t\t\t\t<ul>\n" +
-					"\t\t\t\t\t\t<li><a href=\"liebiao.html\">继续购物</a></li>\n" +
+					"\t\t\t\t\t\t<li><a href=\"/main/index.html\">继续购物</a></li>\n" +
 					"\t\t\t\t\t\t<li>|</li>\n" +
 					"\t\t\t\t\t\t<li>共<span>"+totalNum+"</span>件商品，已选择<span>"+$(".quanxuan:checked").length+"</span>件</li>\n" +
 					"\t\t\t\t\t\t<div class=\"clear\"></div>\n" +
@@ -317,7 +317,9 @@
 			// alert(this.event.target.value);
 			thisName = this.event.target.name;
 			thisValue = this.event.target.value;
-
+			if (thisValue == ""){
+				thisValue = "0";
+			}
 
 			$.ajax({
 				url:"/updateCartItem",
@@ -347,7 +349,7 @@
 						$("#total").empty();
 						$("#total").append("<div class=\"tishi fl ml20\">\n" +
 								"\t\t\t\t\t<ul>\n" +
-								"\t\t\t\t\t\t<li><a href=\"liebiao.html\">继续购物</a></li>\n" +
+								"\t\t\t\t\t\t<li><a href=\"/main/index.html\">继续购物</a></li>\n" +
 								"\t\t\t\t\t\t<li>|</li>\n" +
 								"\t\t\t\t\t\t<li>共<span>"+totalNum+"</span>件商品，已选择<span>"+$(".quanxuan:checked").length+"</span>件</li>\n" +
 								"\t\t\t\t\t\t<div class=\"clear\"></div>\n" +
