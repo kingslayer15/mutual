@@ -226,12 +226,12 @@ public class IndexController {
 
         httpSession.setAttribute("umsMember",null);
 
-        Cookie cookie = new Cookie("username", "00");
-        Cookie cookie2 = new Cookie("password", "00");
+        Cookie cookie = new Cookie("username", "");
+        Cookie cookie2 = new Cookie("password", "");
 
         cookie.setMaxAge(0);
         cookie2.setMaxAge(0);
-        System.out.println(123);
+
 
         return true;
     }
