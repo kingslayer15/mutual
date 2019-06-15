@@ -12,7 +12,7 @@
 </head>
 <body style="">
 
-<script src="./addProductCate_files/tinymce.min.js"></script>
+<!--<script src="../static/addProductCate_files/tinymce.min.js"></script>-->
 
 
 <div id="app">
@@ -451,7 +451,9 @@
                     "description":description
                 }),
                 success:function (data) {
+                    alert("添加成功")
                     console.log(data);
+                    window.location.href ="productCate.html"
                 },
                 error:function (data) {
                     console.log(data);
