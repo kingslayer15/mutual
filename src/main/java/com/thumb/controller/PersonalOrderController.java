@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+@SuppressWarnings("ALL")
 @Controller
 public class PersonalOrderController {
     @Autowired

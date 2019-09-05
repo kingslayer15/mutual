@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+@SuppressWarnings("ALL")
 @Controller
 public class PayResult {
 

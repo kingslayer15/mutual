@@ -30,7 +30,7 @@ public class UmsMemberController {
     @Autowired
     UmsMemberService umsMemberService;
     @Autowired
-    private Producer captchaProducer = null;
+    private Producer captchaProducer;
 
 
 
